@@ -1,15 +1,40 @@
 (ns solari.core
-  (:require [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]))
+  (:require [secretary.core :as sec :refer-macros [defroute]]
+            [solari.views.sidebar :as sb]
+            [om.core :as om :include-macros true]
+            [om.dom :as dom :include-macros true]
+            [goog.events :as events]
+            [goog.history.EventType :as EventType]
+            [enfocus.core :as ef])
+  (:require-macros [enfocus.macros :as em])
+  (:import goog.History))
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+;Fallback for browsers without html5 history support
+(sec/set-config! :prefix "#")
 
-(defn main []
-  (om/root
-    (fn [app owner]
-      (reify
-        om/IRender
-        (render [_]
-          (dom/h1 nil (:text app)))))
-    app-state
-    {:target (. js/document (getElementById "app"))}))
+;enable html5 history
+(let [history (History.)
+      navigation EventType/NAVIGATE]
+  (goog.events/listen history
+                      navigation
+                      #(-> % .-token sec/dispatch!))
+  (doto history (.setEnabled true)))
+
+(enable-console-print!)
+
+(defroute "/users/:id" {:as params}
+          (js/console.log (str "User: " (:id params))))
+
+(defn home-page [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (dom/h1 nil "isdfsd")
+      )))
+
+(defroute "/" {:as params}
+          (om/root home-page {}
+                   {:target (. js/document (getElementById "main-content-container"))}))
+
+(sec/dispatch! "/")
+

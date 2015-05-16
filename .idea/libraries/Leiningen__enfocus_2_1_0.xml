@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: enfocus:2.1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/enfocus/enfocus/2.1.0/enfocus-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

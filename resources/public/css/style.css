@@ -1,3 +1,147 @@
-h1 {
-  text-decoration: underline;
+body{
+-webkit-font-smoothing: antialiased;
+background-image: url(http://solari.at.bigbluecurrant.com/wp-content/uploads/2015/04/img-about-us.jpg);
+font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#main-content-container{
+margin-left: 320px;
+height: 100%;
+padding: 20px;
+}
+
+ul{
+list-style: none;
+list-style-image: none;
+padding-left: 0px;
+}
+
+li{
+cursor: pointer;
+height: 50px;
+}
+
+.logo{
+margin: 0;
+  padding: 0;
+  letter-spacing: 5px;
+  font-size: 300%;
+  font-weight: 700;
+  text-transform: lowercase;
+  text-align: center;
+  color: #fff;
+}
+
+#main-nav-container{
+max-width: 320px;
+}
+
+.main-nav-left {
+  display: block;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 160px;
+  height: 100%;
+  padding: 0 0 16px;
+  background-color: #1d1d1b;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #fff;
+}
+
+.nav-left-selected{
+border-top: 1px solid white;
+border-bottom: 1px solid white !important;
+}
+
+.nav-right-selected{
+background-color: blue;
+}
+
+.nav-ul-left li{
+position: relative;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 90%;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px;
+    outline: none;
+    text-transform: lowercase;
+    margin-left: -2px;
+    margin-right: -1px;
+    border-bottom: 1px solid #1d1d1b;
+}
+
+.nav-ul-left li:hover{
+  background-color: rgba(255,255,255,0.2);
+}
+
+.nav-ul-left li .selected{
+
+}
+
+.main-nav-right {
+margin-left: 161px;
+  display: block;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  max-width: 160px;
+  height: 100%;
+  padding: 0 0 16px;
+}
+
+.nav-ul-right li{
+letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 80%;
+position: relative;
+background-color: rgba(29,29,27,0.4);
+  display: block;
+  text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px;
+    outline: none;
+    margin-left: -2px;
+    margin-right: -1px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.nav-ul-right li:last-child{
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.nav-ul-right li:hover{
+background-color: #1d1d1b;
+}
+
+.sub1{
+margin-top: 46px;
+}
+
+.sub1:first-child{
+height: 16px;
+}
+
+.sub2{
+margin-top: 120px;
+}
+
+.sub3{
+margin-top: 169px;
+}
+
+.hidden{
+display:none;
 }
