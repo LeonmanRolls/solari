@@ -49,14 +49,23 @@
 (defn right-nav-listener []
  (ef/at ".nav-ul-right"
         (ev/listen-live :click "li" #(let [text (.-innerText (.-currentTarget %))]
-                           (toggle-main-menu (.-currentTarget %))
+                                      (println "hi there guys:" (.toLowerCase (.-innerText (.-currentTarget %))) )
+                                      (println (.indexOf (.toLowerCase text) "your career"))
                            (cond
-                             (not= -1 (.indexOf text "you")) (toggle-submenu "sub1")
-                             (not= -1 (.indexOf text "architects")) (toggle-submenu "sub2")
-                             (not= -1 (.indexOf text "us")) (toggle-submenu "sub3")
+                             (= 0 (.indexOf (.toLowerCase text) "residential")) (sec/dispatch! "/residential")
+                             (= 0 (.indexOf (.toLowerCase text)  "multi-residential")) (sec/dispatch! "/multi-residential")
+                             (= 0 (.indexOf (.toLowerCase text) "commercial"))  (sec/dispatch! "/commercial")
+                             (= 0 (.indexOf (.toLowerCase text) "our process")) (sec/dispatch! "/our-process")
+                             (= 0 (.indexOf (.toLowerCase text) "faqs")) (sec/dispatch! "/faqs")
+                             (= 0 (.indexOf (.toLowerCase text) "your team")) (sec/dispatch! "/your-team")
+                             (= 0 (.indexOf (.toLowerCase text) "your career"))  (sec/dispatch! "/your-career")
+                             (= 0 (.indexOf (.toLowerCase text) "meet the team")) (sec/dispatch! "/meet-the-team")
+                             (= 0 (.indexOf (.toLowerCase text) "jobs")) (sec/dispatch! "/jobs")
+                             (= 0 (.indexOf (.toLowerCase text) "contacts")) (sec/dispatch! "/contacts")
                              :else "list item not there"))))
-
   )
+(right-nav-listener)
+(sec/dispatch! "/faqs")
 
 ;Listeners
 (defn listener-init []
