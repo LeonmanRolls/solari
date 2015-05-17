@@ -48,7 +48,8 @@ height: 50px;
 }
 
 .logo{
-margin: 0;
+margin-top: 25px;
+margin-bottom: 25px;
   padding: 0;
   letter-spacing: 5px;
   font-size: 300%;
@@ -303,3 +304,19 @@ background-color: rgba(255, 255, 255, 0.901961);
   padding: 50px;
 }
 
+#demo-canvas{
+margin-left: -320px;
+margin-top: -120px;
+}
+
+.main-title {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  color: #f9f1e9;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%,-50%,0);
+  transform: translate3d(-50%,-50%,0);
+}

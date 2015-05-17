@@ -27,7 +27,13 @@
   (reify
     om/IRender
     (render [this]
-      (dom/div #js {:className "row home-row no-margin"}
+      (dom/div #js {:id "spider"}
+               (dom/canvas #js {:id "demo-canvas" :width "100%" :height "100%"
+                                })
+               (dom/h1 #js {:className "main-title"} "hello there!"))
+
+
+      #_(dom/div #js {:className "row home-row no-margin"}
                (dom/div #js {:className "col-xs-1"})
                (dom/div #js {:className "col-xs-10"}
 
@@ -46,7 +52,8 @@
           (do
             (om/root home-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "home"))))
+            (ef/at "body" (ef/set-attr :background "home"))
+            (js/blabla)))
 
 (defn residential-page [data owner]
   (reify
