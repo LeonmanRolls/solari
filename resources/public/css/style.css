@@ -36,6 +36,10 @@ height: 100%;
 margin-right: -15px;
 }
 
+strong{
+font-weight: 700;
+}
+
 ul{
 list-style: none;
 list-style-image: none;
@@ -59,6 +63,21 @@ margin-bottom: 25px;
   color: #fff;
 cursor: pointer;
 }
+
+.context{
+margin-top: 25px;
+margin-bottom: 25px;
+margin-left: 10px;
+  padding: 0;
+  letter-spacing: 5px;
+  font-size: 300%;
+  font-weight: 700;
+  text-transform: lowercase;
+  text-align: center;
+  color: #000;
+cursor: pointer;
+}
+
 
 #main-nav-container{
 max-width: 320px;
@@ -156,7 +175,7 @@ background-color: #1d1d1b;
 }
 
 .sub1{
-margin-top: 46px;
+margin-top: 25px;
 }
 
 .sub1:first-child{
@@ -164,11 +183,11 @@ height: 16px;
 }
 
 .sub2{
-margin-top: 96px;
+margin-top: 75px;
 }
 
 .sub3{
-margin-top: 146px;
+margin-top: 125px;
 }
 
 .hidden{
@@ -208,6 +227,7 @@ padding-bottom: 50px;
 .grid figure {
 	margin: 0;
 	position: relative;
+	border: 10px solid #2c3e50;
 }
 
 .grid figure img {
@@ -310,13 +330,214 @@ margin-top: -120px;
 }
 
 .main-title {
+width: 400px;
+margin-left: 80px !important;
   position: absolute;
+  background-color: rgba(255, 255, 255, 0.901961);
   margin: 0;
-  padding: 0;
-  color: #f9f1e9;
-  text-align: center;
+  padding: 40px;
+  text-align: left;
   top: 50%;
   left: 50%;
   -webkit-transform: translate3d(-50%,-50%,0);
   transform: translate3d(-50%,-50%,0);
 }
+
+.title {
+font-size: 250%;
+font-weight: 700;
+}
+
+@font-face {
+	font-family: 'ecoico';
+	src:url('/icons/ecoico.eot');
+	src:url('/icons/ecoico.eot?#iefix') format('embedded-opentype'),
+		url('/icons/ecoico.woff') format('woff'),
+		url('/icons/ecoico.ttf') format('truetype'),
+		url('/icons/ecoico.svg#ecoico') format('svg');
+	font-weight: normal;
+	font-style: normal;
+} /* Made with http://icomoon.io/ */
+
+.cbp_tmtimeline {
+	margin: 30px 0 0 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+}
+
+/* The line */
+.cbp_tmtimeline:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 10px;
+	background: white;
+	left: 20%;
+	margin-left: -10px;
+}
+
+.cbp_tmtimeline > li {
+	position: relative;
+}
+
+/* The date/time */
+.cbp_tmtimeline > li .cbp_tmtime {
+	display: block;
+	width: 25%;
+	padding-right: 100px;
+	position: absolute;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span {
+	display: block;
+	text-align: right;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+	font-size: 0.9em;
+	color: #1d1d1b;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+	font-size: 2.9em;
+	color: #1d1d1b;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+	color: #1d1d1b;
+}
+
+/* Right content */
+.cbp_tmtimeline > li .cbp_tmlabel {
+border: 1px solid white;
+	margin: 0 0 15px 27%;
+	background: rgba(29,29,27,0.4);
+	color: #fff;
+	padding: 2em;
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.4;
+	position: relative;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+	background: #1d1d1b;
+}
+
+.cbp_tmtimeline > li .cbp_tmlabel h2 {
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* The triangle */
+.cbp_tmtimeline > li .cbp_tmlabel:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: #3594cb;
+	border-width: 10px;
+	top: 10px;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+	border-right-color: #6cbfee;
+}
+
+/* The icons */
+.cbp_tmtimeline > li .cbp_tmicon {
+	width: 40px;
+	height: 40px;
+	font-family: 'ecoico';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: 1.4em;
+	line-height: 40px;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	color: #fff;
+	background: #1b1b1d;
+	box-shadow: 0 0 0 8px white;
+	text-align: center;
+	left: 20%;
+	top: 0;
+	margin: 0 0 0 -25px;
+}
+
+.cbp_tmicon-phone:before {
+	content: "\e000";
+}
+
+.cbp_tmicon-screen:before {
+	content: "\e001";
+}
+
+.cbp_tmicon-mail:before {
+	content: "\e002";
+}
+
+.cbp_tmicon-earth:before {
+	content: "\e003";
+}
+
+/* Example Media Queries */
+@media screen and (max-width: 65.375em) {
+
+	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (max-width: 47.2em) {
+	.cbp_tmtimeline:before {
+		display: none;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmtime {
+		width: 100%;
+		position: relative;
+		padding: 0 0 20px 0;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmtime span {
+		text-align: left;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmlabel {
+		margin: 0 0 30px 0;
+		padding: 1em;
+		font-weight: 400;
+		font-size: 95%;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmlabel:after {
+		right: auto;
+		left: 20px;
+		border-right-color: transparent;
+		border-bottom-color: #3594cb;
+		top: -20px;
+	}
+
+	.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+		border-right-color: transparent;
+		border-bottom-color: #6cbfee;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmicon {
+		position: relative;
+		float: right;
+		left: auto;
+		margin: -55px 5px 0 0px;
+	}
+}
+
+

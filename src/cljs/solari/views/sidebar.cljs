@@ -14,6 +14,7 @@
                      :sub-level2 ["Your Career" "Meet the team" "Jobs"]
                      :sub-level3 ["contact"]}))
 
+
 ;Actions
 (defn toggle-sub-menu-selection [target]
   (do
@@ -38,7 +39,8 @@
 
   (ef/at ".nav-ul-left"
          (ev/listen-live :click "li"
-                         #(let [text (.-innerText (.-currentTarget %))]
+                         #(let [text (.-innerHTML (.-currentTarget %))]
+                           (.dir js/console %)
                            (toggle-main-menu (.-currentTarget %))
                            (cond
                              (not= -1 (.indexOf text "you")) (toggle-submenu "sub1")
@@ -48,8 +50,8 @@
 
 (defn right-nav-listener []
  (ef/at ".nav-ul-right"
-        (ev/listen-live :click "li" #(let [text (.-innerText (.-currentTarget %))]
-                                      (println "hi there guys:" (.toLowerCase (.-innerText (.-currentTarget %))) )
+        (ev/listen-live :click "li" #(let [text (.-innerHTML (.-currentTarget %))]
+                                      (println "hi there guys:" (.toLowerCase (.-innerHTML (.-currentTarget %))) )
                                       (println (.indexOf (.toLowerCase text) "your career"))
                            (cond
                              (= 0 (.indexOf (.toLowerCase text) "residential")) (sec/dispatch! "/residential")
@@ -97,6 +99,7 @@
                         (dom/footer #js {:id "main-footer" :className "gooter cf"}))
 
                (dom/div #js {:className "main-nav-right"}
+                        (dom/h1 #js {:className "context"} "Context")
                         (apply dom/ul #js {:className "nav-ul-right sub1 hidden"}
                                (om/build-all nav-menu-item-right (@menu-map :sub-level1)))
                         (apply dom/ul #js {:className "nav-ul-right sub2 hidden"}

@@ -10,16 +10,6 @@
   (:require-macros [enfocus.macros :as em])
   (:import goog.History))
 
-;Fallback for browsers without html5 history support
-(sec/set-config! :prefix "#")
-
-;enable html5 history
-(let [history (History.)
-      navigation EventType/NAVIGATE]
-  (goog.events/listen history
-                      navigation
-                      #(-> % .-token sec/dispatch!))
-  (doto history (.setEnabled true)))
 
 (enable-console-print!)
 
@@ -28,70 +18,59 @@
     om/IRender
     (render [this]
       (dom/div #js {:id "spider"}
-               (dom/canvas #js {:id "demo-canvas" :width "100%" :height "100%"
-                                })
-               (dom/h1 #js {:className "main-title"} "hello there!"))
-
-
-      #_(dom/div #js {:className "row home-row no-margin"}
-               (dom/div #js {:className "col-xs-1"})
-               (dom/div #js {:className "col-xs-10"}
-
-                        (dom/div #js {:className "front-page-container"}
-
-                                 (dom/p nil
-                                        (dom/strong #js {:className "front-page-title"} "Come on in..."))
-
-                                 (dom/p nil
-                                        (dom/strong nil "We're Solari Architects.")
-                                        (dom/p nil "Our studio is base in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond."))
-
-                                 (dom/div #js {:className "col-xs-1"})))))))
+               (dom/canvas #js {:id "demo-canvas" :width "100%" :height "100%"})
+               (dom/div #js {:className "main-title"}
+                        (dom/p #js {:className "title"} "Come on in...")
+                        (dom/strong nil "We're Solari architects.")
+                        (dom/p nil " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond."))
+               ))))
 
 (defroute "/" {:as params}
           (do
             (om/root home-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "home"))
+            (ef/at ".context" (ef/content "Welcome"))
             (js/blabla)))
+
 
 (defn residential-page [data owner]
   (reify
     om/IRender
     (render [this]
       (dom/div nil
-        (dom/p #js {:className "text-area"} "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish.")
-        (dom/div #js {:className "row"}
-                 (dom/ul #js{:className "grid cs-style-4"} nil
-                         (dom/li nil
-                                 (dom/figure nil
-                                             (dom/div nil
-                                                      (dom/img #js {:src "/img/project.jpg"})
-                                                      (dom/figcaption nil
-                                                                      (dom/h3 nil "Wadestown Renovation")
-                                                                      (dom/a #js {:href "#"} "Take a look"))
-                                                      )
-                                             ))
+               (dom/p #js {:className "text-area"} "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish.")
+               (dom/div #js {:className "row"}
+                        (dom/ul #js{:className "grid cs-style-4"} nil
+                                (dom/li nil
+                                        (dom/figure nil
+                                                    (dom/div nil
+                                                             (dom/img #js {:src "/img/wadestown.jpg"})
+                                                             (dom/figcaption nil
+                                                                             (dom/h3 nil "Wadestown Renovation")
+                                                                             (dom/a #js {:href "#"} "Take a look")))))
 
-                         (dom/li nil
-                                 (dom/figure nil
-                                             (dom/div nil
-                                                      (dom/img #js {:src "/img/project.jpg"})
-                                                      (dom/figcaption nil
-                                                                      (dom/h3 nil "Catlina Lane Subdivision")
-                                                                      (dom/a #js {:href "#"} "Take a look"))
-                                                      )
-                                             ))
+                                (dom/li nil
+                                        (dom/figure nil
+                                                    (dom/div nil
+                                                             (dom/img #js {:src "/img/lyall.jpg"})
+                                                             (dom/figcaption nil
+                                                                             (dom/h3 nil "Lyall bay renovation")
+                                                                             (dom/a #js {:href "#"} "Take a look")))))
 
-                         )
-                 )
-        )
-      )))
+                                (dom/li nil
+                                        (dom/figure nil
+                                                    (dom/div nil
+                                                             (dom/img #js {:src "/img/lyall.jpg"})
+                                                             (dom/figcaption nil
+                                                                             (dom/h3 nil "Catlina Lane Subdivision")
+                                                                             (dom/a #js {:href "#"} "Take a look")))))))))))
 
 (defroute "/residential" {:as params}
           (do
             (om/root residential-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
+            (ef/at ".context" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn multi-residential-page [data owner]
@@ -104,6 +83,7 @@
           (do
             (om/root multi-residential-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
+            (ef/at ".context" (ef/content "multi"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn commercial-page [data owner]
@@ -116,23 +96,42 @@
           (do
             (om/root commercial-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-you"))
-            )
-          )
+            (ef/at ".context" (ef/content "commerical"))
+            (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn our-process-page [data owner]
   (reify
     om/IRender
     (render [this]
-      (dom/h1 nil "This is the our process page"))))
+      (dom/ul #js {:className "cbp_tmtimeline"}
+              (dom/li nil
+                     (dom/time #js {:className "cbp_tmtime"} (dom/span nil "One"))
+                      (dom/div #js {:className "cbp_tmicon cbp_tmicon-phone"})
+                      (dom/div #js {:className "cbp_tmlabel"}
+                               (dom/h2 nil "Riceban black-eyed pea")
+                               (dom/p nil "Winter purslane sdfdas
+                               asfasdf sdafsadf sfaddsa")))
+
+              (dom/li nil
+                      (dom/time #js {:className "cbp_tmtime"} (dom/span nil "Two"))
+                      (dom/div #js {:className "cbp_tmicon cbp_tmicon-phone"})
+                      (dom/div #js {:className "cbp_tmlabel"}
+                               (dom/h2 nil "Riceban black-eyed pea")
+                               (dom/p nil "Winter purslane...")))
+
+              (dom/li nil
+                      (dom/time #js {:className "cbp_tmtime"} (dom/span nil "Three"))
+                      (dom/div #js {:className "cbp_tmicon cbp_tmicon-phone"})
+                      (dom/div #js {:className "cbp_tmlabel"}
+                               (dom/h2 nil "Riceban black-eyed pea")
+                               (dom/p nil "Winter purslane...")))
+              ))))
 
 (defroute "/our-process" {:as params}
           (do
           (om/root our-process-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
-          (ef/at "body" (ef/set-attr :background "for-you"))
-            )
-          )
+          (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn faqs-page [data owner]
   (reify
@@ -183,3 +182,14 @@
                    {:target (. js/document (getElementById "main-content-container"))}))
 
 
+;Fallback for browsers without html5 history support
+(sec/set-config! :prefix "#")
+
+;enable html5 history
+(let [history (History.)
+      navigation EventType/NAVIGATE]
+  (goog.events/listen history
+                      navigation
+                      #_(.dir js/console (-> % .-token sec/dispatch!))
+                      #(-> % .-token sec/dispatch!))
+                      (doto history (.setEnabled true)))
