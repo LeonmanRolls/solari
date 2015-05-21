@@ -190,6 +190,6 @@
       navigation EventType/NAVIGATE]
   (goog.events/listen history
                       navigation
-                      #_(.dir js/console (-> % .-token sec/dispatch!))
-                      #(-> % .-token sec/dispatch!))
+                      #(.dir js/console %)
+                      #_(-> % .-token sec/dispatch!))
                       (doto history (.setEnabled true)))
