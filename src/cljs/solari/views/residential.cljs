@@ -37,27 +37,11 @@
                                                    (dom/a #js {:href "#modal-02" #_(str "#" (:id data) "-modal")} "Take a look")))))))))
 
 
-(defn project-modal [data owner]
-  (reify
-    om/IDidMount
-    (did-mount [this]
-      (do
-        (js/alert "did mount")
-        (.-animatedModal (js/$ (str "#" (:id data) "-modal")))))
-    om/IRender
-    (render [this]
-      (dom/div #js {:id (str (:id data) "-modal")}
-               (dom/div #js {:id "btn-close-modal" :className (str "close-" (:id data) "-modal")})
-               (dom/div #js {:className "modal-content"})))))
-
 
 (defn residential-page [data owner]
   (reify
     om/IRender
     (render [this]
-
-      (apply dom/div #js {:id "modals"}
-             (om/build-all project-modal (:projects data)))
 
       (dom/div nil
                (dom/p #js {:className "text-area"} (:text data))
