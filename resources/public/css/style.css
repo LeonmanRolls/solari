@@ -22,11 +22,11 @@ body[background=for-you] {
 }
 
 body[background=for-architects] {
-  background: url(http://ad009cdnb.archdaily.net/wp-content/uploads/2013/02/511560cdb3fc4b9452000053_pacific-standard-time-presents-modern-architecture-in-l-a-_ucsb1.jpg);
+  background: url(/img/for_architects.jpg);
 }
 
 body[background=from-us] {
-  background: url(http://amazed.net/wp-content/uploads/2015/03/modern-architecture-form-follows-function-for-attractive-ideas-dream-house.jpg);
+  background: url(/img/from_us.jpg);
 }
 
 #main-content-container{
