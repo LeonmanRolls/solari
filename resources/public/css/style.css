@@ -10,11 +10,11 @@ line-height: 1.5;
 }
 
 body[background=home] {
-background: url(http://solari.at.bigbluecurrant.com/wp-content/uploads/2015/04/img-about-us.jpg);
+background: url(/img/home_page.jpg);
 }
 
 body[background=for-you] {
-  background: url(http://suits-sandals.com/blog/wp-content/uploads/2014/04/modern-architecture-design-vu-help.jpg) no-repeat center center fixed;
+  background: url(/img/residential.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -104,8 +104,8 @@ border-top: 1px solid white;
 border-bottom: 1px solid white !important;
 }
 
-.nav-right-selected{
-background-color: blue;
+.right-nav-selected{
+background-color: #3498db !important;
 }
 
 .nav-ul-left li{

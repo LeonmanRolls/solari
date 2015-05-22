@@ -12,30 +12,33 @@
 
 (enable-console-print!)
 
-(def nav-map (atom {:root [{:id "nav-left-01" :label "for you" :selected false
-                            :submenu {:id "nav-left-01-sub"
-                                      :items [{:id "nav-right-item-residential" :name "residential"
-                                               :selected false :route "/residential"}
-                                              {:id "nav-right-item-muti" :name "multi-residential"
-                                               :selected false :route "/multi-residential"}
-                                              {:id "nav-right-item-commerical" :name "commerical"
-                                               :selected false :route "/commercial"}
-                                              {:id "nav-right-item-our" :name "our process"
-                                               :selected false :route "/our-process"}
-                                              {:id "nav-right-item-faqs" :name "faqs"
-                                               :selected false :route "/faqs"}
-                                              {:id "nav-righ-item-yourt" :name "your team"
-                                               :selected false :route "/your-team"}]}}
+(def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
+                                :submenu {:id    "nav-left-01-sub"
+                                          :items [{:id       "nav-right-item-residential" :name "residential"
+                                                   :selected false :route "/residential"}
+                                                  {:id       "nav-right-item-muti" :name "multi-residential"
+                                                   :selected false :route "/multi-residential"}
+                                                  {:id       "nav-right-item-commerical" :name "commerical"
+                                                   :selected false :route "/commercial"}
+                                                  {:id       "nav-right-item-our" :name "our process"
+                                                   :selected false :route "/our-process"}
+                                                  {:id       "nav-right-item-faqs" :name "faqs"
+                                                   :selected false :route "/faqs"}
+                                                  {:id       "nav-righ-item-yourt" :name "your team"
+                                                   :selected false :route "/your-team"}]}}
 
-                           {:id "nav-left-02" :label "for architects" :selected false
-                            :submenu {:id "nav-left-02-sub"
-                                      :items [{:id "nav-right-item-yourc" :name "your career" :selected false}
-                                              {:id "nav-right-item-meet" :name "meet the team" :selected false}
-                                              {:id "nav-right-item-jobs" :name "jobs" :selected false}]}}
+                               {:id      "nav-left-02" :label "for architects" :selected false
+                                :submenu {:id    "nav-left-02-sub"
+                                          :items [{:id "nav-right-item-yourc" :name "your career"
+                                                   :selected false :route "/your-career"}
+                                                  {:id "nav-right-item-meet" :name "meet the team"
+                                                   :selected false :route "/your-career"}
+                                                  {:id "nav-right-item-jobs" :name "jobs"
+                                                   :selected false :route "/jobs"}]}}
 
-                           {:id "nav-left-03" :label "from us" :selected false
-                            :submenu {:id "nav-left-03-sub"
-                                      :items [{:id "nav-right-item-contact" :name "contact" :selected false}]} }]
+                               {:id      "nav-left-03" :label "from us" :selected false
+                                :submenu {:id    "nav-left-03-sub"
+                                          :items [{:id "nav-right-item-contact" :name "contact" :selected false}]}}]
 
                     :selected false}))
 
@@ -45,13 +48,12 @@
     om/IDidMount
     (did-mount [this]
       (ef/at (str "#" (:id data))
-             (ev/listen :click (fn [x] (do #_(println "right item clicked" (:id data))
-                                           (go (>! (:right-clicked (om/get-state owner)) (:route data)))
-
-                                           ) ))))
+             (ev/listen :click (fn [x] (do (go (>! (:right-clicked (om/get-state owner)) {:route (:route data)
+                                                                                          :id (:id data)
+                                                                                          :data data})))))))
     om/IRender
     (render [this]
-      (dom/li #js {:id (:id data)} (:name data)))))
+      (dom/li #js {:id (:id data) :className (if (:selected data) "right-nav-selected" "")} (:name data)))))
 
 (defn nav-menu-item-left [data owner]
   (reify
@@ -80,6 +82,7 @@
     (will-mount [_]
       (let [clicked (om/get-state owner :clicked)
             right-clicked (om/get-state owner :right-clicked)]
+
         (go (loop []
               (let [selected (<! clicked)]
                 (loop [idx 0]
@@ -90,20 +93,31 @@
                       (if (< (+ 1 idx) (count (:root menu-atom)))
                         (recur (inc idx))))
                 (recur))))
+
         (go (loop []
               (let [selected (<! right-clicked)]
                 (println "clicked: " selected)
-                (routes/dispatch-route selected)
+                (routes/dispatch-route (:route selected))
 
-                #_(loop [idx 0]
-                  (when (< idx (count )))
+                (loop [idx 0]
+                  (when (< idx (count (:root menu-atom)))
+                    (let [sub-menu-count (count (get-in menu-atom [:root idx :submenu :items])) ]
+                      (loop [idxx 0]
+                        (when (< idxx sub-menu-count)
+                         (println "hi")
+                         (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
+                           (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
+                           (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
+                         (recur (inc idxx))))
+                      )
 
-                      (if (= (get-in menu-atom [:root idx :id])
+                    #_(if (= (get-in menu-atom [:root idx :id])
                             selected)
-                        (om/transact! menu-atom [:root idx :selected] (fn [_]  true))
-                        (om/transact! menu-atom [:root idx :selected] (fn [_] false)))
+                        (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
+                        (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_] false)))
 
-                      (recur (inc idx)))
+                    (recur (inc idx))))
+
 
                 (recur))))
 
@@ -113,7 +127,7 @@
     (did-mount [this]
       (ef/at ".logo"
              (ev/listen :click (fn [x] (do
-;                                         (cc/dispatch-route "/")
+                                         (routes/dispatch-route "/")
                                          (loop [idx 0]
                                            (when (< idx 3)
                                              (om/transact! menu-atom [:root idx :selected] (fn [_] false))
@@ -144,12 +158,14 @@
                         (apply dom/ul #js {:className (str "nav-ul-right sub2 "
                                                            (if (get-in menu-atom [:root 1 :selected]) "" "hidden"))}
                                (om/build-all nav-menu-item-right
-                                             (get-in menu-atom [:root 1 :submenu :items])))
+                                             (get-in menu-atom [:root 1 :submenu :items])
+                                             {:init-state {:right-clicked right-clicked}}))
 
                         (apply dom/ul #js {:className (str "nav-ul-right sub3 "
                                                            (if (get-in menu-atom [:root 2 :selected]) "" "hidden"))}
                                (om/build-all nav-menu-item-right
-                                             (get-in menu-atom [:root 2 :submenu :items])))
+                                             (get-in menu-atom [:root 2 :submenu :items])
+                                             {:init-state {:right-clicked right-clicked}}))
 
                         (dom/footer #js {:id "main-footer" :className "gooter cf"}))))))
 
