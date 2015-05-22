@@ -34,7 +34,7 @@
                                    (dom/img #js {:src (:thumbnail data)})
                                    (dom/figcaption nil
                                                    (dom/h3 nil (:title data))
-                                                   (dom/a #js {:href (str "#" (:id data) "-modal")} "Take a look")))))))))
+                                                   (dom/a #js {:href "#modal-02" #_(str "#" (:id data) "-modal")} "Take a look")))))))))
 
 
 (defn project-modal [data owner]
@@ -58,7 +58,6 @@
 
       (apply dom/div #js {:id "modals"}
              (om/build-all project-modal (:projects data)))
-
 
       (dom/div nil
                (dom/p #js {:className "text-area"} (:text data))
