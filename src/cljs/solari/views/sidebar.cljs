@@ -2,8 +2,8 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
-            [solari.core :as ccc]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
+            [solari.core :as cc]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
@@ -88,7 +88,7 @@
         (go (loop []
               (let [selected (<! right-clicked)]
                 (println "clicked: " selected)
-                #_(ccc/disptach-route selected)
+                (cc/dispatch-route selected)
 
                 #_(loop [idx 0]
                   (when (< idx (count )))
@@ -99,6 +99,7 @@
                         (om/transact! menu-atom [:root idx :selected] (fn [_] false)))
 
                       (recur (inc idx)))
+
                 (recur))))
 
         ))
