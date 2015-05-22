@@ -2,8 +2,8 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
+            [solari.routes :as routes]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
-            [solari.core :as cc]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
@@ -16,11 +16,16 @@
                             :submenu {:id "nav-left-01-sub"
                                       :items [{:id "nav-right-item-residential" :name "residential"
                                                :selected false :route "/residential"}
-                                              {:id "nav-right-item-muti" :name "multi-residential" :selected false}
-                                              {:id "nav-right-item-commerical" :name "commerical" :selected false}
-                                              {:id "nav-right-item-our" :name "our process" :selected false}
-                                              {:id "nav-right-item-faqs" :name "faqs" :selected false}
-                                              {:id "nav-righ-item-yourt" :name "your team" :selected false}]}}
+                                              {:id "nav-right-item-muti" :name "multi-residential"
+                                               :selected false :route "/multi-residential"}
+                                              {:id "nav-right-item-commerical" :name "commerical"
+                                               :selected false :route "/commercial"}
+                                              {:id "nav-right-item-our" :name "our process"
+                                               :selected false :route "/our-process"}
+                                              {:id "nav-right-item-faqs" :name "faqs"
+                                               :selected false :route "/faqs"}
+                                              {:id "nav-righ-item-yourt" :name "your team"
+                                               :selected false :route "/your-team"}]}}
 
                            {:id "nav-left-02" :label "for architects" :selected false
                             :submenu {:id "nav-left-02-sub"
@@ -88,7 +93,7 @@
         (go (loop []
               (let [selected (<! right-clicked)]
                 (println "clicked: " selected)
-                (cc/dispatch-route selected)
+                (routes/dispatch-route selected)
 
                 #_(loop [idx 0]
                   (when (< idx (count )))
@@ -107,10 +112,13 @@
     om/IDidMount
     (did-mount [this]
       (ef/at ".logo"
-             (ev/listen :click (fn [x] (loop [idx 0]
-                                         (when (< idx 3)
-                                          (om/transact! menu-atom [:root idx :selected] (fn [_] false))
-                                           (recur (inc idx))))))))
+             (ev/listen :click (fn [x] (do
+;                                         (cc/dispatch-route "/")
+                                         (loop [idx 0]
+                                           (when (< idx 3)
+                                             (om/transact! menu-atom [:root idx :selected] (fn [_] false))
+                                             (recur (inc idx))))
+                                         )))))
 
     om/IRenderState
     (render-state [this {:keys [clicked right-clicked]}]
