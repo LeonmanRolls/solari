@@ -193,3 +193,6 @@
                       #(.dir js/console %)
                       #_(-> % .-token sec/dispatch!))
                       (doto history (.setEnabled true)))
+
+(defn dispatch-route [route] (sec/dispatch! route))
+

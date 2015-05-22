@@ -2,6 +2,7 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
+            [solari.core :as ccc]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
@@ -13,7 +14,8 @@
 
 (def nav-map (atom {:root [{:id "nav-left-01" :label "for you" :selected false
                             :submenu {:id "nav-left-01-sub"
-                                      :items [{:id "nav-right-item-residential" :name "residential" :selected false}
+                                      :items [{:id "nav-right-item-residential" :name "residential"
+                                               :selected false :route "/residential"}
                                               {:id "nav-right-item-muti" :name "multi-residential" :selected false}
                                               {:id "nav-right-item-commerical" :name "commerical" :selected false}
                                               {:id "nav-right-item-our" :name "our process" :selected false}
@@ -35,6 +37,13 @@
 
 (defn nav-menu-item-right [data owner]
   (reify
+    om/IDidMount
+    (did-mount [this]
+      (ef/at (str "#" (:id data))
+             (ev/listen :click (fn [x] (do #_(println "right item clicked" (:id data))
+                                           (go (>! (:right-clicked (om/get-state owner)) (:route data)))
+
+                                           ) ))))
     om/IRender
     (render [this]
       (dom/li #js {:id (:id data)} (:name data)))))
@@ -54,18 +63,18 @@
               (:label data)))))
 
 
-@nav-map
-(get-in @nav-map [:root 0 :submenu :items] )
 (defn main-nav-view [menu-atom owner]
   (reify
 
     om/IInitState
     (init-state [_]
-      {:clicked (chan)})
+      {:clicked (chan)
+       :right-clicked (chan)})
 
     om/IWillMount
     (will-mount [_]
-      (let [clicked (om/get-state owner :clicked)]
+      (let [clicked (om/get-state owner :clicked)
+            right-clicked (om/get-state owner :right-clicked)]
         (go (loop []
               (let [selected (<! clicked)]
                 (loop [idx 0]
@@ -75,7 +84,24 @@
                         (om/transact! menu-atom [:root idx :selected] (fn [_] false)))
                       (if (< (+ 1 idx) (count (:root menu-atom)))
                         (recur (inc idx))))
-                (recur))))))
+                (recur))))
+        (go (loop []
+              (let [selected (<! right-clicked)]
+                (println "clicked: " selected)
+                #_(ccc/disptach-route selected)
+
+                #_(loop [idx 0]
+                  (when (< idx (count )))
+
+                      (if (= (get-in menu-atom [:root idx :id])
+                            selected)
+                        (om/transact! menu-atom [:root idx :selected] (fn [_]  true))
+                        (om/transact! menu-atom [:root idx :selected] (fn [_] false)))
+
+                      (recur (inc idx)))
+                (recur))))
+
+        ))
 
     om/IDidMount
     (did-mount [this]
@@ -86,7 +112,7 @@
                                            (recur (inc idx))))))))
 
     om/IRenderState
-    (render-state [this {:keys [clicked]}]
+    (render-state [this {:keys [clicked right-clicked]}]
       (dom/div nil
 
                (dom/div #js {:className "main-nav-left"}
@@ -103,7 +129,8 @@
                         (apply dom/ul #js {:className (str "nav-ul-right sub1 "
                                                            (if (get-in menu-atom [:root 0 :selected]) "" "hidden"))}
                                (om/build-all nav-menu-item-right
-                                             (get-in menu-atom [:root 0 :submenu :items])))
+                                             (get-in menu-atom [:root 0 :submenu :items])
+                                             {:init-state {:right-clicked right-clicked}}))
 
                         (apply dom/ul #js {:className (str "nav-ul-right sub2 "
                                                            (if (get-in menu-atom [:root 1 :selected]) "" "hidden"))}
