@@ -16,9 +16,22 @@
     (init-state [this]
       (println "Project" data))
 
+    om/IDidMount
+    (did-mount [this]
+     (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "thumbnails"}))
+
     om/IRender
     (render [this]
       (dom/div nil
+              (dom/div #js {:className "royalSlider rsDefault"}
+                       (dom/img #js {:className "rsImg" :src "/img/lyall.jpg"})
+                       (dom/img #js {:className "rsImg" :src "/img/lyall.jpg"})
+                       (dom/img #js {:className "rsImg" :src "/img/lyall.jpg"})
+                       (dom/img #js {:className "rsImg" :src "/img/lyall.jpg"})
+                       (dom/img #js {:className "rsImg" :src "/img/lyall.jpg"})
+                       (dom/img #js {:className "rsImg" :src "/img/lyall.jpg"}))
+
+
                (dom/p #js {:className "text-area"} "Some text")))))
 
 (defn project-init [project-atom]

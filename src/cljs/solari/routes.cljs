@@ -51,7 +51,7 @@
 (defroute "/wadestown" {:as params}
           (do
             (project/project-init data/wadestown-res-atom)
-            (ef/at ".context" (ef/content "Wadestown Renovation"))
+            (ef/at ".context" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn multi-residential-page [data owner]

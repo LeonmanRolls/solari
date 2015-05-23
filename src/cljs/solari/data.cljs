@@ -47,7 +47,7 @@
                                  :title "Catline Lane Subdivision"
                                  :thumbnail "/img/lyall.jpg"}]}))
 
-(def wadestown-res-atom (atom {:images []
+(def wadestown-res-atom (atom {:images 6
                                :sections [{:title "Specifics"
                                            :content "Renovated early 1900s character home. 5 Bedrooms. 3 Bathrooms."}
                                           {:title "Client goals and objectives"
