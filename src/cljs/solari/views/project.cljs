@@ -18,7 +18,11 @@
 
     om/IDidMount
     (did-mount [this]
-     (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "thumbnails"}))
+     (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "thumbnails"
+                                              :fullscreen #js {:enabled true :nativeFS false}
+                                              :visibleNearby #js {:enabled true :centerArea 0.5 :center true
+                                                                  :breakpoint 650 :breakpointCenterArea 0.64
+                                                                  :navigateByCenterClick true}}))
 
     om/IRender
     (render [this]
