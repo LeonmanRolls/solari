@@ -4,7 +4,8 @@
             [enfocus.events :as ev]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true])
+            [om.dom :as dom :include-macros true]
+            [solari.routes :as routes])
   (:require-macros [enfocus.macros :as em]))
 
 (enable-console-print!)
@@ -12,12 +13,15 @@
 
 (defn project-tumbnail [data owner]
   (reify
+    om/IInitState
+    (init-state [this]
+      (println "Project" data))
 
     om/IDidMount
     (did-mount [this]
-      (ef/at (str "#" (:id data))
+      (ef/at (str "#" (:projectid data))
              (ev/listen :click
-                        #(println (.-id (.-currentTarget %))))))
+                        #(routes/dispatch-route "/"))))
 
     om/IRender
     (render [this]

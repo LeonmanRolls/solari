@@ -13,7 +13,6 @@
   (reify
     om/IRender
     (render [this]
-
       (dom/div nil
                (dom/p #js {:className "text-area"} "Some text")))))
 
