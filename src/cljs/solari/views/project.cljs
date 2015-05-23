@@ -11,6 +11,11 @@
 
 (defn project-page [data owner]
   (reify
+
+    om/IInitState
+    (init-state [this]
+      (println "Project" data))
+
     om/IRender
     (render [this]
       (dom/div nil

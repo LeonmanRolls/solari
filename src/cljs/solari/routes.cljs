@@ -31,8 +31,7 @@
                (dom/div #js {:className "main-title"}
                         (dom/p #js {:className "title"} "Come on in...")
                         (dom/strong nil "We're Solari architects.")
-                        (dom/p nil " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond."))
-               ))))
+                        (dom/p nil " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond."))))))
 
 (defroute "/" {:as params}
           (do
@@ -49,7 +48,7 @@
             (ef/at ".context" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
-(defroute "/residential/wadestown" {:as params}
+(defroute "/wadestown" {:as params}
           (do
             (project/project-init data/wadestown-res-atom)
             (ef/at ".context" (ef/content "Wadestown Renovation"))

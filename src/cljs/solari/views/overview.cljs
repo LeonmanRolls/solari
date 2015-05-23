@@ -21,7 +21,7 @@
     (did-mount [this]
       (ef/at (str "#" (:projectid data))
              (ev/listen :click
-                        #(go (>! (:route-chan (om/get-state owner)) "/")))))
+                        #(go (>! (:route-chan (om/get-state owner)) (str "/" (:projectid data)))))))
 
     om/IRender
     (render [this]
