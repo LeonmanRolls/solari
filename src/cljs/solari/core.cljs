@@ -3,6 +3,7 @@
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
             [solari.routes :as routes]
+            [solari.data :as data]
             [solari.views.sidebar :as sb]
             [goog.events :as events]
             [goog.history.EventType :as EventType]
@@ -14,5 +15,5 @@
 
 (defn main []
  (routes/dispatch-route "/")
- (sb/nav-init sb/nav-map)
+ (sb/nav-init data/nav-map)
   )

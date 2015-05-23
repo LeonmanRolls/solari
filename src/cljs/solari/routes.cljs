@@ -2,10 +2,11 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [solari.views.residential :as residential]
+            [solari.views.overview :as overview]
             [goog.events :as events]
             [goog.history.EventType :as EventType]
-            [enfocus.core :as ef])
+            [enfocus.core :as ef]
+            [solari.data :as data])
   (:require-macros [enfocus.macros :as em])
   (:import goog.History))
 
@@ -33,7 +34,7 @@
 
 (defroute "/residential" {:as params}
           (do
-            (residential/residential-init)
+            (overview/overview-init data/res-atom)
             (ef/at ".context" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
@@ -45,8 +46,7 @@
 
 (defroute "/multi-residential" {:as params}
           (do
-            (om/root multi-residential-page {}
-                     {:target (. js/document (getElementById "main-content-container"))})
+            (overview/overview-init data/multi-atom)
             (ef/at ".context" (ef/content "multi"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 

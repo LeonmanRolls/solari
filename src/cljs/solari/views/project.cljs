@@ -1,4 +1,4 @@
-(ns solari.views.residential
+(ns solari.views.project
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
@@ -27,16 +27,14 @@
     om/IRender
     (render [this]
       (do
-       (println "data: " data)
-       (dom/li nil
-              (dom/figure nil
-                          (dom/div nil
-                                   (dom/img #js {:src (:thumbnail data)})
-                                   (dom/figcaption nil
-                                                   (dom/h3 nil (:title data))
-                                                   (dom/a #js {:href "#modal-02" #_(str "#" (:id data) "-modal")} "Take a look")))))))))
-
-
+        (println "data: " data)
+        (dom/li nil
+                (dom/figure nil
+                            (dom/div nil
+                                     (dom/img #js {:src (:thumbnail data)})
+                                     (dom/figcaption nil
+                                                     (dom/h3 nil (:title data))
+                                                     (dom/a #js {:href "#modal-02" #_(str "#" (:id data) "-modal")} "Take a look")))))))))
 
 (defn residential-page [data owner]
   (reify
@@ -48,10 +46,8 @@
                (dom/div #js {:className "row"}
 
                         (apply dom/ul #js {:className "grid cs-style-4"}
-                                       (om/build-all project-tumbnail (:projects data))))))))
+                               (om/build-all project-tumbnail (:projects data))))))))
 
 (defn residential-init []
   (om/root residential-page res-atom
-                     {:target (. js/document (getElementById "main-content-container"))}))
-
-
+           {:target (. js/document (getElementById "main-content-container"))}))
