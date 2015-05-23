@@ -12,6 +12,13 @@
 
 (defn project-tumbnail [data owner]
   (reify
+
+    om/IDidMount
+    (did-mount [this]
+      (ef/at (str "#" (:id data))
+             (ev/listen :click
+                        #(println (.-id (.-currentTarget %))))))
+
     om/IRender
     (render [this]
       (do
@@ -22,7 +29,7 @@
                                    (dom/img #js {:src (:thumbnail data)})
                                    (dom/figcaption nil
                                                    (dom/h3 nil (:title data))
-                                                   (dom/a #js {:href "#modal-02" #_(str "#" (:id data) "-modal")} "Take a look")))))))))
+                                                   (dom/a #js {:id (:projectid data)} "Take a look")))))))))
 
 (defn overview-page [data owner]
   (reify

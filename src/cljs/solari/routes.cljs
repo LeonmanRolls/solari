@@ -3,6 +3,7 @@
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
             [solari.views.overview :as overview]
+            [solari.views.project :as project]
             [goog.events :as events]
             [goog.history.EventType :as EventType]
             [enfocus.core :as ef]
@@ -36,6 +37,12 @@
           (do
             (overview/overview-init data/res-atom)
             (ef/at ".context" (ef/content "Residential"))
+            (ef/at "body" (ef/set-attr :background "for-you"))))
+
+(defroute "/residential/wadestown" {:as params}
+          (do
+            (project/project-init data/wadestown-res-atom)
+            (ef/at ".context" (ef/content "Wadestown Renovation"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn multi-residential-page [data owner]
