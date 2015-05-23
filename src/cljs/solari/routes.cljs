@@ -4,13 +4,23 @@
             [om.dom :as dom :include-macros true]
             [solari.views.overview :as overview]
             [solari.views.project :as project]
+            [cljs.core.async :refer [put! chan <! >! take! close!]]
             [goog.events :as events]
             [goog.history.EventType :as EventType]
             [enfocus.core :as ef]
             [solari.data :as data])
-  (:require-macros [enfocus.macros :as em])
+  (:require-macros [enfocus.macros :as em]
+                   [cljs.core.async.macros :refer [go]])
   (:import goog.History))
 
+(def route-chan (chan))
+(defn dispatch-route [route] (sec/dispatch! route))
+
+(go
+ (loop []
+  (dispatch-route (<! route-chan))
+  ;(println "loop: " (<! route-chan))
+   (recur)))
 
 (defn home-page [data owner]
   (reify
@@ -35,7 +45,7 @@
 
 (defroute "/residential" {:as params}
           (do
-            (overview/overview-init data/res-atom)
+            (overview/overview-init data/res-atom route-chan)
             (ef/at ".context" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
@@ -53,7 +63,7 @@
 
 (defroute "/multi-residential" {:as params}
           (do
-            (overview/overview-init data/multi-atom)
+            (overview/overview-init data/multi-atom route-chan)
             (ef/at ".context" (ef/content "multi"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
@@ -179,4 +189,3 @@
                       #_(-> % .-token sec/dispatch!))
                       (doto history (.setEnabled true)))
 
-(defn dispatch-route [route] (sec/dispatch! route))

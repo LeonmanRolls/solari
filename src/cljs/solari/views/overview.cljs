@@ -2,14 +2,14 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
+            [cljs.core.async :refer [put! chan <! >! take! close!]]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]
-            [solari.routes :as routes])
-  (:require-macros [enfocus.macros :as em]))
+            [om.dom :as dom :include-macros true])
+  (:require-macros [enfocus.macros :as em]
+                   [cljs.core.async.macros :refer [go]]))
 
 (enable-console-print!)
-
 
 (defn project-tumbnail [data owner]
   (reify
@@ -21,7 +21,7 @@
     (did-mount [this]
       (ef/at (str "#" (:projectid data))
              (ev/listen :click
-                        #(routes/dispatch-route "/"))))
+                        #(go (>! (:route-chan (om/get-state owner)) "/")))))
 
     om/IRender
     (render [this]
@@ -39,15 +39,16 @@
   (reify
     om/IRender
     (render [this]
-
       (dom/div nil
                (dom/p #js {:className "text-area"} (:text data))
                (dom/div #js {:className "row"}
 
                         (apply dom/ul #js {:className "grid cs-style-4"}
-                                       (om/build-all project-tumbnail (:projects data))))))))
+                                       (om/build-all project-tumbnail (:projects data)
+                                                     {:init-state {:route-chan (:route-chan (om/get-state owner))}})))))))
 
-(defn overview-init [overview-atom]
+(defn overview-init [overview-atom route-chan]
   (om/root overview-page overview-atom
-                     {:target (. js/document (getElementById "main-content-container"))}))
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :init-state {:route-chan route-chan}}))
 
