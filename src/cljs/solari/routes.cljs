@@ -76,6 +76,12 @@
             (ef/at ".context" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
+(defroute "/catline" []
+          (do
+            (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 2])))
+            (ef/at ".context" (ef/content ""))
+            (ef/at "body" (ef/set-attr :background "for-you"))))
+
 (defn multi-residential-page [data owner]
   (reify
     om/IRender

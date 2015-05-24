@@ -20,8 +20,8 @@
                                  :projectid "wadestown"
                                  :title "Wadestown Renovation"
                                  :thumbnail "/img/wadestown.jpg"
-                                 :gallery-images ["wadestown-00.jpg" "wadestown-01.jpg" "wadestown-02.jpg"
-                                                  "wadestown-03.jpg" "wadestown-04.jpg" "wadestown-05.pg"]
+                                 :gallery-images ["wadestown/wadestown-00.jpg" "wadestown/wadestown-01.jpg" "wadestown/wadestown-02.jpg"
+                                                  "wadestown/wadestown-03.jpg" "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.pg"]
                                  :accordion [{:title "Specifics"
                                               :content "Renovated early 1900s character home. 5 berooms. 3 bathrooms."}
                                              {:title "Client goals and objectives"
@@ -43,8 +43,8 @@
                                  :projectid "lyall"
                                  :title "Lyall bay renovation"
                                  :thumbnail "/img/lyall.jpg"
-                                 :gallery-images ["wadestown-00.jpg" "wadestown-01.jpg" "wadestown-02.jpg"
-                                                  "wadestown-03.jpg" "wadestown-04.jpg" "wadestown-05.pg"]
+                                 :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
+                                                  "lyall/lyall-04.jpg"]
                                  :accordion [{:title "Specifics"
                                               :content "Renovated theatre. 5 bedrooms."}
                                              {:title "Client goals and objectives"
@@ -70,7 +70,29 @@
                                 {:id "project-03"
                                  :projectid "catline"
                                  :title "Catline Lane Subdivision"
-                                 :thumbnail "/img/catline_thumb.jpg"}
+                                 :thumbnail "/img/catline_thumb.jpg"
+                                 :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
+                                                  "lyall/lyall-04.jpg"]
+                                 :accordion [{:title "Specifics"
+                                              :content "Renovated theatre. 5 bedrooms."}
+                                             {:title "Client goals and objectives"
+                                              :content "Re-think/re-design an old theatre containing a retail store,
+                                              cafe and 3 bedroom flat, into a welcoming contemporary home for a growing,
+                                              energetic family."}
+                                             {:title "Solari's solution"
+                                              :content "When working on this project we were inspired not only by the
+                                              original building but its location and the energy of the family. Not wanting
+                                              to disconnect the building ffrom tis historic roots in Lyall Bay we created
+                                              a space taht continued to rech out to its surroundings. We kept a sense of
+                                              freesom throughout the home with a very generous double height centrl living
+                                              space that introduced a formal lounge area before rolling into a causal
+                                              family space effortlessly blended into the back yard."}
+                                             {:title "Challenges"
+                                              :content "This home was prone to extreme weather and sea conditions. The
+                                              sand, salt and wind presented a myriad of constructional challenges.
+                                              The facade had to be durable but not compromise or dull the bold style
+                                              the client desired."}]
+                                 }
 
                                 ]}
 

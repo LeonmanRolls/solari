@@ -18,7 +18,7 @@
 
     om/IRender
     (render [this]
-      (dom/img #js {:className "rsImg" :src (str "/img/wadestown/" data )}))))
+      (dom/img #js {:className "rsImg" :src (str "/img/" data )}))))
 
 (defn accordion-page [data owner]
   (reify
