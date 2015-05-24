@@ -20,12 +20,31 @@
     (render [this]
       (dom/img #js {:className "rsImg" :src (str "/img/wadestown/" data )}))))
 
+(defn accordion-page [data owner]
+  (reify
+
+    om/IInitState
+    (init-state [this]
+      #_(println "accordion: " data))
+
+    om/IRender
+    (render [this]
+      (dom/div nil
+               (dom/dt nil
+                       (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
+                                   :className "accordion-title accordionTitle js-accordionTrigger"}
+                              (:title data)))
+
+               (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
+                            :aria-hidden "true"}
+                       (dom/p nil (:content data)))))))
+
 (defn project-page [data owner]
   (reify
 
     om/IInitState
     (init-state [this]
-      (println "Project: " (:gallery-images data) ))
+      (println "Project: " data ))
 
     om/IDidMount
     (did-mount [this]
@@ -42,39 +61,16 @@
       (dom/div nil
 
                (apply dom/div #js {:className "royalSlider rsDefault"}
-                        (om/build-all img-page (:galley-images data)))
+                      (om/build-all img-page (:gallery-images data)))
 
                (dom/div #js {:className "accordion"}
-                        (dom/dl nil
 
-                                (dom/dt nil
-                                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
-                                                    :className "accordion-title accordionTitle js-accordionTrigger"}
-                                               "First Accordion header"))
+                        (apply dom/dl nil
+                               (om/build-all accordion-page (:accordion data))))))))
 
-                                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
-                                             :aria-hidden "true"}
-                                        (dom/p nil "bla bla bla")
-                                        (dom/p nil "And some more blas"))))))))
-
-#_(defn get-specific-project [project-atom project]
-  (loop [idx 0]
-  (when (< idx (count (:projects projects-atom)))
-    (let [current-category-projects (get-in project-atom [:projects idx :projects])]
-      (loop [idxx 0]
-        (when (< idxx (count current-category-projects))
-        (if )
-
-          )
-        (recur (inc idxx)))
-
-      )
-
-   ) (recur (inc idx))))
 
 (defn project-init [project-atom]
   (do (om/root project-page project-atom
-           {:target (. js/document (getElementById "main-content-container"))})
+               {:target (. js/document (getElementById "main-content-container"))})
       (ef/at ".context" (ef/content (:title @project-atom)))))
-
 
