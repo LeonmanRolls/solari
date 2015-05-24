@@ -77,4 +77,5 @@
                                             {:source-paths ["env/prod/cljs"]
                                              :compiler
                                              {:optimizations :advanced
+                                              :externs ["env/externs/externs.js"]
                                               :pretty-print false}}}}}})
