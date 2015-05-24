@@ -33,7 +33,7 @@
             (om/root admin/admin-page data/projects-atom
                      {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "home"))
-            (ef/at ".context" (ef/content ""))))
+            (ef/at "#nav-hint-inner" (ef/content "admin"))))
 
 
 (defn home-page [data owner]
@@ -52,32 +52,32 @@
             (om/root home-page {}
                      {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "home"))
-            (ef/at ".context" (ef/content "Welcome"))))
+            (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
 
 
 ;How is this residiential atom working?
 (defroute residential "/residential" []
           (do
             (overview/overview-init (atom (get-in @data/projects-atom [:projects 0])) route-chan)
-            (ef/at ".context" (ef/content "Residential"))
+            (ef/at "#nav-hint-inner" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defroute "/wadestown" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 0])))
-            (ef/at ".context" (ef/content ""))
+            (ef/at "#nav-hint-inner" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defroute "/lyall" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 1])))
-            (ef/at ".context" (ef/content ""))
+            (ef/at "#nav-hint-inner" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defroute "/catline" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 2])))
-            (ef/at ".context" (ef/content ""))
+            (ef/at "#nav-hint-inner" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn multi-residential-page [data owner]
@@ -89,7 +89,7 @@
 (defroute "/multi-residential" {:as params}
           (do
             (overview/overview-init data/projects-atom route-chan)
-            (ef/at ".context" (ef/content "multi"))
+            (ef/at "#nav-hint-inner" (ef/content "multi"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn commercial-page [data owner]
@@ -102,7 +102,7 @@
           (do
             (om/root commercial-page {}
                      {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at ".context" (ef/content "commerical"))
+            (ef/at "#nav-hint-inner" (ef/content "commerical"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn our-process-page [data owner]

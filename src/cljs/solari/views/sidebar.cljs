@@ -117,7 +117,8 @@
                         (dom/footer #js {:id "main-footer" :className "gooter cf"}))
 
                (dom/div #js {:className "main-nav-right"}
-                        (dom/h1 #js {:className "context"} "Context")
+                       (dom/div #js {:id "nav-hint-outer"}
+                                (dom/div #js {:id "nav-hint-inner"} "Welcome"))
 
                         (apply dom/ul #js {:className (str "nav-ul-right sub1 "
                                                            (if (get-in menu-atom [:root 0 :selected]) "" "hidden"))}
