@@ -22,6 +22,29 @@
   ;(println "loop: " (<! route-chan))
    (recur)))
 
+;Fallback for browsers without html5 history support
+(sec/set-config! :prefix "#")
+
+(defn admin-page [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (dom/div nil
+               (dom/div nil "this is the admin page")
+               ))))
+
+(defroute admin "/admin" []
+          (do
+            (om/root admin-page {}
+                     {:target (. js/document (getElementById "main-content-container"))})
+            (ef/at "body" (ef/set-attr :background "home"))
+            (ef/at ".context" (ef/content ""))
+            (js/blabla)))
+
+
+
+
+
 (defn home-page [data owner]
   (reify
     om/IRender
@@ -33,7 +56,7 @@
                         (dom/strong nil "We're Solari architects.")
                         (dom/p nil " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond."))))))
 
-(defroute "/" {:as params}
+(defroute "/" []
           (do
             (om/root home-page {}
                      {:target (. js/document (getElementById "main-content-container"))})
@@ -41,8 +64,11 @@
             (ef/at ".context" (ef/content "Welcome"))
             (js/blabla)))
 
+#_(defroute "/" []
+          (.setToken goog-history "/add"))
 
-(defroute "/residential" {:as params}
+
+(defroute residential "/residential" {:as params}
           (do
             (overview/overview-init data/res-atom route-chan)
             (ef/at ".context" (ef/content "Residential"))
@@ -175,16 +201,7 @@
                    {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "from-us"))))
 
-;Fallback for browsers without html5 history support
-;(sec/set-config! :prefix "#")
-
-;enable html5 history
-#_(let [history (History.)
-      navigation EventType/NAVIGATE]
-  (goog.events/listen history
-                      navigation
-                      #_(.dir js/console %)
-                      (sec/dispatch! "/")
-                      #_(-> % .-token sec/dispatch!))
-                      (doto history (.setEnabled true)))
-
+;; Quick and dirty history configuration.
+(let [h (History.)]
+  (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
+  (doto h (.setEnabled true)))

@@ -2,17 +2,17 @@
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
-                                          :items [{:id       "nav-right-item-residential" :name "residential"
+                                          :items [{:id "nav-right-item-residential" :name "residential"
                                                    :selected false :route "/residential"}
-                                                  {:id       "nav-right-item-muti" :name "multi-residential"
+                                                  {:id "nav-right-item-muti" :name "multi-residential"
                                                    :selected false :route "/multi-residential"}
-                                                  {:id       "nav-right-item-commerical" :name "commerical"
+                                                  {:id "nav-right-item-commerical" :name "commerical"
                                                    :selected false :route "/commercial"}
-                                                  {:id       "nav-right-item-our" :name "our process"
+                                                  {:id "nav-right-item-our" :name "our process"
                                                    :selected false :route "/our-process"}
-                                                  {:id       "nav-right-item-faqs" :name "faqs"
+                                                  {:id "nav-right-item-faqs" :name "faqs"
                                                    :selected false :route "/faqs"}
-                                                  {:id       "nav-righ-item-yourt" :name "your team"
+                                                  {:id "nav-righ-item-yourt" :name "your team"
                                                    :selected false :route "/your-team"}]}}
 
                                {:id      "nav-left-02" :label "for architects" :selected false
@@ -60,15 +60,15 @@
                                            :content "Maintaining the original character of the house."}]}))
 
 (def multi-atom (atom {:text "Multi res"
-                     :projects [{:id "project-01"
-                                 :title "Wadestown Renovation"
-                                 :thumbnail "/img/wadestown.jpg"}
+                       :projects [{:id "project-01"
+                                   :title "Wadestown Renovation"
+                                   :thumbnail "/img/wadestown.jpg"}
 
-                                {:id "project-02"
-                                 :title "Lyall bay renovation"
-                                 :thumbnail "/img/lyall.jpg"}
+                                  {:id "project-02"
+                                   :title "Lyall bay renovation"
+                                   :thumbnail "/img/lyall.jpg"}
 
-                                {:id "project-03"
-                                 :title "Catline Lane Subdivision"
-                                 :thumbnail "/img/lyall.jpg"}]}))
+                                  {:id "project-03"
+                                   :title "Catline Lane Subdivision"
+                                   :thumbnail "/img/lyall.jpg"}]}))
 

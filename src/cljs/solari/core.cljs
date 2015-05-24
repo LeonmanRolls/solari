@@ -14,6 +14,6 @@
 (enable-console-print!)
 
 (defn main []
- (routes/dispatch-route "/")
+ #_(routes/dispatch-route "/")
  (sb/nav-init data/nav-map)
   )
