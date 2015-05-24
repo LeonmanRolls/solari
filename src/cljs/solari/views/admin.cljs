@@ -13,7 +13,7 @@
   (println "data owner" data (.-value (om/get-node owner "new-contact")))
   (let [new-contact (-> (om/get-node owner "new-contact")
                         .-value)]
-    (om/transact! data :id (fn [x] new-contact))
+    (om/transact! data :title (fn [x] new-contact))
     ))
 
 (defn project-view [data owner]
@@ -21,7 +21,7 @@
     om/IRender
     (render [this]
       (dom/div nil
-               (dom/p nil (:id data))
+               (dom/p nil (:title data))
                (dom/input #js {:placeholder "Input new value..." :type "text" :ref "new-contact"})
                (dom/button #js {:onClick #(update-value data owner)} "Add contact")))))
 

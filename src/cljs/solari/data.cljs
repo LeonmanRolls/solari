@@ -1,4 +1,10 @@
-(ns solari.data)
+(ns solari.data
+  (:require-macros [cljs.core.async.macros :refer [go]])
+  (:require [cljs.core.async :refer [put! chan <! >! take! close!]]
+            [solari.utils :as u]
+            [ajax.core :refer [GET POST PUT]]))
+
+(def projects-atom (atom {}))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
@@ -31,81 +37,20 @@
                     :selected false}))
 
 
-(def projects-atom
-  (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
-                           :category "Residential"
-                           :projects [{:id "project-01"
-                                       :projectid "wadestown"
-                                       :title "Wadestown Renovation"
-                                       :thumbnail "/img/wadestown.jpg"}
+(defn data-init []
+  (do
+    (GET "/projects/"
+     {:params {:info "all-game-info"
+               :fields "gamename,gameid"
+               :gameid "we"}
+      :format :edn
+      :handler #(reset! projects-atom %)
+      :error-handler u/ajax-error-handler})
 
-                                      {:id "project-02"
-                                       :projectid "lyall"
-                                       :title "Lyall bay renovation"
-                                       :thumbnail "/img/lyall.jpg"}
-
-                                      {:id "project-03"
-                                       :projectid "catline"
-                                       :title "Catline Lane Subdivision"
-                                       :thumbnail "/img/lyall.jpg"}]}
-
-                     {:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
-                               :category "Multi-Residential"
-                               :projects [{:id "project-01"
-                                           :projectid "wadestown"
-                                           :title "Wadestown Renovation"
-                                           :thumbnail "/img/wadestown.jpg"}
-
-                                          {:id "project-02"
-                                           :projectid "lyall"
-                                           :title "Lyall bay renovation"
-                                           :thumbnail "/img/lyall.jpg"}
-
-                                          {:id "project-03"
-                                           :projectid "catline"
-                                           :title "Catline Lane Subdivision"
-                                           :thumbnail "/img/lyall.jpg"}]}
-
-                      {:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
-                                  :category "Commerical"
-                                  :projects [{:id "project-01"
-                                              :projectid "wadestown"
-                                              :title "Wadestown Renovation"
-                                              :thumbnail "/img/wadestown.jpg"}
-
-                                             {:id "project-02"
-                                              :projectid "lyall"
-                                              :title "Lyall bay renovation"
-                                              :thumbnail "/img/lyall.jpg"}
-
-                                             {:id "project-03"
-                                              :projectid "catline"
-                                              :title "Catline Lane Subdivision"
-                                              :thumbnail "/img/lyall.jpg"}]}]}))
-
-
-(def wadestown-res-atom (atom {:images 6
-                               :sections [{:title "Specifics"
-                                           :content "Renovated early 1900s character home. 5 Bedrooms. 3 Bathrooms."}
-                                          {:title "Client goals and objectives"
-                                           :content "Convert a tired, early 1900s character home into..."}
-                                          {:title "Solari's solution"
-                                           :content "We enjoyed this renovation project.."}
-                                          {:title "Challenges"
-                                           :content "Working with an old character home."}
-                                          {:title "Successes"
-                                           :content "Maintaining the original character of the house."}]}))
-
-(def multi-atom (atom {:text "Multi res"
-                       :projects [{:id "project-01"
-                                   :title "Wadestown Renovation"
-                                   :thumbnail "/img/wadestown.jpg"}
-
-                                  {:id "project-02"
-                                   :title "Lyall bay renovation"
-                                   :thumbnail "/img/lyall.jpg"}
-
-                                  {:id "project-03"
-                                   :title "Catline Lane Subdivision"
-                                   :thumbnail "/img/lyall.jpg"}]}))
+    (add-watch projects-atom :projects-watcher
+           (fn [key atom old-state new-state]
+             (PUT "/projects/"
+                  {:params {:projects (prn-str @projects-atom) }
+                   :format :raw
+                   :error-handler u/ajax-error-handler})))))
 

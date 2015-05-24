@@ -1,9 +1,10 @@
 (ns solari.server
   (:require [clojure.java.io :as io]
             [solari.dev :refer [is-dev? inject-devmode-html browser-repl start-figwheel]]
-            [compojure.core :refer [GET defroutes]]
+            [compojure.core :refer [GET defroutes ANY]]
             [compojure.route :refer [resources]]
             [net.cgrand.enlive-html :refer [deftemplate]]
+            [solari.model :as m]
             [net.cgrand.reload :refer [auto-reload]]
             [ring.middleware.reload :as reload]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
@@ -13,10 +14,12 @@
 (deftemplate page (io/resource "index.html") []
   [:body] (if is-dev? inject-devmode-html identity))
 
+
 (defroutes routes
-  (resources "/")
-  (resources "/react" {:root "react"})
-  (GET "/*" req (page)))
+           (resources "/")
+           (ANY "/projects/" request m/projects)
+           (resources "/react" {:root "react"})
+           (GET "/*" req (page)))
 
 (def http-handler
   (if is-dev?
