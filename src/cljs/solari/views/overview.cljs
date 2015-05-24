@@ -28,11 +28,13 @@
       (do
        (dom/li nil
               (dom/figure nil
-                          (dom/div nil
-                                   (dom/img #js {:src (:thumbnail data)})
-                                   (dom/figcaption nil
-                                                   (dom/h3 nil (:title data))
-                                                   (dom/a #js {:id (:projectid data)} "Take a look")))))))))
+
+                          (dom/img #js {:src (:thumbnail data)})
+                          (dom/figcaption nil
+                                          (dom/h3 nil (:title data))
+                                          (dom/a #js {:id (:projectid data)} "Take a look"))
+
+                          ))))))
 
 (defn overview-page [data owner]
   (reify
@@ -42,7 +44,7 @@
                (dom/p #js {:className "text-area"} (:text data))
                (dom/div #js {:className "row"}
 
-                        (apply dom/ul #js {:className "grid cs-style-4"}
+                        (apply dom/ul #js {:className "grid cs-style-3"}
                                        (om/build-all project-tumbnail (:projects data)
                                                      {:init-state {:route-chan (:route-chan (om/get-state owner))}})))))))
 

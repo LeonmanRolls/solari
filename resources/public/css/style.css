@@ -214,6 +214,9 @@ padding-top: 50px;
 padding-bottom: 50px;
 }
 
+
+
+
 .grid {
 	padding: 20px 20px 100px 20px;
 	max-width: 1300px;
@@ -547,10 +550,12 @@ border: 1px solid white;
 	}
 }
 
+
+
+
 .royalSlider{
 width: 100%;
 }
-
 
 
 
@@ -714,4 +719,6 @@ width: 100%;
 .accordion{
 margin-top: 10px;
 }
+
+
 
