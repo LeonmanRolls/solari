@@ -14,7 +14,8 @@
 (defn project-tumbnail [data owner]
   (reify
     om/IInitState
-    (init-state [this])
+    (init-state [this]
+      (println "thumbnain data" data))
 
     om/IDidMount
     (did-mount [this]
