@@ -4,6 +4,8 @@
             [om.dom :as dom :include-macros true]
             [solari.views.overview :as overview]
             [solari.views.project :as project]
+            [solari.views.admin :as admin]
+            [ajax.core :refer [GET POST PUT]]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
             [goog.events :as events]
             [goog.history.EventType :as EventType]
@@ -25,24 +27,14 @@
 ;Fallback for browsers without html5 history support
 (sec/set-config! :prefix "#")
 
-(defn admin-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/div nil
-               (dom/div nil "this is the admin page")
-               ))))
 
 (defroute admin "/admin" []
           (do
-            (om/root admin-page {}
+            (om/root admin/admin-page data/projects-atom
                      {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "home"))
             (ef/at ".context" (ef/content ""))
             (js/blabla)))
-
-
-
 
 
 (defn home-page [data owner]
@@ -64,13 +56,10 @@
             (ef/at ".context" (ef/content "Welcome"))
             (js/blabla)))
 
-#_(defroute "/" []
-          (.setToken goog-history "/add"))
 
-
-(defroute residential "/residential" {:as params}
+(defroute residential "/residential" []
           (do
-            (overview/overview-init data/res-atom route-chan)
+            (overview/overview-init (atom (get-in @data/projects-atom [:projects 0])) route-chan)
             (ef/at ".context" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 

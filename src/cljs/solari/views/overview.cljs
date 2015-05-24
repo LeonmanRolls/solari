@@ -48,6 +48,7 @@
                                                      {:init-state {:route-chan (:route-chan (om/get-state owner))}})))))))
 
 (defn overview-init [overview-atom route-chan]
+  (println "overview: " overview-atom)
   (om/root overview-page overview-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :init-state {:route-chan route-chan}}))

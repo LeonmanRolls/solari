@@ -18,6 +18,7 @@
                  [org.clojure/java.jdbc "0.3.6"]
                  [postgresql "9.1-901-1.jdbc4"]
                  [liberator "0.10.0"]
+                 [cljs-ajax "0.3.11"]
                  [enfocus "2.1.1"]
                  [enlive "1.1.5"]
                  [om "0.8.0-rc1"]
