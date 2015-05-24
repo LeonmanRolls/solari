@@ -14,8 +14,7 @@
 (defn project-tumbnail [data owner]
   (reify
     om/IInitState
-    (init-state [this]
-      (println "Project" data))
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
@@ -26,7 +25,6 @@
     om/IRender
     (render [this]
       (do
-       (println "data: " data)
        (dom/li nil
               (dom/figure nil
                           (dom/div nil

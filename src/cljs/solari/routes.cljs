@@ -57,15 +57,16 @@
             (js/blabla)))
 
 
+;How is this residiential atom working?
 (defroute residential "/residential" []
           (do
             (overview/overview-init (atom (get-in @data/projects-atom [:projects 0])) route-chan)
             (ef/at ".context" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
-(defroute "/wadestown" {:as params}
+(defroute "/wadestown" []
           (do
-            (project/project-init data/wadestown-res-atom)
+            (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 0])))
             (ef/at ".context" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
@@ -77,7 +78,7 @@
 
 (defroute "/multi-residential" {:as params}
           (do
-            (overview/overview-init data/multi-atom route-chan)
+            (overview/overview-init data/projects-atom route-chan)
             (ef/at ".context" (ef/content "multi"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 

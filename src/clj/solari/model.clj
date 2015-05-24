@@ -13,14 +13,15 @@
     :heroku-postgresql-rose-url
     "postgresql://root:1fishy4me@localhost:5432/solari"))
 
-@projects-atom
 (def projects-atom
   (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
                      :category "Residential"
                      :projects [{:id "project-01"
                                  :projectid "wadestown"
                                  :title "Wadestown Renovation"
-                                 :thumbnail "/img/wadestown.jpg"}
+                                 :thumbnail "/img/wadestown.jpg"
+                                 :gallery-images ["wadestown-00.jpg" "wadestown-01.jpg" "wadestown-02.jpg"
+                                                  "wadestown-03.jpg" "wadestown-04.jpg" "wadestown-05.pg"]}
 
                                 {:id "project-02"
                                  :projectid "lyall"
@@ -30,7 +31,9 @@
                                 {:id "project-03"
                                  :projectid "catline"
                                  :title "Catline Lane Subdivision"
-                                 :thumbnail "/img/lyall.jpg"}]}
+                                 :thumbnail "/img/catline_thumb.jpg"}
+
+                                ]}
 
                     {:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
                      :category "Multi-Residential"
