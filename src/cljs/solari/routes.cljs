@@ -33,8 +33,7 @@
             (om/root admin/admin-page data/projects-atom
                      {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "home"))
-            (ef/at ".context" (ef/content ""))
-            (js/blabla)))
+            (ef/at ".context" (ef/content ""))))
 
 
 (defn home-page [data owner]
@@ -53,8 +52,7 @@
             (om/root home-page {}
                      {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "home"))
-            (ef/at ".context" (ef/content "Welcome"))
-            (js/blabla)))
+            (ef/at ".context" (ef/content "Welcome"))))
 
 
 ;How is this residiential atom working?
