@@ -76,6 +76,5 @@
                        :cljsbuild {:builds {:app
                                             {:source-paths ["env/prod/cljs"]
                                              :compiler
-                                             {:optimizations :advanced
-                                              :externs ["env/externs/externs.js"]
+                                             {:optimizations :whitespace
                                               :pretty-print false}}}}}})
