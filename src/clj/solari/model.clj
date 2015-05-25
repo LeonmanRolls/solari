@@ -3,7 +3,7 @@
             [environ.core :refer [env]]
             [clojure.core.async :refer [>! <! >!! <!! go chan buffer close! thread alts! alts!!]]
             [clojure.string :as string]
-            [solari.projects]
+            [solari.projects :as pr]
             [clojure.java.jdbc :as sql]
             [clojure.java.jdbc.deprecated :as sql-old]))
 
@@ -22,15 +22,15 @@
 (def projects-atom
   (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
                      :category "Residential"
-                     :projects [project-01 project-02 project-03 project-04]}
+                     :projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04]}
 
                     {:text "Solari’s success in the multi-unit residential development sector across New Zealand and Australia comes down to what we like to call ‘The Solari Way’. In a nutshell it’s an approach that balances the values and objectives of the developer, designer and tenants. Everyone involved with the project stands to benefit from such an insightful approach. Blending our understanding of commercial realities, how a target market perceives quality living spaces and how to effectively manage the design process from sketches to site, ensures our developments maintain their purpose and quality."
                      :category "Multi-unit Residential"
-                     :projects [project-05 project-06 project-07 project-08 project-09]}
+                     :projects [pr/project-05 pr/project-06 pr/project-07 pr/project-08 pr/project-09]}
 
                     {:text "At Solari we don’t define commercial buildings by their sheer scale but by their purpose.  We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "
                      :category "Commerical"
-                     :projects [project-10 project-11]}]}))
+                     :projects [pr/project-10 pr/project-11]}]}))
 
 
 (defresource projects
