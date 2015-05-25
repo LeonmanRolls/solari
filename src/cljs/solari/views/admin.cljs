@@ -20,29 +20,26 @@
   (reify
     om/IRender
     (render [this]
-      (dom/div nil
-               (dom/p nil (:title data))
-               (dom/input #js {:placeholder "Input new value..." :type "text" :ref "new-contact"})
-               (dom/button #js {:onClick #(update-value data owner)} "Add contact")))))
+      (dom/div #js {:className "cbp-mc-column"}
+               (dom/label #js {:for (:projectid data)} (:title data))
+               (dom/input #js {:placeholder "Input new value..." :type "text" :ref "new-contact" :name (:projectid data)})
+               (dom/button #js {:onClick #(update-value data owner) :className "cbp-mc-submit"} "Update Site")))))
 
 (defn category-view [data owner]
   (reify
     om/IRender
     (render [this]
-      (apply dom/h1 nil (:category data)
+      (apply dom/div #js {:className "cbp-mc-form"}
              (om/build-all project-view (:projects data))))))
 
 (defn admin-page [data owner]
   (reify
     om/IDidMount
     (did-mount [this]
-      (let [values (ef/from "#read-form-test" (ef/read-form))]
-        (ef/at "#read-form-demo" (ef/content (pr-str values))))
-      )
+      #_(println "Data" data))
     om/IRender
     (render [this]
       (dom/div nil
                (apply dom/h1 nil "Projects"
-                      (om/build-all category-view (:projects data)))
-               ))))
+                      (om/build-all category-view (:projects data)))))))
 

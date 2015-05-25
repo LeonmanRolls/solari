@@ -32,7 +32,7 @@
           (do
             (om/root admin/admin-page data/projects-atom
                      {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "home"))
+            (ef/at "body" (ef/set-attr :background "admin"))
             (ef/at "#nav-hint-inner" (ef/content "admin"))))
 
 
