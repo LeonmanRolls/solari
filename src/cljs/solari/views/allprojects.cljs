@@ -19,32 +19,22 @@
 
     om/IDidMount
     (did-mount [this]
-      (.-init js/Grid))
+      (js/megafolioInit))
 
     om/IRender
     (render [this]
-      (dom/ul #js {:id "org-rid" :className "og-grid"}
-              (dom/li nil
-                      (dom/a #js {:href "http://cargocollective.com/jaimemartinez/"
-                                  :data-largesrc "/img/lyall.jpg"
-                                  :data-title "The title"
-                                  :data-description "The Data description"}
-                             (dom/img #js {:src "/img/lyall.jpg"}))
 
-                      )
+    (dom/div #js {:className "container"}
+            (dom/div #js {:className "megafolio-container"}
+                    (dom/div #js {:className "mega-entry" :id "entry-1" :data-src "/img/lyall.jpg"
+                                  :data-bgposition "50% 50%" :data-width "320" :data-height "240"})
+                     (dom/div #js {:className "mega-entry" :id "entry-2" :data-src "/img/lyall.jpg"
+                                   :data-bgposition "0% 50%" :data-width "504" :data-height "400"})
+                     (dom/div #js {:className "mega-entry" :id "entry-3" :data-src "/img/lyall.jpg"
+                                   :data-bgposition "50% 100%" :data-width "504" :data-height "400"})
+                     ))
 
-              (dom/li nil
-                      (dom/a #js {:href "http://cargocollective.com/jaimemartinez/"
-                                  :data-largesrc "/img/lyall.jpg"
-                                  :data-title "The title"
-                                  :data-description "The Data description"}
-                             (dom/img #js {:src "/img/lyall.jpg"}))
-
-
-
-                      )
-
-               ))))
+      )))
 
 
 (defn all-projects-init [project-atom]
