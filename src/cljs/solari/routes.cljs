@@ -205,3 +205,4 @@
 (let [h (History.)]
   (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
   (doto h (.setEnabled true)))
+

@@ -39,7 +39,7 @@
                             :aria-hidden "true"}
                        (dom/p nil (:content data)))))))
 
-(defn project-page [data owner]
+(defn polaroid-page [data owner]
   (reify
 
     om/IInitState
@@ -48,29 +48,49 @@
 
     om/IDidMount
     (did-mount [this]
-      #_(do
-        (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "thumbnails"
-                                                 :fullscreen #js {:enabled true :nativeFS false}
-                                                 :visibleNearby #js {:enabled true :centerArea 0.5 :center true
-                                                                     :breakpoint 650 :breakpointCenterArea 0.64
-                                                                     :navigateByCenterClick true}})
-        (js/accordion)))
+      (do
+        (js/photostack js/window)))
 
     om/IRender
     (render [this]
-      (dom/div nil
+      (dom/section #js {:id "photostack-3" :className "photostack"}
+                   (dom/div nil
+                            (dom/figure nil
+                                        (dom/a #js {:href "#" :className "photostack-img"}
+                                               (dom/img #js {:src "/img/lyall.jpg"}))
+                                        (dom/figcaption nil
+                                                        (dom/h2 #js {:className "photostact-title"} "Happy Days")
+                                                        (dom/div #js {:className "photostack-back"}
+                                                                 (dom/p nil "Hello there"))))
 
-               #_(apply dom/div #js {:className "royalSlider rsDefault"}
-                      (om/build-all img-page (:gallery-images data)))
+                            (dom/figure nil
+                                        (dom/a #js {:href "#" :className "photostack-img"}
+                                               (dom/img #js {:src "/img/lyall.jpg"}))
+                                        (dom/figcaption nil
+                                                        (dom/h2 #js {:className "photostact-title"} "Happy Days")
+                                                        (dom/div #js {:className "photostack-back"}
+                                                                 (dom/p nil "Hello there"))))
 
-               #_(dom/div #js {:className "accordion"}
+                            (dom/figure nil
+                                        (dom/a #js {:href "#" :className "photostack-img"}
+                                               (dom/img #js {:src "/img/lyall.jpg" :className "polaroid-img"}))
+                                        (dom/figcaption nil
+                                                        (dom/h2 #js {:className "photostact-title"} "Happy Days")
+                                                        (dom/div #js {:className "photostack-back"}
+                                                                 (dom/p nil "Hello there"))))
 
-                        (apply dom/dl nil
-                               (om/build-all accordion-page (:accordion data))))))))
+
+                            )
+
+
+                  (dom/nav nil )
+
+
+               ))))
 
 
 (defn your-team-init [team-atom]
-  (do (om/root project-page team-atom
+  (do (om/root polaroid-page team-atom
                {:target (. js/document (getElementById "main-content-container"))})
       (ef/at ".context" (ef/content (:title @team-atom)))))
 
