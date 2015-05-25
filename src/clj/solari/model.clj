@@ -18,7 +18,6 @@
          :paragraph-one "Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. "
          :paragraph-two "We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
 
-
 (def projects-atom
   (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
                      :category "Residential"
@@ -32,13 +31,19 @@
                      :category "Commerical"
                      :projects [pr/project-10 pr/project-11]}]}))
 
-
 (defresource projects
              :service-available? true
              :allowed-methods [:get :put]
              :handle-method-not-allowed  "Method not allowed"
              :handle-ok (fn [context]
-                          @projects-atom)
+                          (let
+                            [pred (get-in context [:request :params :query])]
+                            (cond
+                              (= pred "full-info") @projects-atom
+                              (= pred "projects-only") [pr/project-01 pr/project-02 pr/project-03 pr/project-04
+                                                        pr/project-05 pr/project-06 pr/project-07 pr/project-08
+                                                        pr/project-09 pr/project-10 pr/project-11]
+                              :else (str "Method does not exist: " pred))))
              :put! (fn [ctx]
                      (reset! projects-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])

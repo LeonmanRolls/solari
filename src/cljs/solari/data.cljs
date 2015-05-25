@@ -5,6 +5,7 @@
             [ajax.core :refer [GET POST PUT]]))
 
 (def projects-atom (atom {}))
+(def individual-projects-atom (atom {}))
 (def home-page-atom (atom {}))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
@@ -39,10 +40,11 @@
 
                     :selected false}))
 
-(defn data-link [link atom]
+(defn data-link [link atom query]
   (do
     (GET link
-         {:format :edn
+         {:params {:query query}
+          :format :edn
           :handler #(reset! atom %)
           :error-handler u/ajax-error-handler})
 
@@ -55,7 +57,9 @@
 
 (defn data-init []
   (do
-    (data-link "/projects/" projects-atom)
-    (data-link "/home/" home-page-atom)))
+    (data-link "/projects/" projects-atom "full-info")
+    (data-link "/projects/" individual-projects-atom "projects-only")
+    (data-link "/home/" home-page-atom "")
+    ))
 
 
