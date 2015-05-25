@@ -23,7 +23,8 @@
 
 (go
  (loop []
-  (dispatch-route (<! route-chan))
+   (let [route (<! route-chan)]
+     (dispatch-route route))
   ;(println "loop: " (<! route-chan))
    (recur)))
 

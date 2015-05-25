@@ -13,11 +13,14 @@
                                           :items [{:id "nav-right-item-all-projects" :name "all-projects "
                                                    :selected false :route "/all-projects"}
                                                   {:id "nav-right-item-residential" :name "residential"
-                                                   :selected false :route "/residential"}
+                                                   :selected false :route "/residential"
+                                                   :category "cat-residential"}
                                                   {:id "nav-right-item-muti" :name "multi-residential"
-                                                   :selected false :route "/multi-residential"}
+                                                   :selected false :route "/multi-residential"
+                                                   :category "cat-multi-unit-residential"}
                                                   {:id "nav-right-item-commerical" :name "commerical"
-                                                   :selected false :route "/commercial"}
+                                                   :selected false :route "/commercial"
+                                                   :category "cat-commercial"}
                                                   {:id "nav-right-item-our" :name "our process"
                                                    :selected false :route "/our-process"}
                                                   {:id "nav-right-item-faqs" :name "faqs"

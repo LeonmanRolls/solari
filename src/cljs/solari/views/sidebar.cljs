@@ -66,14 +66,18 @@
 
         (go (loop []
               (let [selected (<! right-clicked)]
-                (routes/dispatch-route (:route selected))
+
+                (println "Selected: " selected )
+                (let [route (:route selected)]
+                  (if (or (= route "/residential") (= route "/multi-residential") (= route "/commercial"))
+                    (.megafilter js/api (:category (:data selected)))
+                    (routes/dispatch-route (:route selected))))
 
                 (loop [idx 0]
                   (when (< idx (count (:root menu-atom)))
                     (let [sub-menu-count (count (get-in menu-atom [:root idx :submenu :items])) ]
                       (loop [idxx 0]
                         (when (< idxx sub-menu-count)
-                         (println "hi")
                          (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))

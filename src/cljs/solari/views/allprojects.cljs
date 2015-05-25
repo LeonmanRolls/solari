@@ -16,8 +16,21 @@
       )
     om/IRender
     (render [this]
-      (dom/div #js {:className "mega-entry" :id (:id data) :data-src (:thumbnail data)
-                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"})
+      (dom/div #js {:className (str "mega-entry " (:category data))  :id (:id data) :data-src (:thumbnail data)
+                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+              (dom/div #js {:className "mega-hover"}
+                       (dom/div #js {:className "mega-hovertitle"} (:title data)
+                                (dom/div #js {:className "mega-hoversubtitle"} "subtitle"))
+
+                       (dom/a #js {:href "#"}
+                              (dom/div #js {:className "mega-hoverlink"}))
+
+                       (dom/a #js {:className "fancybox" :rel "group" :href (:thumbnail data)}
+                              (dom/div #js {:className "mega-hoverlink"}))
+
+                       )
+
+               )
 
       ))
   )

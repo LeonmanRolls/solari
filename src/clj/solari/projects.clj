@@ -2,6 +2,7 @@
 
 (def project-01 {:id "project-01"
                  :projectid "wadestown"
+                 :category "cat-residential cat-all"
                  :title "Wadestown Renovation"
                  :thumbnail "/img/wadestown/wadestown.jpg"
                  :gallery-images ["wadestown/wadestown-00.jpg" "wadestown/wadestown-01.jpg" "wadestown/wadestown-02.jpg"
@@ -24,6 +25,7 @@
 
 (def project-02 {:id "project-02"
                  :projectid "lyall"
+                 :category "cat-residential cat-all"
                  :title "Lyall bay renovation"
                  :thumbnail "/img/lyall/lyall.jpg"
                  :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -50,6 +52,7 @@
 
 (def project-03 {:id "project-03"
                  :projectid "catline"
+                 :category "cat-residential cat-all"
                  :title "Catline Lane Subdivision"
                  :thumbnail "/img/catline/catline_thumb.jpg"
                  :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -77,6 +80,7 @@
 (def project-04
   {:id "project-04"
    :projectid "plimmerton"
+   :category "cat-residential cat-all"
    :title "Plimmerton House"
    :thumbnail "/img/catline/catline_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -95,6 +99,7 @@
 (def project-05
   {:id "project-05"
    :projectid "vedado"
+   :category "cat-multi-unit-residential cat-all"
    :title "Vedado"
    :thumbnail "/img/vedado/veado_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -113,6 +118,7 @@
 (def project-06
   {:id "project-06"
    :projectid "sharella"
+   :category "cat-multi-unit-residential cat-all"
    :title "Sharella Nouveau"
    :thumbnail "/img/sharella/sharella.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -131,6 +137,7 @@
 (def project-07
   {:id "project-07"
    :projectid "pascal"
+   :category "cat-multi-unit-residential cat-all"
    :title "Pascal Orchard Houses"
    :thumbnail "/img/pascal/pascal.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -149,6 +156,7 @@
 (def project-08
   {:id "project-08"
    :projectid "sugarloaf"
+   :category "cat-multi-unit-residential cat-all"
    :title "Sugarloaf Road"
    :thumbnail "/img/sugarloaf/sugarloaf.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -167,6 +175,7 @@
 (def project-09
   {:id "project-09"
    :projectid "detroit"
+   :category "cat-multi-unit-residential cat-all"
    :title "Detroit"
    :thumbnail "/img/catline/catline_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -185,6 +194,7 @@
 (def project-10
   {:id "project-10"
    :projectid "oasis"
+   :category "cat-commercial cat-all"
    :title "Oasis Bar"
    :thumbnail "/img/oasis/oasis.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -203,6 +213,7 @@
 (def project-11
   {:id "project-11"
    :projectid "tinakori"
+   :category "cat-commercial cat-all"
    :title "Tinakori Road Medical Center"
    :thumbnail "/img/tinakori/tinakori.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
