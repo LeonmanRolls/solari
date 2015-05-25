@@ -9,6 +9,18 @@
 
 (enable-console-print!)
 
+(defn gallery-partial [data owner]
+  (reify
+    om/IInitState
+    (init-state [this]
+      )
+    om/IRender
+    (render [this]
+      (dom/div #js {:className "mega-entry" :id (:id data) :data-src (:thumbnail data)
+                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"})
+
+      ))
+  )
 
 
 (defn all-projects-page [data owner]
@@ -26,13 +38,9 @@
     (render [this]
 
     (dom/div #js {:className "container"}
-            (dom/div #js {:className "megafolio-container"}
-                    (dom/div #js {:className "mega-entry" :id "entry-1" :data-src "/img/lyall.jpg"
-                                  :data-bgposition "50% 50%" :data-width "320" :data-height "240"})
-                     (dom/div #js {:className "mega-entry" :id "entry-2" :data-src "/img/lyall.jpg"
-                                   :data-bgposition "0% 50%" :data-width "504" :data-height "400"})
-                     (dom/div #js {:className "mega-entry" :id "entry-3" :data-src "/img/lyall.jpg"
-                                   :data-bgposition "50% 100%" :data-width "504" :data-height "400"})
+            (apply dom/div #js {:className "megafolio-container"}
+                    (om/build-all gallery-partial data {:key :id})
+
                      ))
 
       )))

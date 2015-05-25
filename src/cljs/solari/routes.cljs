@@ -31,7 +31,7 @@
 (sec/set-config! :prefix "#")
 
 (defroute all-projects "/all-projects" []
-          (allprojects/all-projects-init data/projects-atom))
+          (allprojects/all-projects-init data/individual-projects-atom))
 
 (defroute admin "/admin" []
           (admin/admin-init data/home-page-atom))
