@@ -5,6 +5,7 @@
             [solari.views.overview :as overview]
             [solari.views.project :as project]
             [solari.views.yourteam :as yourteam]
+            [solari.views.home :as home]
             [solari.views.admin :as admin]
             [ajax.core :refer [GET POST PUT]]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
@@ -28,33 +29,18 @@
 ;Fallback for browsers without html5 history support
 (sec/set-config! :prefix "#")
 
-
 (defroute admin "/admin" []
           (do
-            (om/root admin/admin-page data/projects-atom
-                     {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "admin"))
-            (ef/at "#nav-hint-inner" (ef/content "admin"))))
-
-
-(defn home-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/div #js {:id "spider"}
-               (dom/canvas #js {:id "demo-canvas" :width "100%" :height "100%"})
-               (dom/div #js {:className "main-title"}
-                        (dom/p #js {:className "title"} "Come on in...")
-                        (dom/strong nil "We're Solari architects.")
-                        (dom/p nil " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond."))))))
+           (data/data-init)
+           (admin/admin-init data/home-page-atom)
+           )
+          )
 
 (defroute "/" []
-          (do
-            (om/root home-page {}
-                     {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "home"))
-            (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
+          (home/home-init data/home-page-atom))
 
+(defroute "/home" []
+          (home/home-init data/home-page-atom))
 
 ;How is this residiential atom working?
 (defroute residential "/residential" []

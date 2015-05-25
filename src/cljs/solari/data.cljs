@@ -5,10 +5,13 @@
             [ajax.core :refer [GET POST PUT]]))
 
 (def projects-atom (atom {}))
+(def home-page-atom (atom {}))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
-                                          :items [{:id "nav-right-item-residential" :name "residential"
+                                          :items [{:id "nav-right-item-residential" :name "all projects "
+                                                   :selected false :route "/all-projects"}
+                                                  {:id "nav-right-item-residential" :name "residential"
                                                    :selected false :route "/residential"}
                                                   {:id "nav-right-item-muti" :name "multi-residential"
                                                    :selected false :route "/multi-residential"}
@@ -36,21 +39,23 @@
 
                     :selected false}))
 
+(defn data-link [link atom]
+  (do
+    (GET link
+         {:format :edn
+          :handler #(reset! atom %)
+          :error-handler u/ajax-error-handler})
+
+    (add-watch atom nil
+               (fn [key atom old-state new-state]
+                 (PUT link
+                      {:params {:projects (prn-str @atom) }
+                       :format :raw
+                       :error-handler u/ajax-error-handler})))))
 
 (defn data-init []
   (do
-    (GET "/projects/"
-     {:params {:info "all-game-info"
-               :fields "gamename,gameid"
-               :gameid "we"}
-      :format :edn
-      :handler #(reset! projects-atom %)
-      :error-handler u/ajax-error-handler})
+    (data-link "/projects/" projects-atom)
+    (data-link "/home/" home-page-atom)))
 
-    (add-watch projects-atom :projects-watcher
-           (fn [key atom old-state new-state]
-             (PUT "/projects/"
-                  {:params {:projects (prn-str @projects-atom) }
-                   :format :raw
-                   :error-handler u/ajax-error-handler})))))
 

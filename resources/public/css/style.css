@@ -761,7 +761,7 @@ margin-top: 10px;
 .cbp-mc-form label {
 	display: block;
 	padding: 40px 5px 5px 2px;
-	font-size: 0.6em;
+	font-size: 1em;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	cursor: pointer;
@@ -773,7 +773,7 @@ margin-top: 10px;
 .cbp-mc-form select {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	line-height: 1.5;
-	font-size: 0.6em;
+	font-size: 1em;
 	padding: 5px 10px;
 	color: #fff;
 	display: block;
@@ -829,6 +829,7 @@ margin-top: 10px;
 }
 
 .cbp-mc-form input.cbp-mc-submit , button{
+margin-top: 10px;
 	background: #1b1b1d;
 	border: none;
 	color: #fff;
@@ -837,7 +838,7 @@ margin-top: 10px;
 	text-transform: uppercase;
 	display: inline-block;
 	padding: 15px 30px;
-	font-size: 0.3em;
+	font-size: 0.8em;
 	border-radius: 2px;
 	letter-spacing: 1px;
 }
@@ -1167,7 +1168,6 @@ figure.photostack-current::after {
 	-webkit-transform: scale(0.61);
 	transform: scale(0.61);
 }
-
 
 
 /* Photostack */

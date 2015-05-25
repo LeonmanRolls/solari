@@ -18,6 +18,7 @@
 (defroutes routes
            (resources "/")
            (ANY "/projects/" request m/projects)
+           (ANY "/home/" request m/home)
            (resources "/react" {:root "react"})
            (GET "/*" req (page)))
 

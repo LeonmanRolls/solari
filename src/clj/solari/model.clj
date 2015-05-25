@@ -1,17 +1,23 @@
 (ns solari.model
   (:require [liberator.core :refer [defresource resource request-method-in]]
             [environ.core :refer [env]]
-            [clojure.core.async :refer [>! <! >!! <!! go chan buffer close! thread alts! alts!! timeout]]
+            [clojure.core.async :refer [>! <! >!! <!! go chan buffer close! thread alts! alts!!]]
             [clojure.string :as string]
             [clojure.java.jdbc :as sql]
             [clojure.java.jdbc.deprecated :as sql-old]))
-
-
 
 (def db
   (env
     :heroku-postgresql-rose-url
     "postgresql://root:1fishy4me@localhost:5432/solari"))
+
+@home-page-atom
+(def home-page-atom
+  (atom {:main-title "Come on in..."
+         :sub-title "We're Solari architects."
+         :paragraph-one "Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. "
+         :paragraph-two "We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+
 
 (def projects-atom
   (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
@@ -165,6 +171,16 @@
                          @projects-atom)
              :put! (fn [ctx]
                      (reset! projects-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource home
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @home-page-atom)
+             :put! (fn [ctx]
+                     (reset! home-page-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])
 
 (defresource applications
