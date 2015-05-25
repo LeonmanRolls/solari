@@ -3,7 +3,7 @@
 (def project-01 {:id "project-01"
                  :projectid "wadestown"
                  :title "Wadestown Renovation"
-                 :thumbnail "/img/wadestown.jpg"
+                 :thumbnail "/img/wadestown/wadestown.jpg"
                  :gallery-images ["wadestown/wadestown-00.jpg" "wadestown/wadestown-01.jpg" "wadestown/wadestown-02.jpg"
                                   "wadestown/wadestown-03.jpg" "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.pg"]
                  :accordion [{:title "Specifics"
@@ -25,7 +25,7 @@
 (def project-02 {:id "project-02"
                  :projectid "lyall"
                  :title "Lyall bay renovation"
-                 :thumbnail "/img/lyall.jpg"
+                 :thumbnail "/img/lyall/lyall.jpg"
                  :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                                   "lyall/lyall-04.jpg"]
                  :accordion [{:title "Specifics"
@@ -51,7 +51,7 @@
 (def project-03 {:id "project-03"
                  :projectid "catline"
                  :title "Catline Lane Subdivision"
-                 :thumbnail "/img/catline_thumb.jpg"
+                 :thumbnail "/img/catline/catline_thumb.jpg"
                  :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                                   "lyall/lyall-04.jpg"]
                  :accordion [{:title "Specifics"
@@ -78,7 +78,7 @@
   {:id "project-04"
    :projectid "plimmerton"
    :title "Plimmerton House"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/catline/catline_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -96,7 +96,7 @@
   {:id "project-05"
    :projectid "vedado"
    :title "Vedado"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/vedado/veado_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -114,7 +114,7 @@
   {:id "project-06"
    :projectid "sharella"
    :title "Sharella Nouveau"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/sharella/sharella.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -132,7 +132,7 @@
   {:id "project-07"
    :projectid "pascal"
    :title "Pascal Orchard Houses"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/pascal/pascal.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -150,7 +150,7 @@
   {:id "project-08"
    :projectid "sugarloaf"
    :title "Sugarloaf Road"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/sugarloaf/sugarloaf.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -168,7 +168,7 @@
   {:id "project-09"
    :projectid "detroit"
    :title "Detroit"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/catline/catline_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -186,7 +186,7 @@
   {:id "project-10"
    :projectid "oasis"
    :title "Oasis Bar"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/oasis/oasis.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
@@ -204,7 +204,7 @@
   {:id "project-11"
    :projectid "tinakori"
    :title "Tinakori Road Medical Center"
-   :thumbnail "/img/catline_thumb.jpg"
+   :thumbnail "/img/tinakori/tinakori.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title "Specifics"
