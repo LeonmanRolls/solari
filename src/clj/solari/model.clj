@@ -12,7 +12,6 @@
     :heroku-postgresql-rose-url
     "postgresql://root:1fishy4me@localhost:5432/solari"))
 
-@home-page-atom
 (def home-page-atom
   (atom {:main-title "Come on in..."
          :sub-title "We're Solari architects."
