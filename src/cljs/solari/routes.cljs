@@ -4,6 +4,7 @@
             [om.dom :as dom :include-macros true]
             [solari.views.overview :as overview]
             [solari.views.project :as project]
+            [solari.views.yourteam :as yourteam]
             [solari.views.admin :as admin]
             [ajax.core :refer [GET POST PUT]]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
@@ -161,11 +162,10 @@
 
 (defroute "/your-team" {:as params}
           (do
-            (om/root your-team-page {}
-                     {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-you"))
-            )
-          )
+
+            (yourteam/your-team-init (atom {}))
+
+            (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn your-career-page [data owner]
   (reify
