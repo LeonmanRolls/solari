@@ -4,6 +4,7 @@
             [om.dom :as dom :include-macros true]
             [solari.views.overview :as overview]
             [solari.views.project :as project]
+            [solari.views.allprojects :as allprojects]
             [solari.views.yourteam :as yourteam]
             [solari.views.home :as home]
             [solari.views.admin :as admin]
@@ -29,12 +30,11 @@
 ;Fallback for browsers without html5 history support
 (sec/set-config! :prefix "#")
 
+(defroute all-projects "/all-projects" []
+          (allprojects/all-projects-init data/projects-atom))
+
 (defroute admin "/admin" []
-          (do
-           (data/data-init)
-           (admin/admin-init data/home-page-atom)
-           )
-          )
+          (admin/admin-init data/home-page-atom))
 
 (defroute "/" []
           (home/home-init data/home-page-atom))

@@ -9,7 +9,7 @@
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
-                                          :items [{:id "nav-right-item-residential" :name "all projects "
+                                          :items [{:id "nav-right-item-all-projects" :name "all-projects "
                                                    :selected false :route "/all-projects"}
                                                   {:id "nav-right-item-residential" :name "residential"
                                                    :selected false :route "/residential"}

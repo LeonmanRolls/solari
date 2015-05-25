@@ -66,7 +66,6 @@
 
         (go (loop []
               (let [selected (<! right-clicked)]
-                (println "clicked: " selected)
                 (routes/dispatch-route (:route selected))
 
                 (loop [idx 0]
