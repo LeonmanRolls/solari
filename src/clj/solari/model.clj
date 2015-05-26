@@ -31,6 +31,146 @@
                      :category "Commerical"
                      :projects [pr/project-10 pr/project-11]}]}))
 
+(def process-atom
+  (atom  {:text "It goes without saying we want the best possible outcome for you and your project. That’s exactly why we do what we do…  "
+          :short {:step1 "We listen to your goals & objectives."
+                  :step2 "We translate your ideas, inspiration and words into design. This goes back and forth until we’re all speaking the same language. "
+                  :step3 "We communicate the solution to the right team of collaborators to actualise your vision. "}
+         :long [
+                {:heading "It starts with a chat."
+                 :paragraphs ["We get together and you tell us what you’re hoping to achieve. "
+                              "The things we’re interested in are: the project site, your timeframes, your expected budget and your vision. We’re always happy to show you our previous work and talk to you about how we can work with you. You can bring cuttings, mood boards, words, scribbles, Pinterest boards, music - just anything that helps us get an idea of what you’ve got in mind.  Also, tell us who you are.  Knowing a little more about your lifestyle, family, hobbies, goals and an entertaining story all helps us put together a quote for our services."
+                              "From there you can decide if you want to partner with us to work on your project (fingers crossed)."
+                              ]}
+
+                {:heading "Just so you know: Useful information."
+                 :paragraphs ["We are members of the NZIA. It’s useful because we will provide you with a copy of our comprehensive ‘Agreement for Architect's Services’. This document outlines every step of the process from first sketch designs through to completion. You know, all that useful information. "
+                              ]}
+
+                {:heading "Refining your vision."
+                 :paragraphs ["You decide you want to work with us. Good choice. "
+                              "Now we work on refining your vision. We flesh out all the inspiration and ideas from our initial meeting to get an in-depth understanding of who you are and what we will be working towards together. "
+                              "We form a clear brief that will act as a starting point for the concept development."
+                              ]}
+
+                {:heading "Getting to Know The Site."
+                 :paragraphs ["Depending on the requirements of your project we begin gathering information. This includes things like the Certificate of Title, drainage plans, zoning and town planning information. We will take pictures of the site and can organise to have the site surveyed on your behalf for its contours and boundaries."
+                              ]}
+
+                {:heading "Concept Development."
+                 :paragraphs ["This is the first time we’ll put our initial ideas in front of you for your feedback."
+                              "From here we will work with you to initially develop the basic spatial relationships of the building and importantly the site. We will work with you to develop floor plans and some sketch imagery of the look and style of what is proposed. "
+                              ]}
+
+                {:heading "Turning A Concept Into Drawings."
+                 :paragraphs ["It’s still early in the piece and the point of concept drawings is to encourage discussion. They can help you articulate what you do and don't like – and might even result in a complete change of direction. "
+                              "This is all part of the process – it's important to remember that at this stage it's not about being in total agreement on every detail, but to get a strong sense of whether we are heading in the right direction and have really listened to what you've talked about up to this point."
+                              "During this stage you also need to have a clear sense of budget and any issues that might impact upon that. "
+                              ]}
+
+                {:heading "Developing The Design & Budget Revisit. "
+                 :paragraphs ["This is the stage where everything begins to take shape. We’ve agreed on the concept and now it’s time to show you the details. We do this with 3-D CAD drawings, floor plans, flows, elevations, cut-through section drawings and detail drawings. "
+                              "Depending on the project requirements, size and budget we can also build a scale model to really show you how the project will finish up. "
+                              "It’s a very exciting part of the process, but to stay on track we will revisit your budget again and talk over your priorities in terms of cost, time and quality. It is likely that a Quantity Surveyor will be asked to make an independent cost estimate."
+                              ]}
+
+                {:heading "Deciphering Architectural Plans."
+                 :paragraphs ["We know it can be hard to visualise the finished product from architectural drawings. So please ask lots of questions and by all means do not gloss over anything you don’t understand. It’s really important to us that you see exactly what we see. "
+                              ]}
+
+                {:heading "The Nuts & Bolt Phase: Working Drawings and Building Consent. "
+                 :paragraphs ["In this stage your project is documented, co-ordinated and made “build-ready”. We finalise a comprehensive package of drawings and literature that builders will price from and councils will process for Building Consent. The complexity of the project will determine how detailed this package needs to be in order to achieve building consent. "
+                              "We apply for a building consent on your behalf. Each local authority has its own way of working fee structures and processing times. To ensure a stress free consent process we work in the consultation with councils as much as possible. "
+                              "Naturally we will keep you in the loop every step of the way so you know how things are tracking."
+                              ]}
+
+                {:heading "What Building Contractor? Tendering and Procurement"
+                 :paragraphs ["There are a number of ways to procure a building contractor. We can work with you to ascertain the best approach for your specific needs. There are a lot of issues to consider such as timeframe, budget, and desired quality that will have a bearing on your final decision. We will discuss all of the responses with you and we will work together to choose the best contractor for you and the project."
+                              ]}
+
+                {:heading "Contract Administration & Site Observation"
+                 :paragraphs ["This is the construction phase of the job. We work with you and the construction team to ensure that what we have designed with you is realised. "
+                              "The degree to which we administer and observe the building process will depend on the scope and complexity of your project. While a small simple project might only require occasional site visits, more complex projects where risk of non-compliance is higher, will require more frequent visits to review the work and approve payments to the builder."
+                              "Throughout this process more often than not changes can occur. This is expected and we are experienced at managing and dealing with formal variations to the contracted works."
+                              ]}
+
+                {:heading "Almost finished."
+                 :paragraphs ["As the build is nearing completion we undertake comprehensive inspections of the completed project and advise the builder of any defects that need fixing before signing off on practical completion and applying for code compliance certification from the local council."
+                              "Upon a satisfactory level of completion we are able to certify practical completion ready for you to move in. (Hooray!) "
+                              ]}
+
+                {:heading "Defects Period."
+                 :paragraphs ["Following practical completion there is a period of time in which the contractors are responsible for finishing any minor defects. At the end of this period we will inspect your project and make sure that any blemishes are addressed by the builder prior to issuing a defects liability certificate. "
+                              "Final monetary retentions are not released until this certificate is issued."
+                              ]}
+
+                {:heading "Overall."
+                 :paragraphs ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – it just makes sense that we come along for “the ride”. "
+                              "Construction is a complex process and is generally / naturally unfamiliar territory for most people. We therefore strongly believe we bring great value to this part of your project.  There are different ways we can structure our involvement and we have specific NZIA construction contracts depending on our exact role."
+                              ]}
+                ]}))
+
+(def faqs-atom (atom {:text "You’re not supposed to know it all before coming to us. Whether it’s your first time working with an architecture firm or you’ve lost count, there’s never a bad time to ask questions like:"
+                 :questions [
+                             {:q "How does Solari charge?"
+                              :a ""}
+
+                             {:q "How involved should I be in the architectural design process?"
+                              :a ""}
+
+                             {:q "What technical programs do you use?"
+                              :a ""}
+
+                             {:q "What types of insurance do you carry?"
+                              :a ""}
+
+                             {:q "How can you be sure a project doesn't go over budget?"
+                              :a ""}
+
+                             {:q "What's Solari's approach t sustainability?"
+                              :a ""}
+
+                             {:q "How should I cmmunicate what I want to Solari?"
+                              :a "Words, pictures, examples, feelings, thoughts – in whatever way you choose! "}
+
+                             {:q "Who does Solari Collaborate with to complete a project?"
+                              :a ""}
+
+                             {:q "What sized project is Solari capable of taking on?"
+                              :a "Due to James time in Australia he has working relationships with companies such as Woods Bagot, Cox, Scott Carber, GHD Woodhead. Across the board these firms have international experience in sectors such as Aviation, Hospitality, Workplace and Retail. We can partner with these firms to offer the best international expertise whilst still dealing with a local firm."}
+
+                             {:q "Why use an architect?"
+                              :a "Architects are design focussed. Now that doesn’t mean we just make our projects look good – although we do that too. We make them feel good and function well. We design structures that respond to their wider context and look past the “now” and look at how a"}
+
+                             {:q "It seems so expensive to use an Architect?"
+                              :a "Firstly (Practically thinking) Architects are subject to a statutory code of practice and have Professional Indemnity Insurance to protect their clients.Secondly. In your lifetime, a house is one of the biggest investments you will make. So why not make the most of that investment and ensure its long-term value. Take advantage of the opportunity to do it right. As your architect we will ensure that quality products are used, the space is right for your needs now and in the future, the design is created taking advantage of the best that your site has to offer. This is no cookie cutter experience"}
+
+                             ]
+                 }) )
+
+
+(defresource faqs
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @faqs-atom)
+             :put! (fn [ctx]
+                     (reset! faqs-atom (:faqs (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+
+(defresource process
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @process-atom)
+             :put! (fn [ctx]
+                     (reset! process-atom (:process (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+
 (defresource projects
              :service-available? true
              :allowed-methods [:get :put]
@@ -48,6 +188,7 @@
                      (reset! projects-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])
 
+
 (defresource home
              :service-available? true
              :allowed-methods [:get :put]
@@ -55,20 +196,6 @@
              :handle-ok (fn [context]
                           @home-page-atom)
              :put! (fn [ctx]
-                     (reset! home-page-atom (:projects (:params (:request ctx)))))
+                     (reset! home-page-atom (:home (:params (:request ctx)))))
              :available-media-types ["application/edn"])
-
-(defresource applications
-             :service-available? true
-             :allowed-methods [:get]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (sql/query db ["select appid from applications"])
-             :available-media-types ["application/json"])
-
-(defresource dataTest
-             :service-available? true
-             :allowed-methods [:get :post]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok  (fn [context] (println context))
-             :available-media-types ["text/plain"])
 

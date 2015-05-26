@@ -137,7 +137,7 @@
 
 (defroute "/faqs" {:as params}
           (do
-            (om/root faqs-page {}
+            (om/root faqs-page data/faqs-atom
                      {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "for-you"))
             )

@@ -7,6 +7,8 @@
 (def projects-atom (atom {}))
 (def individual-projects-atom (atom {}))
 (def home-page-atom (atom {}))
+(def faqs-atom (atom {}))
+(def process-atom (atom {}))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
@@ -63,6 +65,8 @@
     (data-link "/projects/" projects-atom "full-info")
     (data-link "/projects/" individual-projects-atom "projects-only")
     (data-link "/home/" home-page-atom "")
+    (data-link "/process/" process-atom "")
+    (data-link "/faqs/" faqs-atom "")
     )
   )
 
