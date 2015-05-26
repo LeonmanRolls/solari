@@ -1,4 +1,4 @@
-(ns solari.views.faqs
+(ns solari.views.process
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
@@ -8,6 +8,12 @@
   (:require-macros [enfocus.macros :as em]))
 
 (enable-console-print!)
+
+(defn p-partial [data owner]
+   (reify
+    om/IRender
+    (render [this]
+      (dom/p nil data))))
 
 
 (defn accordion-partial [data owner]
@@ -23,11 +29,15 @@
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:q data)))
+                              (:heading data)))
 
-               (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
+#_(apply dom/ul #js {:className "nav-ul-left"}
+                               (om/build-all nav-menu-item-left (:root menu-atom)
+                                             {:init-state {:clicked clicked}}))
+
+               (apply dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                       (dom/p nil (:a data)))))))
+                       (om/build-all p-partial (:paragraphs data)))))))
 
 (defn text-partial [data owner]
   (reify
@@ -37,7 +47,7 @@
       (dom/p #js {:className "text-box"} data))))
 
 
-(defn faqs-page [data owner]
+(defn process-page [data owner]
   (reify
 
     om/IInitState
@@ -52,19 +62,19 @@
     (render [this]
       (dom/div nil
 
-              (om/build text-partial (:text data))
+               (om/build text-partial (:text data))
 
                (dom/div #js {:className "accordion"}
                         (apply dom/dl nil
-                               (om/build-all accordion-partial (:questions data))))))))
+                               (om/build-all accordion-partial (:long data))))))))
 
 
 
 
 
-(defn faqs-init [atom]
+(defn process-init [atom]
   (do
-    (om/root faqs-page atom
+    (om/root process-page atom
              {:target (. js/document (getElementById "main-content-container"))})
     (ef/at "body" (ef/set-attr :background "home"))
     (ef/at "#nav-hint-inner" (ef/content "Welcome"))))

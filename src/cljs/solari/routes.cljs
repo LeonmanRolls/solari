@@ -9,6 +9,7 @@
             [solari.views.home :as home]
             [solari.views.admin :as admin]
             [solari.views.faqs :as faqs]
+            [solari.views.process :as process]
             [ajax.core :refer [GET POST PUT]]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
             [goog.events :as events]
@@ -96,45 +97,8 @@
             (ef/at "#nav-hint-inner" (ef/content "commerical"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
-(defn our-process-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/ul #js {:className "cbp_tmtimeline"}
-              (dom/li nil
-                      (dom/time #js {:className "cbp_tmtime"} (dom/span nil "One"))
-                      (dom/div #js {:className "cbp_tmicon cbp_tmicon-phone"})
-                      (dom/div #js {:className "cbp_tmlabel"}
-                               (dom/h2 nil "Riceban black-eyed pea")
-                               (dom/p nil "Winter purslane sdfdas
-                               asfasdf sdafsadf sfaddsa")))
-
-              (dom/li nil
-                      (dom/time #js {:className "cbp_tmtime"} (dom/span nil "Two"))
-                      (dom/div #js {:className "cbp_tmicon cbp_tmicon-phone"})
-                      (dom/div #js {:className "cbp_tmlabel"}
-                               (dom/h2 nil "Riceban black-eyed pea")
-                               (dom/p nil "Winter purslane...")))
-
-              (dom/li nil
-                      (dom/time #js {:className "cbp_tmtime"} (dom/span nil "Three"))
-                      (dom/div #js {:className "cbp_tmicon cbp_tmicon-phone"})
-                      (dom/div #js {:className "cbp_tmlabel"}
-                               (dom/h2 nil "Riceban black-eyed pea")
-                               (dom/p nil "Winter purslane...")))
-              ))))
-
 (defroute "/our-process" {:as params}
-          (do
-            (om/root our-process-page {}
-                     {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-you"))))
-
-(defn faqs-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/h1 nil "This is the faqs page"))))
+         (process/process-init data/process-atom))
 
 (defroute "/faqs" []
       (faqs/faqs-init data/faqs-atom))

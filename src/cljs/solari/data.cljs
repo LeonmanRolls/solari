@@ -17,7 +17,7 @@
                                                   {:id "nav-right-item-residential" :name "residential"
                                                    :selected false :route "/residential"
                                                    :category "cat-residential"}
-                                                  {:id "nav-right-item-muti" :name "multi-residential"
+                                                  {:id "nav-right-item-muti" :name "multi-unit"
                                                    :selected false :route "/multi-residential"
                                                    :category "cat-multi-unit-residential"}
                                                   {:id "nav-right-item-commerical" :name "commerical"
