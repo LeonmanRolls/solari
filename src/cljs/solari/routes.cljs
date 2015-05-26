@@ -5,6 +5,7 @@
             [solari.views.overview :as overview]
             [solari.views.project :as project]
             [solari.views.allprojects :as allprojects]
+            [solari.views.theteam :as theteam]
             [solari.views.yourteam :as yourteam]
             [solari.views.home :as home]
             [solari.views.admin :as admin]
@@ -27,7 +28,6 @@
  (loop []
    (let [route (<! route-chan)]
      (dispatch-route route))
-  ;(println "loop: " (<! route-chan))
    (recur)))
 
 ;Fallback for browsers without html5 history support
@@ -39,6 +39,12 @@
             (ef/at "#nav-hint-inner" (ef/content "All Projects"))
             (allprojects/all-projects-init data/individual-projects-atom "cat-all")))
 
+(defroute the-team "/your-team" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "Your Team"))
+            (theteam/the-team-init data/the-team-atom "cat-architect")))
+
 (defroute residential "/residential" []
           (do
             (allprojects/all-projects-init data/individual-projects-atom "cat-residential")
@@ -48,7 +54,7 @@
 (defroute "/multi-residential" {:as params}
           (do
             (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential")
-            (ef/at "#nav-hint-inner" (ef/content "Multi-unit"))
+            (ef/at "#nav-hint-inner" (ef/content "Multi-unit residential"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/commercial" {:as params}
@@ -104,17 +110,6 @@
             (ef/at "body" (ef/set-attr :background "for-you"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
-(defn your-team-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/h1 nil "This is the your team page"))))
-
-(defroute "/your-team" {:as params}
-          (do
-            (yourteam/your-team-init (atom {}))
-            (ef/at "#nav-hint-inner" (ef/content "Your team"))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn your-career-page [data owner]
   (reify

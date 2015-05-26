@@ -58,7 +58,7 @@
 
     om/IRender
     (render [this]
-      (dom/div nil
+      (dom/div #js {:id "project-container"}
 
                (apply dom/div #js {:className "royalSlider rsDefault"}
                       (om/build-all img-page (:gallery-images data)))

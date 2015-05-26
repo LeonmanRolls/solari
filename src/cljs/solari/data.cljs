@@ -9,6 +9,7 @@
 (def home-page-atom (atom {}))
 (def faqs-atom (atom {}))
 (def process-atom (atom {}))
+(def the-team-atom (atom {}))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
@@ -67,7 +68,11 @@
     (data-link "/home/" home-page-atom "")
     (data-link "/process/" process-atom "")
     (data-link "/faqs/" faqs-atom "")
+    (data-link "/team/" the-team-atom "")
     )
   )
 
+(defn megafolio-preprocessor [team-members]
 
+
+  )

@@ -145,8 +145,96 @@
                              {:q "It seems so expensive to use an Architect?"
                               :a "Firstly (Practically thinking) Architects are subject to a statutory code of practice and have Professional Indemnity Insurance to protect their clients.Secondly. In your lifetime, a house is one of the biggest investments you will make. So why not make the most of that investment and ensure its long-term value. Take advantage of the opportunity to do it right. As your architect we will ensure that quality products are used, the space is right for your needs now and in the future, the design is created taking advantage of the best that your site has to offer. This is no cookie cutter experience"}
 
-                             ]
-                 }) )
+                             ]}))
+
+(def the-team-atom
+  (atom {:text "The Solari team is your team. As collaborators there is no “our way” verse “your way”. Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as “normal people” by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."
+         :title "Your Team"
+         :team-members [{:name "James Solari"
+                         :memberid "jsolari"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Director & Lead Architect"
+                         :how ["After 14 years working for other people I decided it was time to step out on my own and build a business that focussed on my specific areas of expertise. I was fortunate to find a group of talented (and fun) people to work with that share my vision and deliver great results for our clients."
+                               "I have unique experience in multi-unit residential builds as a result of my time at Woodhead in Australia.  I believe that New Zealand’s market it still relatively immature. As our population grows we need to intensify our housing solutions. But we need to do it in a way that fosters communities, creates safe and healthy living environments and enables people to thrive."
+                               "Having said that, my passion and expertise is not limited to multi-unit solutions. I love to work on stand-alone houses, commercial and hospitality solutions. I’m excited about exploring and balancing the cross-overs between how we live, work and play."]
+                         :goals ""
+                         :advice ""
+                         :outside ""}
+
+                        {:name "Catherine Solari"
+                         :memberid "csolari"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Corporate Services Manager"
+                         :how ["After 17 years working in sales roles in the IT industry James and I decided to start a family and along came our little guy Hugo. Instead of returning to the land of IT after a year of looking after that wee guy I decided it was a much better idea to jump in and help out James with his flourishing little business. It was doing so well he didn’t have time to run it, so with my experience in large corporates and with sound business practices I came on board to lend a hand. Over the last 2 years we have substantially grown the business from just a 3 person operation to the team of 7 it is now and with all the work we have going there James is flat out being an Architect.  Its great fun and I’m really proud of how things are going."
+                               ]
+                         :goals ""
+                         :advice "Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."
+                         :outside ""}
+
+                        {:name "Matt Cane"
+                         :memberid "mcane"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Senior Technician"
+                         :how ["I recently returned home from the UK where I predominantly worked on community housing projects. During this time I worked with Not-for-Profit Housing organisations such as Forth Housing Association, Places for People and Dunedin Canmore Housing Association.  I have worked with the UK standards such as Housing for Varying Needs, Secured by Design, BRE Eco Homes."]
+                         :goals ""
+                         :advice "Don’t cry over spilt milk. Literally relevant these days with a young child."
+                         :outside "You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "}
+
+                        {:name "Melanie Zyteka"
+                         :memberid "mzyteka"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Senior Technician"
+                         :how ["After graduating as an Architectural Technician from Wellington Polytechnic in 1998, I moved to London where I worked on a variety of projects. The call of home grew louder and I returned in 2005 to work at Archaus Architects until joining Solari Architects at the end of 2013. My career so far has included commercial, multi-storey residential and hospitality projects. "
+                               "I was thrilled to join the Solari team as they’re such a vibrant company who thrive on producing great designs. They also have a really supportive team structure. "
+                               ]
+                         :goals ""
+                         :advice "We are a long time dead so make sure you enjoy your life and that includes where you work!"
+                         :outside ""}
+
+                        {:name "Monique Addis"
+                         :memberid "maddis"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Senior Designer"
+                         :how ["Monique brings to the Solari Architects team 17 years of well-rounded experience in all facets of the design and project delivery process.   Monique has been involved in award winning high quality residential and commercial projects of mixed scale, throughout New Zealand in urban, rural and coastal settings. From 2008, Monique took time out of the profession to raise her young family and undertake her own architectural project."
+                               "During this time she continued with contract architectural work before joining the team at Solari Architects mid-2013. Monique is excellent at multi-tasking and ensures all aspects of her projects are completed to the highest standard.  She enjoys the collaborative process of taking a project from the design brief through to construction and completion."
+                               ]
+                         :goals ""
+                         :advice "Don’t leave things until the last minute. Do it once, do it right!"
+                         :outside ""}
+
+                        {:name "Alex Brimmicombe"
+                         :memberid "abrimmicombe"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Architectural Graduate"
+                         :how ["In mid 2015 the stars seemed to align. I was lucky enough to be taken on board by the team at Solari Architects. Before this, I spent ten months in a smaller Wellington firm after completing my Master’s degree at Victoria University. My final year of study focussed on safety through spatial design and creating future proof public architecture."
+                               "Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as a graduate architect. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."
+                               ]
+                         :goals ""
+                         :advice ""
+                         :outside "You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."}
+
+                        {:name "Molly Marshall"
+                         :memberid "mmarshall"
+                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everydat.jpg"}
+                         :Role "Architectural Graduate"
+                         :how ["I Joined the Solari team full time in 2015. Before that I was working part time with them whilst completeing my Master’s thesis at Victoria university. I’m enjoying the opportunity to be involved in all areas of the architectural process. "
+                               ]
+                         :goals ""
+                         :advice ""
+                         :outside "you’ll find me playing social netball and café hopping around Wellington."}
+                        ]
+                    }))
+
+
+(defresource team
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @the-team-atom)
+             :put! (fn [ctx]
+                     (reset! the-team-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
 
 
 (defresource faqs

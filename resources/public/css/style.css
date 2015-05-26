@@ -1432,3 +1432,6 @@ border-radius: 0px;
   text-align: left;
 }
 
+#project-container{
+max-width: 800px;
+}
