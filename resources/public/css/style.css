@@ -33,6 +33,15 @@ body[background=admin] {
   background: #7f8c8d;
 }
 
+body[background=grey] {
+  background: #7f8c8d;
+}
+
+a:focus{
+color: white;
+outline: none;
+}
+
 a:hover{
 text-decoration: none;
 color: white;
@@ -127,7 +136,8 @@ border-bottom: 1px solid white !important;
 }
 
 .right-nav-selected{
-background-color: #3498db !important;
+font-weight: bold;
+color: #1b1b1d !important;
 }
 
 .nav-ul-left li{
@@ -579,30 +589,26 @@ width: 100%;
   text-align: center;
 }
 
-.accordion dl {
-  border: 1px solid #ddd;
-}
-.accordion dl:after {
-  content: "";
-  display: block;
-  height: 1em;
-  width: 100%;
-  background-color: #000000;
+.accordion dl:first-child dt a {
+ /* border-top: 2px solid #1abc9c; */
 }
 
 .accordion dd {
-  background-color: #eee;
   font-size: 1em;
   line-height: 1.5em;
 }
 
 .accordion p {
+margin: 0px;
   padding: 1em 2em 1em 2em;
+  color:white;
+ border-bottom: 2px solid #1abc9c;
 }
 
 .accordion {
   position: relative;
   background-color: rgba(29,29,27,0.4);
+  border-top: 2px solid #1abc9c;
 }
 
 .container {
@@ -612,18 +618,28 @@ width: 100%;
 }
 
 .accordionTitle {
+text-transform: uppercase;
   text-decoration: none;
-  text-align: center;
+  text-align: left;
   font-weight: 700;
-  padding: 2em;
+  padding: 1em;
   display: block;
-  text-decoration: none;
+  text-decoration: none !important;
   color: #fff;
   -webkit-transition: background-color 0.5s ease-in-out;
           transition: background-color 0.5s ease-in-out;
-  border-bottom: 1px solid #000000;
+  border-bottom: 2px solid #1abc9c;
+  border-right: 2px solid #1abc9c;
+  border-left: 2px solid #1abc9c;
 }
-.accordionTitle:before {
+
+
+accordionTitle:focus{
+color: white !important;
+}
+
+/*
+.accordionTitle:after {
   content: "+";
   font-size: 1.5em;
   line-height: 0.5em;
@@ -631,13 +647,14 @@ width: 100%;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
           transition: transform 0.3s ease-in-out;
 }
+*/
 .accordionTitle:hover {
-  background-color: #2c3e50;
+  background-color: #1b1b1d;
 }
 
 .accordionTitleActive,
 .accordionTitle.is-expanded {
-  background-color: #34495e;
+  background-color: #1b1b1d;
 }
 .accordionTitleActive:before,
 .accordionTitle.is-expanded:before {
@@ -1396,6 +1413,14 @@ height: 240px;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
    -webkit-box-sizing: border-box;
+}
+
+.mega-hover:hover .mega-hoverlink {
+  right: 38%;
+}
+
+.mega-entry .mega-entry-innerwrap {
+border: none;
 }
 
 /* Megafolio */

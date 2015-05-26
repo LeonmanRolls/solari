@@ -32,7 +32,9 @@
 (sec/set-config! :prefix "#")
 
 (defroute all-projects "/all-projects" []
-          (allprojects/all-projects-init data/individual-projects-atom))
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (allprojects/all-projects-init data/individual-projects-atom)))
 
 (defroute admin "/admin" []
           (admin/admin-init data/home-page-atom))
@@ -50,27 +52,23 @@
             (ef/at "#nav-hint-inner" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
-(atom (get-in @data/projects-atom [:projects 0 :projects 0]))
-(get-in @data/projects-atom [0])
-(count @data/projects-atom)
 (defroute "/wadestown" []
           (do
-            (println "hi there" @data/projects-atom)
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 0])))
             (ef/at "#nav-hint-inner" (ef/content ""))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
+            (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/lyall" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 1])))
             (ef/at "#nav-hint-inner" (ef/content ""))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
+            (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/catline" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 2])))
             (ef/at "#nav-hint-inner" (ef/content ""))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
+            (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defn multi-residential-page [data owner]
   (reify
