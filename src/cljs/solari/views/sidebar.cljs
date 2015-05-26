@@ -67,11 +67,12 @@
         (go (loop []
               (let [selected (<! right-clicked)]
 
-                (println "Selected: " selected )
-                (let [route (:route selected)]
+                (routes/dispatch-route (:route selected))
+
+                #_(let [route (:route selected)]
                   (if (or (= route "/residential") (= route "/multi-residential") (= route "/commercial"))
                     (.megafilter js/api (:category (:data selected)))
-                    (routes/dispatch-route (:route selected))))
+                    ))
 
                 (loop [idx 0]
                   (when (< idx (count (:root menu-atom)))
@@ -104,8 +105,7 @@
                                          (loop [idx 0]
                                            (when (< idx 3)
                                              (om/transact! menu-atom [:root idx :selected] (fn [_] false))
-                                             (recur (inc idx))))
-                                         )))))
+                                             (recur (inc idx)))))))))
 
     om/IRenderState
     (render-state [this {:keys [clicked right-clicked]}]

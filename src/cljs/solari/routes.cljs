@@ -37,7 +37,25 @@
           (do
             (ef/at "body" (ef/set-attr :background "grey"))
             (ef/at "#nav-hint-inner" (ef/content "All Projects"))
-            (allprojects/all-projects-init data/individual-projects-atom)))
+            (allprojects/all-projects-init data/individual-projects-atom "cat-all")))
+
+(defroute residential "/residential" []
+          (do
+            (allprojects/all-projects-init data/individual-projects-atom "cat-residential")
+            (ef/at "#nav-hint-inner" (ef/content "Residential"))
+            (ef/at "body" (ef/set-attr :background "grey"))))
+
+(defroute "/multi-residential" {:as params}
+          (do
+            (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential")
+            (ef/at "#nav-hint-inner" (ef/content "Multi-unit"))
+            (ef/at "body" (ef/set-attr :background "grey"))))
+
+(defroute "/commercial" {:as params}
+          (do
+            (allprojects/all-projects-init data/individual-projects-atom "cat-commercial")
+            (ef/at "#nav-hint-inner" (ef/content "Commercial"))
+            (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute admin "/admin" []
           (do
@@ -51,12 +69,6 @@
             (ef/at "#nav-hint-inner" (ef/content "Welcome"))
             (home/home-init data/home-page-atom)))
 
-;How is this residiential atom working?
-(defroute residential "/residential" []
-          (do
-            (overview/overview-init (atom (get-in @data/projects-atom [:projects 0])) route-chan)
-            (ef/at "#nav-hint-inner" (ef/content "Residential"))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defroute "/wadestown" []
           (do
@@ -76,31 +88,7 @@
             (ef/at "#nav-hint-inner" (ef/content "Residential - Catline"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
-(defn multi-residential-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/h1 nil "This is the multi-residential page"))))
 
-(defroute "/multi-residential" {:as params}
-          (do
-            (overview/overview-init data/projects-atom route-chan)
-            (ef/at "#nav-hint-inner" (ef/content "Multi-unit"))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
-
-(defn commercial-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/h1 nil "This is the commercial page"))))
-
-
-(defroute "/commercial" {:as params}
-          (do
-            (om/root commercial-page {}
-                     {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "#nav-hint-inner" (ef/content "Commerical"))
-            (ef/at "body" (ef/set-attr :background "for-you"))))
 
 
 (defroute "/our-process" {:as params}

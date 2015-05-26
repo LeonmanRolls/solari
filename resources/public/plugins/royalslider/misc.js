@@ -10,7 +10,7 @@ filterChangeAnimation:"fade",
             delay:0,
             paddingHorizontal:10,
             paddingVertical:10,
-            layoutarray:[5]
+            layoutarray:[10]
 
 });
 }

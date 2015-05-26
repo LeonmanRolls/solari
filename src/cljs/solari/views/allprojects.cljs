@@ -11,37 +11,27 @@
 
 (defn gallery-partial [data owner]
   (reify
+
     om/IInitState
-    (init-state [this]
-      )
+    (init-state [this])
+
     om/IRender
     (render [this]
       (dom/div #js {:className (str "mega-entry " (:category data))  :id (:id data) :data-src (:thumbnail data)
                     :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
-              (dom/div #js {:className "mega-hover"}
-                       (dom/div #js {:className "mega-hovertitle"} (:title data)
-                                (dom/div #js {:className "mega-hoversubtitle"} "subtitle"))
+               (dom/div #js {:className "mega-hover"}
+                        (dom/div #js {:className "mega-hovertitle"} (:title data)
+                                 (dom/div #js {:className "mega-hoversubtitle"} "subtitle"))
 
-                       (dom/a #js {:href (str "/#/" (:projectid data))}
-                              (dom/div #js {:className "mega-hoverlink"}))
-
-                       #_(dom/a #js {:className "fancybox" :rel "group" :href (:thumbnail data)}
-                              (dom/div #js {:className "mega-hoverlink"}))
-
-                       )
-
-               )
-
-      ))
-  )
+                        (dom/a #js {:href (str "/#/" (:projectid data))}
+                               (dom/div #js {:className "mega-hoverlink"})))))))
 
 
 (defn all-projects-page [data owner]
   (reify
 
     om/IInitState
-    (init-state [this]
-      )
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
@@ -50,17 +40,14 @@
     om/IRender
     (render [this]
 
-    (dom/div #js {:className "container"}
-            (apply dom/div #js {:className "megafolio-container"}
-                    (om/build-all gallery-partial data {:key :id})
-
-                     ))
-
-      )))
+      (dom/div #js {:className "container"}
+               (apply dom/div #js {:className "megafolio-container"}
+                      (om/build-all gallery-partial data {:key :id}))))))
 
 
-(defn all-projects-init [project-atom]
+(defn all-projects-init [project-atom filter]
   (do (om/root all-projects-page project-atom
                {:target (. js/document (getElementById "main-content-container"))})
-      (ef/at ".context" (ef/content (:title @project-atom)))))
+      (ef/at ".context" (ef/content (:title @project-atom)))
+      (.megafilter js/api filter)))
 
