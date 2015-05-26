@@ -43,20 +43,20 @@
 
                     :selected false}))
 
-(defn data-link [link atom query]
-  (do
-    (GET link
-         {:params {:query query}
-          :format :edn
-          :handler #(reset! atom %)
-          :error-handler u/ajax-error-handler})
-
-    (add-watch atom nil
+(defn watcher [atom link]
+  (add-watch atom nil
                (fn [key atom old-state new-state]
                  (PUT link
                       {:params {:projects (prn-str @atom) }
                        :format :raw
-                       :error-handler u/ajax-error-handler})))))
+                       :error-handler u/ajax-error-handler}))))
+
+(defn data-link [link atom query]
+  (GET link
+         {:params {:query query}
+          :format :edn
+          :handler #(do (reset! atom %) (watcher atom link))
+          :error-handler u/ajax-error-handler}))
 
 (defn data-init []
   (do

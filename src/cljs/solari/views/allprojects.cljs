@@ -22,10 +22,10 @@
                        (dom/div #js {:className "mega-hovertitle"} (:title data)
                                 (dom/div #js {:className "mega-hoversubtitle"} "subtitle"))
 
-                       (dom/a #js {:href "#"}
+                       (dom/a #js {:href (str "/#/" (:projectid data))}
                               (dom/div #js {:className "mega-hoverlink"}))
 
-                       (dom/a #js {:className "fancybox" :rel "group" :href (:thumbnail data)}
+                       #_(dom/a #js {:className "fancybox" :rel "group" :href (:thumbnail data)}
                               (dom/div #js {:className "mega-hoverlink"}))
 
                        )

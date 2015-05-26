@@ -602,7 +602,7 @@ width: 100%;
 
 .accordion {
   position: relative;
-  background-color: #eee;
+  background-color: rgba(29,29,27,0.4);
 }
 
 .container {
@@ -613,7 +613,6 @@ width: 100%;
 
 .accordionTitle {
   text-decoration: none;
-  background-color: #1b1b1d;
   text-align: center;
   font-weight: 700;
   padding: 2em;

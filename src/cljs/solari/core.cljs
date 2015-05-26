@@ -14,6 +14,5 @@
 (enable-console-print!)
 
 (defn main []
- (sb/nav-init data/nav-map)
- (data/data-init)
-  )
+  (data/data-init)
+ (sb/nav-init data/nav-map))

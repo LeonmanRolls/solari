@@ -50,8 +50,12 @@
             (ef/at "#nav-hint-inner" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
+(atom (get-in @data/projects-atom [:projects 0 :projects 0]))
+(get-in @data/projects-atom [0])
+(count @data/projects-atom)
 (defroute "/wadestown" []
           (do
+            (println "hi there" @data/projects-atom)
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 0])))
             (ef/at "#nav-hint-inner" (ef/content ""))
             (ef/at "body" (ef/set-attr :background "for-you"))))
