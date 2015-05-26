@@ -72,7 +72,35 @@
     )
   )
 
+@the-team-atom
+(data-init)
+
+
 (defn megafolio-preprocessor [team-members]
+  (into []
+        (concat
+          (into []
+                (map
+                  (fn [x] (conj
+                            {}
+                            {:thumbnail (:hipster (:profilepics x))}
+                            {:category "cat-all cat-hipster"}
+                            {:id (:memberid x)}
+                            {:title (:name x)}
+                            {:memberid (:memberid x)}))
+                  team-members))
+          (into []
+                (map
+                  (fn [x] (conj
+                            {}
+                            {:thumbnail (:hipster (:profilepics x))}
+                            {:category "cat-all cat-everyday"}
+                            {:id (:memberid x)}
+                            {:title (:name x)}
+                            {:memberid (:memberid x)}))
+                  team-members)))))
 
+(vector? (into [] (megafolio-preprocessor (:team-members @the-team-atom))))
 
-  )
+(count (megafolio-preprocessor (:team-members @the-team-atom)))
+

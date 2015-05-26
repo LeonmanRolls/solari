@@ -14,7 +14,7 @@
 
     om/IInitState
     (init-state [this]
-      (println "hi data" data))
+      #_(println "hi data" data))
 
     om/IRender
     (render [this]
@@ -59,7 +59,6 @@
 
     om/IInitState
     (init-state [this]
-      #_{:fiter (chan)}
       #_(println "the-team: " data))
 
     om/IDidMount
@@ -72,6 +71,12 @@
     (render [this]
 
       (dom/div #js {:className "container"}
+
+               (dom/p #js {:className "leader-p"} (:text data))
+
+               (dom/img #js {:src "/img/group_photo_everyday.jpg"})
+
+               (dom/br nil)
 
                (dom/span nil
                          (dom/button #js {:onClick #(.megafilter js/api "cat-hipster")} "Architect")
