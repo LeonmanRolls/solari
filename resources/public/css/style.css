@@ -14,7 +14,12 @@ background: url(/img/home_page.jpg);
 }
 
 body[background=for-you] {
-  background: url(/img/residential.jpg) no-repeat center center fixed;
+  background:
+ linear-gradient(
+       rgba(0, 0, 0, 0.7),
+       rgba(0, 0, 0, 0.7)
+     ),
+  url(/img/residential.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,11 +27,16 @@ body[background=for-you] {
 }
 
 body[background=for-architects] {
-  background: url(/img/for_architects.jpg);
+  background:
+  url(/img/for_architects.jpg);
 }
 
 body[background=from-us] {
-  background: url(/img/from_us.jpg);
+  background: linear-gradient(
+       rgba(0, 0, 0, 0.7),
+       rgba(0, 0, 0, 0.7)
+     ),
+  url(/img/from_us.jpg);
 }
 
 body[background=admin] {
@@ -34,7 +44,12 @@ body[background=admin] {
 }
 
 body[background=grey] {
-  background: #7f8c8d;
+  background:
+  linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+  #7f8c8d;
 }
 
 a:focus{
@@ -1426,7 +1441,7 @@ border-radius: 0px;
 /* Megafolio */
 
 .text-box{
-  background-color: rgba(255, 255, 255, 0.901961);
+color: white;
   margin: 0;
   padding: 40px;
   text-align: left;

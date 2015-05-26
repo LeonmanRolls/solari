@@ -100,14 +100,14 @@
 (defroute "/our-process" {:as params}
           (do
             (process/process-init data/process-atom)
-            (ef/at "body" (ef/set-attr :background "for-you"))
+            (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "Our Process"))))
 
 
 (defroute "/faqs" []
           (do
             (faqs/faqs-init data/faqs-atom)
-            (ef/at "body" (ef/set-attr :background "for-you"))
+            (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
 
