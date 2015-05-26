@@ -156,7 +156,7 @@
              :handle-ok (fn [context]
                           @faqs-atom)
              :put! (fn [ctx]
-                     (reset! faqs-atom (:faqs (:params (:request ctx)))))
+                     (reset! faqs-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])
 
 
@@ -167,7 +167,7 @@
              :handle-ok (fn [context]
                           @process-atom)
              :put! (fn [ctx]
-                     (reset! process-atom (:process (:params (:request ctx)))))
+                     (reset! process-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])
 
 
@@ -196,6 +196,6 @@
              :handle-ok (fn [context]
                           @home-page-atom)
              :put! (fn [ctx]
-                     (reset! home-page-atom (:home (:params (:request ctx)))))
+                     (reset! home-page-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])
 

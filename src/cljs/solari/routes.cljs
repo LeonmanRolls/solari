@@ -8,6 +8,7 @@
             [solari.views.yourteam :as yourteam]
             [solari.views.home :as home]
             [solari.views.admin :as admin]
+            [solari.views.faqs :as faqs]
             [ajax.core :refer [GET POST PUT]]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
             [goog.events :as events]
@@ -135,13 +136,8 @@
     (render [this]
       (dom/h1 nil "This is the faqs page"))))
 
-(defroute "/faqs" {:as params}
-          (do
-            (om/root faqs-page data/faqs-atom
-                     {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-you"))
-            )
-          )
+(defroute "/faqs" []
+      (faqs/faqs-init data/faqs-atom))
 
 (defn your-team-page [data owner]
   (reify
