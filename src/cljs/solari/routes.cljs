@@ -36,16 +36,20 @@
 (defroute all-projects "/all-projects" []
           (do
             (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "All Projects"))
             (allprojects/all-projects-init data/individual-projects-atom)))
 
 (defroute admin "/admin" []
-          (admin/admin-init data/home-page-atom))
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "Admin"))
+            (admin/admin-init data/home-page-atom)))
 
 (defroute "/" []
-          (home/home-init data/home-page-atom))
-
-(defroute "/home" []
-          (home/home-init data/home-page-atom))
+          (do
+            (ef/at "body" (ef/set-attr :background "home"))
+            (ef/at "#nav-hint-inner" (ef/content "Welcome"))
+            (home/home-init data/home-page-atom)))
 
 ;How is this residiential atom working?
 (defroute residential "/residential" []
@@ -57,19 +61,19 @@
 (defroute "/wadestown" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 0])))
-            (ef/at "#nav-hint-inner" (ef/content ""))
+            (ef/at "#nav-hint-inner" (ef/content "Residential - Wadestown"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/lyall" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 1])))
-            (ef/at "#nav-hint-inner" (ef/content ""))
+            (ef/at "#nav-hint-inner" (ef/content "Residential - Lyall"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/catline" []
           (do
             (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 2])))
-            (ef/at "#nav-hint-inner" (ef/content ""))
+            (ef/at "#nav-hint-inner" (ef/content "Residential - Catline"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defn multi-residential-page [data owner]
@@ -81,7 +85,7 @@
 (defroute "/multi-residential" {:as params}
           (do
             (overview/overview-init data/projects-atom route-chan)
-            (ef/at "#nav-hint-inner" (ef/content "multi"))
+            (ef/at "#nav-hint-inner" (ef/content "Multi-unit"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn commercial-page [data owner]
@@ -90,18 +94,27 @@
     (render [this]
       (dom/h1 nil "This is the commercial page"))))
 
+
 (defroute "/commercial" {:as params}
           (do
             (om/root commercial-page {}
                      {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "#nav-hint-inner" (ef/content "commerical"))
+            (ef/at "#nav-hint-inner" (ef/content "Commerical"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
+
 (defroute "/our-process" {:as params}
-         (process/process-init data/process-atom))
+          (do
+            (process/process-init data/process-atom)
+            (ef/at "body" (ef/set-attr :background "for-you"))
+            (ef/at "#nav-hint-inner" (ef/content "Our Process"))))
+
 
 (defroute "/faqs" []
-      (faqs/faqs-init data/faqs-atom))
+          (do
+            (faqs/faqs-init data/faqs-atom)
+            (ef/at "body" (ef/set-attr :background "for-you"))
+            (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
 (defn your-team-page [data owner]
   (reify
@@ -111,9 +124,8 @@
 
 (defroute "/your-team" {:as params}
           (do
-
             (yourteam/your-team-init (atom {}))
-
+            (ef/at "#nav-hint-inner" (ef/content "Your team"))
             (ef/at "body" (ef/set-attr :background "for-you"))))
 
 (defn your-career-page [data owner]
@@ -126,7 +138,9 @@
           (do
             (om/root your-career-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-architects"))))
+            (ef/at "body" (ef/set-attr :background "for-architects"))
+            (ef/at "#nav-hint-inner" (ef/content "Your Career"))
+            ))
 
 (defn meet-the-team-page [data owner]
   (reify
@@ -134,9 +148,29 @@
     (render [this]
       (dom/h1 nil "This is the meet your team page"))))
 
-(defroute "/meet-the-team" {:as params}
-          (om/root meet-the-team-page {}
-                   {:target (. js/document (getElementById "main-content-container"))}))
+
+(defroute "/meet-the-team" []
+          (do
+            (om/root meet-the-team-page {}
+                   {:target (. js/document (getElementById "main-content-container"))})
+            (ef/at "body" (ef/set-attr :background "for-architects"))
+            (ef/at "#nav-hint-inner" (ef/content "Meet the team"))))
+
+(defn jobs-page [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (dom/h1 nil "This is the jobs"))))
+
+
+(defroute "/jobs" []
+          (do
+            (om/root jobs-page {}
+                     {:target (. js/document (getElementById "main-content-container"))})
+            (ef/at "body" (ef/set-attr :background "for-architects"))
+            (ef/at "#nav-hint-inner" (ef/content "Jobs"))))
+
+
 
 (defn contact-page [data owner]
   (reify
