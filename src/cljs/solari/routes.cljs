@@ -41,7 +41,7 @@
 
 (defroute the-team "/your-team" []
           (do
-            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (theteam/the-team-init data/the-team-atom "cat-architect")))
 
