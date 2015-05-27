@@ -5,11 +5,17 @@
             [ajax.core :refer [GET POST PUT]]))
 
 (def projects-atom (atom {}))
+(set-validator! projects-atom #((complement empty?) %))
 (def individual-projects-atom (atom {}))
+(set-validator! individual-projects-atom #((complement empty?) %))
 (def home-page-atom (atom {}))
+(set-validator! home-page-atom #((complement empty?) %))
 (def faqs-atom (atom {}))
+(set-validator! faqs-atom #((complement empty?) %))
 (def process-atom (atom {}))
+(set-validator! process-atom #((complement empty?) %))
 (def the-team-atom (atom {}))
+(set-validator! the-team-atom #((complement empty?) %))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"
@@ -71,36 +77,4 @@
     (data-link "/team/" the-team-atom "")
     )
   )
-
-@the-team-atom
-(data-init)
-
-
-(defn megafolio-preprocessor [team-members]
-  (into []
-        (concat
-          (into []
-                (map
-                  (fn [x] (conj
-                            {}
-                            {:thumbnail (:hipster (:profilepics x))}
-                            {:category "cat-all cat-hipster"}
-                            {:id (:memberid x)}
-                            {:title (:name x)}
-                            {:memberid (:memberid x)}))
-                  team-members))
-          (into []
-                (map
-                  (fn [x] (conj
-                            {}
-                            {:thumbnail (:hipster (:profilepics x))}
-                            {:category "cat-all cat-everyday"}
-                            {:id (:memberid x)}
-                            {:title (:name x)}
-                            {:memberid (:memberid x)}))
-                  team-members)))))
-
-(vector? (into [] (megafolio-preprocessor (:team-members @the-team-atom))))
-
-(count (megafolio-preprocessor (:team-members @the-team-atom)))
 

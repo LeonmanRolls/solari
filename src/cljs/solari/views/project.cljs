@@ -14,11 +14,11 @@
 
     om/IInitState
     (init-state [this]
-      (println "img: " data))
+      #_(println "img: " data))
 
     om/IRender
     (render [this]
-      (dom/img #js {:className "rsImg" :src (str "/img/" data )}))))
+      (dom/img #js {:className "rsImg" :src (str "/img/" data ) :data-rsTmb (str "/img/" data )}))))
 
 (defn accordion-page [data owner]
   (reify
@@ -49,8 +49,8 @@
     om/IDidMount
     (did-mount [this]
       (do
-        (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "thumbnails"
-                                                 :fullscreen #js {:enabled true :nativeFS false}
+        (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "none"
+                                                 :fullscreen #js {:enabled true :nativeFS true}
                                                  :visibleNearby #js {:enabled true :centerArea 0.5 :center true
                                                                      :breakpoint 650 :breakpointCenterArea 0.64
                                                                      :navigateByCenterClick true}})
