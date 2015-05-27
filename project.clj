@@ -13,6 +13,7 @@
                  [org.clojure/clojurescript "0.0-2511" :scope "provided"]
                  [ring "1.3.2"]
                  [ring/ring-defaults "0.1.3"]
+                 [com.cemerick/url "0.1.1"]
                  [secretary "1.2.3"]
                  [compojure "1.3.1"]
                  [org.clojure/java.jdbc "0.3.6"]
@@ -78,3 +79,4 @@
                                              :compiler
                                              {:optimizations :whitespace
                                               :pretty-print false}}}}}})
+

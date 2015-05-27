@@ -2,20 +2,49 @@
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [cljs.core.async :refer [put! chan <! >! take! close!]]
             [solari.utils :as u]
-            [ajax.core :refer [GET POST PUT]]))
+            [cemerick.url :refer (url url-encode)]
+            [goog.events :as events]
+            [goog.history.EventType :as EventType]
+            [ajax.core :refer [GET POST PUT]]
+            [secretary.core :as sec])
+  (:import goog.History))
+
+(def ajax-chan (chan))
 
 (def projects-atom (atom {}))
 (set-validator! projects-atom #((complement empty?) %))
+(add-watch projects-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def individual-projects-atom (atom {}))
 (set-validator! individual-projects-atom #((complement empty?) %))
+(add-watch individual-projects-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def home-page-atom (atom {}))
 (set-validator! home-page-atom #((complement empty?) %))
+(add-watch home-page-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def faqs-atom (atom {}))
 (set-validator! faqs-atom #((complement empty?) %))
+(add-watch faqs-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def process-atom (atom {}))
 (set-validator! process-atom #((complement empty?) %))
+(add-watch process-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def the-team-atom (atom {}))
 (set-validator! the-team-atom #((complement empty?) %))
+(add-watch the-team-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
+;Wait for our ajax calls
+(go
+  (loop [ajax-count 0]
+    (<! ajax-chan)
+    (if (= ajax-count 5)
+      (aset
+        js/document
+        "onreadystatechange"
+        (sec/dispatch! (:anchor (url (-> js/window .-location .-href))))))
+    (recur (inc ajax-count))))
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
                                 :submenu {:id    "nav-left-01-sub"

@@ -2,6 +2,7 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
+            [cemerick.url :refer (url url-encode)]
             [solari.views.overview :as overview]
             [solari.views.project :as project]
             [solari.views.allprojects :as allprojects]
@@ -153,8 +154,6 @@
             (ef/at "body" (ef/set-attr :background "for-architects"))
             (ef/at "#nav-hint-inner" (ef/content "Jobs"))))
 
-
-
 (defn contact-page [data owner]
   (reify
     om/IRender
@@ -167,8 +166,13 @@
                    {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "from-us"))))
 
+;(do (sec/dispatch! (str "" (.-token %))) (println "token" (.-token %))  )
 ;; Quick and dirty history configuration.
+
 (let [h (History.)]
-  (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
-  (doto h (.setEnabled true)))
+    (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
+    (doto h (.setEnabled true)))
+
+
+
 

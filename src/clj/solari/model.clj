@@ -31,6 +31,9 @@
                      :category "Commerical"
                      :projects [pr/project-10 pr/project-11]}]}))
 
+(set-validator! projects-atom #((complement empty?) %))
+
+
 (def process-atom
   (atom  {:text "It goes without saying we want the best possible outcome for you and your project. That’s exactly why we do what we do…  "
           :short {:step1 "We listen to your goals & objectives."

@@ -2,6 +2,7 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
+            [cemerick.url :refer (url url-encode)]
             [solari.routes :as routes]
             [solari.data :as data]
             [solari.views.sidebar :as sb]
@@ -15,4 +16,9 @@
 
 (defn main []
   (data/data-init)
- (sb/nav-init data/nav-map))
+ (sb/nav-init data/nav-map)
+  (println "hi: " (sec/dispatch! (:anchor (url (-> js/window .-location .-href )))) )
+  #_(let [h (History.)]
+  (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (:anchor (url (.-token %)))))
+  (doto h (.setEnabled true)))
+  )

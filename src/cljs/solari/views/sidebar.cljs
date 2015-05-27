@@ -23,7 +23,8 @@
                                                                                           :data data})))))))
     om/IRender
     (render [this]
-      (dom/li #js {:id (:id data) :className (if (:selected data) "right-nav-selected" "")} (:name data)))))
+      (dom/a #js {:href (str "/#" (:route data))}
+             (dom/li #js {:id (:id data) :className (if (:selected data) "right-nav-selected" "")} (:name data))))))
 
 (defn nav-menu-item-left [data owner]
   (reify
@@ -67,7 +68,7 @@
         (go (loop []
               (let [selected (<! right-clicked)]
 
-                (routes/dispatch-route (:route selected))
+                #_(routes/dispatch-route (:route selected))
 
                 #_(let [route (:route selected)]
                   (if (or (= route "/residential") (= route "/multi-residential") (= route "/commercial"))
@@ -101,7 +102,7 @@
     (did-mount [this]
       (ef/at ".logo"
              (ev/listen :click (fn [x] (do
-                                         (routes/dispatch-route "/")
+                                         ;(routes/dispatch-route "/")
                                          (loop [idx 0]
                                            (when (< idx 3)
                                              (om/transact! menu-atom [:root idx :selected] (fn [_] false))
@@ -112,7 +113,8 @@
       (dom/div nil
 
                (dom/div #js {:className "main-nav-left"}
-                        (dom/h1 #js {:className "logo"} "Solari")
+                        (dom/a #js {:href "/#/"}
+                               (dom/h1 #js {:className "logo"} "Solari"))
 
                         (apply dom/ul #js {:className "nav-ul-left"}
                                (om/build-all nav-menu-item-left (:root menu-atom)
