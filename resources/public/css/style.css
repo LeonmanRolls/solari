@@ -52,6 +52,10 @@ body[background=grey] {
   #7f8c8d;
 }
 
+img {
+  background: black;
+}
+
 a:focus{
 color: white;
 outline: none;

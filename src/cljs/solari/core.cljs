@@ -17,7 +17,6 @@
 (defn main []
   (data/data-init)
  (sb/nav-init data/nav-map)
-  (println "hi: " (sec/dispatch! (:anchor (url (-> js/window .-location .-href )))) )
   #_(let [h (History.)]
   (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (:anchor (url (.-token %)))))
   (doto h (.setEnabled true)))

@@ -40,6 +40,12 @@
             (ef/at "#nav-hint-inner" (ef/content "All Projects"))
             (allprojects/all-projects-init data/individual-projects-atom "cat-all")))
 
+(defroute all-projects "/all-projects/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "All Projects - Admin"))
+            (allprojects/all-projects-init data/individual-projects-atom "cat-all")))
+
 (defroute the-team "/your-team" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
