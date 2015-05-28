@@ -638,16 +638,13 @@ border: 1px solid white;
 	}
 }
 
-
 .royalSlider{
 width: 100%;
 height: 600px;
-  background:
-  linear-gradient(
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.7)
-      ),
-  #7f8c8d;
+}
+
+.rsFullscreen {
+background: black !important;
 }
 
 .rsOverflow{
@@ -659,6 +656,7 @@ background: none !important;
 }
 
 .rsDefault {
+background: none;
 }
 
 .rsSlide {
@@ -1516,7 +1514,7 @@ color: white;
 }
 
 #project-container{
-max-width: 800px;
+/*max-width: 800px;*/
 }
 
 .leader-p{

@@ -51,7 +51,7 @@
       (do
         (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "none"
                                                  :fullscreen #js {:enabled true :nativeFS true}
-                                                 :visibleNearby #js {:enabled true :centerArea 0.5 :center true
+                                                 :visibleNearby #js {:enabled false :centerArea 0.5 :center true
                                                                      :breakpoint 650 :breakpointCenterArea 0.64
                                                                      :navigateByCenterClick true}})
         (js/accordion)))
