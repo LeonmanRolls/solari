@@ -170,7 +170,23 @@
   (reify
     om/IRender
     (render [this]
-      (dom/h1 nil "This is the jobs"))))
+      (dom/div #js {:style #js {:color "white"}}
+               (dom/b #js {:style #js {:fontSize "2em"}} "We're a small tight-knit team that's big on attitude.")
+       (dom/p nil "Talent without the right attitude is wasted. Talent with a great attitude is invaluable. If you'd like to joing the solari team - send us what makes you proud and be yourself.")
+
+               (dom/b #js {:style #js {:fontSize "1.5em"}} "We've got the perfect home for a...")
+
+               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Gifted massage therapist")
+                        (dom/p nil "Wanting to work for nothing."))
+
+               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Senior Architect")
+                        (dom/p nil "That should have made a move a long time ago"))
+
+               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Grad")
+                        (dom/p nil "To make us feel young and feel hip."))))))
 
 
 (defroute "/jobs" []
@@ -184,7 +200,21 @@
   (reify
     om/IRender
     (render [this]
-      (dom/h1 nil "This is the meet your contact page"))))
+      (dom/div #js {:style #js {:color "white"}}
+       (dom/b nil "We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting.")
+               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Visit, drink, chat, bounce ideas here:")
+                        (dom/p nil "New Address")
+                        (dom/p nil "To be confirmed")
+                        (dom/p nil "8974"))
+
+               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Call, talk, joke, debate, ask here: ")
+                        (dom/p nil "+64 (27) 4229430"))
+
+               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Email jokes, work or gifs here: ")
+                        (dom/p nil "james@solariarchitects.com"))))))
 
 (defroute "/contact" {:as params}
           (do
@@ -198,7 +228,4 @@
 (let [h (History.)]
     (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
     (doto h (.setEnabled true)))
-
-
-
 
