@@ -160,17 +160,11 @@
     (render [this]
       (dom/h1 nil "This is the meet your team page"))))
 
-
 (defroute "/meet-the-team" []
           (do
             (ef/at "body" (ef/set-attr :background "polaroid"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
-            (yourteam/your-team-init data/the-team-atom ))
-          #_(do
-            (om/root meet-the-team-page {}
-                   {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-architects"))
-            (ef/at "#nav-hint-inner" (ef/content "Meet the team"))))
+            (yourteam/your-team-init data/the-team-atom)))
 
 (defn jobs-page [data owner]
   (reify

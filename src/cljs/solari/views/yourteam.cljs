@@ -53,7 +53,7 @@
                  (dom/figcaption nil
                                  (dom/h2 #js {:className "photostact-title"} (:name data))
                                  (dom/div #js {:className "photostack-back"}
-                                          (dom/p nil "Hello there")))))))
+                                          (dom/p nil (:polaroid data))))))))
 
 (defn polaroid-page [data owner]
   (reify

@@ -187,9 +187,10 @@
                          :how ["After 14 years working for other people I decided it was time to step out on my own and build a business that focussed on my specific areas of expertise. I was fortunate to find a group of talented (and fun) people to work with that share my vision and deliver great results for our clients."
                                "I have unique experience in multi-unit residential builds as a result of my time at Woodhead in Australia.  I believe that New Zealand’s market it still relatively immature. As our population grows we need to intensify our housing solutions. But we need to do it in a way that fosters communities, creates safe and healthy living environments and enables people to thrive."
                                "Having said that, my passion and expertise is not limited to multi-unit solutions. I love to work on stand-alone houses, commercial and hospitality solutions. I’m excited about exploring and balancing the cross-overs between how we live, work and play."]
-                         :goals ""
+                         :goals "They’re big ones. And I want to create a strong and enduring company with the right people to help me achieve them. Solari Architects is a family business. My goal is to create a company that develops talent and enables people to be the best that they can be; both as members of their families and communities and as architects and key people within the business."
                          :advice ""
-                         :outside ""}
+                         :outside ""
+                         :polaroid "(Something shorter please!)"}
 
                         {:name "Catherine Solari"
                          :memberid "csolari"
@@ -199,7 +200,8 @@
                                ]
                          :goals ""
                          :advice "Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."
-                         :outside ""}
+                         :outside ""
+                         :polaroid "Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."}
 
                         {:name "Matt Cane"
                          :memberid "mcane"
@@ -208,7 +210,8 @@
                          :how ["I recently returned home from the UK where I predominantly worked on community housing projects. During this time I worked with Not-for-Profit Housing organisations such as Forth Housing Association, Places for People and Dunedin Canmore Housing Association.  I have worked with the UK standards such as Housing for Varying Needs, Secured by Design, BRE Eco Homes."]
                          :goals ""
                          :advice "Don’t cry over spilt milk. Literally relevant these days with a young child."
-                         :outside "You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "}
+                         :outside "You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "
+                         :polaroid "Don’t cry over spilt milk. Literally relevant these days with a young child."}
 
                         {:name "Melanie Zyteka"
                          :memberid "mzyteka"
@@ -219,7 +222,8 @@
                                ]
                          :goals ""
                          :advice "We are a long time dead so make sure you enjoy your life and that includes where you work!"
-                         :outside ""}
+                         :outside ""
+                         :polaroid "We are a long time dead so make sure you enjoy your life and that includes where you work!"}
 
                         {:name "Monique Addis"
                          :memberid "maddis"
@@ -230,7 +234,8 @@
                                ]
                          :goals ""
                          :advice "Don’t leave things until the last minute. Do it once, do it right!"
-                         :outside ""}
+                         :outside ""
+                         :polaroid "Don’t leave things until the last minute. Do it once, do it right!"}
 
                         {:name "Alex Brimmicombe"
                          :memberid "abrimmicombe"
@@ -241,7 +246,8 @@
                                ]
                          :goals ""
                          :advice ""
-                         :outside "You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."}
+                         :outside "You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."
+                         :polaroid "I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "}
 
                         {:name "Molly Marshall"
                          :memberid "mmarshall"
@@ -251,7 +257,8 @@
                                ]
                          :goals ""
                          :advice ""
-                         :outside "you’ll find me playing social netball and café hopping around Wellington."}
+                         :outside "you’ll find me playing social netball and café hopping around Wellington."
+                         :polaroid "You’ll find me playing social netball and café hopping around Wellington."}
                         ]
                     }))
 

@@ -136,7 +136,7 @@
     (data-link "/process/" process-atom "")
     (data-link "/faqs/" faqs-atom "")
     (data-link "/you/" for-you-atom "")
-    (data-link "/arhcitects/" for-architects-atom "")
+    (data-link "/architects/" for-architects-atom "")
     (data-link "/us/" from-us-atom "")
     (data-link "/team/" the-team-atom "")))
 

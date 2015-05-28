@@ -7,6 +7,16 @@ line-height: 1.5;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
+}
+
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:hover {text-decoration: none}
+
+a:active {
+text-decoration: none;
+color: red !important;
 }
 
 body[background=home] {
@@ -178,11 +188,12 @@ max-width: 320px;
 .nav-left-selected{
 border-top: 1px solid white;
 border-bottom: 1px solid white !important;
+color: #1abc9c !important;
 }
 
 .right-nav-selected{
 font-weight: bold;
-color: #1b1b1d !important;
+color: #1abc9c !important;
 }
 
 .nav-ul-left li{
