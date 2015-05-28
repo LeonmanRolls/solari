@@ -19,16 +19,19 @@ body[background=for-you] {
        rgba(0, 0, 0, 0.7),
        rgba(0, 0, 0, 0.7)
      ),
-  url(/img/residential.jpg) no-repeat center center fixed;
+  url(/img/home_page.jpg);
+}
+
+body[background=for-architects] {
+  background: linear-gradient(
+       rgba(0, 0, 0, 0.7),
+       rgba(0, 0, 0, 0.7)
+     ),
+  url(/img/for_architects.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-body[background=for-architects] {
-  background:
-  url(/img/for_architects.jpg);
 }
 
 body[background=from-us] {
@@ -46,8 +49,8 @@ body[background=admin] {
 body[background=grey] {
   background:
   linear-gradient(
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.7)
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
       ),
   #7f8c8d;
 }
@@ -114,6 +117,7 @@ cursor: pointer;
 
 
 #nav-hint-outer{
+color: white;
 display: table-cell;
 vertical-align: middle;
 width: 138px;
@@ -397,8 +401,6 @@ margin-left: 80px !important;
 }
 
 .title {
-font-size: 250%;
-font-weight: 700;
 }
 
 @font-face {

@@ -9,6 +9,7 @@
             [solari.views.theteam :as theteam]
             [solari.views.yourteam :as yourteam]
             [solari.views.home :as home]
+            [solari.views.foryou :as foryou]
             [solari.views.admin :as admin]
             [solari.views.faqs :as faqs]
             [solari.views.process :as process]
@@ -34,17 +35,31 @@
 ;Fallback for browsers without html5 history support
 (sec/set-config! :prefix "#")
 
-(defroute all-projects "/all-projects" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "All Projects"))
-            (allprojects/all-projects-init data/individual-projects-atom "cat-all")))
 
 (defroute all-projects "/all-projects/admin" []
           (do
             (ef/at "body" (ef/set-attr :background "grey"))
             (ef/at "#nav-hint-inner" (ef/content "All Projects - Admin"))
-            (allprojects/all-projects-init data/individual-projects-atom "cat-all")))
+            (allprojects/all-projects-init data/individual-projects-atom "cat-all" data/for-architects-atom)))
+
+(defroute for-you "/for-you" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "for you"))
+            (home/for-you-init data/for-you-atom)))
+
+(defroute for-you "/for-architects" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "for architects"))
+            (home/for-architects-init data/for-architects-atom )))
+
+(defroute for-you "/from-us" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "from us"))
+            (home/from-us-init data/from-us-atom )))
+
 
 (defroute the-team "/your-team" []
           (do
@@ -52,21 +67,27 @@
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (theteam/the-team-init data/the-team-atom "cat-architect")))
 
+(defroute all-projects "/all-projects" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "All Projects"))
+            (allprojects/all-projects-init data/individual-projects-atom "cat-all" data/for-you-atom)))
+
 (defroute residential "/residential" []
           (do
-            (allprojects/all-projects-init data/individual-projects-atom "cat-residential")
+            (allprojects/all-projects-init data/individual-projects-atom "cat-residential" data/residential-atom)
             (ef/at "#nav-hint-inner" (ef/content "Residential"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/multi-residential" {:as params}
           (do
-            (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential")
+            (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential" data/multi-unit-atom)
             (ef/at "#nav-hint-inner" (ef/content "Multi-unit residential"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 (defroute "/commercial" {:as params}
           (do
-            (allprojects/all-projects-init data/individual-projects-atom "cat-commercial")
+            (allprojects/all-projects-init data/individual-projects-atom "cat-commercial" data/commercial-atom)
             (ef/at "#nav-hint-inner" (ef/content "Commercial"))
             (ef/at "body" (ef/set-attr :background "grey"))))
 

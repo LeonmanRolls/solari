@@ -2,6 +2,7 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
+            [solari.views.common :as common]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
@@ -9,22 +10,31 @@
 
 (enable-console-print!)
 
-(defn home-page [data owner]
-  (reify
-
-    om/IRender
-    (render [this]
-      (dom/div #js {:className "main-title"}
-               (dom/p #js {:className "title"} (:main-title data))
-               (dom/strong nil (:sub-title data))
-               (dom/p nil (:paragraph-one data))
-               (dom/p nil (:paragraph-two data)))
-      )))
-
 (defn home-init [atom]
   (do
-    (om/root home-page atom
+    (om/root common/p-partial atom
              {:target (. js/document (getElementById "main-content-container"))})
     (ef/at "body" (ef/set-attr :background "home"))
+    (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
+
+(defn for-you-init [atom]
+  (do
+    (om/root common/p-partial-white atom
+             {:target (. js/document (getElementById "main-content-container"))})
+    (ef/at "body" (ef/set-attr :background "for-you"))
+    (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
+
+(defn for-architects-init [atom]
+  (do
+    (om/root common/p-partial-white atom
+             {:target (. js/document (getElementById "main-content-container"))})
+    (ef/at "body" (ef/set-attr :background "for-architects"))
+    (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
+
+(defn from-us-init [atom]
+  (do
+    (om/root common/p-partial-white atom
+             {:target (. js/document (getElementById "main-content-container"))})
+    (ef/at "body" (ef/set-attr :background "from-us"))
     (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
 

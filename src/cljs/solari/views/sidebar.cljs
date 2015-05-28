@@ -36,9 +36,11 @@
                              (.-id (.-currentTarget %))))))
     om/IRender
     (render [this]
-      (dom/li #js {:id (:id data)
-                   :className (if (:selected data) "nav-left-selected")}
-              (:label data)))))
+      (dom/a #js {:href (str "#" (:route data))}
+             (dom/li #js {:id (:id data)
+                          :className (if (:selected data) "nav-left-selected")}
+                     (:label data)))
+      )))
 
 
 (defn main-nav-view [menu-atom owner]

@@ -23,6 +23,30 @@
 (set-validator! home-page-atom #((complement empty?) %))
 (add-watch home-page-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
 
+(def residential-atom (atom {}))
+(set-validator! residential-atom #((complement empty?) %))
+(add-watch residential-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
+(def multi-unit-atom (atom {}))
+(set-validator! multi-unit-atom #((complement empty?) %))
+(add-watch multi-unit-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
+(def commercial-atom (atom {}))
+(set-validator! commercial-atom #((complement empty?) %))
+(add-watch commercial-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
+(def for-you-atom (atom {}))
+(set-validator! for-you-atom #((complement empty?) %))
+(add-watch for-you-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
+(def for-architects-atom (atom {}))
+(set-validator! for-architects-atom #((complement empty?) %))
+(add-watch for-architects-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
+(def from-us-atom (atom {}))
+(set-validator! from-us-atom #((complement empty?) %))
+(add-watch from-us-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def faqs-atom (atom {}))
 (set-validator! faqs-atom #((complement empty?) %))
 (add-watch faqs-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
@@ -39,14 +63,14 @@
 (go
   (loop [ajax-count 0]
     (<! ajax-chan)
-    (if (= ajax-count 5)
+    (if (= ajax-count 8)
       (aset
         js/document
         "onreadystatechange"
         (sec/dispatch! (:anchor (url (-> js/window .-location .-href))))))
     (recur (inc ajax-count))))
 
-(def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false
+(def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false :route "/for-you"
                                 :submenu {:id    "nav-left-01-sub"
                                           :items [{:id "nav-right-item-all-projects" :name "all-projects "
                                                    :selected false :route "/all-projects"}
@@ -66,7 +90,7 @@
                                                   {:id "nav-righ-item-yourt" :name "your team"
                                                    :selected false :route "/your-team"}]}}
 
-                               {:id      "nav-left-02" :label "for architects" :selected false
+                               {:id      "nav-left-02" :label "for architects" :selected false :route "/for-architects"
                                 :submenu {:id    "nav-left-02-sub"
                                           :items [{:id "nav-right-item-yourc" :name "your career"
                                                    :selected false :route "/your-career"}
@@ -75,7 +99,7 @@
                                                   {:id "nav-right-item-jobs" :name "jobs"
                                                    :selected false :route "/jobs"}]}}
 
-                               {:id      "nav-left-03" :label "from us" :selected false
+                               {:id      "nav-left-03" :label "from us" :selected false :route "/from-us"
                                 :submenu {:id    "nav-left-03-sub"
                                           :items [{:id "nav-right-item-contact" :name "contact" :selected false}]}}]
 
@@ -101,9 +125,13 @@
     (data-link "/projects/" projects-atom "full-info")
     (data-link "/projects/" individual-projects-atom "projects-only")
     (data-link "/home/" home-page-atom "")
+    (data-link "/residential/" residential-atom "")
+    (data-link "/multi-unit/" multi-unit-atom "")
+    (data-link "/commercial/" commercial-atom "")
     (data-link "/process/" process-atom "")
     (data-link "/faqs/" faqs-atom "")
-    (data-link "/team/" the-team-atom "")
-    )
-  )
+    (data-link "/you/" for-you-atom "")
+    (data-link "/arhcitects/" for-architects-atom "")
+    (data-link "/us/" from-us-atom "")
+    (data-link "/team/" the-team-atom "")))
 

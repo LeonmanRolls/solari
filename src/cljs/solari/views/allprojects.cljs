@@ -3,6 +3,7 @@
             [enfocus.core :as ef]
             [enfocus.events :as ev]
             [enfocus.effects :as eff]
+            [solari.views.common :as common]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
   (:require-macros [enfocus.macros :as em]))
@@ -31,23 +32,27 @@
   (reify
 
     om/IInitState
-    (init-state [this])
+    (init-state [this]
+      )
 
     om/IDidMount
     (did-mount [this]
       (js/megafolioInit))
 
-    om/IRender
-    (render [this]
+    om/IRenderState
+    (render-state [this {:keys [text]}]
 
       (dom/div #js {:className "container"}
+
+               (om/build common/p-partial-white text)
+
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all gallery-partial data {:key :id}))))))
 
-
-(defn all-projects-init [project-atom filter]
+(defn all-projects-init [project-atom filter text-atom]
   (do (om/root all-projects-page project-atom
-               {:target (. js/document (getElementById "main-content-container"))})
+               {:target (. js/document (getElementById "main-content-container"))
+                :init-state {:text @text-atom}})
       (ef/at ".context" (ef/content (:title @project-atom)))
       (.megafilter js/api filter)))
 

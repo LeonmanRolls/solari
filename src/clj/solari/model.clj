@@ -13,10 +13,32 @@
     "postgresql://root:1fishy4me@localhost:5432/solari"))
 
 (def home-page-atom
-  (atom {:main-title "Come on in..."
-         :sub-title "We're Solari architects."
-         :paragraph-one "Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. "
-         :paragraph-two "We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+  (atom {:bold "Come on in. We're Solari architects."
+         :paragraph " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+
+(def residential-atom
+  (atom {:bold "Homes are personal projects - we like that."
+         :paragraph " When designing a residential project we take on the thoughts, feelings, personality and unique circumstances of the client (that’s you). We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way. This not only makes absolute sense but it undoubtedly delivers the best results. We share the challenges and successes with you. And make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."}))
+
+(def multi-unit-atom
+  (atom {:bold "Solari’s success in the multi-unit residential development sector across New Zealand and Australia comes down to what we like to call ‘The Solari Way’."
+         :paragraph " In a nutshell it’s an approach that balances the values and objectives of the developer, designer and tenants. Everyone involved with the project stands to benefit from such an insightful approach. Blending our understanding of commercial realities, how a target market perceives quality living spaces and how to effectively manage the design process from sketches to site, ensures our developments maintain their purpose and quality."}))
+
+(def commercial-atom
+  (atom {:bold "At Solari we don’t define commercial buildings by their sheer scale but by their purpose. "
+         :paragraph " We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "}))
+
+(def for-you-atom
+  (atom {:bold "When working with you we focus on speaking a common language."
+         :paragraph " We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+
+(def for-architects-atom
+  (atom {:bold "There are architects and then there’s Solari Architects."
+         :paragraph " We’re the “un-architecty” architects (the ones that say architecty).  We’ve found (well, created) this little sweet spot in the industry. Basically we have a huge passion for architecture but not in a consuming ‘it’s my whole life’ way. It’s balanced and continually inspired and fuelled by all the non-architect things we welcome into our lives. We enjoy exploring in our weekends, spending time with our families and hanging out with friends and are always up to try new experiences and give things a go. We’ll make an effort to be aware of trends but not make them gospel. For example we completely missed the memo that thick rimmed glasses and showing a questionable amount of sockless ankle was the latest uniform…but we’re fine with that."}))
+
+(def from-us-atom
+  (atom {:bold "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness."
+         :paragraph ""}))
 
 (def projects-atom
   (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
@@ -289,4 +311,65 @@
              :put! (fn [ctx]
                      (reset! home-page-atom (:projects (:params (:request ctx)))))
              :available-media-types ["application/edn"])
+
+(defresource residential
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @residential-atom)
+             :put! (fn [ctx]
+                     (reset! residential-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource multi-unit
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @multi-unit-atom)
+             :put! (fn [ctx]
+                     (reset! multi-unit-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource commercial
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @commercial-atom)
+             :put! (fn [ctx]
+                     (reset! commercial-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource you
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @for-you-atom)
+             :put! (fn [ctx]
+                     (reset! for-you-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource architects
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @for-architects-atom)
+             :put! (fn [ctx]
+                     (reset! for-architects-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource us
+             :service-available? true
+             :allowed-methods [:get :put]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context]
+                          @from-us-atom)
+             :put! (fn [ctx]
+                     (reset! from-us-atom (:projects (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
 
