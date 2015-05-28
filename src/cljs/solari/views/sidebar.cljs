@@ -31,16 +31,15 @@
     om/IDidMount
     (did-mount [this]
       (ef/at (str "#" (:id data))
-           (ev/listen :click
-                      #(put! (:clicked (om/get-state owner))
-                             (.-id (.-currentTarget %))))))
+             (ev/listen :click
+                        #(put! (:clicked (om/get-state owner))
+                               (.-id (.-currentTarget %))))))
     om/IRender
     (render [this]
       (dom/a #js {:href (str "#" (:route data))}
              (dom/li #js {:id (:id data)
                           :className (if (:selected data) "nav-left-selected")}
-                     (:label data)))
-      )))
+                     (:label data))))))
 
 
 (defn main-nav-view [menu-atom owner]
@@ -59,46 +58,27 @@
         (go (loop []
               (let [selected (<! clicked)]
                 (loop [idx 0]
-                      (if (= (get-in menu-atom [:root idx :id])
-                            selected)
-                        (om/transact! menu-atom [:root idx :selected] (fn [_]  true))
-                        (om/transact! menu-atom [:root idx :selected] (fn [_] false)))
-                      (if (< (+ 1 idx) (count (:root menu-atom)))
-                        (recur (inc idx))))
+                  (if (= (get-in menu-atom [:root idx :id])
+                         selected)
+                    (om/transact! menu-atom [:root idx :selected] (fn [_]  true))
+                    (om/transact! menu-atom [:root idx :selected] (fn [_] false)))
+                  (if (< (+ 1 idx) (count (:root menu-atom)))
+                    (recur (inc idx))))
                 (recur))))
 
         (go (loop []
               (let [selected (<! right-clicked)]
-
-                #_(routes/dispatch-route (:route selected))
-
-                #_(let [route (:route selected)]
-                  (if (or (= route "/residential") (= route "/multi-residential") (= route "/commercial"))
-                    (.megafilter js/api (:category (:data selected)))
-                    ))
-
                 (loop [idx 0]
                   (when (< idx (count (:root menu-atom)))
                     (let [sub-menu-count (count (get-in menu-atom [:root idx :submenu :items])) ]
                       (loop [idxx 0]
                         (when (< idxx sub-menu-count)
-                         (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
-                           (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
-                           (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
-                         (recur (inc idxx))))
-                      )
-
-                    #_(if (= (get-in menu-atom [:root idx :id])
-                            selected)
-                        (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
-                        (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_] false)))
-
+                          (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
+                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
+                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
+                          (recur (inc idxx)))))
                     (recur (inc idx))))
-
-
-                (recur))))
-
-        ))
+                (recur))))))
 
     om/IDidMount
     (did-mount [this]
@@ -124,8 +104,8 @@
                         (dom/footer #js {:id "main-footer" :className "gooter cf"}))
 
                (dom/div #js {:className "main-nav-right"}
-                       (dom/div #js {:id "nav-hint-outer"}
-                                (dom/div #js {:id "nav-hint-inner"} "Welcome"))
+                        (dom/div #js {:id "nav-hint-outer"}
+                                 (dom/div #js {:id "nav-hint-inner"} "Welcome"))
 
                         (apply dom/ul #js {:className (str "nav-ul-right sub1 "
                                                            (if (get-in menu-atom [:root 0 :selected]) "" "hidden"))}
@@ -149,5 +129,5 @@
 
 (defn nav-init [menu-atom]
   (om/root main-nav-view menu-atom
-             {:target (. js/document (getElementById "main-nav-container"))}))
+           {:target (. js/document (getElementById "main-nav-container"))}))
 
