@@ -19,6 +19,7 @@
            (resources "/")
            (ANY "/faqs/" request m/faqs)
            (ANY "/team/" request m/team)
+           (ANY "/career/" request m/career)
            (ANY "/residential/" request m/residential)
            (ANY "/multi-unit/" request m/multi-unit)
            (ANY "/commercial/" request m/commercial)

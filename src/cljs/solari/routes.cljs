@@ -123,8 +123,6 @@
             (ef/at "body" (ef/set-attr :background "grey"))))
 
 
-
-
 (defroute "/our-process" {:as params}
           (do
             (process/process-init data/process-atom)
@@ -143,15 +141,18 @@
   (reify
     om/IRender
     (render [this]
-      (dom/h1 nil "This is the your career page"))))
+      (dom/div #js {:style #js {:color "white" :maxWidth "800px" :marginLeft "auto" :marginRight "auto"}}
+               (dom/p #js {:style #js {:font-size "1.6em" :line-height "1.2em"}}
+                      (dom/b nil (:bold (:main data)) ) (:paragraph (:main data)))
+               (dom/p nil (:paragraph-one data))
+               (dom/p nil (:paragraph-two data))))))
 
-(defroute "/your-career" {:as params}
+(defroute "/your-career" []
           (do
-            (om/root your-career-page {}
+            (om/root your-career-page data/your-career-atom
                    {:target (. js/document (getElementById "main-content-container"))})
-            (ef/at "body" (ef/set-attr :background "for-architects"))
-            (ef/at "#nav-hint-inner" (ef/content "Your Career"))
-            ))
+            (ef/at "body" (ef/set-attr :background "your-career"))
+            (ef/at "#nav-hint-inner" (ef/content "Your Career"))))
 
 (defn meet-the-team-page [data owner]
   (reify
@@ -162,6 +163,10 @@
 
 (defroute "/meet-the-team" []
           (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "Your Team"))
+            (yourteam/your-team-init data/the-team-atom ))
+          #_(do
             (om/root meet-the-team-page {}
                    {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "for-architects"))

@@ -39,6 +39,22 @@
                             :aria-hidden "true"}
                        (dom/p nil (:content data)))))))
 
+(defn polaroid-partial [data owner]
+ (reify
+   om/IInitState
+   (init-state [this]
+     (println "polaroid data: " data ))
+
+   om/IRender
+   (render [this]
+     (dom/figure nil
+                 (dom/a #js {:href "#" :className "photostack-img"}
+                        (dom/img #js {:src (str "/img/teampics/" (:hipster (:profilepics data))) }))
+                 (dom/figcaption nil
+                                 (dom/h2 #js {:className "photostact-title"} (:name data))
+                                 (dom/div #js {:className "photostack-back"}
+                                          (dom/p nil "Hello there")))))))
+
 (defn polaroid-page [data owner]
   (reify
 
@@ -53,40 +69,11 @@
 
     om/IRender
     (render [this]
-      (dom/section #js {:id "photostack-3" :className "photostack"}
-                   (dom/div nil
-                            (dom/figure nil
-                                        (dom/a #js {:href "#" :className "photostack-img"}
-                                               (dom/img #js {:src "/img/lyall.jpg"}))
-                                        (dom/figcaption nil
-                                                        (dom/h2 #js {:className "photostact-title"} "Happy Days")
-                                                        (dom/div #js {:className "photostack-back"}
-                                                                 (dom/p nil "Hello there"))))
-
-                            (dom/figure nil
-                                        (dom/a #js {:href "#" :className "photostack-img"}
-                                               (dom/img #js {:src "/img/lyall.jpg"}))
-                                        (dom/figcaption nil
-                                                        (dom/h2 #js {:className "photostact-title"} "Happy Days")
-                                                        (dom/div #js {:className "photostack-back"}
-                                                                 (dom/p nil "Hello there"))))
-
-                            (dom/figure nil
-                                        (dom/a #js {:href "#" :className "photostack-img"}
-                                               (dom/img #js {:src "/img/lyall.jpg" :className "polaroid-img"}))
-                                        (dom/figcaption nil
-                                                        (dom/h2 #js {:className "photostact-title"} "Happy Days")
-                                                        (dom/div #js {:className "photostack-back"}
-                                                                 (dom/p nil "Hello there"))))
-
-
-                            )
-
-
-                  (dom/nav nil )
-
-
-               ))))
+      (dom/section #js {:id "photostack-3" :className "photostack" :style #js {:background "#7f8c8d" :marginLeft "-160px"
+                                                                               :marginRight "-10px"}}
+                   (apply dom/div nil
+                          (om/build-all polaroid-partial (:team-members data)))
+                   (dom/nav nil )))))
 
 
 (defn your-team-init [team-atom]

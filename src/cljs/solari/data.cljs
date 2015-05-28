@@ -23,6 +23,10 @@
 (set-validator! home-page-atom #((complement empty?) %))
 (add-watch home-page-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
 
+(def your-career-atom (atom {}))
+(set-validator! your-career-atom #((complement empty?) %))
+(add-watch your-career-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
+
 (def residential-atom (atom {}))
 (set-validator! residential-atom #((complement empty?) %))
 (add-watch residential-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
@@ -95,7 +99,7 @@
                                           :items [{:id "nav-right-item-yourc" :name "your career"
                                                    :selected false :route "/your-career"}
                                                   {:id "nav-right-item-meet" :name "meet the team"
-                                                   :selected false :route "/your-career"}
+                                                   :selected false :route "/meet-the-team"}
                                                   {:id "nav-right-item-jobs" :name "jobs"
                                                    :selected false :route "/jobs"}]}}
 
@@ -125,6 +129,7 @@
     (data-link "/projects/" projects-atom "full-info")
     (data-link "/projects/" individual-projects-atom "projects-only")
     (data-link "/home/" home-page-atom "")
+    (data-link "/career/" your-career-atom "")
     (data-link "/residential/" residential-atom "")
     (data-link "/multi-unit/" multi-unit-atom "")
     (data-link "/commercial/" commercial-atom "")
