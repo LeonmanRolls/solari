@@ -163,7 +163,7 @@
 
 (defroute "/meet-the-team" []
           (do
-            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "body" (ef/set-attr :background "polaroid"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (yourteam/your-team-init data/the-team-atom ))
           #_(do
