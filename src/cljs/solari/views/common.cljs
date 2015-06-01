@@ -13,7 +13,7 @@
   (reify
     om/IRender
     (render [this]
-      (dom/p #js {:style #js {:color "black" :maxWidth "800px" :marginLeft "auto" :marginRight "auto"}}
+      (dom/p #js {:style #js {}}
              (dom/b nil (:bold data))
              (:paragraph data)))))
 
@@ -26,7 +26,7 @@
 
     om/IRender
     (render [this]
-      (dom/p #js {:style #js {:color "white" :maxWidth "800px" :marginLeft "auto" :marginRight "auto" :marginBottom "30px"}}
+      (dom/p #js {:style #js {:color "white" :marginBottom "30px"}}
              (dom/b nil (:bold data))
              (:paragraph data)))))
 

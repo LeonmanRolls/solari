@@ -32,8 +32,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      )
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
