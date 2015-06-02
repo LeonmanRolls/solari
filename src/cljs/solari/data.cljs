@@ -92,7 +92,9 @@
                                                   {:id "nav-right-item-faqs" :name "faqs"
                                                    :selected false :route "/faqs"}
                                                   {:id "nav-righ-item-yourt" :name "your team"
-                                                   :selected false :route "/your-team"}]}}
+                                                   :selected false :route "/your-team"}
+                                                  {:id "nav-righ-item-yourt" :name "contact"
+                                                   :selected false :route "/contact"}]}}
 
                                {:id      "nav-left-02" :label "for architects" :selected false :route "/for-architects"
                                 :submenu {:id    "nav-left-02-sub"
