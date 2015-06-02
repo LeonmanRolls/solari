@@ -182,7 +182,8 @@
          :title "Your Team"
          :team-members [{:name "James Solari"
                          :memberid "jsolari"
-                         :profilepics {:hipster "jsolari_hipster.jpg" :everyday "jsolari_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/jsolari_hipster.jpg"
+                                       :everyday "/img/teampics/jsolari_everyday.jpg"}
                          :Role "Director & Lead Architect"
                          :how ["After 14 years working for other people I decided it was time to step out on my own and build a business that focussed on my specific areas of expertise. I was fortunate to find a group of talented (and fun) people to work with that share my vision and deliver great results for our clients."
                                "I have unique experience in multi-unit residential builds as a result of my time at Woodhead in Australia.  I believe that New Zealand’s market it still relatively immature. As our population grows we need to intensify our housing solutions. But we need to do it in a way that fosters communities, creates safe and healthy living environments and enables people to thrive."
@@ -194,7 +195,8 @@
 
                         {:name "Catherine Solari"
                          :memberid "csolari"
-                         :profilepics {:hipster "csolari_hipster.jpg" :everyday "csolari_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/csolari_hipster.jpg"
+                                       :everyday "/img/teampics/csolari_everyday.jpg"}
                          :Role "Corporate Services Manager"
                          :how ["After 17 years working in sales roles in the IT industry James and I decided to start a family and along came our little guy Hugo. Instead of returning to the land of IT after a year of looking after that wee guy I decided it was a much better idea to jump in and help out James with his flourishing little business. It was doing so well he didn’t have time to run it, so with my experience in large corporates and with sound business practices I came on board to lend a hand. Over the last 2 years we have substantially grown the business from just a 3 person operation to the team of 7 it is now and with all the work we have going there James is flat out being an Architect.  Its great fun and I’m really proud of how things are going."
                                ]
@@ -205,7 +207,8 @@
 
                         {:name "Matt Cane"
                          :memberid "mcane"
-                         :profilepics {:hipster "mcane_hipster.jpg" :everyday "mcane_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/mcane_hipster.jpg"
+                                       :everyday "/img/teampics/mcane_everyday.jpg"}
                          :Role "Senior Technician"
                          :how ["I recently returned home from the UK where I predominantly worked on community housing projects. During this time I worked with Not-for-Profit Housing organisations such as Forth Housing Association, Places for People and Dunedin Canmore Housing Association.  I have worked with the UK standards such as Housing for Varying Needs, Secured by Design, BRE Eco Homes."]
                          :goals ""
@@ -215,7 +218,8 @@
 
                         {:name "Melanie Zyteka"
                          :memberid "mzyteka"
-                         :profilepics {:hipster "mzyteka_hipster.jpg" :everyday "mzyteka_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/mzyteka_hipster.jpg"
+                                       :everyday "/img/teampics/mzyteka_everyday.jpg"}
                          :Role "Senior Technician"
                          :how ["After graduating as an Architectural Technician from Wellington Polytechnic in 1998, I moved to London where I worked on a variety of projects. The call of home grew louder and I returned in 2005 to work at Archaus Architects until joining Solari Architects at the end of 2013. My career so far has included commercial, multi-storey residential and hospitality projects. "
                                "I was thrilled to join the Solari team as they’re such a vibrant company who thrive on producing great designs. They also have a really supportive team structure. "
@@ -227,7 +231,8 @@
 
                         {:name "Monique Addis"
                          :memberid "maddis"
-                         :profilepics {:hipster "maddis_hipster.jpg" :everyday "maddis_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/maddis_hipster.jpg"
+                                       :everyday "/img/teampics/maddis_everyday.jpg"}
                          :Role "Senior Designer"
                          :how ["Monique brings to the Solari Architects team 17 years of well-rounded experience in all facets of the design and project delivery process.   Monique has been involved in award winning high quality residential and commercial projects of mixed scale, throughout New Zealand in urban, rural and coastal settings. From 2008, Monique took time out of the profession to raise her young family and undertake her own architectural project."
                                "During this time she continued with contract architectural work before joining the team at Solari Architects mid-2013. Monique is excellent at multi-tasking and ensures all aspects of her projects are completed to the highest standard.  She enjoys the collaborative process of taking a project from the design brief through to construction and completion."
@@ -239,7 +244,8 @@
 
                         {:name "Alex Brimmicombe"
                          :memberid "abrimmicombe"
-                         :profilepics {:hipster "abrimmicombe_hipster.jpg" :everyday "abrimmicombe_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/abrimmicombe_hipster.jpg"
+                                       :everyday "/img/teampics/abrimmicombe_everyday.jpg"}
                          :Role "Architectural Graduate"
                          :how ["In mid 2015 the stars seemed to align. I was lucky enough to be taken on board by the team at Solari Architects. Before this, I spent ten months in a smaller Wellington firm after completing my Master’s degree at Victoria University. My final year of study focussed on safety through spatial design and creating future proof public architecture."
                                "Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as a graduate architect. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."
@@ -251,7 +257,8 @@
 
                         {:name "Molly Marshall"
                          :memberid "mmarshall"
-                         :profilepics {:hipster "mmarshall_hipster.jpg" :everyday "mmarshall_everyday.jpg"}
+                         :profilepics {:hipster "/img/teampics/mmarshall_hipster.jpg"
+                                       :everyday "/img/teampics/mmarshall_everyday.jpg"}
                          :Role "Architectural Graduate"
                          :how ["I Joined the Solari team full time in 2015. Before that I was working part time with them whilst completeing my Master’s thesis at Victoria university. I’m enjoying the opportunity to be involved in all areas of the architectural process. "
                                ]

@@ -11,6 +11,23 @@
 
 (def colors {:transparent-grey "rgba(29,29,27,0.4)"})
 
+;link, category, id, thumbnail, title
+(defn gallery-partial [data owner]
+  (reify
+
+    om/IInitState
+    (init-state [this]
+      (println "hi there: " data))
+
+    om/IRender
+    (render [this]
+      (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry " (:category data))  :id (:id data)
+                  :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+             (dom/div #js {:className "mega-hover"}
+                               (dom/div #js {:className "mega-hovertitle"} (:title data)
+                                        (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
+
+
 ;Required href and text
 (defn clear-li [data owner]
   (reify
@@ -21,7 +38,8 @@
                                       :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
                                       :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
                                       :borderTop "1px solid white" :borderLeft "1px solid white"}
-                   :onClick #(.megafilter js/api (:cat data))}
+                   :onClick #(do (.megafilter js/api (:cat data))
+                                 (ef/at "#group_photo" (ef/set-attr :src (:img data))))}
                      (:text data)))))
 
 
@@ -37,8 +55,7 @@
 (defn p-partial-white [data owner]
   (reify
     om/IInitState
-    (init-state [this]
-      (println "common: " (:paragraph data)))
+    (init-state [this])
 
     om/IRender
     (render [this]

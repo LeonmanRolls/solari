@@ -10,26 +10,8 @@
 
 (enable-console-print!)
 
-(def hipster-data [{:href "" :text "everyday us" :cat "cat-everyday"}
-                   {:href "" :text "\"architect\" us" :cat "cat-hipster"}])
-
-(defn gallery-partial [data owner]
-  (reify
-
-    om/IInitState
-    (init-state [this])
-
-    om/IRender
-    (render [this]
-
-      (dom/div #js {:className (str "mega-entry " (:category data))  :id (:id data) :data-src (str "/img/teampics/" (:thumbnail data))
-                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
-               (dom/div #js {:className "mega-hover"}
-                        (dom/div #js {:className "mega-hovertitle"} (:title data)
-                                 (dom/div #js {:className "mega-hoversubtitle"} "subtitle"))
-
-                        (dom/a #js {:href (str "/#/" (:memberid data))}
-                               (dom/div #js {:className "mega-hoverlink"})))))))
+(def hipster-data [{:href "" :text "everyday us" :cat "cat-everyday" :img "/img/group_photo_everyday.jpg"}
+                   {:href "" :text "\"architect\" us" :cat "cat-hipster" :img "/img/group_photo_hipster.jpg"}])
 
 
 (defn megafolio-preprocessor [team-members]
@@ -78,14 +60,15 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/clear-li hipster-data))
 
-               (om/build common/p-partial-white  {:bold (:bold (:text data))  :paragraph  (:paragraph (:text data))})
+               (om/build common/p-partial-white  {:bold (:bold (:text data)) :paragraph (:paragraph (:text data))})
 
-               (dom/img #js {:src "/img/group_photo_everyday.jpg" :style #js {:marginBottom "20px" :width "100%"}})
+               (dom/img #js {:id "group_photo" :src "/img/group_photo_everyday.jpg"
+                             :style #js {:marginBottom "20px" :width "100%"}})
 
                (dom/br nil)
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all gallery-partial (megafolio-preprocessor (:team-members data))))))))
+                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members data))))))))
 
 
 (defn the-team-init [the-team-atom filter]

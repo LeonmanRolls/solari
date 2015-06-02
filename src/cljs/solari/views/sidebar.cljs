@@ -142,7 +142,10 @@
                                              (get-in menu-atom [:root 2 :submenu :items])
                                              {:init-state {:right-clicked right-clicked}}))
 
-                        (dom/footer #js {:id "main-footer" :className "gooter cf"}))))))
+                        (dom/footer #js {:id "main-footer" :className "gooter cf"}))
+
+
+               ))))
 
 (defn nav-init [menu-atom]
   (om/root main-nav-view menu-atom

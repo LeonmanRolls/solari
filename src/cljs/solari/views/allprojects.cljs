@@ -46,7 +46,7 @@
                (om/build common/p-partial-white text)
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all gallery-partial data {:key :id}))))))
+                      (om/build-all common/gallery-partial data {:key :id}))))))
 
 (defn all-projects-init [project-atom filter text-atom]
   (do (om/root all-projects-page project-atom

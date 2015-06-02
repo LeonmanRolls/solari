@@ -13,8 +13,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      #_(println "img: " data))
+    (init-state [this])
 
     om/IRender
     (render [this]
