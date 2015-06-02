@@ -9,6 +9,22 @@
 
 (enable-console-print!)
 
+(def colors {:transparent-grey "rgba(29,29,27,0.4)"})
+
+;Required href and text
+(defn clear-li [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (dom/a #js {:href (:href data)}
+             (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
+                                      :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
+                                      :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
+                                      :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
+                                      :borderTop "1px solid white" :borderRight "1px solid white"}}
+                     (:text data))))))
+
+
 (defn p-partial [data owner]
   (reify
     om/IRender
