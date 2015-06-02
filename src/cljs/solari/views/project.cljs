@@ -43,13 +43,13 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      (println "Project: " data ))
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
       (do
         (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "none"
+                                                 :autoScaleSlider true :autoScaleSliderWidth 900 :autoScaleSliderHeight 400
                                                  :fullscreen #js {:enabled true :nativeFS true}
                                                  :visibleNearby #js {:enabled false :centerArea 0.5 :center true
                                                                      :breakpoint 650 :breakpointCenterArea 0.64
