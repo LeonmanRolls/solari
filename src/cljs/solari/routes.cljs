@@ -100,7 +100,7 @@
 (defroute "/" []
           (do
             (ef/at "body" (ef/set-attr :background "home"))
-            (ef/at "#nav-hint-inner" (ef/content "Welcome"))
+            (ef/at "#nav-hint-inner" (ef/content "architects"))
             (home/home-init data/home-page-atom)))
 
 

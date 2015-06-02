@@ -70,8 +70,8 @@
     om/IRender
     (render [this]
       (dom/section #js {:id "photostack-3" :className "photostack"
-                        :style #js {:marginLeft "-310px"
-                                    :marginRight "-310px"
+                        :style #js {:marginLeft "-350px"
+                                    :marginRight "-350px"
                                     :background "url(/img/polaroid_background.jpg) no-repeat center center fixed;"}}
                    (apply dom/div nil
                           (om/build-all polaroid-partial (:team-members data)))

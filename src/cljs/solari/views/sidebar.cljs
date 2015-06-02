@@ -102,6 +102,14 @@
                                (om/build-all nav-menu-item-left (:root menu-atom)
                                              {:init-state {:clicked clicked}}))
 
+                        (dom/div #js {:id "social-container" :style #js {:textAlign "center"}}
+                                 (dom/a #js {:href "http://pinterest.com/solariarchitect/" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-pinterest fa-2x"}))
+                                 (dom/a #js {:href "https://twitter.com/solariarch" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-twitter fa-2x"}))
+                                 (dom/a #js {:href "http://pinterest.com/solariarchitect/" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-instagram fa-2x"})))
+
                         (dom/a #js {:href "http://nang.rocks" :target "_blank"}
                         (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"
                                                                                               :position "absolute"
@@ -109,12 +117,12 @@
                                                                                               :left "0"
                                                                                               :right "0"
                                                                                               :text-align "center"
-                                                                                              :color "grey"}}
+                                                                                              :color "black"}}
                                     "Website by Nang")))
 
                (dom/div #js {:className "main-nav-right"}
                         (dom/div #js {:id "nav-hint-outer"}
-                                 (dom/div #js {:id "nav-hint-inner"} "Welcome"))
+                                 (dom/div #js {:id "nav-hint-inner"} "architects"))
 
                         (apply dom/ul #js {:className (str "nav-ul-right sub1 "
                                                            (if (get-in menu-atom [:root 0 :selected]) "" "hidden"))}
