@@ -3,6 +3,7 @@
             [enfocus.core :as ef]
             [enfocus.events :as ev]
             [enfocus.effects :as eff]
+            [solari.views.common :as common]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
   (:require-macros [enfocus.macros :as em]))
@@ -13,8 +14,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      #_(println "hi data" data))
+    (init-state [this])
 
     om/IRender
     (render [this]
@@ -59,7 +59,7 @@
 
     om/IInitState
     (init-state [this]
-      #_(println "the-team: " data))
+      (println "the-team: " (:text data)))
 
     om/IDidMount
     (did-mount [this]
@@ -72,15 +72,28 @@
 
       (dom/div #js {:className "container"}
 
-               (dom/p #js {:className "leader-p"} (:text data))
+               (dom/ul #js {:style #js {:width "160px" :right "0px" :position "fixed" :listStyle "none"}}
+
+                       (dom/li #js {:id ""} "hi")
+                       (dom/li #js {:id ""} "hi")
+                       (dom/li #js {:id ""} "hi")
+
+                        )
+
+               (om/build common/p-partial-white  {:bold (:bold (:text data))  :paragraph  (:paragraph (:text data))})
+
+               (dom/div #js {:style #js {:marginBottom "20px"}}
+                         (dom/button #js {:onClick #(.megafilter js/api "cat-hipster")} "Architect")
+                         (dom/button #js {:onClick #(.megafilter js/api "cat-everyday")} "Everyday")
+
+                        (dom/button #js {:onClick #(.megafilter js/api "cat-hipster")} "by name")
+                        (dom/button #js {:onClick #(.megafilter js/api "cat-everyday")} "by year")
+
+                        )
 
                (dom/img #js {:src "/img/group_photo_everyday.jpg"})
 
                (dom/br nil)
-
-               (dom/span nil
-                         (dom/button #js {:onClick #(.megafilter js/api "cat-hipster")} "Architect")
-                         (dom/button #js {:onClick #(.megafilter js/api "cat-everyday")} "Everyday"))
 
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all gallery-partial (megafolio-preprocessor (:team-members data))))))))

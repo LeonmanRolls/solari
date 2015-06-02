@@ -13,8 +13,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      (println "img: " data))
+    (init-state [this])
 
     om/IRender
     (render [this]
@@ -59,8 +58,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      (println "Project: " data ))
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]

@@ -22,7 +22,7 @@
   (reify
     om/IInitState
     (init-state [this]
-      (println "data" data))
+      (println "common: " (:paragraph data)))
 
     om/IRender
     (render [this]
