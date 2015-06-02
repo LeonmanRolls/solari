@@ -101,7 +101,16 @@
                         (apply dom/ul #js {:className "nav-ul-left"}
                                (om/build-all nav-menu-item-left (:root menu-atom)
                                              {:init-state {:clicked clicked}}))
-                        (dom/footer #js {:id "main-footer" :className "gooter cf"}))
+
+                        (dom/a #js {:href "http://nang.rocks" :target "_blank"}
+                        (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"
+                                                                                              :position "absolute"
+                                                                                              :bottom "0"
+                                                                                              :left "0"
+                                                                                              :right "0"
+                                                                                              :text-align "center"
+                                                                                              :color "grey"}}
+                                    "Website by Nang")))
 
                (dom/div #js {:className "main-nav-right"}
                         (dom/div #js {:id "nav-hint-outer"}

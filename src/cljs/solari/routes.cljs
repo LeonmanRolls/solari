@@ -141,7 +141,7 @@
   (reify
     om/IRender
     (render [this]
-      (dom/div #js {:style #js {:color "white" :maxWidth "800px" :marginLeft "auto" :marginRight "auto"}}
+      (dom/div #js {:style #js {:color "white"}}
                (dom/p #js {:style #js {:font-size "1.6em" :line-height "1.2em"}}
                       (dom/b nil (:bold (:main data)) ) (:paragraph (:main data)))
                (dom/p nil (:paragraph-one data))
