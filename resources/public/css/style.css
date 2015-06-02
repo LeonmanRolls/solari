@@ -1491,7 +1491,6 @@ height: 240px;
 .container{  max-width:1260px;
    min-width:240px;
    width:auto;
-   margin:auto;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
    -webkit-box-sizing: border-box;
@@ -1503,6 +1502,11 @@ height: 240px;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
    -webkit-box-sizing: border-box;
+}
+
+
+.mega-hover:hover{
+border-radius: 0px !important;
 }
 
 .mega-hover:hover .mega-hoverlink {

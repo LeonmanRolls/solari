@@ -10,6 +10,9 @@
 
 (enable-console-print!)
 
+(def hipster-data [{:href "" :text "everyday us" :cat "cat-everyday"}
+                   {:href "" :text "\"architect\" us" :cat "cat-hipster"}])
+
 (defn gallery-partial [data owner]
   (reify
 
@@ -58,8 +61,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      (println "the-team: " (:text data)))
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
@@ -70,28 +72,15 @@
     om/IRender
     (render [this]
 
-      (dom/div #js {:className "container"}
+      (dom/div #js {}
 
-               (dom/ul #js {:style #js {:width "160px" :right "0px" :position "fixed" :listStyle "none"}}
-
-                       (dom/li #js {:id ""} "hi")
-                       (dom/li #js {:id ""} "hi")
-                       (dom/li #js {:id ""} "hi")
-
-                        )
+               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                                              :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
+                      (om/build-all common/clear-li hipster-data))
 
                (om/build common/p-partial-white  {:bold (:bold (:text data))  :paragraph  (:paragraph (:text data))})
 
-               (dom/div #js {:style #js {:marginBottom "20px"}}
-                         (dom/button #js {:onClick #(.megafilter js/api "cat-hipster")} "Architect")
-                         (dom/button #js {:onClick #(.megafilter js/api "cat-everyday")} "Everyday")
-
-                        (dom/button #js {:onClick #(.megafilter js/api "cat-hipster")} "by name")
-                        (dom/button #js {:onClick #(.megafilter js/api "cat-everyday")} "by year")
-
-                        )
-
-               (dom/img #js {:src "/img/group_photo_everyday.jpg"})
+               (dom/img #js {:src "/img/group_photo_everyday.jpg" :style #js {:marginBottom "20px" :width "100%"}})
 
                (dom/br nil)
 

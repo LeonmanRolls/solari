@@ -16,13 +16,13 @@
   (reify
     om/IRender
     (render [this]
-      (dom/a #js {:href (:href data)}
-             (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
+      (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
                                       :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
                                       :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
                                       :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
-                                      :borderTop "1px solid white" :borderRight "1px solid white"}}
-                     (:text data))))))
+                                      :borderTop "1px solid white" :borderLeft "1px solid white"}
+                   :onClick #(.megafilter js/api (:cat data))}
+                     (:text data)))))
 
 
 (defn p-partial [data owner]
