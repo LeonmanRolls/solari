@@ -4,24 +4,23 @@
             [enfocus.events :as ev]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true])
+            [om.dom :as dom :include-macros true]
+            [solari.views.common :as common])
   (:require-macros [enfocus.macros :as em]))
 
 (enable-console-print!)
 
-(defn p-partial [data owner]
-   (reify
-    om/IRender
-    (render [this]
-      (dom/p nil data))))
-
+(def hipster-data [{:href "" :text "Short version" :callback #(do (ef/at "#short-version" (ef/remove-class "hidden"))
+                                                                (ef/at "#long-version" (ef/add-class "hidden")))}
+                   {:href "" :text "Long version" :callback #(do (ef/at "#long-version" (ef/remove-class "hidden"))
+                                                                (ef/at "#short-version" (ef/add-class "hidden"))) }])
 
 (defn accordion-partial [data owner]
   (reify
 
     om/IInitState
     (init-state [this]
-      #_(println "accordion: " data))
+      (println "accordion: " (:paragraphs data)))
 
     om/IRender
     (render [this]
@@ -31,28 +30,21 @@
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
                               (:heading data)))
 
-#_(apply dom/ul #js {:className "nav-ul-left"}
-                               (om/build-all nav-menu-item-left (:root menu-atom)
-                                             {:init-state {:clicked clicked}}))
-
                (apply dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                       (om/build-all p-partial (:paragraphs data)))))))
+                       (om/build-all
+                         (fn [data owner]
+                           (reify om/IRender
+                             (render [this] (dom/p nil data)))) (:paragraphs data)))))))
 
-(defn text-partial [data owner]
-  (reify
-
-    om/IRender
-    (render [this]
-      (dom/p #js {:className "text-box"} data))))
-
+(def box-style #js {:style #js {:color "white" :marginTop "10px" :padding "20px" :border "2px solid #c0392b"
+                                :textTransform "uppercase"}})
 
 (defn process-page [data owner]
   (reify
 
     om/IInitState
-    (init-state [this]
-      (println "Project: " data ))
+    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
@@ -62,14 +54,23 @@
     (render [this]
       (dom/div nil
 
-               (om/build text-partial (:text data))
+               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                                              :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
+                      (om/build-all common/simple-li hipster-data))
 
-               (dom/div #js {:className "accordion"}
+               (om/build common/p-partial-white (:text data))
+
+               (dom/div #js {:id "short-version"}
+                        (dom/div box-style
+                                 "1. We listen to your goals and objectives")
+                        (dom/div box-style
+                                 "2. We translate your ideas, inspiration and words into design. That goes back and forth until we are all speaking the same language.")
+                        (dom/div box-style
+                                 "3. We communicate the solution to the right team of colaborators to actualise your vision."))
+
+               (dom/div #js {:id "long-version" :className "accordion hidden"}
                         (apply dom/dl nil
                                (om/build-all accordion-partial (:long data))))))))
-
-
-
 
 
 (defn process-init [atom]
@@ -78,3 +79,4 @@
              {:target (. js/document (getElementById "main-content-container"))})
     (ef/at "body" (ef/set-attr :background "home"))
     (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
+

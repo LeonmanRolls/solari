@@ -10,8 +10,13 @@
 
 (enable-console-print!)
 
-(def hipster-data [{:href "" :text "everyday us" :cat "cat-everyday" :img "/img/group_photo_everyday.jpg"}
-                   {:href "" :text "\"architect\" us" :cat "cat-hipster" :img "/img/group_photo_hipster.jpg"}])
+(def hipster-data [{:href "" :text "everyday us"
+                    :callback #(do (.megafilter js/api "cat-everyday")
+                                   (ef/at "#group_photo" (ef/set-attr :src "/img/group_photo_everyday.jpg")))}
+
+                   {:href "" :text "\"architect\" us"
+                    :callback #(do (.megafilter js/api "cat-hipster")
+                                   (ef/at "#group_photo" (ef/set-attr :src "/img/group_photo_hipster.jpg")))}])
 
 
 (defn megafolio-preprocessor [team-members]
@@ -58,7 +63,7 @@
 
                (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
-                      (om/build-all common/clear-li hipster-data))
+                      (om/build-all common/simple-li hipster-data))
 
                (om/build common/p-partial-white  {:bold (:bold (:text data)) :paragraph (:paragraph (:text data))})
 

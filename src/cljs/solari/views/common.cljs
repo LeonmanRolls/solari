@@ -29,6 +29,19 @@
                                (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
 
 
+(defn simple-li [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
+                                      :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
+                                      :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
+                                      :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
+                                      :borderTop "1px solid white" :borderLeft "1px solid white"}
+                   :onClick (:callback data)}
+                     (:text data)))))
+
+
 ;Required href and text
 (defn clear-li [data owner]
   (reify
@@ -56,7 +69,8 @@
 (defn p-partial-white [data owner]
   (reify
     om/IInitState
-    (init-state [this])
+    (init-state [this]
+      (println "ppartial" data))
 
     om/IRender
     (render [this]
