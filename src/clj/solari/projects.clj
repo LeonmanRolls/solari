@@ -2,6 +2,7 @@
 
 (def project-01 {:id "project-01"
                  :projectid "wadestown"
+                 :link "wadestown"
                  :category "cat-residential cat-all"
                  :title "Wadestown Renovation"
                  :thumbnail "/img/wadestown/wadestown.jpg"
@@ -25,6 +26,7 @@
 
 (def project-02 {:id "project-02"
                  :projectid "lyall"
+                 :link "lyall"
                  :category "cat-residential cat-all"
                  :title "Lyall bay renovation"
                  :thumbnail "/img/lyall/lyall.jpg"
@@ -52,6 +54,7 @@
 
 (def project-03 {:id "project-03"
                  :projectid "catline"
+                 :link "catline"
                  :category "cat-residential cat-all"
                  :title "Catline Lane Subdivision"
                  :thumbnail "/img/catline/catline_thumb.jpg"
@@ -80,6 +83,7 @@
 (def project-04
   {:id "project-04"
    :projectid "plimmerton"
+   :link "plimmerton"
    :category "cat-residential cat-all"
    :title "Plimmerton House"
    :thumbnail "/img/catline/catline_thumb.jpg"
@@ -99,6 +103,7 @@
 (def project-05
   {:id "project-05"
    :projectid "vedado"
+   :link "vedado"
    :category "cat-multi-unit-residential cat-all"
    :title "Vedado"
    :thumbnail "/img/vedado/veado_thumb.jpg"
@@ -118,6 +123,7 @@
 (def project-06
   {:id "project-06"
    :projectid "sharella"
+   :link "sharella"
    :category "cat-multi-unit-residential cat-all"
    :title "Sharella Nouveau"
    :thumbnail "/img/sharella/sharella.jpg"
@@ -137,6 +143,7 @@
 (def project-07
   {:id "project-07"
    :projectid "pascal"
+   :link "pascal"
    :category "cat-multi-unit-residential cat-all"
    :title "Pascal Orchard Houses"
    :thumbnail "/img/pascal/pascal.jpg"
@@ -156,6 +163,7 @@
 (def project-08
   {:id "project-08"
    :projectid "sugarloaf"
+   :link "sugarloaf"
    :category "cat-multi-unit-residential cat-all"
    :title "Sugarloaf Road"
    :thumbnail "/img/sugarloaf/sugarloaf.jpg"
@@ -175,6 +183,7 @@
 (def project-09
   {:id "project-09"
    :projectid "detroit"
+   :link "detroit"
    :category "cat-multi-unit-residential cat-all"
    :title "Detroit"
    :thumbnail "/img/catline/catline_thumb.jpg"
@@ -194,6 +203,7 @@
 (def project-10
   {:id "project-10"
    :projectid "oasis"
+   :link "oasis"
    :category "cat-commercial cat-all"
    :title "Oasis Bar"
    :thumbnail "/img/oasis/oasis.jpg"
@@ -213,6 +223,7 @@
 (def project-11
   {:id "project-11"
    :projectid "tinakori"
+   :link "tinakori"
    :category "cat-commercial cat-all"
    :title "Tinakori Road Medical Center"
    :thumbnail "/img/tinakori/tinakori.jpg"
