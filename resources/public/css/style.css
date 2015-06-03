@@ -1,4 +1,9 @@
 @font-face {
+   font-family: GiveYouGlory;
+   src: url(/fonts/GiveYouGlory.ttf);
+}
+
+@font-face {
    font-family: SourceSansPro;
    src: url(/fonts/SourceSansPro-Regular.otf);
 }
@@ -1024,13 +1029,6 @@ margin-top: 10px;
 	font-size: 16px;
 }
 
-.photostack-img {
-	outline: none;
-	display: block;
-	width: 240px;
-	height: 240px;
-	background: #f9f9f9;
-}
 
 .photostack-back {
 	display: none;
@@ -1277,8 +1275,9 @@ figure.photostack-current::after {
 }
 
 .photostack-img img{
-width: 240px;
-height: 240px;
+width: 300px;
+  height: 200px;
+  margin-left: -29px;
 }
 
 /* Photostack */

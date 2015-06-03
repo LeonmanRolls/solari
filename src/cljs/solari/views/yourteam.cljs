@@ -9,35 +9,6 @@
 
 (enable-console-print!)
 
-(defn img-page [data owner]
-  (reify
-
-    om/IInitState
-    (init-state [this])
-
-    om/IRender
-    (render [this]
-      (dom/img #js {:className "rsImg" :src (str "/img/" data )}))))
-
-(defn accordion-page [data owner]
-  (reify
-
-    om/IInitState
-    (init-state [this]
-      #_(println "accordion: " data))
-
-    om/IRender
-    (render [this]
-      (dom/div nil
-               (dom/dt nil
-                       (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
-                                   :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:title data)))
-
-               (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
-                            :aria-hidden "true"}
-                       (dom/p nil (:content data)))))))
-
 (defn polaroid-partial [data owner]
  (reify
    om/IInitState
@@ -46,13 +17,13 @@
 
    om/IRender
    (render [this]
-     (dom/figure nil
+     (dom/figure #js {:className "hvr-curl-bottom-left flippable" :onClick ""}
                  (dom/a #js {:href "#" :className "photostack-img"}
-                        (dom/img #js {:src (str "/img/teampics/" (:hipster (:profilepics data))) }))
+                        (dom/img #js {:src (:hipster (:profilepics data))}))
                  (dom/figcaption nil
                                  (dom/h2 #js {:className "photostact-title"} (:name data))
                                  (dom/div #js {:className "photostack-back"}
-                                          (dom/p nil (:polaroid data))))))))
+                                          (dom/p #js {:style #js {:fontFamily "GiveYouGlory"}} (:polaroid data))))))))
 
 (defn polaroid-page [data owner]
   (reify
@@ -74,7 +45,6 @@
                    (apply dom/div nil
                           (om/build-all polaroid-partial (:team-members data)))
                    (dom/nav nil )))))
-
 
 (defn your-team-init [team-atom]
   (do (om/root polaroid-page team-atom

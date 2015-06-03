@@ -202,19 +202,20 @@
     (render [this]
       (dom/div #js {:style #js {:color "white"}}
        (dom/b nil "We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting.")
-               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
                         (dom/b #js {:style #js {:textTransform "uppercase"}} "Visit, drink, chat, bounce ideas here:")
-                        (dom/p nil "New Address")
-                        (dom/p nil "To be confirmed")
-                        (dom/p nil "8974"))
+                        (dom/p nil "Level 1")
+                        (dom/p nil "13/15 Adelaide Road")
+                        (dom/p nil "Wellington 6021")
+                        (dom/p nil "New Zealand"))
 
-               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
                         (dom/b #js {:style #js {:textTransform "uppercase"}} "Call, talk, joke, debate, ask here: ")
                         (dom/p nil "+64 (27) 4229430"))
 
-               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
                         (dom/b #js {:style #js {:textTransform "uppercase"}} "Email jokes, work or gifs here: ")
-                        (dom/p nil "james@solariarchitects.com"))))))
+                        (dom/p nil "hello@solariarchitects.com"))))))
 
 (defroute "/contact" {:as params}
           (do
