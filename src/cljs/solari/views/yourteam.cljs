@@ -17,7 +17,7 @@
 
    om/IRender
    (render [this]
-     (dom/figure #js {:className "hvr-curl-bottom-left flippable" :onClick ""}
+     (dom/figure #js {:className "flippable" :onClick ""}
                  (dom/a #js {:href "#" :className "photostack-img"}
                         (dom/img #js {:src (:hipster (:profilepics data))}))
                  (dom/figcaption nil

@@ -17,15 +17,16 @@
 
     om/IInitState
     (init-state [this]
-      (println "hi there: " data))
+      #_(println "hi there: " data))
 
     om/IRender
     (render [this]
       (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry " (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
-                               (dom/div #js {:className "mega-hovertitle"} (:title data)
-                                        (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
+                      (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
+                               (:title data)
+                               (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
 
 
 ;Required href and text

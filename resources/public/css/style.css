@@ -1092,8 +1092,7 @@ margin-top: 10px;
 }
 
 .photostack nav span::after {
-	content: "\e600";
-	font-family: 'icons';
+	content: "FLIP";
 	font-size: 80%;
 	speak: none;
 	display: inline-block;
@@ -1486,6 +1485,10 @@ width: 300px;
 
 
 /* Megafolio */
+
+.mega-hovertitle{
+padding: 0px;
+}
 
 .container{  max-width:1260px;
    min-width:240px;
