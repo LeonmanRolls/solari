@@ -49,3 +49,7 @@
           (% "gamename"))
       all-games)))
 
+(defn on-doc-ready [doc-ready-handler]
+  (aset  js/document "onreadystatechange" doc-ready-handler ))
+
+
