@@ -116,7 +116,7 @@
                                                                                               :bottom "0"
                                                                                               :left "0"
                                                                                               :right "0"
-                                                                                              :text-align "center"
+                                                                                              :textAlign "center"
                                                                                               :color "grey"}}
                                     "Website by Nang")))
 
