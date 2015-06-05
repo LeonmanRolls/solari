@@ -38,10 +38,10 @@
 
     om/IDidMount
     (did-mount [this]
-      #_(.dcSocialStream
+      (.dcSocialStream
           (js/$ "#social-wall-root")
           #js {:feeds
-               #js {:rss #js {:id "http://twitrss.me/twitter_user_to_rss/?user=solariarch"}}
+               #js {:pinterest #js {:id "jsolari"}}
                :wall true})
       #_(u/on-doc-ready
         ))

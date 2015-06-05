@@ -1549,3 +1549,24 @@ text-align: center;
 margin: 5px;
 color: white;
 }
+
+
+/* Social stream */
+
+.dcsns{
+background: none;
+}
+
+.stream li {
+border-radius: 0px;
+}
+
+.stream li .section-thumb img {
+   border: 0px solid #ccc;
+   padding: 0px;
+   background: #fff;
+   max-width: 100%;
+}
+
+/* Social stream */
+
