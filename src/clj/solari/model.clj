@@ -57,7 +57,6 @@
                     {:text "At Solari we don’t define commercial buildings by their sheer scale but by their purpose.  We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "
                      :category "Commerical"
                      :projects [pr/project-10 pr/project-11]}]}))
-
 (set-validator! projects-atom #((complement empty?) %))
 
 

@@ -74,7 +74,11 @@
                       (loop [idxx 0]
                         (when (< idxx sub-menu-count)
                           (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
-                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
+
+                            (do (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
+                                (println "filter nav: " menu-atom)
+                                )
+
                             (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
                           (recur (inc idxx)))))
                     (recur (inc idx))))

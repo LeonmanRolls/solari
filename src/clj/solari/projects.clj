@@ -1,6 +1,7 @@
 (ns solari.projects)
 
 (def project-01 {:id "project-01"
+                 :year 2000
                  :projectid "wadestown"
                  :link "wadestown"
                  :category "cat-residential cat-all"
@@ -25,6 +26,7 @@
                               :content "Workign with an old charcter home."}]})
 
 (def project-02 {:id "project-02"
+                 :year 2015
                  :projectid "lyall"
                  :link "lyall"
                  :category "cat-residential cat-all"
@@ -53,6 +55,7 @@
                                               the client desired."}]})
 
 (def project-03 {:id "project-03"
+                 :year 2014
                  :projectid "catline"
                  :link "catline"
                  :category "cat-residential cat-all"
@@ -82,6 +85,7 @@
 
 (def project-04
   {:id "project-04"
+   :year 2014
    :projectid "plimmerton"
    :link "plimmerton"
    :category "cat-residential cat-all"
@@ -102,6 +106,7 @@
 
 (def project-05
   {:id "project-05"
+   :year 2013
    :projectid "vedado"
    :link "vedado"
    :category "cat-multi-unit-residential cat-all"
@@ -122,6 +127,7 @@
 
 (def project-06
   {:id "project-06"
+   :year 2013
    :projectid "sharella"
    :link "sharella"
    :category "cat-multi-unit-residential cat-all"
@@ -142,6 +148,7 @@
 
 (def project-07
   {:id "project-07"
+   :year 2012
    :projectid "pascal"
    :link "pascal"
    :category "cat-multi-unit-residential cat-all"
@@ -162,6 +169,7 @@
 
 (def project-08
   {:id "project-08"
+   :year 2012
    :projectid "sugarloaf"
    :link "sugarloaf"
    :category "cat-multi-unit-residential cat-all"
@@ -182,6 +190,7 @@
 
 (def project-09
   {:id "project-09"
+   :year 2011
    :projectid "detroit"
    :link "detroit"
    :category "cat-multi-unit-residential cat-all"
@@ -202,6 +211,7 @@
 
 (def project-10
   {:id "project-10"
+   :year 2011
    :projectid "oasis"
    :link "oasis"
    :category "cat-commercial cat-all"
@@ -222,6 +232,7 @@
 
 (def project-11
   {:id "project-11"
+   :year 2010
    :projectid "tinakori"
    :link "tinakori"
    :category "cat-commercial cat-all"

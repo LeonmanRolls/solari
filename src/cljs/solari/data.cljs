@@ -76,8 +76,10 @@
 
 (def nav-map (atom {:root     [{:id      "nav-left-01" :label "for you" :selected false :route "/for-you"
                                 :submenu {:id    "nav-left-01-sub"
+                                          :filter "cat-all"
                                           :items [{:id "nav-right-item-all-projects" :name "all-projects "
-                                                   :selected false :route "/all-projects"}
+                                                   :selected false :route "/all-projects"
+                                                   :category "cat-all"}
                                                   {:id "nav-right-item-residential" :name "residential"
                                                    :selected false :route "/residential"
                                                    :category "cat-residential"}
@@ -142,4 +144,10 @@
     (data-link "/architects/" for-architects-atom "")
     (data-link "/us/" from-us-atom "")
     (data-link "/team/" the-team-atom "")))
+
+;(first @individual-projects-atom)
+;(data-link "/projects/" individual-projects-atom "projects-only")
+;(sort compara)
+;(sort [2015 2015 2020 2015 2013 2012 2014])
+
 

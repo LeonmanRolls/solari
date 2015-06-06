@@ -2,13 +2,19 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
+            [cljs.core.async :refer [put! chan <! >! take! close!]]
             [enfocus.effects :as eff]
             [solari.views.common :as common]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
-  (:require-macros [enfocus.macros :as em]))
+  (:require-macros [enfocus.macros :as em]
+                   [cljs.core.async.macros :refer [go]]))
 
 (enable-console-print!)
+
+(def sort-chan (chan))
+(def sorting-data [{:href "" :text "By name" :callback #(put! sort-chan "name")}
+                   {:href "" :text "By year" :callback #(put! sort-chan "year")}])
 
 (defn gallery-partial [data owner]
   (reify
@@ -27,7 +33,6 @@
                         (dom/a #js {:href (str "/#/" (:projectid data))}
                                (dom/div #js {:className "mega-hoverlink"})))))))
 
-
 (defn all-projects-page [data owner]
   (reify
 
@@ -36,22 +41,40 @@
 
     om/IDidMount
     (did-mount [this]
-      (js/megafolioInit))
+      (do
+        (js/megafolioInit)
+        (go
+        (while true
+          (let [sort-type (<! sort-chan)]
+            (cond
+              (= sort-type "name") (do
+                                     (om/transact! data (fn [cursor] (sort-by (fn [x] (:projectid x)) cursor)))
+                                     (.megafilter js/api (:filter (om/get-state owner)))
+                                     (println "filter value: " (:filter (om/get-state owner)))
+                                     )
+              (= sort-type "year") (do
+                                     (om/update! data (reverse (sort-by (fn [x] (:year x)) data)))
+                                     (.megafilter js/api (:filter (om/get-state owner))))))))))
 
     om/IRenderState
     (render-state [this {:keys [text]}]
 
       (dom/div #js {:className "container"}
 
+               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                                              :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
+                      (om/build-all common/simple-li sorting-data))
+
                (om/build common/p-partial-white text)
 
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all common/gallery-partial data {:key :id}))))))
 
+
 (defn all-projects-init [project-atom filter text-atom]
   (do (om/root all-projects-page project-atom
                {:target (. js/document (getElementById "main-content-container"))
-                :init-state {:text @text-atom}})
+                :init-state {:text @text-atom :filter filter}})
       (ef/at ".context" (ef/content (:title @project-atom)))
       (.megafilter js/api filter)))
 
