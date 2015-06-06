@@ -49,9 +49,7 @@
             (cond
               (= sort-type "name") (do
                                      (om/transact! data (fn [cursor] (sort-by (fn [x] (:projectid x)) cursor)))
-                                     (.megafilter js/api (:filter (om/get-state owner)))
-                                     (println "filter value: " (:filter (om/get-state owner)))
-                                     )
+                                     (.megafilter js/api (:filter (om/get-state owner))))
               (= sort-type "year") (do
                                      (om/update! data (reverse (sort-by (fn [x] (:year x)) data)))
                                      (.megafilter js/api (:filter (om/get-state owner))))))))))
