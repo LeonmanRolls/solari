@@ -11,6 +11,43 @@
 
 (def colors {:transparent-grey "rgba(29,29,27,0.4)"})
 
+(defn p-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this {:keys [color]}]
+      (dom/p #js {:style #js {:color color}}
+             (dom/b nil (:bold data))
+             (:paragraph data)))))
+
+(defn update-value [data owner target key]
+  (let [new-contact (-> (om/get-node owner target)
+                        .-value)]
+    (om/transact! data key (fn [x] new-contact))))
+
+(defn home-page [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this {:keys [color]}]
+      (dom/div nil
+
+               (om/build p-partial data {:init-state {:color color}})
+
+               (dom/div #js {:className "cbp-mc-form"}
+
+               (dom/div #js {:className "cbp-mc-column"}
+                        (dom/label #js {:for "home-page-title"} "Bold text")
+                        (dom/input #js {:placeholder (:bold data) :type "text" :ref "home-page-title"
+                                        :name "home-page-title"})
+                        (dom/button #js {:onClick #(update-value data owner "home-page-title" :bold)
+                                         :className "cbp-mc-submit"} "Update Site"))
+
+                        (dom/div #js {:className "cbp-mc-column"}
+                                 (dom/label #js {:for "paragraph-one"} "Paragraph")
+                                 (dom/textarea #js {:type "text" :ref "paragraph-one" :name "home-page-title"
+                                                    :placeholder (:paragraph data)})
+                                 (dom/button #js {:onClick #(update-value data owner "paragraph-one" :paragraph)
+                                                  :className "cbp-mc-submit"} "Update Site")))))))
+
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
   (reify
@@ -57,13 +94,6 @@
                      (:text data)))))
 
 
-(defn p-partial [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/p #js {:style #js {}}
-             (dom/b nil (:bold data))
-             (:paragraph data)))))
 
 
 (defn p-partial-white [data owner]

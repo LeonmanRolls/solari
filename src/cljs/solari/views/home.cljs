@@ -11,24 +11,28 @@
 
 (enable-console-print!)
 
+
 (defn home-init [atom]
   (do
-    (om/root common/p-partial atom
-             {:target (. js/document (getElementById "main-content-container"))})
+    (om/root common/home-page atom
+             {:target (. js/document (getElementById "main-content-container"))
+              :init-state {:color "black"}})
     (ef/at "body" (ef/set-attr :background "home"))
     (ef/at "#nav-hint-inner" (ef/content "architects"))))
 
 (defn for-you-init [atom]
   (do
-    (om/root common/p-partial-white atom
-             {:target (. js/document (getElementById "main-content-container"))})
+    (om/root common/home-page atom
+             {:target (. js/document (getElementById "main-content-container"))
+              :init-state {:color "white"}})
     (ef/at "body" (ef/set-attr :background "for-you"))
     (ef/at "#nav-hint-inner" (ef/content "for you"))))
 
 (defn for-architects-init [atom]
   (do
-    (om/root common/p-partial-white atom
-             {:target (. js/document (getElementById "main-content-container"))})
+    (om/root common/home-page atom
+             {:target (. js/document (getElementById "main-content-container"))
+              :init-state {:color "white"}})
     (ef/at "body" (ef/set-attr :background "for-architects"))
     (ef/at "#nav-hint-inner" (ef/content "for architects"))))
 
@@ -42,9 +46,7 @@
           (js/$ "#social-wall-root")
           #js {:feeds
                #js {:pinterest #js {:id "jsolari"}}
-               :wall true})
-      #_(u/on-doc-ready
-        ))
+               :wall true}))
 
     om/IRender
     (render [this]

@@ -65,7 +65,7 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               (om/build common/p-partial-white text)
+               (om/build common/home-page text)
 
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all common/gallery-partial data {:key :id}))))))

@@ -851,6 +851,8 @@ margin-top: 10px;
 
 .cbp-mc-form {
 	position: relative;
+	background: rgba(0,0,0,0.9);
+	margin: 20px;
 }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -864,7 +866,7 @@ margin-top: 10px;
 }
 
 .cbp-mc-column {
-	width: 33%;
+	width: 50%;
 	padding: 10px 30px;
 	float: left;
 }
