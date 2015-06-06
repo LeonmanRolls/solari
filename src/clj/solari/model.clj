@@ -4,7 +4,7 @@
             [clojure.core.async :refer [>! <! >!! <!! go chan buffer close! thread alts! alts!!]]
             [clojure.string :as string]
             [solari.projects :as pr]
-            [clojure.java.jdbc :as sql]
+            [clojure.walk :as w] [clojure.java.jdbc :as sql]
             [clojure.java.jdbc.deprecated :as sql-old]))
 
 (def db
@@ -15,6 +15,7 @@
 (def home-page-atom
   (atom {:bold "Come on in. We're Solari architects."
          :paragraph " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+
 
 (def residential-atom
   (atom {:bold "Homes are personal projects - we like that."
@@ -58,6 +59,7 @@
                      :category "Commerical"
                      :projects [pr/project-10 pr/project-11]}]}))
 (set-validator! projects-atom #((complement empty?) %))
+
 
 
 (def process-atom

@@ -62,6 +62,21 @@
                (apply dom/div #js {:className "royalSlider rsDefault"}
                       (om/build-all img-page (:gallery-images data)))
 
+                (dom/div #js {:className "cbp-mc-form"}
+
+               (dom/div #js {:className "cbp-mc-column"}
+
+                       (apply dom/ul nil (om/build-all remove-li (:gallery-images data)))
+
+                        (dom/label #js {:for "home-page-title"} "Gallery Images")
+                        (dom/input #js {:placeholder (:category data) :type "text" :ref "home-page-title"
+                                        :name "home-page-title"})
+                        (dom/button #js {:onClick #(common/update-value data owner "home-page-title" :bold)
+                                         :className "cbp-mc-submit"} "Update Site"))
+
+                        )
+
+
                (dom/div #js {:className "accordion"}
 
                         (apply dom/dl nil
