@@ -21,9 +21,6 @@
 (defn project-page [data owner]
   (reify
 
-    om/IInitState
-    (init-state [this])
-
     om/IDidMount
     (did-mount [this]
       (do
@@ -46,14 +43,15 @@
 
                (dom/div #js {:className "cbp-mc-column"}
 
-                       (apply dom/ul nil (om/build-all common/remove-li (:gallery-images data)))
+                        (dom/div nil
 
-                        (dom/label #js {:for "home-page-title"} "Gallery Images")
-                        (dom/input #js {:placeholder (:category data) :type "text" :ref "home-page-title"
-                                        :name "home-page-title"})
-                        (dom/button #js {:onClick   #(common/update-value data owner "home-page-title" :bold)
-                                         :className "cbp-mc-submit"} "Update Site"))
+                       (apply dom/ul nil (om/build-all common/admin-li (:gallery-images data)
+                                                       {:state {:button-label "Remove"}}))
 
+                                (dom/input #js {:type "file" :name "fileToUpload" :id "fileToUpload"
+                                                })
+                                 )
+                        )
                         )
 
 

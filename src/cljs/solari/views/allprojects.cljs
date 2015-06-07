@@ -66,7 +66,7 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               (om/build common/home-page text)
+               (om/build common/paragraph-partial text {:init-state {:color "white"}})
 
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all common/gallery-partial data {:key :id}))))))
@@ -75,7 +75,7 @@
 (defn all-projects-init [project-atom filter text-atom]
   (do (om/root all-projects-page project-atom
                {:target (. js/document (getElementById "main-content-container"))
-                :init-state {:text @text-atom :filter filter}})
+                :init-state {:text text-atom :filter filter}})
       (ef/at ".context" (ef/content (:title @project-atom)))
       (.megafilter js/api filter)))
 

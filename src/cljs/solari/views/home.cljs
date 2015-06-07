@@ -14,7 +14,7 @@
 
 (defn home-init [atom]
   (do
-    (om/root common/home-page atom
+    (om/root common/paragraph-partial atom
              {:target (. js/document (getElementById "main-content-container"))
               :init-state {:color "black"}})
     (ef/at "body" (ef/set-attr :background "home"))
@@ -22,7 +22,7 @@
 
 (defn for-you-init [atom]
   (do
-    (om/root common/home-page atom
+    (om/root common/paragraph-partial atom
              {:target (. js/document (getElementById "main-content-container"))
               :init-state {:color "white"}})
     (ef/at "body" (ef/set-attr :background "for-you"))
@@ -30,7 +30,7 @@
 
 (defn for-architects-init [atom]
   (do
-    (om/root common/home-page atom
+    (om/root common/paragraph-partial atom
              {:target (. js/document (getElementById "main-content-container"))
               :init-state {:color "white"}})
     (ef/at "body" (ef/set-attr :background "for-architects"))

@@ -33,25 +33,36 @@
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:heading data)))
+                              (:title data)))
 
-               (apply dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
+               (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                       (om/build-all
-                         (fn [data owner]
-                           (reify om/IRender
-                             (render [this] (dom/p nil data)))) (:paragraphs data)))))))
+                      (dom/p nil (:content data))
+                       )))))
 
-(defmulti admin-partial (fn [x] (type x)))
+#_(defmulti admin-partial (fn [x] (type x)))
 
-(type [])
+;(defmethod admin-partial cljs.core/PersistentArrayMap)
 
-(defmethod admin-partial cljs.core/PersistentArrayMap)
+;(defmethod admin-partial cljs.core/PersistentVector)
 
-(defmethod admin-partial cljs.core/PersistentVector)
+(defn short-input-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               #_(dom/label #js {:for "home-page-title"} "Bold text")
+               #_(dom/input #js {:placeholder (:placeholder data) :type "text" :ref "home-page-title"
+                               :name "home-page-title"})
+               #_(dom/button #js {:onClick #(update-value data owner "home-page-title" :bold)
+                                :className "cbp-mc-submit"} "Update Site")))))
 
 (defn paragraph-partial [data owner]
   (reify
+   om/IInitState
+    (init-state [this]
+      (println "p partial init " data))
+
     om/IRenderState
     (render-state [this {:keys [color]}]
       (dom/div nil
@@ -61,18 +72,21 @@
                (dom/div #js {:className "cbp-mc-form"}
 
                (dom/div #js {:className "cbp-mc-column"}
-                        (dom/label #js {:for "home-page-title"} "Bold text")
-                        (dom/input #js {:placeholder (:bold data) :type "text" :ref "home-page-title"
-                                        :name "home-page-title"})
-                        (dom/button #js {:onClick #(update-value data owner "home-page-title" :bold)
-                                         :className "cbp-mc-submit"} "Update Site"))
+
+                        (om/build short-input-partial (atom {:placeholder "hi there"}))
+
+                        )
 
                         (dom/div #js {:className "cbp-mc-column"}
+
                                  (dom/label #js {:for "paragraph-one"} "Paragraph")
                                  (dom/textarea #js {:type "text" :ref "paragraph-one" :name "home-page-title"
                                                     :placeholder (:paragraph data)})
                                  (dom/button #js {:onClick #(update-value data owner "paragraph-one" :paragraph)
-                                                  :className "cbp-mc-submit"} "Update Site")))))))
+                                                  :className "cbp-mc-submit"} "Update Site")
+
+
+                                 ))))))
 
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
@@ -91,33 +105,25 @@
                                (:title data)
                                (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
 
-
+;key
 (defn simple-li [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
-                                      :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
-                                      :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
-                                      :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
-                                      :borderTop "1px solid white" :borderLeft "1px solid white"}
-                   :onClick (:callback data)}
-                     (:text data)))))
+                               :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
+                               :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
+                               :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
+                               :borderTop "1px solid white" :borderLeft "1px solid white"}
+                   :onClick (:callback state)}
+              data))))
 
 
-;Required href and text
-(defn clear-li [data owner]
+(defn admin-li [data owner]
   (reify
-    om/IRender
-    (render [this]
-      (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
-                                      :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
-                                      :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
-                                      :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
-                                      :borderTop "1px solid white" :borderLeft "1px solid white"}
-                   :onClick #(do (.megafilter js/api (:cat data))
-                                 (ef/at "#group_photo" (ef/set-attr :src (:img data))))}
-                     (:text data)))))
-
-
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} data)
+               (dom/button nil (:button-label state))))))
 
