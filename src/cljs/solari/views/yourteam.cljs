@@ -28,9 +28,6 @@
 (defn polaroid-page [data owner]
   (reify
 
-    om/IInitState
-    (init-state [this])
-
     om/IDidMount
     (did-mount [this]
       (do

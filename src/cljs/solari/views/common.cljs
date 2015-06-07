@@ -24,7 +24,33 @@
                         .-value)]
     (om/transact! data key (fn [x] new-contact))))
 
-(defn home-page [data owner]
+(defn accordion-partial [data owner]
+  (reify
+
+    om/IRender
+    (render [this]
+      (dom/div nil
+               (dom/dt nil
+                       (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
+                                   :className "accordion-title accordionTitle js-accordionTrigger"}
+                              (:heading data)))
+
+               (apply dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
+                            :aria-hidden "true"}
+                       (om/build-all
+                         (fn [data owner]
+                           (reify om/IRender
+                             (render [this] (dom/p nil data)))) (:paragraphs data)))))))
+
+(defmulti admin-partial (fn [x] (type x)))
+
+(type [])
+
+(defmethod admin-partial cljs.core/PersistentArrayMap)
+
+(defmethod admin-partial cljs.core/PersistentVector)
+
+(defn paragraph-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this {:keys [color]}]
@@ -94,17 +120,4 @@
                      (:text data)))))
 
 
-
-
-(defn p-partial-white [data owner]
-  (reify
-    om/IInitState
-    (init-state [this]
-      (println "ppartial" data))
-
-    om/IRender
-    (render [this]
-      (dom/p #js {:style #js {:color "white" :marginBottom "30px"}}
-             (dom/b nil (:bold data))
-             (:paragraph data)))))
 

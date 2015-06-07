@@ -15,36 +15,12 @@
                    {:href "" :text "Long version" :callback #(do (ef/at "#long-version" (ef/remove-class "hidden"))
                                                                 (ef/at "#short-version" (ef/add-class "hidden"))) }])
 
-(defn accordion-partial [data owner]
-  (reify
-
-    om/IInitState
-    (init-state [this]
-      (println "accordion: " (:paragraphs data)))
-
-    om/IRender
-    (render [this]
-      (dom/div nil
-               (dom/dt nil
-                       (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
-                                   :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:heading data)))
-
-               (apply dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
-                            :aria-hidden "true"}
-                       (om/build-all
-                         (fn [data owner]
-                           (reify om/IRender
-                             (render [this] (dom/p nil data)))) (:paragraphs data)))))))
 
 (def box-style #js {:style #js {:color "white" :marginTop "10px" :padding "20px" :border "2px solid #c0392b"
                                 :textTransform "uppercase"}})
 
 (defn process-page [data owner]
   (reify
-
-    om/IInitState
-    (init-state [this])
 
     om/IDidMount
     (did-mount [this]
@@ -70,7 +46,7 @@
 
                (dom/div #js {:id "long-version" :className "accordion hidden"}
                         (apply dom/dl nil
-                               (om/build-all accordion-partial (:long data))))))))
+                               (om/build-all common/accordion-partial (:long data))))))))
 
 
 (defn process-init [atom]

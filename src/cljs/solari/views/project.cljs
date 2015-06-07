@@ -4,7 +4,8 @@
             [enfocus.events :as ev]
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true])
+            [om.dom :as dom :include-macros true]
+            [solari.views.common :as common])
   (:require-macros [enfocus.macros :as em]))
 
 (enable-console-print!)
@@ -12,31 +13,10 @@
 (defn img-page [data owner]
   (reify
 
-    om/IInitState
-    (init-state [this])
-
     om/IRender
     (render [this]
       (dom/img #js {:className "rsImg" :src (str "/img/" data ) :data-rsTmb (str "/img/" data )}))))
 
-(defn accordion-page [data owner]
-  (reify
-
-    om/IInitState
-    (init-state [this]
-      #_(println "accordion: " data))
-
-    om/IRender
-    (render [this]
-      (dom/div nil
-               (dom/dt nil
-                       (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
-                                   :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:title data)))
-
-               (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
-                            :aria-hidden "true"}
-                       (dom/p nil (:content data)))))))
 
 (defn project-page [data owner]
   (reify
@@ -66,12 +46,12 @@
 
                (dom/div #js {:className "cbp-mc-column"}
 
-                       (apply dom/ul nil (om/build-all remove-li (:gallery-images data)))
+                       (apply dom/ul nil (om/build-all common/remove-li (:gallery-images data)))
 
                         (dom/label #js {:for "home-page-title"} "Gallery Images")
                         (dom/input #js {:placeholder (:category data) :type "text" :ref "home-page-title"
                                         :name "home-page-title"})
-                        (dom/button #js {:onClick #(common/update-value data owner "home-page-title" :bold)
+                        (dom/button #js {:onClick   #(common/update-value data owner "home-page-title" :bold)
                                          :className "cbp-mc-submit"} "Update Site"))
 
                         )
@@ -80,7 +60,7 @@
                (dom/div #js {:className "accordion"}
 
                         (apply dom/dl nil
-                               (om/build-all accordion-page (:accordion data))))))))
+                               (om/build-all common/accordion-partial (:accordion data))))))))
 
 
 (defn project-init [project-atom]

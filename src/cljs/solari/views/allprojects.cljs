@@ -20,8 +20,7 @@
   (reify
 
     om/IInitState
-    (init-state [this]
-      )
+    (init-state [this])
 
     om/IRender
     (render [this]
@@ -33,11 +32,7 @@
 
                         (dom/a #js {:href (str "/#/" (:projectid data))}
                                (dom/div #js {:className "mega-hoverlink"})))
-
-
-
                )
-
       )))
 
 (defn all-projects-page [data owner]
