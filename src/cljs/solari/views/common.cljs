@@ -3,6 +3,7 @@
             [enfocus.core :as ef]
             [enfocus.events :as ev]
             [enfocus.effects :as eff]
+            [clojure.set :as set]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
   (:require-macros [enfocus.macros :as em]))
@@ -24,6 +25,26 @@
                         .-value)]
     (om/transact! data key (fn [x] new-contact))))
 
+(defn short-input-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               (dom/label #js {:for (:placeholder data)} (:label state))
+               (dom/input #js {:placeholder (:placeholder data) :type "text" :ref (:placeholder data)})
+               (dom/button #js {:onClick #(update-value data owner (:placeholder data) (:key state))
+                                :className "cbp-mc-submit"} "Update Site")))))
+
+(defn long-input-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               (dom/label #js {:for (:placeholder data)} (:label state))
+               (dom/textarea #js {:type "text" :ref (:placeholder data) :placeholder (:placeholder data)})
+               (dom/button #js {:onClick #(update-value data owner (:placeholder data) (:key state))
+                                :className "cbp-mc-submit"} "Update Site")))))
+
 (defn accordion-partial [data owner]
   (reify
 
@@ -33,12 +54,12 @@
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:title data)))
+                              (:title data)
+                              (om/build short-input-partial (:title data))))
 
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                      (dom/p nil (:content data))
-                       )))))
+                       (dom/p nil (:content data)))))))
 
 #_(defmulti admin-partial (fn [x] (type x)))
 
@@ -46,47 +67,32 @@
 
 ;(defmethod admin-partial cljs.core/PersistentVector)
 
-(defn short-input-partial [data owner]
-  (reify
-    om/IRenderState
-    (render-state [this state]
-      (dom/div nil
-               #_(dom/label #js {:for "home-page-title"} "Bold text")
-               #_(dom/input #js {:placeholder (:placeholder data) :type "text" :ref "home-page-title"
-                               :name "home-page-title"})
-               #_(dom/button #js {:onClick #(update-value data owner "home-page-title" :bold)
-                                :className "cbp-mc-submit"} "Update Site")))))
+
 
 (defn paragraph-partial [data owner]
   (reify
-   om/IInitState
-    (init-state [this]
-      (println "p partial init " data))
 
     om/IRenderState
     (render-state [this {:keys [color]}]
+
       (dom/div nil
+
+               (println "textext " data)
 
                (om/build p-partial data {:init-state {:color color}})
 
+               (dom/form #js {:action "/file-upload" :class "dropzone" :id "my-awesome-dropzone"
+                              :style #js {:width "400" :height "400"}})
+
                (dom/div #js {:className "cbp-mc-form"}
 
-               (dom/div #js {:className "cbp-mc-column"}
-
-                        (om/build short-input-partial (atom {:placeholder "hi there"}))
-
-                        )
+                        (dom/div #js {:className "cbp-mc-column"}
+                                 (om/build short-input-partial (set/rename-keys data {:bold :placeholder})
+                                           {:state {:label "Bold text" :key :bold}}))
 
                         (dom/div #js {:className "cbp-mc-column"}
-
-                                 (dom/label #js {:for "paragraph-one"} "Paragraph")
-                                 (dom/textarea #js {:type "text" :ref "paragraph-one" :name "home-page-title"
-                                                    :placeholder (:paragraph data)})
-                                 (dom/button #js {:onClick #(update-value data owner "paragraph-one" :paragraph)
-                                                  :className "cbp-mc-submit"} "Update Site")
-
-
-                                 ))))))
+                                 (om/build long-input-partial (set/rename-keys data {:paragraph :placeholder})
+                                           {:state {:label "Paragraph" :key :paragraph}})))))))
 
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]

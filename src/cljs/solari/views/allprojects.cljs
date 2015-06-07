@@ -40,7 +40,7 @@
 
     om/IInitState
     (init-state [this]
-      (println "all projects: " data))
+      #_(println "all projects: " data))
 
     om/IDidMount
     (did-mount [this]
@@ -58,7 +58,7 @@
                                      (.megafilter js/api (:filter (om/get-state owner))))))))))
 
     om/IRenderState
-    (render-state [this {:keys [text]}]
+    (render-state [this state]
 
       (dom/div #js {:className "container"}
 
@@ -66,7 +66,7 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               (om/build common/paragraph-partial text {:init-state {:color "white"}})
+               ;(om/build common/paragraph-partial (:text state) {:init-state {:color "white"}})
 
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all common/gallery-partial data {:key :id}))))))
