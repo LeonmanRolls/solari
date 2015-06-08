@@ -40,32 +40,19 @@
                (apply dom/div #js {:className "royalSlider rsDefault"}
                       (om/build-all img-page (:gallery-images data)))
 
-
-               (dom/div #js {:id "image-dropzone" :style #js {:margin-top "20px" :height "200" :color "white"
+               #_(dom/div #js {:id "image-dropzone" :style #js {:margin-top "20px" :height "200" :color "white"
                                                               :background "rgba(29,29,27,0.4)"}}
                         "Drop files here or click to upload")
 
+               (om/build common/input-partial [:category "cat-all cat-residential"])
 
-                (dom/form #js {:className "cbp-mc-form" :action "/upload" :method "post" :enctype "multipart/form-data"}
+               #_(om/build-all common/input-partial (map (fn [x] (into [] x)) data))
 
-               (dom/div #js {:className "cbp-mc-column"}
-
-                        (dom/div nil
-
-                       (apply dom/ul nil (om/build-all common/admin-li (:gallery-images data)
-                                                       {:state {:button-label "Remove"}}))
-
-                                (dom/input #js {:type "file" :name "fileToUpload" :id "fileToUpload"})
-                                 (dom/input #js {:type "button" :value "Upload Image" :name "submit"})
-                                 )
-                        )
-                        )
-
-
-               (dom/div #js {:className "accordion"}
-
+               #_(dom/div #js {:className "accordion"}
                         (apply dom/dl nil
                                (om/build-all common/accordion-partial (:accordion data))))))))
+
+
 
 
 (defn project-init [project-atom]

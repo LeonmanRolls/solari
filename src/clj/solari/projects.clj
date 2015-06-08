@@ -25,6 +25,8 @@
                              {:title "Challenges"
                               :content "Workign with an old charcter home."}]})
 
+
+
 (def project-02 {:id "project-02"
                  :year 2015
                  :projectid "lyall"

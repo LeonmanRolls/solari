@@ -12,6 +12,15 @@
 
 (def colors {:transparent-grey "rgba(29,29,27,0.4)"})
 
+
+(defn admin-li [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} data)
+               (dom/button nil (:button-label state))))))
+
 (defn p-partial [data owner]
   (reify
     om/IRenderState
@@ -25,15 +34,24 @@
                         .-value)]
     (om/transact! data key (fn [x] new-contact))))
 
-(defn short-input-partial [data owner]
+(defn short-simple-input-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (dom/div nil
-               (dom/label #js {:for (:placeholder data)} (:label state))
-               (dom/input #js {:placeholder (:placeholder data) :type "text" :ref (:placeholder data)})
-               (dom/button #js {:onClick #(update-value data owner (:placeholder data) (:key state))
-                                :className "cbp-mc-submit"} "Update Site")))))
+               (dom/label #js {:for (val data)} (name (key data)))
+               (dom/input #js {:placeholder (val data) :type "text" :ref (val data)})))))
+
+(defn short-input-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (let [keyv (name (key data)) valv (val data)]
+        (dom/div nil
+               (dom/label #js {:for valv} keyv)
+               (dom/input #js {:placeholder valv :type "text" :ref valv})
+               (dom/button #js {:onClick #(update-value data owner valv (:key state))
+                                :className "cbp-mc-submit"} "Update Site"))))))
 
 (defn long-input-partial [data owner]
   (reify
@@ -44,6 +62,33 @@
                (dom/textarea #js {:type "text" :ref (:placeholder data) :placeholder (:placeholder data)})
                (dom/button #js {:onClick #(update-value data owner (:placeholder data) (:key state))
                                 :className "cbp-mc-submit"} "Update Site")))))
+
+(defn radio-input-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+     (dom/input #js {:type "radio" :name (:name state) :value data}))))
+
+(defn editable-list-upload-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil)
+      )))
+
+(defn editable-list-text-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil)
+      )))
+
+(defn user-upload-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil)
+      )))
 
 (defn accordion-partial [data owner]
   (reify
@@ -61,13 +106,6 @@
                             :aria-hidden "true"}
                        (dom/p nil (:content data)))))))
 
-#_(defmulti admin-partial (fn [x] (type x)))
-
-;(defmethod admin-partial cljs.core/PersistentArrayMap)
-
-;(defmethod admin-partial cljs.core/PersistentVector)
-
-
 
 (defn paragraph-partial [data owner]
   (reify
@@ -76,8 +114,6 @@
     (render-state [this {:keys [color]}]
 
       (dom/div nil
-
-               (println "textext " data)
 
                (om/build p-partial data {:init-state {:color color}})
 
@@ -97,10 +133,6 @@
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
   (reify
-
-    om/IInitState
-    (init-state [this]
-      #_(println "hi there: " data))
 
     om/IRender
     (render [this]
@@ -124,12 +156,24 @@
                    :onClick (:callback state)}
               data))))
 
+(def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
+                     :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
+                     :accordion "editable-list-text"})
 
-(defn admin-li [data owner]
-  (reify
-    om/IRenderState
-    (render-state [this state]
-      (dom/div nil
-               (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} data)
-               (dom/button nil (:button-label state))))))
+(defmulti input-partial (fn [data] ((key data) project-schema)))
+
+(defmethod input-partial "text-input"
+  [data owner] (short-input-partial data owner))
+
+(defmethod input-partial "user-limited"
+  [data owner] (radio-input-partial data owner))
+
+(defmethod input-partial "editable-list-upload"
+  [data owner] (editable-list-upload-partial data owner))
+
+(defmethod input-partial "editable-list-text"
+  [data owner] (editable-list-text-partial data owner))
+
+(defmethod input-partial "user-upload"
+  [data owner] (user-upload-partial data owner))
 

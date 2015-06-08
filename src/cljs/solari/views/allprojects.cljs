@@ -16,6 +16,9 @@
 (def sorting-data [{:href "" :text "By name" :callback #(put! sort-chan "name")}
                    {:href "" :text "By year" :callback #(put! sort-chan "year")}])
 
+(def project-schema [:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited" :title "text-input" :thumbnail "user-upload"
+                     :gallery-images "editable-list-upload" :accordion "editable-list-text"])
+
 (defn gallery-partial [data owner]
   (reify
 
@@ -69,7 +72,36 @@
                ;(om/build common/paragraph-partial (:text state) {:init-state {:color "white"}})
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial data {:key :id}))))))
+                      (om/build-all common/gallery-partial data {:key :id}))
+
+               (dom/form #js {:className "cbp-mc-form"}
+
+               (dom/div #js {:className "cbp-mc-column"}
+
+                        (dom/div nil
+
+                       (apply dom/ul nil (om/build-all common/admin-li (:gallery-images data)
+                                                       {:state {:button-label "Remove"}}))
+
+                                (dom/input #js {:type "file" :name "fileToUpload" :id "fileToUpload"})
+                                 (dom/input #js {:type "button" :value "Upload Image" :name "submit"})
+                                 )
+                        )
+
+                (dom/div #js {:className "cbp-mc-column"}
+
+
+                         (om/build common/short-simple-input-partial (atom {:placeholder "Year"})
+                                   {:state {:label "Year"}})
+
+                         (om/build common/short-simple-input-partial (atom {:placeholder "Project Id"})
+                                   {:state {:label "Project Id"}})
+
+                        )
+
+                        )
+
+               ))))
 
 
 (defn all-projects-init [project-atom filter text-atom]
