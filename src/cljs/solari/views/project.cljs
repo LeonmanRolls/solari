@@ -31,7 +31,8 @@
                                                                      :breakpoint 650 :breakpointCenterArea 0.64
                                                                      :navigateByCenterClick true}})
         (js/accordion)
-        (.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) ))
+
+        #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) ))
 
     om/IRender
     (render [this]
@@ -40,13 +41,19 @@
                (apply dom/div #js {:className "royalSlider rsDefault"}
                       (om/build-all img-page (:gallery-images data)))
 
-               #_(dom/div #js {:id "image-dropzone" :style #js {:margin-top "20px" :height "200" :color "white"
-                                                              :background "rgba(29,29,27,0.4)"}}
-                        "Drop files here or click to upload")
 
-               (om/build common/input-partial [:category "cat-all cat-residential"])
+               #_(println "filter: "
+                        (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2)  )
 
-               #_(om/build-all common/input-partial (map (fn [x] (into [] x)) data))
+
+               #_(om/build
+                 common/input-partial
+                 (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2))
+
+               (doall
+               (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data))
+                 )
+
 
                #_(dom/div #js {:className "accordion"}
                         (apply dom/dl nil

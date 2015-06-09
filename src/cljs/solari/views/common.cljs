@@ -10,10 +10,27 @@
 
 (enable-console-print!)
 
+(defn update-value [data owner target key]
+  (let [new-contact (-> (om/get-node owner target)
+                        .-value)]
+    (om/transact! data key (fn [x] new-contact))))
+
 (def colors {:transparent-grey "rgba(29,29,27,0.4)"})
 
+(def categories ["cat-residential" "cat-multi-residential" "cat-commercial"])
 
-(defn admin-li [data owner]
+(def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
+                     :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
+                     :accordion "non-user" :bold "text-input" :paragraph "text-input" :placeholder "text-input"})
+
+(defmulti input-partial (fn [data] ((key data) project-schema)))
+
+(defn map->vector [data]
+  (map (fn [x] (into [] x)) data))
+
+(defmulti admin-li (fn [data] (type data)))
+
+(defmethod admin-li (type "") [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
@@ -21,18 +38,16 @@
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} data)
                (dom/button nil (:button-label state))))))
 
-(defn p-partial [data owner]
+(defmethod admin-li (type {}) [data owner]
   (reify
     om/IRenderState
-    (render-state [this {:keys [color]}]
-      (dom/p #js {:style #js {:color color}}
-             (dom/b nil (:bold data))
-             (:paragraph data)))))
+    (render-state [this state]
+      (dom/div nil
+               (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:title data))
+               (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:content data))
+               (dom/button nil (:button-label state))))))
 
-(defn update-value [data owner target key]
-  (let [new-contact (-> (om/get-node owner target)
-                        .-value)]
-    (om/transact! data key (fn [x] new-contact))))
+
 
 (defn short-simple-input-partial [data owner]
   (reify
@@ -48,10 +63,11 @@
     (render-state [this state]
       (let [keyv (name (key data)) valv (val data)]
         (dom/div nil
-               (dom/label #js {:for valv} keyv)
-               (dom/input #js {:placeholder valv :type "text" :ref valv})
-               (dom/button #js {:onClick #(update-value data owner valv (:key state))
-                                :className "cbp-mc-submit"} "Update Site"))))))
+                 (println "datt: " data)
+                 (dom/label #js {:for valv} keyv)
+                 (dom/input #js {:placeholder valv :type "text" :ref valv})
+                 (dom/button #js {:onClick #(update-value data owner valv (:key state))
+                                  :className "cbp-mc-submit"} "Update Site"))))))
 
 (defn long-input-partial [data owner]
   (reify
@@ -63,32 +79,31 @@
                (dom/button #js {:onClick #(update-value data owner (:placeholder data) (:key state))
                                 :className "cbp-mc-submit"} "Update Site")))))
 
+(defn radio-input-quark [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (dom/input #js {:type "radio" :name data :value data} data))))
+
 (defn radio-input-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
-     (dom/input #js {:type "radio" :name (:name state) :value data}))))
-
-(defn editable-list-upload-partial [data owner]
-  (reify
-    om/IRenderState
-    (render-state [this state]
-      (dom/div nil)
-      )))
-
-(defn editable-list-text-partial [data owner]
-  (reify
-    om/IRenderState
-    (render-state [this state]
-      (dom/div nil)
-      )))
+      (apply dom/div nil
+             (om/build-all radio-input-quark categories)))))
 
 (defn user-upload-partial [data owner]
   (reify
+
+    om/IDidMount
+    (did-mount [this]
+      (.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}))
+
     om/IRenderState
     (render-state [this state]
-      (dom/div nil)
-      )))
+      (dom/div #js {:id "image-dropzone" :style #js {:margin-top "20px" :height "200" :color "white"
+                                                     :background "rgba(29,29,27,0.4)"}}
+               "Drop files here or click to upload"))))
 
 (defn accordion-partial [data owner]
   (reify
@@ -106,6 +121,13 @@
                             :aria-hidden "true"}
                        (dom/p nil (:content data)))))))
 
+(defn p-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this {:keys [color]}]
+      (dom/p #js {:style #js {:color color}}
+             (dom/b nil (:bold data))
+             (:paragraph data)))))
 
 (defn paragraph-partial [data owner]
   (reify
@@ -115,18 +137,20 @@
 
       (dom/div nil
 
+               (println "key: " (map->vector data))
+
                (om/build p-partial data {:init-state {:color color}})
 
-               (dom/form #js {:action "/file-upload" :class "dropzone" :id "my-awesome-dropzone"
+               #_(dom/form #js {:action "/file-upload" :class "dropzone" :id "my-awesome-dropzone"
                               :style #js {:width "400" :height "400"}})
 
                (dom/div #js {:className "cbp-mc-form"}
 
                         (dom/div #js {:className "cbp-mc-column"}
-                                 (om/build short-input-partial (set/rename-keys data {:bold :placeholder})
-                                           {:state {:label "Bold text" :key :bold}}))
+                                 (om/build input-partial (first (map->vector data))  #_(set/rename-keys data {:bold :placeholder})
+                                           #_{:state {:label "Bold text" :key :bold}}))
 
-                        (dom/div #js {:className "cbp-mc-column"}
+                        #_(dom/div #js {:className "cbp-mc-column"}
                                  (om/build long-input-partial (set/rename-keys data {:paragraph :placeholder})
                                            {:state {:label "Paragraph" :key :paragraph}})))))))
 
@@ -143,7 +167,6 @@
                                (:title data)
                                (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
 
-;key
 (defn simple-li [data owner]
   (reify
     om/IRenderState
@@ -156,11 +179,32 @@
                    :onClick (:callback state)}
               data))))
 
-(def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
-                     :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
-                     :accordion "editable-list-text"})
+(defn editable-list-upload-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
 
-(defmulti input-partial (fn [data] ((key data) project-schema)))
+      (dom/div nil
+
+               (apply dom/ul nil
+                      (om/build-all admin-li (last data)))
+
+               (om/build user-upload-partial data)))))
+
+(defn editable-list-text-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+
+      (dom/div nil
+
+               (apply dom/ul nil
+                      (om/build-all admin-li (last data)))
+
+               #_(apply dom/div nil
+                               (om/build-all short-input-partial (:accordion data)))))))
+
+
 
 (defmethod input-partial "text-input"
   [data owner] (short-input-partial data owner))

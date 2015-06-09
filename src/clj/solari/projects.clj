@@ -26,6 +26,15 @@
                               :content "Workign with an old charcter home."}]})
 
 
+(def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
+                     :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
+                     :accordion "non-user"})
+
+(->
+  (filter (fn [x] (not= "non-user" ((key x) project-schema))) project-01)
+
+  ;(map (fn [x] (into [] x)))
+  )
 
 (def project-02 {:id "project-02"
                  :year 2015
