@@ -4,7 +4,7 @@
                  :year 2000
                  :projectid "wadestown"
                  :link "wadestown"
-                 :category "cat-residential cat-all"
+                 :category "cat-residential"
                  :title "Wadestown Renovation"
                  :thumbnail "/img/wadestown/wadestown.jpg"
                  :gallery-images ["wadestown/wadestown-00.jpg" "wadestown/wadestown-01.jpg" "wadestown/wadestown-02.jpg"
@@ -35,7 +35,7 @@
                  :year 2015
                  :projectid "lyall"
                  :link "lyall"
-                 :category "cat-residential cat-all"
+                 :category "cat-residential"
                  :title "Lyall bay renovation"
                  :thumbnail "/img/lyall/lyall.jpg"
                  :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -64,7 +64,7 @@
                  :year 2014
                  :projectid "catline"
                  :link "catline"
-                 :category "cat-residential cat-all"
+                 :category "cat-residential"
                  :title "Catline Lane Subdivision"
                  :thumbnail "/img/catline/catline_thumb.jpg"
                  :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -94,7 +94,7 @@
    :year 2014
    :projectid "plimmerton"
    :link "plimmerton"
-   :category "cat-residential cat-all"
+   :category "cat-residential"
    :title "Plimmerton House"
    :thumbnail "/img/catline/catline_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -115,7 +115,7 @@
    :year 2013
    :projectid "vedado"
    :link "vedado"
-   :category "cat-multi-unit-residential cat-all"
+   :category "cat-multi-unit-residential"
    :title "Vedado"
    :thumbnail "/img/vedado/veado_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -136,7 +136,7 @@
    :year 2013
    :projectid "sharella"
    :link "sharella"
-   :category "cat-multi-unit-residential cat-all"
+   :category "cat-multi-unit-residential"
    :title "Sharella Nouveau"
    :thumbnail "/img/sharella/sharella.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -157,7 +157,7 @@
    :year 2012
    :projectid "pascal"
    :link "pascal"
-   :category "cat-multi-unit-residential cat-all"
+   :category "cat-multi-unit-residential"
    :title "Pascal Orchard Houses"
    :thumbnail "/img/pascal/pascal.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -178,7 +178,7 @@
    :year 2012
    :projectid "sugarloaf"
    :link "sugarloaf"
-   :category "cat-multi-unit-residential cat-all"
+   :category "cat-multi-unit-residential"
    :title "Sugarloaf Road"
    :thumbnail "/img/sugarloaf/sugarloaf.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -199,7 +199,7 @@
    :year 2011
    :projectid "detroit"
    :link "detroit"
-   :category "cat-multi-unit-residential cat-all"
+   :category "cat-multi-unit-residential"
    :title "Detroit"
    :thumbnail "/img/catline/catline_thumb.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -220,7 +220,7 @@
    :year 2011
    :projectid "oasis"
    :link "oasis"
-   :category "cat-commercial cat-all"
+   :category "cat-commercial "
    :title "Oasis Bar"
    :thumbnail "/img/oasis/oasis.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
@@ -241,7 +241,7 @@
    :year 2010
    :projectid "tinakori"
    :link "tinakori"
-   :category "cat-commercial cat-all"
+   :category "cat-commercial"
    :title "Tinakori Road Medical Center"
    :thumbnail "/img/tinakori/tinakori.jpg"
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"

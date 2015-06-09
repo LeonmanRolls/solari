@@ -13,30 +13,13 @@
 (enable-console-print!)
 
 (def sort-chan (chan))
+
 (def sorting-data [{:href "" :text "By name" :callback #(put! sort-chan "name")}
                    {:href "" :text "By year" :callback #(put! sort-chan "year")}])
 
 (def project-schema [:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited" :title "text-input" :thumbnail "user-upload"
                      :gallery-images "editable-list-upload" :accordion "editable-list-text"])
 
-(defn gallery-partial [data owner]
-  (reify
-
-    om/IInitState
-    (init-state [this])
-
-    om/IRender
-    (render [this]
-      (dom/div #js {:className (str "mega-entry " (:category data))  :id (:id data) :data-src (:thumbnail data)
-                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
-               (dom/div #js {:className "mega-hover"}
-                        (dom/div #js {:className "mega-hovertitle"} (:title data)
-                                 (dom/div #js {:className "mega-hoversubtitle"} "subtitle"))
-
-                        (dom/a #js {:href (str "/#/" (:projectid data))}
-                               (dom/div #js {:className "mega-hoverlink"})))
-               )
-      )))
 
 (defn all-projects-page [data owner]
   (reify
@@ -47,7 +30,7 @@
 
     om/IDidMount
     (did-mount [this]
-      (do
+      #_(do
         (js/megafolioInit)
         (go
         (while true
@@ -65,16 +48,18 @@
 
       (dom/div #js {:className "container"}
 
-               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+               #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               ;(om/build common/paragraph-partial (:text state) {:init-state {:color "white"}})
+               (println "safsd: " (:text data))
 
-               (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial data {:key :id}))
+               (om/build common/paragraph-partial (:text data) {:init-state {:color "white"}})
 
-               (dom/form #js {:className "cbp-mc-form"}
+               #_(apply dom/div #js {:className "megafolio-container"}
+                      (om/build-all common/gallery-partial data))
+
+               #_(dom/form #js {:className "cbp-mc-form"}
 
                (dom/div #js {:className "cbp-mc-column"}
 
@@ -105,9 +90,9 @@
 
 
 (defn all-projects-init [project-atom filter text-atom]
-  (do (om/root all-projects-page project-atom
+  (do (om/root all-projects-page (atom {:project @project-atom :text @text-atom})
                {:target (. js/document (getElementById "main-content-container"))
-                :init-state {:text text-atom :filter filter}})
+                :state {:project project-atom :text text-atom}})
       (ef/at ".context" (ef/content (:title @project-atom)))
-      (.megafilter js/api filter)))
+      #_(.megafilter js/api filter)))
 

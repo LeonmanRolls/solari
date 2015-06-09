@@ -142,15 +142,18 @@
                         (apply dom/div #js {:className "cbp-mc-column"}
                                  (om/build-all input-partial (map->vector data) {:state {:data data}})))))))
 
+
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
+
   (reify
 
     om/IRender
     (render [this]
-      (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry " (:category data))  :id (:id data)
+      (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry cat-all" (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
+                      #_(println "data: " data)
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                (:title data)
                                (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
