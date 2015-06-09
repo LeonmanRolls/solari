@@ -63,10 +63,10 @@
     (render-state [this state]
       (let [keyv (name (key data)) valv (val data)]
         (dom/div nil
-                 (println "datt: " data)
+                 (println "datt: " keyv)
                  (dom/label #js {:for valv} keyv)
                  (dom/input #js {:placeholder valv :type "text" :ref valv})
-                 (dom/button #js {:onClick #(update-value data owner valv (:key state))
+                 (dom/button #js {:onClick #(update-value (:data state) owner valv (key data))
                                   :className "cbp-mc-submit"} "Update Site"))))))
 
 (defn long-input-partial [data owner]
@@ -137,7 +137,6 @@
 
       (dom/div nil
 
-               (println "key: " (map->vector data))
 
                (om/build p-partial data {:init-state {:color color}})
 
@@ -148,7 +147,7 @@
 
                         (dom/div #js {:className "cbp-mc-column"}
                                  (om/build input-partial (first (map->vector data))  #_(set/rename-keys data {:bold :placeholder})
-                                           #_{:state {:label "Bold text" :key :bold}}))
+                                           {:state {:data data}}))
 
                         #_(dom/div #js {:className "cbp-mc-column"}
                                  (om/build long-input-partial (set/rename-keys data {:paragraph :placeholder})

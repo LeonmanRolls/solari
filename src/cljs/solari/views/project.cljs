@@ -41,10 +41,8 @@
                (apply dom/div #js {:className "royalSlider rsDefault"}
                       (om/build-all img-page (:gallery-images data)))
 
-
                #_(println "filter: "
                         (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2)  )
-
 
                #_(om/build
                  common/input-partial
