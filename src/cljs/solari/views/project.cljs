@@ -48,6 +48,7 @@
                  common/input-partial
                  (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2))
 
+
                (doall
                (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data))
                  )

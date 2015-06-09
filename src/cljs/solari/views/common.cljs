@@ -21,9 +21,9 @@
 
 (def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
-                     :accordion "non-user" :bold "text-input" :paragraph "text-input" :placeholder "text-input"})
+                     :accordion "non-user" :bold "text-input" :paragraph "text-area" :placeholder "text-input"})
 
-(defmulti input-partial (fn [data] ((key data) project-schema)))
+(defmulti input-partial (fn [data] ((first data) project-schema)))
 
 (defn map->vector [data]
   (map (fn [x] (into [] x)) data))
@@ -63,7 +63,6 @@
     (render-state [this state]
       (let [keyv (name (key data)) valv (val data)]
         (dom/div nil
-                 (println "datt: " keyv)
                  (dom/label #js {:for valv} keyv)
                  (dom/input #js {:placeholder valv :type "text" :ref valv})
                  (dom/button #js {:onClick #(update-value (:data state) owner valv (key data))
@@ -73,11 +72,12 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (dom/div nil
-               (dom/label #js {:for (:placeholder data)} (:label state))
-               (dom/textarea #js {:type "text" :ref (:placeholder data) :placeholder (:placeholder data)})
-               (dom/button #js {:onClick #(update-value data owner (:placeholder data) (:key state))
-                                :className "cbp-mc-submit"} "Update Site")))))
+      (let [keyv (name (key data)) valv (val data)]
+        (dom/div nil
+                 (dom/label #js {:for valv} keyv)
+                 (dom/textarea #js {:placeholder valv :type "text" :ref valv})
+                 (dom/button #js {:onClick #(update-value (:data state) owner valv (key data))
+                                  :className "cbp-mc-submit"} "Update Site"))))))
 
 (defn radio-input-quark [data owner]
   (reify
@@ -137,7 +137,6 @@
 
       (dom/div nil
 
-
                (om/build p-partial data {:init-state {:color color}})
 
                #_(dom/form #js {:action "/file-upload" :class "dropzone" :id "my-awesome-dropzone"
@@ -145,9 +144,10 @@
 
                (dom/div #js {:className "cbp-mc-form"}
 
-                        (dom/div #js {:className "cbp-mc-column"}
-                                 (om/build input-partial (first (map->vector data))  #_(set/rename-keys data {:bold :placeholder})
-                                           {:state {:data data}}))
+                        (println "map vector: "  (map->vector data))
+
+                        (apply dom/div #js {:className "cbp-mc-column"}
+                                 (om/build-all input-partial (map->vector data) {:state {:data data}}))
 
                         #_(dom/div #js {:className "cbp-mc-column"}
                                  (om/build long-input-partial (set/rename-keys data {:paragraph :placeholder})
@@ -207,6 +207,9 @@
 
 (defmethod input-partial "text-input"
   [data owner] (short-input-partial data owner))
+
+(defmethod input-partial "text-area"
+  [data owner] (long-input-partial data owner))
 
 (defmethod input-partial "user-limited"
   [data owner] (radio-input-partial data owner))
