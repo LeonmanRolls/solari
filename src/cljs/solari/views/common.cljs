@@ -93,17 +93,18 @@
              (om/build-all radio-input-quark categories)))))
 
 (defn user-upload-partial [data owner]
-  (reify
+  (let [almost-unique (str  (rand 1000000))]
+    (reify
 
     om/IDidMount
     (did-mount [this]
-      (.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}))
+      (.dropzone (js/$ (str "#" almost-unique) ) #js {:url "/file-upload"}))
 
     om/IRenderState
     (render-state [this state]
-      (dom/div #js {:id "image-dropzone" :style #js {:margin-top "20px" :height "200" :color "white"
+      (dom/div #js {:id almost-unique :style #js {:margin-top "20px" :height "200" :color "white"
                                                      :background "rgba(29,29,27,0.4)"}}
-               "Drop files here or click to upload"))))
+               "Drop files here or click to upload")))))
 
 (defn accordion-partial [data owner]
   (reify
@@ -136,22 +137,10 @@
     (render-state [this {:keys [color]}]
 
       (dom/div nil
-
                (om/build p-partial data {:init-state {:color color}})
-
-               #_(dom/form #js {:action "/file-upload" :class "dropzone" :id "my-awesome-dropzone"
-                              :style #js {:width "400" :height "400"}})
-
                (dom/div #js {:className "cbp-mc-form"}
-
-                        (println "map vector: "  (map->vector data))
-
                         (apply dom/div #js {:className "cbp-mc-column"}
-                                 (om/build-all input-partial (map->vector data) {:state {:data data}}))
-
-                        #_(dom/div #js {:className "cbp-mc-column"}
-                                 (om/build long-input-partial (set/rename-keys data {:paragraph :placeholder})
-                                           {:state {:label "Paragraph" :key :paragraph}})))))))
+                                 (om/build-all input-partial (map->vector data) {:state {:data data}})))))))
 
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
