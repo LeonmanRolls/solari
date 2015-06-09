@@ -137,6 +137,7 @@
     (render-state [this {:keys [color]}]
 
       (dom/div nil
+
                (om/build p-partial data {:init-state {:color color}})
                (dom/div #js {:className "cbp-mc-form"}
                         (apply dom/div #js {:className "cbp-mc-column"}

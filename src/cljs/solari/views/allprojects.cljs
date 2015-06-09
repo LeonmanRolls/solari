@@ -52,9 +52,9 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               (println "safsd: " (:text data))
+               (println "safsd: " data)
 
-               (om/build common/paragraph-partial (:text data) {:init-state {:color "white"}})
+               #_(om/build common/paragraph-partial (:text data) {:init-state {:color "white"}})
 
                #_(apply dom/div #js {:className "megafolio-container"}
                       (om/build-all common/gallery-partial data))
@@ -89,10 +89,9 @@
                ))))
 
 
-(defn all-projects-init [project-atom filter text-atom]
-  (do (om/root all-projects-page (atom {:project @project-atom :text @text-atom})
-               {:target (. js/document (getElementById "main-content-container"))
-                :state {:project project-atom :text text-atom}})
-      (ef/at ".context" (ef/content (:title @project-atom)))
+(defn all-projects-init [state-atom filter]
+  (do (om/root all-projects-page state-atom
+               {:target (. js/document (getElementById "main-content-container"))})
+      (ef/at ".context" (ef/content "fuck off" #_(:title @project-atom)))
       #_(.megafilter js/api filter)))
 

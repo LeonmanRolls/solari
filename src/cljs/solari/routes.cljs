@@ -36,7 +36,7 @@
 (sec/set-config! :prefix "#")
 
 
-(defroute all-projects "/all-projects/admin" []
+#_(defroute all-projects "/all-projects/admin" []
           (do
             (ef/at "body" (ef/set-attr :background "grey"))
             (ef/at "#nav-hint-inner" (ef/content "All Projects - Admin"))
@@ -67,29 +67,36 @@
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (theteam/the-team-init data/the-team-atom "cat-architect")))
 
+(def test-state (atom {:project data/individual-projects-atom :text data/for-you-atom}))
+
 (defroute all-projects "/all-projects" []
           (do
             (ef/at "body" (ef/set-attr :background "grey"))
             (ef/at "#nav-hint-inner" (ef/content "All Projects"))
-            (allprojects/all-projects-init data/individual-projects-atom "cat-all" data/for-you-atom)))
+            (allprojects/all-projects-init test-state "cat-all")))
 
-(defroute residential "/residential" []
-          (do
-            (allprojects/all-projects-init data/individual-projects-atom "cat-residential" data/residential-atom)
-            (ef/at "#nav-hint-inner" (ef/content "Residential"))
-            (ef/at "body" (ef/set-attr :background "grey"))))
+(comment
 
-(defroute "/multi-residential" {:as params}
-          (do
-            (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential" data/multi-unit-atom)
-            (ef/at "#nav-hint-inner" (ef/content "Multi-unit residential"))
-            (ef/at "body" (ef/set-attr :background "grey"))))
 
-(defroute "/commercial" {:as params}
-          (do
-            (allprojects/all-projects-init data/individual-projects-atom "cat-commercial" data/commercial-atom)
-            (ef/at "#nav-hint-inner" (ef/content "Commercial"))
-            (ef/at "body" (ef/set-attr :background "grey"))))
+  (defroute residential "/residential" []
+            (do
+              (allprojects/all-projects-init data/individual-projects-atom "cat-residential" data/residential-atom)
+              (ef/at "#nav-hint-inner" (ef/content "Residential"))
+              (ef/at "body" (ef/set-attr :background "grey"))))
+
+  (defroute "/multi-residential" {:as params}
+            (do
+              (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential" data/multi-unit-atom)
+              (ef/at "#nav-hint-inner" (ef/content "Multi-unit residential"))
+              (ef/at "body" (ef/set-attr :background "grey"))))
+
+  (defroute "/commercial" {:as params}
+            (do
+              (allprojects/all-projects-init data/individual-projects-atom "cat-commercial" data/commercial-atom)
+              (ef/at "#nav-hint-inner" (ef/content "Commercial"))
+              (ef/at "body" (ef/set-attr :background "grey"))))
+
+  )
 
 (defroute admin "/admin" []
           (do
