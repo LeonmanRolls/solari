@@ -16,9 +16,7 @@
   (do
     (om/root common/paragraph-partial atom
              {:target (. js/document (getElementById "main-content-container"))
-              :init-state {:color "black"}})
-    (ef/at "body" (ef/set-attr :background "home"))
-    (ef/at "#nav-hint-inner" (ef/content "architects"))))
+              :init-state {:color "black"}})))
 
 (defn for-you-init [atom]
   (do

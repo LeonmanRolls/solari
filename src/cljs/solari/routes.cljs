@@ -18,7 +18,8 @@
             [goog.events :as events]
             [goog.history.EventType :as EventType]
             [enfocus.core :as ef]
-            [solari.data :as data])
+            [solari.data :as data]
+            [solari.views.common :as common])
   (:require-macros [enfocus.macros :as em]
                    [cljs.core.async.macros :refer [go]])
   (:import goog.History))
@@ -36,44 +37,13 @@
 (sec/set-config! :prefix "#")
 
 
-#_(defroute all-projects "/all-projects/admin" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "All Projects - Admin"))
-            (allprojects/all-projects-init data/individual-projects-atom "cat-all" data/for-architects-atom)))
-
-(defroute for-you "/for-you" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "for you"))
-            (home/for-you-init data/for-you-atom)))
-
-(defroute for-you "/for-architects" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "for architects"))
-            (home/for-architects-init data/for-architects-atom )))
-
-(defroute for-you "/from-us" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "from us"))
-            (home/from-us-init data/from-us-atom )))
-
-
 (defroute the-team "/your-team" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (theteam/the-team-init data/the-team-atom "cat-architect")))
 
-(def test-state (atom {:project data/individual-projects-atom :text data/for-you-atom}))
 
-(defroute all-projects "/all-projects" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "All Projects"))
-            (allprojects/all-projects-init test-state "cat-all")))
 
 (comment
 
@@ -98,24 +68,66 @@
 
   )
 
-(defroute admin "/admin" []
-          (do
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (ef/at "#nav-hint-inner" (ef/content "Admin"))
-            (admin/admin-init data/home-page-atom)))
 
 (defroute "/" []
           (do
             (ef/at "body" (ef/set-attr :background "home"))
             (ef/at "#nav-hint-inner" (ef/content "architects"))
-            (home/home-init data/home-page-atom)))
+            (om/root common/paragraph-partial data/all-data-atom
+             {:target (. js/document (getElementById "main-content-container"))
+              :state {:color "black" :key :home-page-data}})))
 
-
-(defroute "/wadestown" []
+(defroute for-you "/for-you" []
           (do
-            (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 0])))
-            (ef/at "#nav-hint-inner" (ef/content "Residential - Wadestown"))
-            (ef/at "body" (ef/set-attr :background "grey"))))
+            (ef/at "body" (ef/set-attr :background "for-you"))
+            (ef/at "#nav-hint-inner" (ef/content "for you"))
+            (om/root common/paragraph-partial data/all-data-atom
+             {:target (. js/document (getElementById "main-content-container"))
+              :state {:color "white" :key :for-you-data}})))
+
+(defroute for-architects "/for-architects" []
+          (do
+            (ef/at "body" (ef/set-attr :background "for-architects"))
+            (ef/at "#nav-hint-inner" (ef/content "for architects"))
+            (om/root common/paragraph-partial data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :for-architects-data}})))
+
+(defroute from-us "/from-us" []
+          (do
+            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "#nav-hint-inner" (ef/content "from us"))
+            (om/root common/paragraph-partial data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :from-us-data}})))
+
+(defroute all-projects "/all-projects" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "All Projects"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :home-page-data}})))
+
+#_(defn all-projects-init [state-atom filter]
+  (do (om/root all-projects-page state-atom
+               {:target (. js/document (getElementById "main-content-container"))})
+      (ef/at ".context" (ef/content "fuck off" #_(:title @project-atom)))
+      #_(.megafilter js/api filter)))
+
+#_(defn project-init [project-atom]
+  (do (om/root project-page project-atom
+               {:target (. js/document (getElementById "main-content-container"))})
+      (ef/at ".context" (ef/content (:title @project-atom)))))
+
+(defroute "/individual/:projectid" {:as params}
+          (do
+            (ef/at "#nav-hint-inner" (ef/content (:projectid params)))
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (om/root project/project-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects :filter (:projectid params)}})))
 
 (defroute "/lyall" []
           (do

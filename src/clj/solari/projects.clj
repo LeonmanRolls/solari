@@ -3,7 +3,7 @@
 (def project-01 {:id "project-01"
                  :year 2000
                  :projectid "wadestown"
-                 :link "wadestown"
+                 :link "individual/wadestown"
                  :category "cat-residential"
                  :title "Wadestown Renovation"
                  :thumbnail "/img/wadestown/wadestown.jpg"
@@ -34,7 +34,7 @@
 (def project-02 {:id "project-02"
                  :year 2015
                  :projectid "lyall"
-                 :link "lyall"
+                 :link "individual/lyall"
                  :category "cat-residential"
                  :title "Lyall bay renovation"
                  :thumbnail "/img/lyall/lyall.jpg"

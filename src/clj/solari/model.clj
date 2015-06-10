@@ -27,42 +27,43 @@
 
 (sql/query db "select * from projects")
 
-(def home-page-atom
-  (atom {:bold "Come on in. We're Solari architects."
-         :paragraph " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+(def home-page-data
+  {:bold "Come on in. We're Solari architects."
+         :paragraph " Our studio is based in Wellington and our thoughts, projects and experiences span New Zealand, Australia and beyond. When working with you we focus on speaking a common language  - you’ll find no architectural lingo here. We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."})
 
+(def residential-data
+  {:bold "Homes are personal projects - we like that."
+         :paragraph " When designing a residential project we take on the thoughts, feelings, personality and unique circumstances of the client (that’s you). We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way. This not only makes absolute sense but it undoubtedly delivers the best results. We share the challenges and successes with you. And make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."})
 
-(def residential-atom
-  (atom {:bold "Homes are personal projects - we like that."
-         :paragraph " When designing a residential project we take on the thoughts, feelings, personality and unique circumstances of the client (that’s you). We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way. This not only makes absolute sense but it undoubtedly delivers the best results. We share the challenges and successes with you. And make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."}))
+(def multi-unit-data
+  {:bold "Solari’s success in the multi-unit residential development sector across New Zealand and Australia comes down to what we like to call ‘The Solari Way’."
+         :paragraph " In a nutshell it’s an approach that balances the values and objectives of the developer, designer and tenants. Everyone involved with the project stands to benefit from such an insightful approach. Blending our understanding of commercial realities, how a target market perceives quality living spaces and how to effectively manage the design process from sketches to site, ensures our developments maintain their purpose and quality."})
 
-(def multi-unit-atom
-  (atom {:bold "Solari’s success in the multi-unit residential development sector across New Zealand and Australia comes down to what we like to call ‘The Solari Way’."
-         :paragraph " In a nutshell it’s an approach that balances the values and objectives of the developer, designer and tenants. Everyone involved with the project stands to benefit from such an insightful approach. Blending our understanding of commercial realities, how a target market perceives quality living spaces and how to effectively manage the design process from sketches to site, ensures our developments maintain their purpose and quality."}))
+(def commercial-data
+  {:bold "At Solari we don’t define commercial buildings by their sheer scale but by their purpose. "
+         :paragraph " We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "})
 
-(def commercial-atom
-  (atom {:bold "At Solari we don’t define commercial buildings by their sheer scale but by their purpose. "
-         :paragraph " We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "}))
+(def for-you-data
+  {:bold "When working with you we focus on speaking a common language."
+         :paragraph " We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."})
 
-(def for-you-atom
-  (atom {:bold "When working with you we focus on speaking a common language."
-         :paragraph " We take your vision from pictures, words, half-formed or full-formed ideas and “ya knows” and translate them into architecture representative of your values, goals and personality. Our strengths lie in commercial, residential and multi-residential projects where we work on the small and the large. We’re flexible, agile and updateable but we do keep one thing consistent across the board; every project is led by YOUR vision and crafted by our tools and expertise."}))
+(def for-architects-data
+  {:bold "There are architects and then there’s Solari Architects."
+         :paragraph " We’re the “un-architecty” architects (the ones that say architecty).  We’ve found (well, created) this little sweet spot in the industry. Basically we have a huge passion for architecture but not in a consuming ‘it’s my whole life’ way. It’s balanced and continually inspired and fuelled by all the non-architect things we welcome into our lives. We enjoy exploring in our weekends, spending time with our families and hanging out with friends and are always up to try new experiences and give things a go. We’ll make an effort to be aware of trends but not make them gospel. For example we completely missed the memo that thick rimmed glasses and showing a questionable amount of sockless ankle was the latest uniform…but we’re fine with that."}
+  )
 
-(def for-architects-atom
-  (atom {:bold "There are architects and then there’s Solari Architects."
-         :paragraph " We’re the “un-architecty” architects (the ones that say architecty).  We’ve found (well, created) this little sweet spot in the industry. Basically we have a huge passion for architecture but not in a consuming ‘it’s my whole life’ way. It’s balanced and continually inspired and fuelled by all the non-architect things we welcome into our lives. We enjoy exploring in our weekends, spending time with our families and hanging out with friends and are always up to try new experiences and give things a go. We’ll make an effort to be aware of trends but not make them gospel. For example we completely missed the memo that thick rimmed glasses and showing a questionable amount of sockless ankle was the latest uniform…but we’re fine with that."}))
+(def from-us-data
+  {:bold "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness."
+         :paragraph ""})
 
-(def from-us-atom
-  (atom {:bold "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness."
-         :paragraph ""}))
-
-(def your-career-atom
-  (atom {:main {:bold "Here’s some good advice:" :paragraph " Never choose to work for someone based on their brand or portfolio. Work for people who are going to teach you and make you better."}
+(def your-career-data
+  {:main {:bold "Here’s some good advice:" :paragraph " Never choose to work for someone based on their brand or portfolio. Work for people who are going to teach you and make you better."}
          :paragraph-one "At Solari, our focus is on growing independent thinkers and architects with the confidence to see an entire project through from start to finish. We encourage boundary pushing and fresh thinking. Growing your career is absolutely up to you  - there are no glass ceilings here. Create your own luck through passionate work and being yourself and you’ll fit right in. "
-         :paragraph-two "Whether you stay with us for ten years or two. We want you to leave as a better architect than when you came in. We’re satisfied if our contribution to the industry is talent, even if that talent outgrows us. Our focus is for you to learn and then teach. See the workings of the business instead of just being siloed into perfecting one aspect of the industry. "}))
+         :paragraph-two "Whether you stay with us for ten years or two. We want you to leave as a better architect than when you came in. We’re satisfied if our contribution to the industry is talent, even if that talent outgrows us. Our focus is for you to learn and then teach. See the workings of the business instead of just being siloed into perfecting one aspect of the industry. "}
+  )
 
-(def projects-atom
-  (atom {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
+(def projects-data
+  {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
                      :category "Residential"
                      :projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04]}
 
@@ -72,13 +73,11 @@
 
                     {:text "At Solari we don’t define commercial buildings by their sheer scale but by their purpose.  We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "
                      :category "Commerical"
-                     :projects [pr/project-10 pr/project-11]}]}))
-(set-validator! projects-atom #((complement empty?) %))
+                     :projects [pr/project-10 pr/project-11]}]})
 
 
-
-(def process-atom
-  (atom  {:text {:bold "It goes without saying we want the best possible outcome for you and your project." :paragraph " That’s exactly why we do what we do…  "}
+(def process-data
+  {:text {:bold "It goes without saying we want the best possible outcome for you and your project." :paragraph " That’s exactly why we do what we do…  "}
           :short {:step1 "We listen to your goals & objectives."
                   :step2 "We translate your ideas, inspiration and words into design. This goes back and forth until we’re all speaking the same language. "
                   :step3 "We communicate the solution to the right team of collaborators to actualise your vision. "}
@@ -154,9 +153,9 @@
                  :paragraphs ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – it just makes sense that we come along for “the ride”. "
                               "Construction is a complex process and is generally / naturally unfamiliar territory for most people. We therefore strongly believe we bring great value to this part of your project.  There are different ways we can structure our involvement and we have specific NZIA construction contracts depending on our exact role."
                               ]}
-                ]}))
+                ]})
 
-(def faqs-atom (atom {:text "You’re not supposed to know it all before coming to us. Whether it’s your first time working with an architecture firm or you’ve lost count, there’s never a bad time to ask questions like:"
+(def faqs-data {:text "You’re not supposed to know it all before coming to us. Whether it’s your first time working with an architecture firm or you’ve lost count, there’s never a bad time to ask questions like:"
                  :questions [
                              {:q "How does Solari charge?"
                               :a ""}
@@ -191,10 +190,10 @@
                              {:q "It seems so expensive to use an Architect?"
                               :a "Firstly (Practically thinking) Architects are subject to a statutory code of practice and have Professional Indemnity Insurance to protect their clients.Secondly. In your lifetime, a house is one of the biggest investments you will make. So why not make the most of that investment and ensure its long-term value. Take advantage of the opportunity to do it right. As your architect we will ensure that quality products are used, the space is right for your needs now and in the future, the design is created taking advantage of the best that your site has to offer. This is no cookie cutter experience"}
 
-                             ]}))
+                             ]})
 
-(def the-team-atom
-  (atom {:text {:bold "The Solari team is your team."  :paragraph " As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."}
+(def the-team-data
+  {:text {:bold "The Solari team is your team."  :paragraph " As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."}
          :title "Your Team"
          :team-members [{:name "James Solari"
                          :memberid "jsolari"
@@ -283,137 +282,31 @@
                          :outside "you’ll find me playing social netball and café hopping around Wellington."
                          :polaroid "You’ll find me playing social netball and café hopping around Wellington."}
                         ]
-                    }))
+                    })
 
-(defresource career
+
+(def all-data
+  (atom {:home-page-data home-page-data
+         :residential-data residential-data
+         :multi-unit-data multi-unit-data
+         :commercial-data commercial-data
+         :for-you-data for-you-data
+         :for-architects-data for-architects-data
+         :from-us-data from-us-data
+         :your-career-data your-career-data
+         :projects-data projects-data
+         :process-data process-data
+         :faqs-data faqs-data
+         :the-team-data the-team-data
+         :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
+                        pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]}))
+
+
+(defresource all-data-resource
              :service-available? true
              :allowed-methods [:get :put]
              :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @your-career-atom)
-             :put! (fn [ctx]
-                     (reset! your-career-atom (:projects (:params (:request ctx)))))
+             :handle-ok (fn [context] @all-data)
+             :put! (fn [ctx] (reset! all-data (:all-data (:params (:request ctx)))))
              :available-media-types ["application/edn"])
-
-(defresource team
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @the-team-atom)
-             :put! (fn [ctx]
-                     (reset! the-team-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-
-(defresource faqs
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @faqs-atom)
-             :put! (fn [ctx]
-                     (reset! faqs-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-
-(defresource process
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @process-atom)
-             :put! (fn [ctx]
-                     (reset! process-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-
-(defresource projects
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          (let
-                            [pred (get-in context [:request :params :query])]
-                            (cond
-                              (= pred "full-info") @projects-atom
-                              (= pred "projects-only") [pr/project-01 pr/project-02 pr/project-03 pr/project-04
-                                                        pr/project-05 pr/project-06 pr/project-07 pr/project-08
-                                                        pr/project-09 pr/project-10 pr/project-11]
-                              :else (str "Method does not exist: " pred))))
-             :put! (fn [ctx]
-                     (reset! projects-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-
-(defresource home
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @home-page-atom)
-             :put! (fn [ctx]
-                     (reset! home-page-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-(defresource residential
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @residential-atom)
-             :put! (fn [ctx]
-                     (reset! residential-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-(defresource multi-unit
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @multi-unit-atom)
-             :put! (fn [ctx]
-                     (reset! multi-unit-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-(defresource commercial
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @commercial-atom)
-             :put! (fn [ctx]
-                     (reset! commercial-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-(defresource you
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @for-you-atom)
-             :put! (fn [ctx]
-                     (reset! for-you-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-(defresource architects
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @for-architects-atom)
-             :put! (fn [ctx]
-                     (reset! for-architects-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
-(defresource us
-             :service-available? true
-             :allowed-methods [:get :put]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context]
-                          @from-us-atom)
-             :put! (fn [ctx]
-                     (reset! from-us-atom (:projects (:params (:request ctx)))))
-             :available-media-types ["application/edn"])
-
 

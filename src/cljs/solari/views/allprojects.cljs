@@ -17,22 +17,19 @@
 (def sorting-data [{:href "" :text "By name" :callback #(put! sort-chan "name")}
                    {:href "" :text "By year" :callback #(put! sort-chan "year")}])
 
-(def project-schema [:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited" :title "text-input" :thumbnail "user-upload"
-                     :gallery-images "editable-list-upload" :accordion "editable-list-text"])
-
+(def project-schema [:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
+                     :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
+                     :accordion "editable-list-text"])
 
 (defn all-projects-page [data owner]
   (reify
 
-    om/IInitState
-    (init-state [this]
-      #_(println "all projects: " data))
-
     om/IDidMount
     (did-mount [this]
-      #_(do
+      (let [local (:key (om/get-state owner))]
+      (do
         (js/megafolioInit)
-        (go
+        #_(go
         (while true
           (let [sort-type (<! sort-chan)]
             (cond
@@ -41,23 +38,28 @@
                                      (.megafilter js/api (:filter (om/get-state owner))))
               (= sort-type "year") (do
                                      (om/update! data (reverse (sort-by (fn [x] (:year x)) data)))
-                                     (.megafilter js/api (:filter (om/get-state owner))))))))))
+                                     (.megafilter js/api (:filter (om/get-state owner)))))))))
+
+        )
+      )
 
     om/IRenderState
     (render-state [this state]
-
-      (dom/div #js {:className "container"}
+      (let [local (get data (:key state))]
+        (dom/div #js {:className "container"}
 
                #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               (println "safsd: " data)
+               (println "Gallery: " (first local))
 
-               #_(om/build common/paragraph-partial (:text data) {:init-state {:color "white"}})
+               #_(om/build common/paragraph-partial data {:state {:key (:extra state) :color "white"}})
 
-               #_(apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial data))
+                 #_(om/build common/gallery-partial (first local))
+
+               (apply dom/div #js {:className "megafolio-container"}
+                      (om/build-all common/gallery-partial local))
 
                #_(dom/form #js {:className "cbp-mc-form"}
 
@@ -86,12 +88,10 @@
 
                         )
 
-               ))))
+               )
 
+        )
 
-(defn all-projects-init [state-atom filter]
-  (do (om/root all-projects-page state-atom
-               {:target (. js/document (getElementById "main-content-container"))})
-      (ef/at ".context" (ef/content "fuck off" #_(:title @project-atom)))
-      #_(.megafilter js/api filter)))
+      )))
+
 

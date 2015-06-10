@@ -17,18 +17,7 @@
 
 (defroutes routes
            (resources "/")
-           (ANY "/faqs/" request m/faqs)
-           (ANY "/team/" request m/team)
-           (ANY "/career/" request m/career)
-           (ANY "/residential/" request m/residential)
-           (ANY "/multi-unit/" request m/multi-unit)
-           (ANY "/commercial/" request m/commercial)
-           (ANY "/you/" request m/you)
-           (ANY "/us/" request m/us)
-           (ANY "/architects/" request m/architects)
-           (ANY "/process/" request m/process)
-           (ANY "/projects/" request m/projects)
-           (ANY "/home/" request m/home)
+           (ANY "/alldata/" request m/all-data-resource)
            (resources "/react" {:root "react"})
            (GET "/*" req (page)))
 

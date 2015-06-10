@@ -112,11 +112,12 @@
     om/IRender
     (render [this]
       (dom/div nil
+               (println "accordion: " data)
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
                               (:title data)
-                              (om/build short-input-partial (:title data))))
+                              #_(om/build short-input-partial (:title data))))
 
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
@@ -125,23 +126,21 @@
 (defn p-partial [data owner]
   (reify
     om/IRenderState
-    (render-state [this {:keys [color]}]
-      (dom/p #js {:style #js {:color color}}
+    (render-state [this state]
+      (dom/p #js {:style #js {:color (:color state)}}
              (dom/b nil (:bold data))
              (:paragraph data)))))
 
 (defn paragraph-partial [data owner]
   (reify
-
     om/IRenderState
-    (render-state [this {:keys [color]}]
-
-      (dom/div nil
-
-               (om/build p-partial data {:init-state {:color color}})
-               (dom/div #js {:className "cbp-mc-form"}
-                        (apply dom/div #js {:className "cbp-mc-column"}
-                                 (om/build-all input-partial (map->vector data) {:state {:data data}})))))))
+    (render-state [this state]
+      (let [local (get data (:key state))]
+        (dom/div nil
+                 (om/build p-partial local {:state {:color (:color state)}})
+                 (dom/div #js {:className "cbp-mc-form"}
+                          (apply dom/div #js {:className "cbp-mc-column"}
+                                 (om/build-all input-partial (map->vector local) {:state {:data local}}))))))))
 
 
 ;link, category, id, thumbnail, title
@@ -153,6 +152,7 @@
     (render [this]
       (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry cat-all" (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+             (println "data data: " data)
              (dom/div #js {:className "mega-hover"}
                       #_(println "data: " data)
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}

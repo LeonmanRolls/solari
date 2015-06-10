@@ -12,7 +12,6 @@
 
 (defn img-page [data owner]
   (reify
-
     om/IRender
     (render [this]
       (dom/img #js {:className "rsImg" :src (str "/img/" data ) :data-rsTmb (str "/img/" data )}))))
@@ -34,12 +33,17 @@
 
         #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) ))
 
-    om/IRender
-    (render [this]
-      (dom/div #js {:id "project-container"}
+    om/IRenderState
+    (render-state [this state]
+     (let [local (get data (:key state))
+           project (first (filter (fn [x] (= (:filter state) (:projectid x))) local))]
 
-               (apply dom/div #js {:className "royalSlider rsDefault"}
-                      (om/build-all img-page (:gallery-images data)))
+       (dom/div #js {:id "project-container"}
+
+                (println "data: "  (:accordion project))
+
+                (apply dom/div #js {:className "royalSlider rsDefault"}
+                       (doall (om/build-all img-page (:gallery-images project))))
 
                #_(println "filter: "
                         (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2)  )
@@ -48,21 +52,17 @@
                  common/input-partial
                  (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2))
 
-
-               (doall
+               #_(doall
                (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data))
                  )
 
-
-               #_(dom/div #js {:className "accordion"}
+               (dom/div #js {:className "accordion"}
                         (apply dom/dl nil
-                               (om/build-all common/accordion-partial (:accordion data))))))))
+                               (om/build-all common/accordion-partial (:accordion project)))))
+       )
+      )))
 
 
 
 
-(defn project-init [project-atom]
-  (do (om/root project-page project-atom
-               {:target (. js/document (getElementById "main-content-container"))})
-      (ef/at ".context" (ef/content (:title @project-atom)))))
 
