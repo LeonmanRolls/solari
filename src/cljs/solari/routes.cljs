@@ -108,7 +108,40 @@
             (om/root allprojects/all-projects-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
-                              :extra :home-page-data}})))
+                              :extra :home-page-data
+                              :cat "cat-all"}})))
+
+(defroute residential "/residential" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "residential"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :residential-data
+                              :cat "cat-residential"}})))
+
+(defroute multi-unit "/multi-residential" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "multi unit"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :multi-unit-data
+                              :cat "cat-multi-unit-residential"}})))
+
+
+(defroute commerical "/commercial" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "multi unit"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :commerical-data
+                              :cat "cat-commercial"}})))
+
 
 #_(defn all-projects-init [state-atom filter]
   (do (om/root all-projects-page state-atom

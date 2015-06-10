@@ -48,15 +48,15 @@
                #_(println "filter: "
                         (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2)  )
 
-               (om/build
+               #_(om/build
                  common/input-partial
                  (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) project) 4))
 
-               #_(doall
+               (doall
                (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) project))
                  )
 
-               #_(dom/div #js {:className "accordion"}
+               (dom/div #js {:className "accordion"}
                         (apply dom/dl nil
                                (om/build-all common/accordion-partial (:accordion project)))))
        )

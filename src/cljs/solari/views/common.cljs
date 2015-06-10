@@ -21,8 +21,10 @@
 
 (def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
-                     :accordion "non-user" :bold "text-input" :paragraph "text-area" :placeholder "text-input"})
+                     :accordion "non-user" :bold "text-input" :paragraph "text-area" :placeholder "text-input"
+                     :content "text-area"})
 
+;Takes a vector of key and value
 (defmulti input-partial (fn [data] ((first data) project-schema)))
 
 (defn map->vector [data]
@@ -63,9 +65,10 @@
     (render-state [this state]
       (let [keyv (name (key data)) valv (val data)]
         (dom/div nil
+                 (println "short: " valv)
                  (dom/label #js {:for valv} keyv)
                  (dom/input #js {:placeholder valv :type "text" :ref valv})
-                 (dom/button #js {:onClick #(update-value (:data state) owner valv (key data))
+                 (dom/button #js {:onClick #(update-value (:data state) owner valv (:key state))
                                   :className "cbp-mc-submit"} "Update Site"))))))
 
 (defn long-input-partial [data owner]
@@ -112,16 +115,19 @@
     om/IRender
     (render [this]
       (dom/div nil
-               (println "accordion: " data)
+               (println "accordion: " (first data))
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
                               (:title data)
-                              #_(om/build short-input-partial (:title data))))
+                              ))
 
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                       (dom/p nil (:content data)))))))
+                       (om/build input-partial [:title (:title data)]  {:state {:data data :key :title}})
+                       (dom/p nil (:content data))
+                       (om/build input-partial [:content (:content data)]  {:state {:data data :key :content}})
+                       )))))
 
 (defn p-partial [data owner]
   (reify
@@ -129,7 +135,9 @@
     (render-state [this state]
       (dom/p #js {:style #js {:color (:color state)}}
              (dom/b nil (:bold data))
-             (:paragraph data)))))
+             (om/build input-partial [:bold (:bold data)] {:state {:data data :key :bold}})
+             (:paragraph data)
+             (om/build input-partial [:paragraph (:paragraph data)] {:state {:data data :key :paragraph}})))))
 
 (defn paragraph-partial [data owner]
   (reify
@@ -137,10 +145,7 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
-                 (om/build p-partial local {:state {:color (:color state)}})
-                 (dom/div #js {:className "cbp-mc-form"}
-                          (apply dom/div #js {:className "cbp-mc-column"}
-                                 (om/build-all input-partial (map->vector local) {:state {:data local}}))))))))
+                 (om/build p-partial local {:state {:color (:color state)}}))))))
 
 
 ;link, category, id, thumbnail, title
@@ -150,7 +155,7 @@
 
     om/IRender
     (render [this]
-      (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry cat-all" (:category data))  :id (:id data)
+      (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry cat-all " (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (println "data data: " data)
              (dom/div #js {:className "mega-hover"}

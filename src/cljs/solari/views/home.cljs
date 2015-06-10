@@ -12,29 +12,6 @@
 (enable-console-print!)
 
 
-(defn home-init [atom]
-  (do
-    (om/root common/paragraph-partial atom
-             {:target (. js/document (getElementById "main-content-container"))
-              :init-state {:color "black"}})))
-
-(defn for-you-init [atom]
-  (do
-    (om/root common/paragraph-partial atom
-             {:target (. js/document (getElementById "main-content-container"))
-              :init-state {:color "white"}})
-    (ef/at "body" (ef/set-attr :background "for-you"))
-    (ef/at "#nav-hint-inner" (ef/content "for you"))))
-
-(defn for-architects-init [atom]
-  (do
-    (om/root common/paragraph-partial atom
-             {:target (. js/document (getElementById "main-content-container"))
-              :init-state {:color "white"}})
-    (ef/at "body" (ef/set-attr :background "for-architects"))
-    (ef/at "#nav-hint-inner" (ef/content "for architects"))))
-
-
 (defn from-us [data owner]
   (reify
 

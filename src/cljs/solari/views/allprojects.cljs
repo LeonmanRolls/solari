@@ -29,6 +29,8 @@
       (let [local (:key (om/get-state owner))]
       (do
         (js/megafolioInit)
+        (println "stat: " (om/get-state owner))
+        (.megafilter js/api (:cat (om/get-state owner)) )
         #_(go
         (while true
           (let [sort-type (<! sort-chan)]
