@@ -93,12 +93,12 @@
              (om/build-all radio-input-quark categories)))))
 
 (defn user-upload-partial [data owner]
-  (let [almost-unique (str  (rand 1000000))]
+  (let [almost-unique (str  (rand-int 1000000))]
     (reify
 
     om/IDidMount
     (did-mount [this]
-      (.dropzone (js/$ (str "#" almost-unique) ) #js {:url "/file-upload"}))
+      (.dropzone (js/$ (str "#" almost-unique) ) #js {:url "/imgupload/"}))
 
     om/IRenderState
     (render-state [this state]

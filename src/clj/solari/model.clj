@@ -310,3 +310,13 @@
              :put! (fn [ctx] (reset! all-data (:all-data (:params (:request ctx)))))
              :available-media-types ["application/edn"])
 
+
+(defresource imgupload-resource
+             :service-available? true
+             :allowed-methods [:get :post]
+             :handle-method-not-allowed  "Method not allowed"
+             :handle-ok (fn [context] @all-data)
+             :post! (fn [_] "got something")
+             :available-media-types ["multipart/form-data"])
+
+
