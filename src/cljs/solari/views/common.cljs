@@ -70,7 +70,7 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (dom/div nil (println "short-input: " data))
+      (dom/div nil #_(println "short-input: " data))
       (let [raw-val (first data)]
         (dom/div #js {:className "cbp-mc-form"}
                  (dom/div #js {:className "cbp-mc-column"}
@@ -127,8 +127,9 @@
     om/IRenderState
     (render-state [this state]
       (dom/div nil
+               (println "p-p: " data)
                (dom/p nil (first data))
-               (om/build input-partial [:content (first data)]  {:state {:data data}})))))
+               (om/build input-partial data)))))
 
 (defn accordion-partial [data owner]
   (reify
@@ -139,13 +140,12 @@
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:title data)))
+                              (first (:title data))))
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                       (om/build input-partial [:title (:title data)]  {:state {:data data :key :title}})
+                       (om/build input-partial (:title data))
                        (apply dom/div nil
-                      (om/build-all p-p-partial (:content data)))
-                       )))))
+                              (om/build-all p-p-partial (:content data))))))))
 
 (defn p-partial [data owner]
   (reify
@@ -173,11 +173,11 @@
     om/IRenderState
     (render-state [this state]
       (println "gallery-partial: " state)
-      (dom/a #js {:href (str "/#/individual/" ((:link state) data)) :className (str "mega-entry cat-all " (:category data))  :id (:id data)
-                  :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+      (dom/a #js {:href (str "/#/individual/" (first ((:link state) data)) ) :className (str "mega-entry cat-all " (first (:category data)) )  :id (first (:id data))
+                  :data-src (first (:thumbnail data))  :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
-                               (:title data)
+                               (first (:title data))
                                (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
 
 (defn simple-li [data owner]

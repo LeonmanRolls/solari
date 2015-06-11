@@ -41,12 +41,12 @@
 
                  (let [locall (get local :short)]
                    (dom/div #js {:id "short-version"}
-                            (dom/div box-style (:step1 locall))
-                            (om/build common/input-partial [:step1 (:step1 locall)] {:state {:data locall :key :step1}})
-                            (dom/div box-style (:step2 locall))
-                            (om/build common/input-partial [:step2 (:step2 locall)] {:state {:data locall :key :step2}})
-                            (dom/div box-style (:step3 locall))
-                            (om/build common/input-partial [:step3 (:step3 locall)] {:state {:data locall :key :step3}})))
+                            (dom/div box-style (first (:step1 locall)) )
+                            (om/build common/input-partial (:step1 local))
+                            (dom/div box-style (first (:step2 locall)))
+                            (om/build common/input-partial (:step2 locall))
+                            (dom/div box-style (first (:step3 locall)))
+                            (om/build common/input-partial (:step3 local))))
 
                  (dom/div #js {:id "long-version" :className "accordion"}
                           (apply dom/dl nil

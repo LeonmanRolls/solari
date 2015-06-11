@@ -70,11 +70,13 @@
     om/IRenderState
     (render-state [this state]
      (let [local (get-in data (:filter-vector state))
-           project (first (filter (fn [x] (= (:filter state) ((:filterkey state) x))) local))]
+           project (first (filter (fn [x] (= (:filter state) (first ((:filterkey state) x)))) local))]
 
        (dom/div #js {:id "project-container"}
 
-                (println "project: "  project  )
+                (println "state: " state)
+                (println "project: " project)
+                (println "local: " local)
 
                 (image-display (:key state) project)
 

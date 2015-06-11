@@ -54,9 +54,9 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li sorting-data))
 
-               (println "Gallery: " (first local))
+               (println "Gallery: " local)
 
-               #_(om/build common/paragraph-partial data {:state {:key (:extra state) :color "white"}})
+               (om/build common/paragraph-partial data {:state {:key :home-page-data}})
 
                  #_(om/build common/gallery-partial (first local))
 

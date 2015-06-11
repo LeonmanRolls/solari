@@ -63,227 +63,229 @@
   )
 
 (def projects-data
-  {:projects [{:text "Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."
-                     :category "Residential"
+  {:projects [{:text ["Homes are personal projects and we love that. When we take on a residential project we take on the thoughts, feelings, personality and unique circumstances of the client. We work closely with you to ensure that your home is exactly that – yours. You’re with us every step of the way, this not only makes absolute sense but undoubtedly delivers the best results. We share the challenges and successes with you and make you the expert of your own project by going at a pace that promotes attention to detail and clarity of thought from start to finish."]
+                     :category ["Residential"]
                      :projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04]}
 
-                    {:text "Solari’s success in the multi-unit residential development sector across New Zealand and Australia comes down to what we like to call ‘The Solari Way’. In a nutshell it’s an approach that balances the values and objectives of the developer, designer and tenants. Everyone involved with the project stands to benefit from such an insightful approach. Blending our understanding of commercial realities, how a target market perceives quality living spaces and how to effectively manage the design process from sketches to site, ensures our developments maintain their purpose and quality."
-                     :category "Multi-unit Residential"
+                    {:text ["Solari’s success in the multi-unit residential development sector across New Zealand and Australia comes down to what we like to call ‘The Solari Way’. In a nutshell it’s an approach that balances the values and objectives of the developer, designer and tenants. Everyone involved with the project stands to benefit from such an insightful approach. Blending our understanding of commercial realities, how a target market perceives quality living spaces and how to effectively manage the design process from sketches to site, ensures our developments maintain their purpose and quality."]
+                     :category ["Multi-unit Residential"]
                      :projects [pr/project-05 pr/project-06 pr/project-07 pr/project-08 pr/project-09]}
 
-                    {:text "At Solari we don’t define commercial buildings by their sheer scale but by their purpose.  We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "
-                     :category "Commerical"
+                    {:text ["At Solari we don’t define commercial buildings by their sheer scale but by their purpose.  We treat them as strategic assets, marketing tools and enablers of achieving business goals. We take full advantage of the power commercial and workplace design has to impact three key objectives shared by all businesses (including our own): efficiency, effectiveness and expression. "]
+                     :category ["Commerical"]
                      :projects [pr/project-10 pr/project-11]}]})
 
 
 (def process-data
-  {:text {:bold "It goes without saying we want the best possible outcome for you and your project." :paragraph " That’s exactly why we do what we do…  "}
-   :short {:step1 "1. We listen to your goals & objectives."
-           :step2 "2. We translate your ideas, inspiration and words into design. This goes back and forth until we’re all speaking the same language. "
-           :step3 "3. We communicate the solution to the right team of collaborators to actualise your vision. "}
-   :long [
-          {:title "It starts with a chat."
+  {:text {:bold ["It goes without saying we want the best possible outcome for you and your project."]  :paragraph [" That’s exactly why we do what we do…  "] }
+
+   :short {:step1 ["1. We listen to your goals & objectives."]
+           :step2 ["2. We translate your ideas, inspiration and words into design. This goes back and forth until we’re all speaking the same language. "]
+           :step3 ["3. We communicate the solution to the right team of collaborators to actualise your vision. "] }
+
+   :long [{:title ["It starts with a chat."]
            :content [["We get together and you tell us what you’re hoping to achieve. "]
                      ["The things we’re interested in are: the project site, your timeframes, your expected budget and your vision. We’re always happy to show you our previous work and talk to you about how we can work with you. You can bring cuttings, mood boards, words, scribbles, Pinterest boards, music - just anything that helps us get an idea of what you’ve got in mind.  Also, tell us who you are.  Knowing a little more about your lifestyle, family, hobbies, goals and an entertaining story all helps us put together a quote for our services."]
                        ["From there you can decide if you want to partner with us to work on your project (fingers crossed)."]]}
 
-          {:title "Just so you know: Useful information."
+          {:title ["Just so you know: Useful information."]
            :content [["We are members of the NZIA. It’s useful because we will provide you with a copy of our comprehensive ‘Agreement for Architect's Services’. This document outlines every step of the process from first sketch designs through to completion. You know, all that useful information. "]
                         ]}
 
-          {:title "Refining your vision."
+          {:title ["Refining your vision."]
            :content [["You decide you want to work with us. Good choice. "]
                       ["Now we work on refining your vision. We flesh out all the inspiration and ideas from our initial meeting to get an in-depth understanding of who you are and what we will be working towards together. "]
                        ["We form a clear brief that will act as a starting point for the concept development."]
                         ]}
 
-          {:title "Getting to Know The Site."
+          {:title ["Getting to Know The Site."]
            :content [["Depending on the requirements of your project we begin gathering information. This includes things like the Certificate of Title, drainage plans, zoning and town planning information. We will take pictures of the site and can organise to have the site surveyed on your behalf for its contours and boundaries."]
                         ]}
 
-          {:title "Concept Development."
+          {:title ["Concept Development."]
            :content [["This is the first time we’ll put our initial ideas in front of you for your feedback."]
                      ["From here we will work with you to initially develop the basic spatial relationships of the building and importantly the site. We will work with you to develop floor plans and some sketch imagery of the look and style of what is proposed. "]
                         ]}
 
-          {:title "Turning A Concept Into Drawings."
+          {:title ["Turning A Concept Into Drawings."]
            :content [["It’s still early in the piece and the point of concept drawings is to encourage discussion. They can help you articulate what you do and don't like – and might even result in a complete change of direction. "]
                      ["This is all part of the process – it's important to remember that at this stage it's not about being in total agreement on every detail, but to get a strong sense of whether we are heading in the right direction and have really listened to what you've talked about up to this point."]
                      ["During this stage you also need to have a clear sense of budget and any issues that might impact upon that. "]
                      ]}
 
-          {:title "Developing The Design & Budget Revisit. "
+          {:title ["Developing The Design & Budget Revisit. "]
            :content [["This is the stage where everything begins to take shape. We’ve agreed on the concept and now it’s time to show you the details. We do this with 3-D CAD drawings, floor plans, flows, elevations, cut-through section drawings and detail drawings. "]
                      ["Depending on the project requirements, size and budget we can also build a scale model to really show you how the project will finish up. "]
                      ["It’s a very exciting part of the process, but to stay on track we will revisit your budget again and talk over your priorities in terms of cost, time and quality. It is likely that a Quantity Surveyor will be asked to make an independent cost estimate."]
                         ]}
 
-          {:title "Deciphering Architectural Plans."
+          {:title ["Deciphering Architectural Plans."]
            :content [["We know it can be hard to visualise the finished product from architectural drawings. So please ask lots of questions and by all means do not gloss over anything you don’t understand. It’s really important to us that you see exactly what we see. "]
                         ]}
 
-          {:title "The Nuts & Bolt Phase: Working Drawings and Building Consent. "
+          {:title ["The Nuts & Bolt Phase: Working Drawings and Building Consent. "]
            :content [["In this stage your project is documented, co-ordinated and made “build-ready”. We finalise a comprehensive package of drawings and literature that builders will price from and councils will process for Building Consent. The complexity of the project will determine how detailed this package needs to be in order to achieve building consent. "]
                      ["We apply for a building consent on your behalf. Each local authority has its own way of working fee structures and processing times. To ensure a stress free consent process we work in the consultation with councils as much as possible. "]
 ["Naturally we will keep you in the loop every step of the way so you know how things are tracking."]
                         ]}
 
-          {:title "What Building Contractor? Tendering and Procurement"
+          {:title ["What Building Contractor? Tendering and Procurement"]
            :content [["There are a number of ways to procure a building contractor. We can work with you to ascertain the best approach for your specific needs. There are a lot of issues to consider such as timeframe, budget, and desired quality that will have a bearing on your final decision. We will discuss all of the responses with you and we will work together to choose the best contractor for you and the project."]
                         ]}
 
-          {:title "Contract Administration & Site Observation"
+          {:title ["Contract Administration & Site Observation"]
            :content [
                     ["This is the construction phase of the job. We work with you and the construction team to ensure that what we have designed with you is realised. "]
                      ["The degree to which we administer and observe the building process will depend on the scope and complexity of your project. While a small simple project might only require occasional site visits, more complex projects where risk of non-compliance is higher, will require more frequent visits to review the work and approve payments to the builder."]
 ["Throughout this process more often than not changes can occur. This is expected and we are experienced at managing and dealing with formal variations to the contracted works."]
                         ]}
 
-          {:title "Almost finished."
+          {:title ["Almost finished."]
            :content [
                     ["As the build is nearing completion we undertake comprehensive inspections of the completed project and advise the builder of any defects that need fixing before signing off on practical completion and applying for code compliance certification from the local council."]
                     ["Upon a satisfactory level of completion we are able to certify practical completion ready for you to move in. (Hooray!) "]
                         ]}
 
-          {:title "Defects Period."
+          {:title ["Defects Period."]
            :content [
                     ["Following practical completion there is a period of time in which the contractors are responsible for finishing any minor defects. At the end of this period we will inspect your project and make sure that any blemishes are addressed by the builder prior to issuing a defects liability certificate. "]
                      ["Final monetary retentions are not released until this certificate is issued."]
                         ]}
 
-          {:title "Overall."
+          {:title ["Overall."]
            :content [
                     ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – it just makes sense that we come along for “the ride”. "]
 ["Construction is a complex process and is generally / naturally unfamiliar territory for most people. We therefore strongly believe we bring great value to this part of your project.  There are different ways we can structure our involvement and we have specific NZIA construction contracts depending on our exact role."]
                         ]}
           ]})
 
-(def faqs-data {:text {:bold "You’re not supposed to know it all before coming to us." :paragraph " Whether it’s your first time working with an architecture firm or you’ve lost count, there’s never a bad time to ask questions like:"}
-                 :questions [{:title "How does Solari charge?"
-                              :content ""}
+(def faqs-data {:text {:bold ["You’re not supposed to know it all before coming to us."]
+                       :paragraph [" Whether it’s your first time working with an architecture firm or you’ve lost count, there’s never a bad time to ask questions like:"] }
+                 :questions [{:title ["How does Solari charge?"]
+                              :content [[""]]}
 
-                             {:title "How involved should I be in the architectural design process?"
-                              :content ""}
+                             {:title ["How involved should I be in the architectural design process?"]
+                              :content [[""]]}
 
-                             {:title "What technical programs do you use?"
-                              :content ""}
+                             {:title ["What technical programs do you use?"]
+                              :content [[""]]}
 
-                             {:title "What types of insurance do you carry?"
-                              :content ""}
+                             {:title ["What types of insurance do you carry?"]
+                              :content [[""]]}
 
-                             {:title "How can you be sure a project doesn't go over budget?"
-                              :content ""}
+                             {:title ["How can you be sure a project doesn't go over budget?"]
+                              :content [[""]]}
 
-                             {:title "What's Solari's approach t sustainability?"
-                              :content ""}
+                             {:title ["What's Solari's approach t sustainability?"]
+                              :content [[""]]}
 
-                             {:title "How should I cmmunicate what I want to Solari?"
-                              :content "Words, pictures, examples, feelings, thoughts – in whatever way you choose! "}
+                             {:title ["How should I cmmunicate what I want to Solari?"]
+                              :content [["Words, pictures, examples, feelings, thoughts – in whatever way you choose! "]]}
 
-                             {:title "Who does Solari Collaborate with to complete a project?"
-                              :content ""}
+                             {:title ["Who does Solari Collaborate with to complete a project?"]
+                              :content [[""]]}
 
-                             {:title "What sized project is Solari capable of taking on?"
-                              :content "Due to James time in Australia he has working relationships with companies such as Woods Bagot, Cox, Scott Carber, GHD Woodhead. Across the board these firms have international experience in sectors such as Aviation, Hospitality, Workplace and Retail. We can partner with these firms to offer the best international expertise whilst still dealing with a local firm."}
+                             {:title ["What sized project is Solari capable of taking on?"]
+                              :content [["Due to James time in Australia he has working relationships with companies such as Woods Bagot, Cox, Scott Carber, GHD Woodhead. Across the board these firms have international experience in sectors such as Aviation, Hospitality, Workplace and Retail. We can partner with these firms to offer the best international expertise whilst still dealing with a local firm."]]}
 
-                             {:title "Why use an architect?"
-                              :content "Architects are design focussed. Now that doesn’t mean we just make our projects look good – although we do that too. We make them feel good and function well. We design structures that respond to their wider context and look past the “now” and look at how a"}
+                             {:title ["Why use an architect?"]
+                              :content [["Architects are design focussed. Now that doesn’t mean we just make our projects look good – although we do that too. We make them feel good and function well. We design structures that respond to their wider context and look past the “now” and look at how a"]]}
 
-                             {:title "It seems so expensive to use an Architect?"
-                              :content "Firstly (Practically thinking) Architects are subject to a statutory code of practice and have Professional Indemnity Insurance to protect their clients.Secondly. In your lifetime, a house is one of the biggest investments you will make. So why not make the most of that investment and ensure its long-term value. Take advantage of the opportunity to do it right. As your architect we will ensure that quality products are used, the space is right for your needs now and in the future, the design is created taking advantage of the best that your site has to offer. This is no cookie cutter experience"}
+                             {:title ["It seems so expensive to use an Architect?"]
+                              :content [["Firstly (Practically thinking) Architects are subject to a statutory code of practice and have Professional Indemnity Insurance to protect their clients.Secondly. In your lifetime, a house is one of the biggest investments you will make. So why not make the most of that investment and ensure its long-term value. Take advantage of the opportunity to do it right. As your architect we will ensure that quality products are used, the space is right for your needs now and in the future, the design is created taking advantage of the best that your site has to offer. This is no cookie cutter experience"]]}
 
                              ]})
 
 (def the-team-data
-  {:text {:bold "The Solari team is your team."  :paragraph " As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."}
-         :title "Your Team"
-   :leaderboard {:architect "/img/leaderboards/group_photo_everyday.jpg" :hipster "/img/leaderboards/group_photo_hipster.jpg"}
-         :team-members [{:name "James Solari"
-                         :memberid "jsolari"
-                         :profilepics {:hipster "/img/teampics/jsolari_hipster.jpg"
-                                       :everyday "/img/teampics/jsolari_everyday.jpg"}
-                         :Role "Director & Lead Architect"
-                         :how ["After 14 years working for other people I decided it was time to step out on my own and build a business that focussed on my specific areas of expertise. I was fortunate to find a group of talented (and fun) people to work with that share my vision and deliver great results for our clients."
-                               "I have unique experience in multi-unit residential builds as a result of my time at Woodhead in Australia.  I believe that New Zealand’s market it still relatively immature. As our population grows we need to intensify our housing solutions. But we need to do it in a way that fosters communities, creates safe and healthy living environments and enables people to thrive."
-                               "Having said that, my passion and expertise is not limited to multi-unit solutions. I love to work on stand-alone houses, commercial and hospitality solutions. I’m excited about exploring and balancing the cross-overs between how we live, work and play."]
-                         :goals "They’re big ones. And I want to create a strong and enduring company with the right people to help me achieve them. Solari Architects is a family business. My goal is to create a company that develops talent and enables people to be the best that they can be; both as members of their families and communities and as architects and key people within the business."
-                         :advice ""
-                         :outside ""
-                         :polaroid "(Something shorter please!)"}
+  {:text {:bold ["The Solari team is your team."]
+          :paragraph [" As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."] }
+   :title ["Your Team"]
+   :leaderboard {:architect ["/img/leaderboards/group_photo_everyday.jpg"]  :hipster ["/img/leaderboards/group_photo_hipster.jpg"]}
+         :team-members [{:name ["James Solari"]
+                         :memberid ["jsolari"]
+                         :profilepics {:hipster ["/img/teampics/jsolari_hipster.jpg"]
+                                       :everyday ["/img/teampics/jsolari_everyday.jpg"]}
+                         :Role ["Director & Lead Architect"]
+                         :how [["After 14 years working for other people I decided it was time to step out on my own and build a business that focussed on my specific areas of expertise. I was fortunate to find a group of talented (and fun) people to work with that share my vision and deliver great results for our clients."]
+                               ["I have unique experience in multi-unit residential builds as a result of my time at Woodhead in Australia.  I believe that New Zealand’s market it still relatively immature. As our population grows we need to intensify our housing solutions. But we need to do it in a way that fosters communities, creates safe and healthy living environments and enables people to thrive."]
+                               ["Having said that, my passion and expertise is not limited to multi-unit solutions. I love to work on stand-alone houses, commercial and hospitality solutions. I’m excited about exploring and balancing the cross-overs between how we live, work and play."]]
+                         :goals ["They’re big ones. And I want to create a strong and enduring company with the right people to help me achieve them. Solari Architects is a family business. My goal is to create a company that develops talent and enables people to be the best that they can be; both as members of their families and communities and as architects and key people within the business."]
+                         :advice [""]
+                         :outside [""]}
 
-                        {:name "Catherine Solari"
-                         :memberid "csolari"
-                         :profilepics {:hipster "/img/teampics/csolari_hipster.jpg"
-                                       :everyday "/img/teampics/csolari_everyday.jpg"}
-                         :Role "Corporate Services Manager"
-                         :how ["After 17 years working in sales roles in the IT industry James and I decided to start a family and along came our little guy Hugo. Instead of returning to the land of IT after a year of looking after that wee guy I decided it was a much better idea to jump in and help out James with his flourishing little business. It was doing so well he didn’t have time to run it, so with my experience in large corporates and with sound business practices I came on board to lend a hand. Over the last 2 years we have substantially grown the business from just a 3 person operation to the team of 7 it is now and with all the work we have going there James is flat out being an Architect.  Its great fun and I’m really proud of how things are going."
+                        {:name ["Catherine Solari"]
+                         :memberid ["csolari"]
+                         :profilepics {:hipster ["/img/teampics/csolari_hipster.jpg"]
+                                       :everyday ["/img/teampics/csolari_everyday.jpg"] }
+                         :Role ["Corporate Services Manager"]
+                         :how [["After 17 years working in sales roles in the IT industry James and I decided to start a family and along came our little guy Hugo. Instead of returning to the land of IT after a year of looking after that wee guy I decided it was a much better idea to jump in and help out James with his flourishing little business. It was doing so well he didn’t have time to run it, so with my experience in large corporates and with sound business practices I came on board to lend a hand. Over the last 2 years we have substantially grown the business from just a 3 person operation to the team of 7 it is now and with all the work we have going there James is flat out being an Architect.  Its great fun and I’m really proud of how things are going."]
                                ]
-                         :goals ""
-                         :advice "Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."
-                         :outside ""
-                         :polaroid "Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."}
+                         :goals [""]
+                         :advice ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."]
+                         :outside [""]
+                         :polaroid ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."] }
 
-                        {:name "Matt Cane"
-                         :memberid "mcane"
-                         :profilepics {:hipster "/img/teampics/mcane_hipster.jpg"
-                                       :everyday "/img/teampics/mcane_everyday.jpg"}
-                         :Role "Senior Technician"
-                         :how ["I recently returned home from the UK where I predominantly worked on community housing projects. During this time I worked with Not-for-Profit Housing organisations such as Forth Housing Association, Places for People and Dunedin Canmore Housing Association.  I have worked with the UK standards such as Housing for Varying Needs, Secured by Design, BRE Eco Homes."]
-                         :goals ""
-                         :advice "Don’t cry over spilt milk. Literally relevant these days with a young child."
-                         :outside "You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "
-                         :polaroid "Don’t cry over spilt milk. Literally relevant these days with a young child."}
+                        {:name ["Matt Cane"]
+                         :memberid ["mcane"]
+                         :profilepics {:hipster ["/img/teampics/mcane_hipster.jpg"]
+                                       :everyday ["/img/teampics/mcane_everyday.jpg"] }
+                         :Role ["Senior Technician"]
+                         :how [["I recently returned home from the UK where I predominantly worked on community housing projects. During this time I worked with Not-for-Profit Housing organisations such as Forth Housing Association, Places for People and Dunedin Canmore Housing Association.  I have worked with the UK standards such as Housing for Varying Needs, Secured by Design, BRE Eco Homes."] ]
+                         :goals [""]
+                         :advice ["Don’t cry over spilt milk. Literally relevant these days with a young child."]
+                         :outside ["You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "]
+                         :polaroid ["Don’t cry over spilt milk. Literally relevant these days with a young child."] }
 
-                        {:name "Melanie Zyteka"
-                         :memberid "mzyteka"
-                         :profilepics {:hipster "/img/teampics/mzyteka_hipster.jpg"
-                                       :everyday "/img/teampics/mzyteka_everyday.jpg"}
-                         :Role "Senior Technician"
-                         :how ["After graduating as an Architectural Technician from Wellington Polytechnic in 1998, I moved to London where I worked on a variety of projects. The call of home grew louder and I returned in 2005 to work at Archaus Architects until joining Solari Architects at the end of 2013. My career so far has included commercial, multi-storey residential and hospitality projects. "
-                               "I was thrilled to join the Solari team as they’re such a vibrant company who thrive on producing great designs. They also have a really supportive team structure. "
+                        {:name ["Melanie Zyteka"]
+                         :memberid ["mzyteka"]
+                         :profilepics {:hipster ["/img/teampics/mzyteka_hipster.jpg"]
+                                       :everyday ["/img/teampics/mzyteka_everyday.jpg"] }
+                         :Role ["Senior Technician"]
+                         :how [["After graduating as an Architectural Technician from Wellington Polytechnic in 1998, I moved to London where I worked on a variety of projects. The call of home grew louder and I returned in 2005 to work at Archaus Architects until joining Solari Architects at the end of 2013. My career so far has included commercial, multi-storey residential and hospitality projects. "]
+                               ["I was thrilled to join the Solari team as they’re such a vibrant company who thrive on producing great designs. They also have a really supportive team structure. "]
                                ]
-                         :goals ""
-                         :advice "We are a long time dead so make sure you enjoy your life and that includes where you work!"
-                         :outside ""
-                         :polaroid "We are a long time dead so make sure you enjoy your life and that includes where you work!"}
+                         :goals [""]
+                         :advice ["We are a long time dead so make sure you enjoy your life and that includes where you work!"]
+                         :outside [""]
+                         :polaroid ["We are a long time dead so make sure you enjoy your life and that includes where you work!"] }
 
-                        {:name "Monique Addis"
-                         :memberid "maddis"
-                         :profilepics {:hipster "/img/teampics/maddis_hipster.jpg"
-                                       :everyday "/img/teampics/maddis_everyday.jpg"}
-                         :Role "Senior Designer"
-                         :how ["Monique brings to the Solari Architects team 17 years of well-rounded experience in all facets of the design and project delivery process.   Monique has been involved in award winning high quality residential and commercial projects of mixed scale, throughout New Zealand in urban, rural and coastal settings. From 2008, Monique took time out of the profession to raise her young family and undertake her own architectural project."
-                               "During this time she continued with contract architectural work before joining the team at Solari Architects mid-2013. Monique is excellent at multi-tasking and ensures all aspects of her projects are completed to the highest standard.  She enjoys the collaborative process of taking a project from the design brief through to construction and completion."
+                        {:name ["Monique Addis"]
+                         :memberid ["maddis"]
+                         :profilepics {:hipster ["/img/teampics/maddis_hipster.jpg"]
+                                       :everyday ["/img/teampics/maddis_everyday.jpg"] }
+                         :Role ["Senior Designer"]
+                         :how [["Monique brings to the Solari Architects team 17 years of well-rounded experience in all facets of the design and project delivery process.   Monique has been involved in award winning high quality residential and commercial projects of mixed scale, throughout New Zealand in urban, rural and coastal settings. From 2008, Monique took time out of the profession to raise her young family and undertake her own architectural project."]
+                               ["During this time she continued with contract architectural work before joining the team at Solari Architects mid-2013. Monique is excellent at multi-tasking and ensures all aspects of her projects are completed to the highest standard.  She enjoys the collaborative process of taking a project from the design brief through to construction and completion."]
                                ]
-                         :goals ""
-                         :advice "Don’t leave things until the last minute. Do it once, do it right!"
-                         :outside ""
-                         :polaroid "Don’t leave things until the last minute. Do it once, do it right!"}
+                         :goals [""]
+                         :advice ["Don’t leave things until the last minute. Do it once, do it right!"]
+                         :outside [""]
+                         :polaroid ["Don’t leave things until the last minute. Do it once, do it right!"] }
 
-                        {:name "Alex Brimmicombe"
-                         :memberid "abrimmicombe"
-                         :profilepics {:hipster "/img/teampics/abrimmicombe_hipster.jpg"
-                                       :everyday "/img/teampics/abrimmicombe_everyday.jpg"}
-                         :Role "Architectural Graduate"
-                         :how ["In mid 2015 the stars seemed to align. I was lucky enough to be taken on board by the team at Solari Architects. Before this, I spent ten months in a smaller Wellington firm after completing my Master’s degree at Victoria University. My final year of study focussed on safety through spatial design and creating future proof public architecture."
-                               "Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as a graduate architect. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."
+                        {:name ["Alex Brimmicombe"]
+                         :memberid ["abrimmicombe"]
+                         :profilepics {:hipster ["/img/teampics/abrimmicombe_hipster.jpg"]
+                                       :everyday ["/img/teampics/abrimmicombe_everyday.jpg"] }
+                         :Role ["Architectural Graduate"]
+                         :how [["In mid 2015 the stars seemed to align. I was lucky enough to be taken on board by the team at Solari Architects. Before this, I spent ten months in a smaller Wellington firm after completing my Master’s degree at Victoria University. My final year of study focussed on safety through spatial design and creating future proof public architecture."]
+                               ["Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as a graduate architect. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."]
                                ]
-                         :goals ""
-                         :advice ""
-                         :outside "You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."
-                         :polaroid "I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "}
+                         :goals [""]
+                         :advice [""]
+                         :outside ["You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."]
+                         :polaroid ["I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "] }
 
-                        {:name "Molly Marshall"
-                         :memberid "mmarshall"
-                         :profilepics {:hipster "/img/teampics/mmarshall_hipster.jpg"
-                                       :everyday "/img/teampics/mmarshall_everyday.jpg"}
-                         :Role "Architectural Graduate"
-                         :how ["I Joined the Solari team full time in 2015. Before that I was working part time with them whilst completeing my Master’s thesis at Victoria university. I’m enjoying the opportunity to be involved in all areas of the architectural process. "
+                        {:name ["Molly Marshall"]
+                         :memberid ["mmarshall"]
+                         :profilepics {:hipster ["/img/teampics/mmarshall_hipster.jpg"]
+                                       :everyday ["/img/teampics/mmarshall_everyday.jpg"] }
+                         :Role ["Architectural Graduate"]
+                         :how [["I Joined the Solari team full time in 2015. Before that I was working part time with them whilst completeing my Master’s thesis at Victoria university. I’m enjoying the opportunity to be involved in all areas of the architectural process. "]
                                ]
-                         :goals ""
-                         :advice ""
-                         :outside "you’ll find me playing social netball and café hopping around Wellington."
-                         :polaroid "You’ll find me playing social netball and café hopping around Wellington."}
+                         :goals [""]
+                         :advice [""]
+                         :outside ["you’ll find me playing social netball and café hopping around Wellington."]
+                         :polaroid ["You’ll find me playing social netball and café hopping around Wellington."] }
                         ]
                     })
 
@@ -304,6 +306,8 @@
          :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
                         pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]}))
 
+
+(select-keys pr/project-01 [:goals :advice :Role :outside])
 
 (defresource all-data-resource
              :service-available? true
