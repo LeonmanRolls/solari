@@ -12,7 +12,7 @@
     :heroku-postgresql-rose-url
     "postgresql://root:1fishy4me@localhost:5432/solari"))
 
-(defn single-game-info-query [context db]
+#_(defn single-game-info-query [context db]
   (sql/query
     db
     [(str
@@ -25,7 +25,6 @@
          context
          [:request :params :gameid]))]))
 
-(sql/query db "select * from projects")
 
 (def home-page-data
   {:bold ["Come on in. We're Solari architects."]
