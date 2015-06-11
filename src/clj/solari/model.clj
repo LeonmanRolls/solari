@@ -194,6 +194,7 @@
 (def the-team-data
   {:text {:bold "The Solari team is your team."  :paragraph " As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."}
          :title "Your Team"
+   :leaderboard {:architect "/img/leaderboards/group_photo_everyday.jpg" :hipster "/img/leaderboards/group_photo_hipster.jpg"}
          :team-members [{:name "James Solari"
                          :memberid "jsolari"
                          :profilepics {:hipster "/img/teampics/jsolari_hipster.jpg"
@@ -308,14 +309,4 @@
              :handle-ok (fn [context] @all-data)
              :put! (fn [ctx] (reset! all-data (:all-data (:params (:request ctx)))))
              :available-media-types ["application/edn"])
-
-
-(defresource imgupload-resource
-             :service-available? true
-             :allowed-methods [:get :post]
-             :handle-method-not-allowed  "Method not allowed"
-             :handle-ok (fn [context] @all-data)
-             :post! (fn [_] "got something")
-             :available-media-types ["multipart/form-data"])
-
 

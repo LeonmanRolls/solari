@@ -36,13 +36,13 @@
 ;Fallback for browsers without html5 history support
 (sec/set-config! :prefix "#")
 
-
 (defroute the-team "/your-team" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
-            (theteam/the-team-init data/the-team-atom "cat-architect")))
-
+            (om/root theteam/team-members-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :the-team-data}})))
 
 (defroute "/" []
           (do
@@ -117,13 +117,23 @@
                               :extra :commerical-data
                               :cat "cat-commercial"}})))
 
-(defroute "/individual/:projectid" {:as params}
-          (do
-            (ef/at "#nav-hint-inner" (ef/content (:projectid params)))
-            (ef/at "body" (ef/set-attr :background "grey"))
-            (om/root project/project-page data/all-data-atom
+(defmulti individual (fn [uid _] (empty? (some #{uid} (data/all-memberids)))))
+
+(defmethod individual false
+  [uid]  (om/root project/project-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :all-projects :filter (:projectid params)}})))
+                      :state {:key :all-projects :filter (:id params)}}))
+
+(defmethod individual true
+  [uid] (om/root project/project-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :team-members :filter (:id params)}}) )
+
+(defroute "/individual/:id" {:as params}
+          (do
+            (ef/at "#nav-hint-inner" (ef/content (:id params)))
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (individual (:id params))))
 
 (defroute "/our-process" {:as params}
           (do

@@ -26,6 +26,7 @@
                               :content "Workign with an old charcter home."}]})
 
 
+
 (def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
                      :accordion "non-user"})

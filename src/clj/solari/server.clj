@@ -26,10 +26,11 @@
            (wrap-multipart-params
              (POST "/imgupload/"
                    {{{tempfile :tempfile filename :filename} :file} :params :as params}
-               (do (println "params: " (:filename (get (:params params) "file")))
-                   (println "tempfile: " params)
-                   (io/copy (:tempfile (get (:params params) "file"))
-                            (io/file "resources" "public" (:filename (get (:params params) "file")))))
+               (do (println "params: " (:params params) #_(:filename (get (:params params) :file)))
+                   #_(println "tempfile: " params)
+                   (io/copy (:tempfile (get (:params params) :file))
+                            (io/file "resources" "public" "img" "leaderboards"
+                                     "group_photo_everyday.jpg")))
                "success"))
            (resources "/react" {:root "react"})
            (GET "/*" req (page)))
@@ -55,3 +56,4 @@
 
 (defn -main [& [port]]
   (run port))
+

@@ -53,28 +53,30 @@
         (js/megafolioInit)
         (.megafilter js/api "cat-everyday")))
 
-    om/IRender
-    (render [this]
+    om/IRenderState
+    (render-state [this state]
+      (let [local (get data (:key state))]
+        (dom/div nil
 
-      (dom/div #js {}
-
-               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+               #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li hipster-data))
 
-               (om/build common/p-partial-white  {:bold (:bold (:text data)) :paragraph (:paragraph (:text data))})
+                (println "loca: " local)
 
-               (dom/img #js {:id "group_photo" :src "/img/group_photo_everyday.jpg"
+               (om/build common/paragraph-partial local {:state {:key :text :color "white"}})
+
+               (dom/img #js {:id "group_photo" :src (:architect (:leaderboard local))
                              :style #js {:marginBottom "20px" :width "100%"}})
+
+                 (om/build
+                   common/input-partial
+                   [:leaderboard "/img/leaderboards/group_photo_everyday.jpg"] {:state {:owner owner}})
 
                (dom/br nil)
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members data))))))))
+                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members local))
+                                    {:state {:link :memberid}})))))))
 
-
-(defn the-team-init [the-team-atom filter]
-  (do (om/root team-members-page the-team-atom
-               {:target (. js/document (getElementById "main-content-container"))})
-      (ef/at ".context" (ef/content (:title @the-team-atom)))))
 

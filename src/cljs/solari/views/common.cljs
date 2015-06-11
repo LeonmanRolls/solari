@@ -22,7 +22,8 @@
 (def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
                      :accordion "non-user" :bold "text-input" :paragraph "text-area" :placeholder "text-input"
-                     :content "text-area" :step1 "text-input" :step2 "text-input" :step3 "text-input"})
+                     :content "text-area" :step1 "text-input" :step2 "text-input" :step3 "text-input"
+                     :leaderboard "user-upload"})
 
 ;Takes a vector of key and value
 (defmulti input-partial (fn [data] ((first data) project-schema)))
@@ -97,16 +98,21 @@
 (defn user-upload-partial [data owner]
   (let [almost-unique (str  (rand-int 1000000))]
     (reify
+      om/IDidMount
+      (did-mount [this]
+        (.dropzone
+          (js/$ (str "#" almost-unique) ) #js {:url "/imgupload/"
+                                               :maxFilesize 2
+                                               :init (fn [] (this-as this
+                                                                     (.on this "complete"
+                                                                          #(-> js/window (.-location) (.reload))
+                                                                          #_(om/refresh! (:owner (om/get-state owner))))))}))
 
-    om/IDidMount
-    (did-mount [this]
-      (.dropzone (js/$ (str "#" almost-unique) ) #js {:url "/imgupload/"}))
-
-    om/IRenderState
-    (render-state [this state]
-      (dom/div #js {:id almost-unique :style #js {:margin-top "20px" :height "200" :color "white"
-                                                     :background "rgba(29,29,27,0.4)"}}
-               "Drop files here or click to upload")))))
+      om/IRenderState
+      (render-state [this state]
+        (dom/div #js {:id almost-unique :style #js {:margin-top "20px" :height "200" :color "white"
+                                                    :background "rgba(29,29,27,0.4)"}}
+                 "Drop files here or click to upload")))))
 
 (defn accordion-partial [data owner]
   (reify
@@ -145,9 +151,9 @@
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
   (reify
-    om/IRender
-    (render [this]
-      (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry cat-all " (:category data))  :id (:id data)
+    om/IRenderState
+    (render-state [this state]
+      (dom/a #js {:href (str "/#/individual/" ((:link state) data)) :className (str "mega-entry cat-all " (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}

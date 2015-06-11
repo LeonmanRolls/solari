@@ -15,6 +15,10 @@
 (set-validator! all-data-atom #((complement empty?) %))
 (add-watch all-data-atom nil (fn [key atom old-state new-state] (go (>! ajax-chan 1))))
 
+(defn all-projectids [] (map (fn [x] (:projectid x)) (:all-projects @all-data-atom)))
+
+(defn all-memberids []  (map (fn [x] (:memberid x)) (:team-members (:the-team-data @all-data-atom))))
+
 ;Wait for our ajax calls
 (go
   (loop [ajax-count 0]

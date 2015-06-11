@@ -5,7 +5,8 @@
             [enfocus.effects :as eff]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [solari.views.common :as common])
+            [solari.views.common :as common]
+            [solari.data :as data])
   (:require-macros [enfocus.macros :as em]))
 
 (enable-console-print!)
@@ -16,6 +17,8 @@
     (render [this]
       (dom/img #js {:className "rsImg" :src (str "/img/" data ) :data-rsTmb (str "/img/" data )}))))
 
+
+;(defmulti project-page (fn [x] ))
 
 (defn project-page [data owner]
   (reify
@@ -40,6 +43,7 @@
 
        (dom/div #js {:id "project-container"}
 
+                (println "all member ids" (data/all-memberids))
                 (println "data: "  (:accordion project))
 
                 (apply dom/div #js {:className "royalSlider rsDefault"}
