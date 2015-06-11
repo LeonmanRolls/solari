@@ -37,8 +37,8 @@
 
 (def http-handler
   (if is-dev?
-    (wrap-multipart-params (wrap-defaults #'routes api-defaults)) #_(reload/wrap-reload )
-    #_(wrap-multipart-params (wrap-defaults routes api-defaults))))
+    (reload/wrap-reload (wrap-defaults #'routes api-defaults))
+    (wrap-defaults routes api-defaults) ))
 
 (defn run-web-server [& [port]]
   (let [port (Integer. (or port (env :port) 10555))]
