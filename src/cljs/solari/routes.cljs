@@ -68,6 +68,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "white" :key :for-architects-data}})))
 
+
 (defroute from-us "/from-us" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
@@ -153,7 +154,7 @@
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
-(defn your-career-page [data owner]
+#_(defn your-career-page [data owner]
   (reify
     om/IRender
     (render [this]
@@ -163,20 +164,20 @@
                (dom/p nil (:paragraph-one data))
                (dom/p nil (:paragraph-two data))))))
 
-(defroute "/your-career" []
+#_(defroute "/your-career" []
           (do
             (om/root your-career-page data/your-career-atom
                    {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "your-career"))
             (ef/at "#nav-hint-inner" (ef/content "Your Career"))))
 
-(defn meet-the-team-page [data owner]
+#_(defn meet-the-team-page [data owner]
   (reify
     om/IRender
     (render [this]
       (dom/h1 nil "This is the meet your team page"))))
 
-(defroute "/meet-the-team" []
+#_(defroute "/meet-the-team" []
           (do
             (ef/at "body" (ef/set-attr :background "polaroid"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
