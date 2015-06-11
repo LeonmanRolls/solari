@@ -284,6 +284,7 @@
                         ]
                     })
 
+(get-in the-team-data [:leaderboard :hipster])
 
 (def all-data
   (atom {:home-page-data home-page-data

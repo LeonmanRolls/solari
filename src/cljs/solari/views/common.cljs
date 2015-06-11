@@ -153,6 +153,7 @@
   (reify
     om/IRenderState
     (render-state [this state]
+      (println "gallery-partial: " state)
       (dom/a #js {:href (str "/#/individual/" ((:link state) data)) :className (str "mega-entry cat-all " (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}

@@ -119,15 +119,17 @@
 
 (defmulti individual (fn [uid _] (empty? (some #{uid} (data/all-memberids)))))
 
-(defmethod individual false
-  [uid]  (om/root project/project-page data/all-data-atom
-                     {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :all-projects :filter (:id params)}}))
-
 (defmethod individual true
   [uid] (om/root project/project-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :team-members :filter (:id params)}}) )
+                      :state {:key :all-projects :filter uid :link :link :filterkey :projectid
+                              :filter-vector [:all-projects]}}))
+
+(defmethod individual false
+  [uid] (om/root project/project-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :the-team-data :filter uid :filterkey :memberid
+                              :filter-vector [:the-team-data :team-members]}}) )
 
 (defroute "/individual/:id" {:as params}
           (do
