@@ -26,33 +26,30 @@
     (did-mount [this]
       (js/accordion))
 
-    om/IRender
-    (render [this]
-      (dom/div nil
+    om/IRenderState
+    (render-state [this state]
+      (let [local (get data (:key state))]
+        (dom/div nil
 
-               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
-                                              :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
-                      (om/build-all common/simple-li hipster-data))
+                 (println "process: " (:long local))
 
-               (om/build common/p-partial-white (:text data))
+                 #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                                                :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
+                        (om/build-all common/simple-li hipster-data))
 
-               (dom/div #js {:id "short-version"}
-                        (dom/div box-style
-                                 "1. We listen to your goals and objectives")
-                        (dom/div box-style
-                                 "2. We translate your ideas, inspiration and words into design. That goes back and forth until we are all speaking the same language.")
-                        (dom/div box-style
-                                 "3. We communicate the solution to the right team of colaborators to actualise your vision."))
+                 (om/build common/paragraph-partial local {:state {:color "white" :key :text}})
 
-               (dom/div #js {:id "long-version" :className "accordion hidden"}
-                        (apply dom/dl nil
-                               (om/build-all common/accordion-partial (:long data))))))))
+                 (let [locall (get local :short)]
+                   (dom/div #js {:id "short-version"}
+                            (dom/div box-style (:step1 locall))
+                            (om/build common/input-partial [:step1 (:step1 locall)] {:state {:data locall :key :step1}})
+                            (dom/div box-style (:step2 locall))
+                            (om/build common/input-partial [:step2 (:step2 locall)] {:state {:data locall :key :step2}})
+                            (dom/div box-style (:step3 locall))
+                            (om/build common/input-partial [:step3 (:step3 locall)] {:state {:data locall :key :step3}})))
 
+                 (dom/div #js {:id "long-version" :className "accordion"}
+                          (apply dom/dl nil
+                                 (om/build-all common/accordion-partial (get local :long)))))))))
 
-(defn process-init [atom]
-  (do
-    (om/root process-page atom
-             {:target (. js/document (getElementById "main-content-container"))})
-    (ef/at "body" (ef/set-attr :background "home"))
-    (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
 

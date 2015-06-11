@@ -25,21 +25,17 @@
     (did-mount [this]
       (js/accordion))
 
-    om/IRender
-    (render [this]
-      (dom/div nil
+    om/IRenderState
+    (render-state [this state]
+      (let [local ((:key state) data)]
 
-              (om/build text-partial (:text data))
+        (println "faqs-page " local)
 
-               (dom/div #js {:className "accordion"}
-                        (apply dom/dl nil
-                               (om/build-all common/accordion-partial (:questions data))))))))
+        (dom/div nil
+                 (om/build common/paragraph-partial local {:state {:key :text :color "white"}})
 
+                 (dom/div #js {:className "accordion"}
+                          (apply dom/dl nil
+                                 (om/build-all common/accordion-partial (:questions local)))))))))
 
-(defn faqs-init [atom]
-  (do
-    (om/root faqs-page atom
-             {:target (. js/document (getElementById "main-content-container"))})
-    (ef/at "body" (ef/set-attr :background "home"))
-    (ef/at "#nav-hint-inner" (ef/content "Welcome"))))
 

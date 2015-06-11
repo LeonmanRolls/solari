@@ -22,7 +22,7 @@
 (def project-schema {:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
                      :accordion "non-user" :bold "text-input" :paragraph "text-area" :placeholder "text-input"
-                     :content "text-area"})
+                     :content "text-area" :step1 "text-input" :step2 "text-input" :step3 "text-input"})
 
 ;Takes a vector of key and value
 (defmulti input-partial (fn [data] ((first data) project-schema)))
@@ -48,7 +48,6 @@
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:title data))
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:content data))
                (dom/button nil (:button-label state))))))
-
 
 
 (defn short-simple-input-partial [data owner]
@@ -111,23 +110,19 @@
 
 (defn accordion-partial [data owner]
   (reify
-
     om/IRender
     (render [this]
       (dom/div nil
-               (println "accordion: " (first data))
+               (println "accordion: " data)
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
-                              (:title data)
-                              ))
-
+                              (:title data)))
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
                        (om/build input-partial [:title (:title data)]  {:state {:data data :key :title}})
                        (dom/p nil (:content data))
-                       (om/build input-partial [:content (:content data)]  {:state {:data data :key :content}})
-                       )))))
+                       (om/build input-partial [:content (:content data)]  {:state {:data data :key :content}}))))))
 
 (defn p-partial [data owner]
   (reify
@@ -147,19 +142,14 @@
         (dom/div nil
                  (om/build p-partial local {:state {:color (:color state)}}))))))
 
-
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
-
   (reify
-
     om/IRender
     (render [this]
       (dom/a #js {:href (str "/#/" (:link data)) :className (str "mega-entry cat-all " (:category data))  :id (:id data)
                   :data-src (:thumbnail data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
-             (println "data data: " data)
              (dom/div #js {:className "mega-hover"}
-                      #_(println "data: " data)
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                (:title data)
                                (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
@@ -180,27 +170,16 @@
   (reify
     om/IRenderState
     (render-state [this state]
-
       (dom/div nil
-
                (apply dom/ul nil
                       (om/build-all admin-li (last data)))
-
                (om/build user-upload-partial data)))))
 
 (defn editable-list-text-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
-
-      (dom/div nil
-
-               (apply dom/ul nil
-                      (om/build-all admin-li (last data)))
-
-               #_(apply dom/div nil
-                               (om/build-all short-input-partial (:accordion data)))))))
-
+      (dom/div nil))))
 
 
 (defmethod input-partial "text-input"

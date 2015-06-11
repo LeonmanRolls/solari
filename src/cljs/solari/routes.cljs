@@ -44,31 +44,6 @@
             (theteam/the-team-init data/the-team-atom "cat-architect")))
 
 
-
-(comment
-
-
-  (defroute residential "/residential" []
-            (do
-              (allprojects/all-projects-init data/individual-projects-atom "cat-residential" data/residential-atom)
-              (ef/at "#nav-hint-inner" (ef/content "Residential"))
-              (ef/at "body" (ef/set-attr :background "grey"))))
-
-  (defroute "/multi-residential" {:as params}
-            (do
-              (allprojects/all-projects-init data/individual-projects-atom "cat-multi-unit-residential" data/multi-unit-atom)
-              (ef/at "#nav-hint-inner" (ef/content "Multi-unit residential"))
-              (ef/at "body" (ef/set-attr :background "grey"))))
-
-  (defroute "/commercial" {:as params}
-            (do
-              (allprojects/all-projects-init data/individual-projects-atom "cat-commercial" data/commercial-atom)
-              (ef/at "#nav-hint-inner" (ef/content "Commercial"))
-              (ef/at "body" (ef/set-attr :background "grey"))))
-
-  )
-
-
 (defroute "/" []
           (do
             (ef/at "body" (ef/set-attr :background "home"))
@@ -142,18 +117,6 @@
                               :extra :commerical-data
                               :cat "cat-commercial"}})))
 
-
-#_(defn all-projects-init [state-atom filter]
-  (do (om/root all-projects-page state-atom
-               {:target (. js/document (getElementById "main-content-container"))})
-      (ef/at ".context" (ef/content "fuck off" #_(:title @project-atom)))
-      #_(.megafilter js/api filter)))
-
-#_(defn project-init [project-atom]
-  (do (om/root project-page project-atom
-               {:target (. js/document (getElementById "main-content-container"))})
-      (ef/at ".context" (ef/content (:title @project-atom)))))
-
 (defroute "/individual/:projectid" {:as params}
           (do
             (ef/at "#nav-hint-inner" (ef/content (:projectid params)))
@@ -162,32 +125,21 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects :filter (:projectid params)}})))
 
-(defroute "/lyall" []
-          (do
-            (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 1])))
-            (ef/at "#nav-hint-inner" (ef/content "Residential - Lyall"))
-            (ef/at "body" (ef/set-attr :background "grey"))))
-
-(defroute "/catline" []
-          (do
-            (project/project-init (atom (get-in @data/projects-atom [:projects 0 :projects 2])))
-            (ef/at "#nav-hint-inner" (ef/content "Residential - Catline"))
-            (ef/at "body" (ef/set-attr :background "grey"))))
-
-
 (defroute "/our-process" {:as params}
           (do
-            (process/process-init data/process-atom)
+            (om/root process/process-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :process-data} })
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "Our Process"))))
 
-
 (defroute "/faqs" []
           (do
-            (faqs/faqs-init data/faqs-atom)
+            (om/root faqs/faqs-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :faqs-data}})
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
-
 
 (defn your-career-page [data owner]
   (reify
