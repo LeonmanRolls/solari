@@ -124,18 +124,16 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (dom/p nil (:content data))
-      (om/build input-partial [:content (:content data)]  {:state {:data data :key :content}})
-      ))
-
-  )
+      (dom/div nil
+               (dom/p nil (first data))
+               (om/build input-partial [:content (first data)]  {:state {:data data :key first}})))))
 
 (defn accordion-partial [data owner]
   (reify
     om/IRender
     (render [this]
       (dom/div nil
-               (println "accordion: " data)
+               (println "accordion: " (:content data))
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
@@ -144,7 +142,7 @@
                             :aria-hidden "true"}
                        (om/build input-partial [:title (:title data)]  {:state {:data data :key :title}})
                        (apply dom/div nil
-                      (om/build-all p-p-partial data {:state {:data data :key :content}}))
+                      (om/build-all p-p-partial (:content data)))
                        )))))
 
 (defn p-partial [data owner]

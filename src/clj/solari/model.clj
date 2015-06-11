@@ -83,75 +83,78 @@
            :step3 "3. We communicate the solution to the right team of collaborators to actualise your vision. "}
    :long [
           {:title "It starts with a chat."
-           :content ["We get together and you tell us what you’re hoping to achieve. "
-                        "The things we’re interested in are: the project site, your timeframes, your expected budget and your vision. We’re always happy to show you our previous work and talk to you about how we can work with you. You can bring cuttings, mood boards, words, scribbles, Pinterest boards, music - just anything that helps us get an idea of what you’ve got in mind.  Also, tell us who you are.  Knowing a little more about your lifestyle, family, hobbies, goals and an entertaining story all helps us put together a quote for our services."
-                        "From there you can decide if you want to partner with us to work on your project (fingers crossed)."
-                        ]}
+           :content [["We get together and you tell us what you’re hoping to achieve. "]
+                     ["The things we’re interested in are: the project site, your timeframes, your expected budget and your vision. We’re always happy to show you our previous work and talk to you about how we can work with you. You can bring cuttings, mood boards, words, scribbles, Pinterest boards, music - just anything that helps us get an idea of what you’ve got in mind.  Also, tell us who you are.  Knowing a little more about your lifestyle, family, hobbies, goals and an entertaining story all helps us put together a quote for our services."]
+                       ["From there you can decide if you want to partner with us to work on your project (fingers crossed)."]]}
 
           {:title "Just so you know: Useful information."
-           :content ["We are members of the NZIA. It’s useful because we will provide you with a copy of our comprehensive ‘Agreement for Architect's Services’. This document outlines every step of the process from first sketch designs through to completion. You know, all that useful information. "
+           :content [["We are members of the NZIA. It’s useful because we will provide you with a copy of our comprehensive ‘Agreement for Architect's Services’. This document outlines every step of the process from first sketch designs through to completion. You know, all that useful information. "]
                         ]}
 
           {:title "Refining your vision."
-           :content ["You decide you want to work with us. Good choice. "
-                        "Now we work on refining your vision. We flesh out all the inspiration and ideas from our initial meeting to get an in-depth understanding of who you are and what we will be working towards together. "
-                        "We form a clear brief that will act as a starting point for the concept development."
+           :content [["You decide you want to work with us. Good choice. "]
+                      ["Now we work on refining your vision. We flesh out all the inspiration and ideas from our initial meeting to get an in-depth understanding of who you are and what we will be working towards together. "]
+                       ["We form a clear brief that will act as a starting point for the concept development."]
                         ]}
 
           {:title "Getting to Know The Site."
-           :content ["Depending on the requirements of your project we begin gathering information. This includes things like the Certificate of Title, drainage plans, zoning and town planning information. We will take pictures of the site and can organise to have the site surveyed on your behalf for its contours and boundaries."
+           :content [["Depending on the requirements of your project we begin gathering information. This includes things like the Certificate of Title, drainage plans, zoning and town planning information. We will take pictures of the site and can organise to have the site surveyed on your behalf for its contours and boundaries."]
                         ]}
 
           {:title "Concept Development."
-           :content ["This is the first time we’ll put our initial ideas in front of you for your feedback."
-                        "From here we will work with you to initially develop the basic spatial relationships of the building and importantly the site. We will work with you to develop floor plans and some sketch imagery of the look and style of what is proposed. "
+           :content [["This is the first time we’ll put our initial ideas in front of you for your feedback."]
+                     ["From here we will work with you to initially develop the basic spatial relationships of the building and importantly the site. We will work with you to develop floor plans and some sketch imagery of the look and style of what is proposed. "]
                         ]}
 
           {:title "Turning A Concept Into Drawings."
-           :content ["It’s still early in the piece and the point of concept drawings is to encourage discussion. They can help you articulate what you do and don't like – and might even result in a complete change of direction. "
-                        "This is all part of the process – it's important to remember that at this stage it's not about being in total agreement on every detail, but to get a strong sense of whether we are heading in the right direction and have really listened to what you've talked about up to this point."
-                        "During this stage you also need to have a clear sense of budget and any issues that might impact upon that. "
-                        ]}
+           :content [["It’s still early in the piece and the point of concept drawings is to encourage discussion. They can help you articulate what you do and don't like – and might even result in a complete change of direction. "]
+                     ["This is all part of the process – it's important to remember that at this stage it's not about being in total agreement on every detail, but to get a strong sense of whether we are heading in the right direction and have really listened to what you've talked about up to this point."]
+                     ["During this stage you also need to have a clear sense of budget and any issues that might impact upon that. "]
+                     ]}
 
           {:title "Developing The Design & Budget Revisit. "
-           :content ["This is the stage where everything begins to take shape. We’ve agreed on the concept and now it’s time to show you the details. We do this with 3-D CAD drawings, floor plans, flows, elevations, cut-through section drawings and detail drawings. "
-                        "Depending on the project requirements, size and budget we can also build a scale model to really show you how the project will finish up. "
-                        "It’s a very exciting part of the process, but to stay on track we will revisit your budget again and talk over your priorities in terms of cost, time and quality. It is likely that a Quantity Surveyor will be asked to make an independent cost estimate."
+           :content [["This is the stage where everything begins to take shape. We’ve agreed on the concept and now it’s time to show you the details. We do this with 3-D CAD drawings, floor plans, flows, elevations, cut-through section drawings and detail drawings. "]
+                     ["Depending on the project requirements, size and budget we can also build a scale model to really show you how the project will finish up. "]
+                     ["It’s a very exciting part of the process, but to stay on track we will revisit your budget again and talk over your priorities in terms of cost, time and quality. It is likely that a Quantity Surveyor will be asked to make an independent cost estimate."]
                         ]}
 
           {:title "Deciphering Architectural Plans."
-           :content ["We know it can be hard to visualise the finished product from architectural drawings. So please ask lots of questions and by all means do not gloss over anything you don’t understand. It’s really important to us that you see exactly what we see. "
+           :content [["We know it can be hard to visualise the finished product from architectural drawings. So please ask lots of questions and by all means do not gloss over anything you don’t understand. It’s really important to us that you see exactly what we see. "]
                         ]}
 
           {:title "The Nuts & Bolt Phase: Working Drawings and Building Consent. "
-           :content ["In this stage your project is documented, co-ordinated and made “build-ready”. We finalise a comprehensive package of drawings and literature that builders will price from and councils will process for Building Consent. The complexity of the project will determine how detailed this package needs to be in order to achieve building consent. "
-                        "We apply for a building consent on your behalf. Each local authority has its own way of working fee structures and processing times. To ensure a stress free consent process we work in the consultation with councils as much as possible. "
-                        "Naturally we will keep you in the loop every step of the way so you know how things are tracking."
+           :content [["In this stage your project is documented, co-ordinated and made “build-ready”. We finalise a comprehensive package of drawings and literature that builders will price from and councils will process for Building Consent. The complexity of the project will determine how detailed this package needs to be in order to achieve building consent. "]
+                     ["We apply for a building consent on your behalf. Each local authority has its own way of working fee structures and processing times. To ensure a stress free consent process we work in the consultation with councils as much as possible. "]
+["Naturally we will keep you in the loop every step of the way so you know how things are tracking."]
                         ]}
 
           {:title "What Building Contractor? Tendering and Procurement"
-           :content ["There are a number of ways to procure a building contractor. We can work with you to ascertain the best approach for your specific needs. There are a lot of issues to consider such as timeframe, budget, and desired quality that will have a bearing on your final decision. We will discuss all of the responses with you and we will work together to choose the best contractor for you and the project."
+           :content [["There are a number of ways to procure a building contractor. We can work with you to ascertain the best approach for your specific needs. There are a lot of issues to consider such as timeframe, budget, and desired quality that will have a bearing on your final decision. We will discuss all of the responses with you and we will work together to choose the best contractor for you and the project."]
                         ]}
 
           {:title "Contract Administration & Site Observation"
-           :content ["This is the construction phase of the job. We work with you and the construction team to ensure that what we have designed with you is realised. "
-                        "The degree to which we administer and observe the building process will depend on the scope and complexity of your project. While a small simple project might only require occasional site visits, more complex projects where risk of non-compliance is higher, will require more frequent visits to review the work and approve payments to the builder."
-                        "Throughout this process more often than not changes can occur. This is expected and we are experienced at managing and dealing with formal variations to the contracted works."
+           :content [
+                    ["This is the construction phase of the job. We work with you and the construction team to ensure that what we have designed with you is realised. "]
+                     ["The degree to which we administer and observe the building process will depend on the scope and complexity of your project. While a small simple project might only require occasional site visits, more complex projects where risk of non-compliance is higher, will require more frequent visits to review the work and approve payments to the builder."]
+["Throughout this process more often than not changes can occur. This is expected and we are experienced at managing and dealing with formal variations to the contracted works."]
                         ]}
 
           {:title "Almost finished."
-           :content ["As the build is nearing completion we undertake comprehensive inspections of the completed project and advise the builder of any defects that need fixing before signing off on practical completion and applying for code compliance certification from the local council."
-                        "Upon a satisfactory level of completion we are able to certify practical completion ready for you to move in. (Hooray!) "
+           :content [
+                    ["As the build is nearing completion we undertake comprehensive inspections of the completed project and advise the builder of any defects that need fixing before signing off on practical completion and applying for code compliance certification from the local council."]
+                    ["Upon a satisfactory level of completion we are able to certify practical completion ready for you to move in. (Hooray!) "]
                         ]}
 
           {:title "Defects Period."
-           :content ["Following practical completion there is a period of time in which the contractors are responsible for finishing any minor defects. At the end of this period we will inspect your project and make sure that any blemishes are addressed by the builder prior to issuing a defects liability certificate. "
-                        "Final monetary retentions are not released until this certificate is issued."
+           :content [
+                    ["Following practical completion there is a period of time in which the contractors are responsible for finishing any minor defects. At the end of this period we will inspect your project and make sure that any blemishes are addressed by the builder prior to issuing a defects liability certificate. "]
+                     ["Final monetary retentions are not released until this certificate is issued."]
                         ]}
 
           {:title "Overall."
-           :content ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – it just makes sense that we come along for “the ride”. "
-                        "Construction is a complex process and is generally / naturally unfamiliar territory for most people. We therefore strongly believe we bring great value to this part of your project.  There are different ways we can structure our involvement and we have specific NZIA construction contracts depending on our exact role."
+           :content [
+                    ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – it just makes sense that we come along for “the ride”. "]
+["Construction is a complex process and is generally / naturally unfamiliar territory for most people. We therefore strongly believe we bring great value to this part of your project.  There are different ways we can structure our involvement and we have specific NZIA construction contracts depending on our exact role."]
                         ]}
           ]})
 
