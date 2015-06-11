@@ -10,10 +10,16 @@
 
 (enable-console-print!)
 
-(defn update-value [data owner target key]
-  (let [new-contact (-> (om/get-node owner target)
-                        .-value)]
-    (om/transact! data key (fn [x] new-contact))))
+(defn update-value
+  ([data owner target]
+   (let [new-contact (-> (om/get-node owner target)
+                         .-value)]
+     (om/transact! data (fn [x] [new-contact]))))
+
+  ([data owner target key]
+   (let [new-contact (-> (om/get-node owner target)
+                         .-value)]
+     (om/transact! data key (fn [x] new-contact)))))
 
 (def colors {:transparent-grey "rgba(29,29,27,0.4)"})
 
@@ -26,7 +32,7 @@
                      :leaderboard "user-upload"})
 
 ;Takes a vector of key and value
-(defmulti input-partial (fn [data] ((first data) project-schema)))
+(defmulti input-partial (fn [data] "text-input"))
 
 (defn map->vector [data]
   (map (fn [x] (into [] x)) data))
@@ -50,9 +56,7 @@
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:title data))
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:content data))
                (dom/button nil (:button-label state)))
-               )
-      )))
-
+               ))))
 
 (defn short-simple-input-partial [data owner]
   (reify
@@ -66,12 +70,12 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (let [keyv (name (key data)) valv (val data)]
+      (dom/div nil (println "short-input: " data))
+      (let [raw-val (first data)]
         (dom/div #js {:className "cbp-mc-form"}
                  (dom/div #js {:className "cbp-mc-column"}
-                 (dom/label #js {:for valv} keyv)
-                 (dom/input #js {:placeholder valv :type "text" :ref valv})
-                 (dom/button #js {:onClick #(update-value (:data state) owner valv (:key state))
+                 (dom/input #js {:placeholder raw-val :type "text" :ref raw-val})
+                 (dom/button #js {:onClick #(update-value data owner raw-val)
                                   :className "cbp-mc-submit"} "Update Site")))))))
 
 (defn long-input-partial [data owner]
@@ -83,10 +87,8 @@
                  (dom/div #js {:className "cbp-mc-column"}
                  (dom/label #js {:for valv} keyv)
                  (dom/textarea #js {:placeholder valv :type "text" :ref valv})
-                 (dom/button #js {:onClick #(update-value (:data state) owner valv (key data))
-                                  :className "cbp-mc-submit"} "Update Site"))
-                 )
-        ))))
+                 (dom/button #js {:onClick #(update-value (:data state) owner valv)
+                                  :className "cbp-mc-submit"} "Update Site")))))))
 
 (defn radio-input-quark [data owner]
   (reify
@@ -126,7 +128,7 @@
     (render-state [this state]
       (dom/div nil
                (dom/p nil (first data))
-               (om/build input-partial [:content (first data)]  {:state {:data data :key first}})))))
+               (om/build input-partial [:content (first data)]  {:state {:data data}})))))
 
 (defn accordion-partial [data owner]
   (reify
@@ -150,10 +152,11 @@
     om/IRenderState
     (render-state [this state]
       (dom/p #js {:style #js {:color (:color state)}}
-             (dom/b nil (:bold data))
-             (om/build input-partial [:bold (:bold data)] {:state {:data data :key :bold}})
-             (:paragraph data)
-             (om/build input-partial [:paragraph (:paragraph data)] {:state {:data data :key :paragraph}})))))
+             (println "p-partial: " data)
+             (dom/b nil (first (:bold data)))
+             (om/build input-partial (:bold data))
+             (first (:paragraph data))
+             (om/build input-partial (:paragraph data))))))
 
 (defn paragraph-partial [data owner]
   (reify
@@ -161,6 +164,7 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
+                 (println "paragraph-partial: " local)
                  (om/build p-partial local {:state {:color (:color state)}}))))))
 
 ;link, category, id, thumbnail, title
