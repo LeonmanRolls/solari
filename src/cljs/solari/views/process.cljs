@@ -10,12 +10,6 @@
 
 (enable-console-print!)
 
-(def hipster-data [{:href "" :text "Short version" :callback #(do (ef/at "#short-version" (ef/remove-class "hidden"))
-                                                                (ef/at "#long-version" (ef/add-class "hidden")))}
-                   {:href "" :text "Long version" :callback #(do (ef/at "#long-version" (ef/remove-class "hidden"))
-                                                                (ef/at "#short-version" (ef/add-class "hidden"))) }])
-
-
 (def box-style #js {:style #js {:color "white" :marginTop "10px" :padding "20px" :border "2px solid #c0392b"
                                 :textTransform "uppercase"}})
 
@@ -30,12 +24,11 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
-
-                 #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                 (println "local: " local)
+                 (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                                 :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
-                        (om/build-all common/simple-li hipster-data))
+                        (om/build-all common/simple-li (:left-nav local)))
 
-                 (println "process" local)
 
                  (om/build common/paragraph-partial local {:state {:color "white" :key :text}})
 

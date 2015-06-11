@@ -79,6 +79,8 @@
 (def process-data
   {:text {:bold ["It goes without saying we want the best possible outcome for you and your project."]  :paragraph [" That’s exactly why we do what we do…  "] }
 
+   :left-nav [{:label "Short version" :selected false} {:label "Long version" :selected false}]
+
    :short {:step1 ["1. We listen to your goals & objectives."]
            :step2 ["2. We translate your ideas, inspiration and words into design. This goes back and forth until we’re all speaking the same language. "]
            :step3 ["3. We communicate the solution to the right team of collaborators to actualise your vision. "] }
