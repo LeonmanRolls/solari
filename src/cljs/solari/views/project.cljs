@@ -35,10 +35,16 @@
   [dispatch project] (apply dom/div #js {:className "royalSlider rsDefault"}
                        (doall (om/build-all img-page (:gallery-images project)))))
 
+(defn process-member-data [project]
+(into [] (map (fn [x] {:title (name (first x)) :content (last x)})
+                (common/map->vector (select-keys project [:goals :advice :Role :outside])))))
+
 (defmulti accordion-display (fn [dispatch _] dispatch))
 
 (defmethod accordion-display :the-team-data
-  [dispatch project] (om/build img-individual-member project))
+  [dispatch project]  (dom/div #js {:className "accordion"}
+                        (apply dom/dl nil
+                               (om/build-all common/accordion-partial (process-member-data project)))))
 
 (defmethod accordion-display :all-projects
   [dispatch project] (dom/div #js {:className "accordion"}

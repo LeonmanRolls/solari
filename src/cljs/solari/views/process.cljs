@@ -31,11 +31,11 @@
       (let [local (get data (:key state))]
         (dom/div nil
 
-                 (println "process: " (:long local))
-
                  #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                                 :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                         (om/build-all common/simple-li hipster-data))
+
+                 (println "process" local)
 
                  (om/build common/paragraph-partial local {:state {:color "white" :key :text}})
 
@@ -50,6 +50,6 @@
 
                  (dom/div #js {:id "long-version" :className "accordion"}
                           (apply dom/dl nil
-                                 (om/build-all common/accordion-partial (get local :long)))))))))
+                                 (om/build-all common/accordion-partial  (get local :long)))))))))
 
 

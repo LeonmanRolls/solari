@@ -45,10 +45,13 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (dom/div nil
+      (dom/div #js {:className "cbp-mc-form"}
+               (dom/div #js {:classname "cbp-mc-column"}
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:title data))
                (dom/li #js {:style #js {:color "white"} :onClick (:callback state)} (:content data))
-               (dom/button nil (:button-label state))))))
+               (dom/button nil (:button-label state)))
+               )
+      )))
 
 
 (defn short-simple-input-partial [data owner]
@@ -64,23 +67,26 @@
     om/IRenderState
     (render-state [this state]
       (let [keyv (name (key data)) valv (val data)]
-        (dom/div nil
-                 (println "short: " valv)
+        (dom/div #js {:className "cbp-mc-form"}
+                 (dom/div #js {:className "cbp-mc-column"}
                  (dom/label #js {:for valv} keyv)
                  (dom/input #js {:placeholder valv :type "text" :ref valv})
                  (dom/button #js {:onClick #(update-value (:data state) owner valv (:key state))
-                                  :className "cbp-mc-submit"} "Update Site"))))))
+                                  :className "cbp-mc-submit"} "Update Site")))))))
 
 (defn long-input-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (let [keyv (name (key data)) valv (val data)]
-        (dom/div nil
+        (dom/div #js {:className "cbp-mc-form"}
+                 (dom/div #js {:className "cbp-mc-column"}
                  (dom/label #js {:for valv} keyv)
                  (dom/textarea #js {:placeholder valv :type "text" :ref valv})
                  (dom/button #js {:onClick #(update-value (:data state) owner valv (key data))
-                                  :className "cbp-mc-submit"} "Update Site"))))))
+                                  :className "cbp-mc-submit"} "Update Site"))
+                 )
+        ))))
 
 (defn radio-input-quark [data owner]
   (reify
@@ -114,6 +120,16 @@
                                                     :background "rgba(29,29,27,0.4)"}}
                  "Drop files here or click to upload")))))
 
+(defn p-p-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/p nil (:content data))
+      (om/build input-partial [:content (:content data)]  {:state {:data data :key :content}})
+      ))
+
+  )
+
 (defn accordion-partial [data owner]
   (reify
     om/IRender
@@ -127,8 +143,9 @@
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
                        (om/build input-partial [:title (:title data)]  {:state {:data data :key :title}})
-                       (dom/p nil (:content data))
-                       (om/build input-partial [:content (:content data)]  {:state {:data data :key :content}}))))))
+                       (apply dom/div nil
+                      (om/build-all p-p-partial data {:state {:data data :key :content}}))
+                       )))))
 
 (defn p-partial [data owner]
   (reify
