@@ -71,7 +71,7 @@
 
              :uberjar {:source-paths ["env/prod/clj"]
                        :hooks [leiningen.cljsbuild]
-                       :env {:production false}
+                       :env {:id-dev true}
                        :omit-source true
                        :aot :all
                        :cljsbuild {:builds {:app
