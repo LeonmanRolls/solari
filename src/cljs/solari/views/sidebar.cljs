@@ -76,7 +76,6 @@
                           (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
 
                             (do (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
-                                (println "filter nav: " menu-atom)
                                 )
 
                             (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))

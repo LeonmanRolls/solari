@@ -51,7 +51,7 @@
                                                    :selected false :route "/faqs"}
                                                   {:id "nav-righ-item-yourt" :name "your team"
                                                    :selected false :route "/your-team"}
-                                                  {:id "nav-righ-item-yourt" :name "contact"
+                                                  {:id "nav-righ-item-contact" :name "contact"
                                                    :selected false :route "/contact"}]}}
 
                                {:id      "nav-left-02" :label "for architects" :selected false :route "/for-architects"
@@ -72,17 +72,17 @@
 
 (defn watcher [atom link]
   (add-watch atom nil
-               (fn [key atom old-state new-state]
-                 (PUT link
-                      {:params {:all-data (prn-str @atom)}
-                       :format :raw
-                       :error-handler u/ajax-error-handler}))))
+             (fn [key atom old-state new-state]
+               (PUT link
+                    {:params {:all-data (prn-str @atom)}
+                     :format :raw
+                     :error-handler u/ajax-error-handler}))))
 
 (defn data-link [link atom]
   (GET link
-         {:format :edn
-          :handler #(do (reset! atom %) (watcher atom link))
-          :error-handler u/ajax-error-handler}))
+       {:format :edn
+        :handler #(do (reset! atom %) (watcher atom link))
+        :error-handler u/ajax-error-handler}))
 
 (defn data-init []
   (do
