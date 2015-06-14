@@ -10,6 +10,8 @@
 
 (enable-console-print!)
 
+(def admin-mode (atom false))
+
 (defn update-value
   ([data owner target]
    (let [new-contact (-> (om/get-node owner target)
@@ -152,20 +154,19 @@
     om/IRenderState
     (render-state [this state]
       (dom/p #js {:style #js {:color (:color state)}}
-             (println "p-partial: " data)
              (dom/b nil (first (:bold data)))
-             (om/build input-partial (:bold data))
+             (if (:admin state) (om/build input-partial (:bold data)))
              (first (:paragraph data))
-             (om/build input-partial (:paragraph data))))))
+             (if (:admin state) (om/build input-partial (:paragraph data)))))))
 
 (defn paragraph-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (let [local (get data (:key state))]
+        (println "state: " state)
         (dom/div nil
-                 (println "paragraph-partial: " local)
-                 (om/build p-partial local {:state {:color (:color state)}}))))))
+                 (om/build p-partial local {:state {:admin (:admin state) :color (:color state)}}))))))
 
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]

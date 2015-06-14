@@ -50,7 +50,15 @@
             (ef/at "#nav-hint-inner" (ef/content "architects"))
             (om/root common/paragraph-partial data/all-data-atom
              {:target (. js/document (getElementById "main-content-container"))
-              :state {:color "black" :key :home-page-data}})))
+              :state {:color "black" :key :home-page-data :admin false}})))
+
+(defroute "/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "home"))
+            (ef/at "#nav-hint-inner" (ef/content "architects"))
+            (om/root common/paragraph-partial data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "black" :key :home-page-data :admin true}})))
 
 (defroute for-you "/for-you" []
           (do
@@ -58,7 +66,15 @@
             (ef/at "#nav-hint-inner" (ef/content "for you"))
             (om/root common/paragraph-partial data/all-data-atom
              {:target (. js/document (getElementById "main-content-container"))
-              :state {:color "white" :key :for-you-data}})))
+              :state {:color "white" :key :for-you-data :admin false}})))
+
+(defroute for-you "/for-you/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "for-you"))
+            (ef/at "#nav-hint-inner" (ef/content "for you"))
+            (om/root common/paragraph-partial data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :for-you-data :admin true}})))
 
 (defroute for-architects "/for-architects" []
           (do
@@ -66,8 +82,15 @@
             (ef/at "#nav-hint-inner" (ef/content "for architects"))
             (om/root common/paragraph-partial data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:color "white" :key :for-architects-data}})))
+                      :state {:color "white" :key :for-architects-data :admin false}})))
 
+(defroute for-architects "/for-architects/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "for-architects"))
+            (ef/at "#nav-hint-inner" (ef/content "for architects"))
+            (om/root common/paragraph-partial data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :for-architects-data :admin true}})))
 
 (defroute from-us "/from-us" []
           (do
@@ -75,7 +98,15 @@
             (ef/at "#nav-hint-inner" (ef/content "from us"))
             (om/root common/paragraph-partial data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:color "white" :key :from-us-data}})))
+                      :state {:color "white" :key :from-us-data :admin false}})))
+
+(defroute from-us "/from-us" []
+          (do
+            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "#nav-hint-inner" (ef/content "from us"))
+            (om/root common/paragraph-partial data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :from-us-data :admin true}})))
 
 (defroute all-projects "/all-projects" []
           (do
@@ -85,7 +116,19 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :home-page-data
-                              :cat "cat-all"}})))
+                              :cat "cat-all"
+                              :admin false}})))
+
+(defroute all-projects "/all-projects/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "All Projects"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :home-page-data
+                              :cat "cat-all"
+                              :admin true}})))
 
 (defroute residential "/residential" []
           (do
@@ -95,7 +138,19 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :residential-data
-                              :cat "cat-residential"}})))
+                              :cat "cat-residential"
+                              :admin false}})))
+
+(defroute residential "/residential/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "residential"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :residential-data
+                              :cat "cat-residential"
+                              :admin true}})))
 
 (defroute multi-unit "/multi-residential" []
           (do
@@ -105,8 +160,19 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :multi-unit-data
-                              :cat "cat-multi-unit-residential"}})))
+                              :cat "cat-multi-unit-residential"
+                              :admin false}})))
 
+(defroute multi-unit "/multi-residential/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "multi unit"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :multi-unit-data
+                              :cat "cat-multi-unit-residential"
+                              :admin true}})))
 
 (defroute commerical "/commercial" []
           (do
@@ -116,7 +182,19 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :commerical-data
-                              :cat "cat-commercial"}})))
+                              :cat "cat-commercial"
+                              :amdin false}})))
+
+(defroute commerical "/commercial/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (ef/at "#nav-hint-inner" (ef/content "multi unit"))
+            (om/root allprojects/all-projects-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :all-projects
+                              :extra :commerical-data
+                              :cat "cat-commercial"
+                              :admin true}})))
 
 (defmulti individual (fn [uid _] (empty? (some #{uid} (data/all-memberids)))))
 
