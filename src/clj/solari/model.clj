@@ -307,16 +307,6 @@
                         pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]}))
 
 
-(defn map->vector [data]
-  (map (fn [x] (into [] x)) data))
-
-
-(into [] (map (fn [x] {:title (name (first x)) :content (last x)})
-                (common/map->vector (select-keys project [:goals :advice :Role :outside]))))
-
-
-(select-keys pr/project-01 [:goals :advice :Role :outside])
-
 (defresource all-data-resource
              :service-available? true
              :allowed-methods [:get :put]

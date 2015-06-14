@@ -74,6 +74,7 @@
     (render-state [this state]
       (dom/div nil #_(println "short-input: " data))
       (let [raw-val (first data)]
+        (println "raw-val: " data)
         (dom/div #js {:className "cbp-mc-form"}
                  (dom/div #js {:className "cbp-mc-column"}
                  (dom/input #js {:placeholder raw-val :type "text" :ref raw-val})
@@ -137,7 +138,6 @@
     om/IRenderState
     (render-state [this state]
       (dom/div nil
-               (println "accrdion data: " data)
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}

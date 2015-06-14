@@ -24,25 +24,24 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
-                 (println "local: " local)
                  (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                                 :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                         (om/build-all common/simple-li (:left-nav local)))
-
 
                  (om/build common/paragraph-partial local {:state {:color "white" :key :text}})
 
                  (let [locall (get local :short)]
                    (dom/div #js {:id "short-version"}
                             (dom/div box-style (first (:step1 locall)) )
-                            (om/build common/input-partial (:step1 local))
+                            (if (:admin state) (om/build common/input-partial (:step1 locall)))
                             (dom/div box-style (first (:step2 locall)))
-                            (om/build common/input-partial (:step2 locall))
+                            (if (:admin state) (om/build common/input-partial (:step2 locall)))
                             (dom/div box-style (first (:step3 locall)))
-                            (om/build common/input-partial (:step3 local))))
+                            (if (:admin state) (om/build common/input-partial (:step3 locall)))))
 
+                 (println "state" state)
                  (dom/div #js {:id "long-version" :className "accordion"}
                           (apply dom/dl nil
-                                 (om/build-all common/accordion-partial  (get local :long)))))))))
+                                 (om/build-all common/accordion-partial  (get local :long) {:state state}))))))))
 
 
