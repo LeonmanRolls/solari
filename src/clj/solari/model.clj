@@ -56,9 +56,9 @@
          :paragraph [""] })
 
 (def your-career-data
-  {:main {:bold "Here’s some good advice:" :paragraph " Never choose to work for someone based on their brand or portfolio. Work for people who are going to teach you and make you better."}
-         :paragraph-one "At Solari, our focus is on growing independent thinkers and architects with the confidence to see an entire project through from start to finish. We encourage boundary pushing and fresh thinking. Growing your career is absolutely up to you  - there are no glass ceilings here. Create your own luck through passionate work and being yourself and you’ll fit right in. "
-         :paragraph-two "Whether you stay with us for ten years or two. We want you to leave as a better architect than when you came in. We’re satisfied if our contribution to the industry is talent, even if that talent outgrows us. Our focus is for you to learn and then teach. See the workings of the business instead of just being siloed into perfecting one aspect of the industry. "}
+  {:main {:bold ["Here’s some good advice:  Never choose to work for someone based on their brand or portfolio. Work for people who are going to teach you and make you better."]   }
+         :paragraph-one ["At Solari, our focus is on growing independent thinkers and architects with the confidence to see an entire project through from start to finish. We encourage boundary pushing and fresh thinking. Growing your career is absolutely up to you  - there are no glass ceilings here. Create your own luck through passionate work and being yourself and you’ll fit right in. "]
+         :paragraph-two ["Whether you stay with us for ten years or two. We want you to leave as a better architect than when you came in. We’re satisfied if our contribution to the industry is talent, even if that talent outgrows us. Our focus is for you to learn and then teach. See the workings of the business instead of just being siloed into perfecting one aspect of the industry. "] }
   )
 
 (def projects-data
@@ -290,6 +290,15 @@
                         ]
                     })
 
+(def contact-data {:text {:bold ["We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting."]
+                          :paragraph [""] }
+                   :info [{:bold ["Visit, drink, chat, bounce ideas here:"]
+                           :paragraph [["Level 1"]["13/15 Adelaide Road"]["Wellington 6021"]["New Zealand"]]}
+                          {:bold ["Call, talk, joke, debate, ask here: "]
+                           :paragraph [["+64 (27) 4229430"]]}
+                          {:bold ["Email jokes, work or gifs here: "]
+                           :paragraph [["hello@solariarchitects.com"]]}]})
+
 (def all-data
   (atom {:home-page-data home-page-data
          :residential-data residential-data
@@ -303,6 +312,7 @@
          :process-data process-data
          :faqs-data faqs-data
          :the-team-data the-team-data
+         :contact-data contact-data
          :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
                         pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]}))
 

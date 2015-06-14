@@ -29,13 +29,11 @@
     (render-state [this state]
       (let [local ((:key state) data)]
 
-        (println "faqs-page " local)
-
         (dom/div nil
-                 (om/build common/paragraph-partial local {:state {:key :text :color "white"}})
+                 (om/build common/paragraph-partial local {:state {:key :text :color "white" :admin (:admin state)}})
 
                  (dom/div #js {:className "accordion"}
                           (apply dom/dl nil
-                                 (om/build-all common/accordion-partial (:questions local)))))))))
+                                 (om/build-all common/accordion-partial (:questions local) {:state state}))))))))
 
 

@@ -125,11 +125,21 @@
                                                     :background "rgba(29,29,27,0.4)"}}
                  "Drop files here or click to upload")))))
 
+(defn b-b-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               (println "b-b-partial: " (first data))
+               (dom/b nil (first data))
+               (if (:admin state) (om/build input-partial data))))))
+
 (defn p-p-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (dom/div nil
+               (println "p-p-partial: " (first data))
                (dom/p nil (first data))
                (if (:admin state) (om/build input-partial data))))))
 
@@ -170,6 +180,17 @@
       (let [local (get data (:key state))]
         (dom/div nil
                  (om/build p-partial local {:state {:admin (:admin state) :color (:color state)}}))))))
+
+(defn uppercase-paragraph-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (let [local (get data (:key state))]
+        (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
+                 (dom/b #js {:style #js {:textTransform "uppercase"}} (first (:bold data)))
+                 (apply dom/div nil
+                        (om/build-all p-p-partial
+                                      (:paragraph data) {:state {:admin (:admin state) :color (:color state)}})))))))
 
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]

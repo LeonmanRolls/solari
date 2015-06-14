@@ -254,20 +254,29 @@
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
-#_(defn your-career-page [data owner]
+(defn your-career-page [data owner]
   (reify
-    om/IRender
-    (render [this]
-      (dom/div #js {:style #js {:color "white"}}
-               (dom/p #js {:style #js {:font-size "1.6em" :line-height "1.2em"}}
-                      (dom/b nil (:bold (:main data)) ) (:paragraph (:main data)))
-               (dom/p nil (:paragraph-one data))
-               (dom/p nil (:paragraph-two data))))))
+    om/IRenderState
+    (render-state [this state]
+      (let [local (:your-career-data data)]
+        (dom/div #js {:style #js {:color "white"}}
+                 (om/build common/b-b-partial (:bold (:main local)) {:state state})
+                 (om/build common/p-p-partial (:paragraph-one local) {:state state})
+                 (om/build common/p-p-partial (:paragraph-two local) {:state state}))))))
 
-#_(defroute "/your-career" []
+(defroute "/your-career" []
           (do
-            (om/root your-career-page data/your-career-atom
-                   {:target (. js/document (getElementById "main-content-container"))})
+            (om/root your-career-page data/all-data-atom
+                   {:target (. js/document (getElementById "main-content-container"))
+                    :state {:admin false}})
+            (ef/at "body" (ef/set-attr :background "your-career"))
+            (ef/at "#nav-hint-inner" (ef/content "Your Career"))))
+
+(defroute "/your-career/admin" []
+          (do
+            (om/root your-career-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:admin true}})
             (ef/at "body" (ef/set-attr :background "your-career"))
             (ef/at "#nav-hint-inner" (ef/content "Your Career"))))
 
@@ -319,29 +328,27 @@
 
 (defn contact-page [data owner]
   (reify
-    om/IRender
-    (render [this]
-      (dom/div #js {:style #js {:color "white"}}
-               (dom/b nil "We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting.")
-               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
-                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Visit, drink, chat, bounce ideas here:")
-                        (dom/p nil "Level 1")
-                        (dom/p nil "13/15 Adelaide Road")
-                        (dom/p nil "Wellington 6021")
-                        (dom/p nil "New Zealand"))
-
-               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
-                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Call, talk, joke, debate, ask here: ")
-                        (dom/p nil "+64 (27) 4229430"))
-
-               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
-                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Email jokes, work or gifs here: ")
-                        (dom/p nil "hello@solariarchitects.com"))))))
+    om/IRenderState
+    (render-state [this state]
+      (let [local (:contact-data data)]
+        (dom/div #js {:style #js {:color "white"}}
+                 (println "contact: " local)
+                 (om/build common/paragraph-partial local {:state {:admin (:admin state) :key :text :color "white"}})
+                 (apply dom/div nil
+                        (om/build-all common/uppercase-paragraph-partial (:info local) {:state state})))))))
 
 (defroute "/contact" {:as params}
           (do
-            (om/root contact-page {}
-                     {:target (. js/document (getElementById "main-content-container"))})
+            (om/root contact-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:admin false}})
+            (ef/at "body" (ef/set-attr :background "from-us"))))
+
+(defroute "/contact/admin" {:as params}
+          (do
+            (om/root contact-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:admin true}})
             (ef/at "body" (ef/set-attr :background "from-us"))))
 
 ;(do (sec/dispatch! (str "" (.-token %))) (println "token" (.-token %))  )
