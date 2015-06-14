@@ -61,7 +61,7 @@
                  #_(om/build common/gallery-partial (first local))
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial local {:state {:link :projectid}}))
+                      (om/build-all common/gallery-partial local {:state {:link :projectid :prelink "/#/projects/individual/"}}))
 
                #_(dom/form #js {:className "cbp-mc-form"}
 

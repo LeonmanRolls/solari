@@ -210,31 +210,43 @@
                               :cat "cat-commercial"
                               :admin true}})))
 
-(defmulti individual (fn [uid _] (empty? (some #{uid} (data/all-memberids)))))
+(defmulti individual (fn [uid admin dispatch] dispatch))
 
-(defmethod individual true
+(defmethod individual "projects"
   [uid admin]  (om/root project/project-page data/all-data-atom
                         {:target (. js/document (getElementById "main-content-container"))
                          :state {:key :all-projects :filter uid :link :link :filterkey :projectid :admin admin
                                  :filter-vector [:all-projects]}}))
 
-(defmethod individual false
+(defmethod individual "members"
   [uid admin]  (om/root project/project-page data/all-data-atom
                         {:target (. js/document (getElementById "main-content-container"))
                          :state {:key :the-team-data :filter uid :filterkey :memberid :admin admin
                                  :filter-vector [:the-team-data :team-members]}}) )
 
-(defroute "/individual/:id" {:as params}
+(defroute "/projects/individual/:id" {:as params}
           (do
             (ef/at "#nav-hint-inner" (ef/content (:id params)))
             (ef/at "body" (ef/set-attr :background "grey"))
-            (individual (:id params) false)))
+            (individual (:id params) false "projects")))
 
-(defroute "/individual/:id/admin" {:as params}
+(defroute "/projects/individual/:id/admin" {:as params}
           (do
             (ef/at "#nav-hint-inner" (ef/content (:id params)))
             (ef/at "body" (ef/set-attr :background "grey"))
-            (individual (:id params) true)))
+            (individual (:id params) true "projects")))
+
+(defroute "/members/individual/:id" {:as params}
+          (do
+            (ef/at "#nav-hint-inner" (ef/content (:id params)))
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (individual (:id params) false "members")))
+
+(defroute "/members/individual/:id/admin" {:as params}
+          (do
+            (ef/at "#nav-hint-inner" (ef/content (:id params)))
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (individual (:id params) true "members")))
 
 (defroute "/our-process" {:as params}
           (do

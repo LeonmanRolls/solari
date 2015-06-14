@@ -78,7 +78,7 @@
                (dom/br nil)
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members local))
-                                    {:state {:link :memberid}})))))))
+                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members local ))
+                                    {:state {:link :memberid :prelink "/#/members/individual/"}})))))))
 
 
