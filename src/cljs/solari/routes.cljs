@@ -306,17 +306,9 @@
 
                (dom/b #js {:style #js {:fontSize "1.5em"}} "We've got the perfect home for a...")
 
-               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
+               (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
                         (dom/b #js {:style #js {:textTransform "uppercase"}} "Gifted massage therapist")
-                        (dom/p nil "Wanting to work for nothing."))
-
-               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
-                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Senior Architect")
-                        (dom/p nil "That should have made a move a long time ago"))
-
-               (dom/div #js {:style #js {:border "2px solid #1abc9c" :padding "20px" :marginTop "20px"}}
-                        (dom/b #js {:style #js {:textTransform "uppercase"}} "Grad")
-                        (dom/p nil "To make us feel young and feel hip."))))))
+                        (dom/p nil "Wanting to work for nothing."))))))
 
 
 (defroute "/jobs" []
