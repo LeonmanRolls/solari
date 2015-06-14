@@ -199,28 +199,42 @@
 (defmulti individual (fn [uid _] (empty? (some #{uid} (data/all-memberids)))))
 
 (defmethod individual true
-  [uid] (om/root project/project-page data/all-data-atom
+  [uid admin] (om/root project/project-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :all-projects :filter uid :link :link :filterkey :projectid
+                      :state {:key :all-projects :filter uid :link :link :filterkey :projectid :admin admin
                               :filter-vector [:all-projects]}}))
 
 (defmethod individual false
-  [uid] (om/root project/project-page data/all-data-atom
+  [uid admin] (om/root project/project-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :the-team-data :filter uid :filterkey :memberid
+                      :state {:key :the-team-data :filter uid :filterkey :memberid :admin admin
                               :filter-vector [:the-team-data :team-members]}}) )
 
 (defroute "/individual/:id" {:as params}
           (do
             (ef/at "#nav-hint-inner" (ef/content (:id params)))
             (ef/at "body" (ef/set-attr :background "grey"))
-            (individual (:id params))))
+            (individual (:id params) false)))
+
+(defroute "/individual/:id/admin" {:as params}
+          (do
+            (ef/at "#nav-hint-inner" (ef/content (:id params)))
+            (ef/at "body" (ef/set-attr :background "grey"))
+            (individual (:id params) true)))
 
 (defroute "/our-process" {:as params}
           (do
             (om/root process/process-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :process-data} })
+                      :state {:key :process-data :admin false}})
+            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "#nav-hint-inner" (ef/content "Our Process"))))
+
+(defroute "/our-process/admin" {:as params}
+          (do
+            (om/root process/process-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :process-data :admin true}})
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "Our Process"))))
 
@@ -228,7 +242,15 @@
           (do
             (om/root faqs/faqs-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :faqs-data}})
+                      :state {:key :faqs-data :admin false}})
+            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "#nav-hint-inner" (ef/content "faqs"))))
+
+(defroute "/faqs/admin" []
+          (do
+            (om/root faqs/faqs-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :faqs-data :admin true}})
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
