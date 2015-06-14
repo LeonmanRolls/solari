@@ -32,7 +32,7 @@
 
 (defmethod image-display :all-projects
   [dispatch project] (apply dom/div #js {:className "royalSlider rsDefault"}
-                       (doall (om/build-all img-page (:gallery-images project)))))
+                       (doall (om/build-all img-page (:gallery-images (first project))))))
 
 (defn process-member-data [project]
   (into [] (map (fn [x] {:title [(name (first x))] :content [(last x)] })
@@ -48,7 +48,7 @@
 (defmethod accordion-display :all-projects
   [dispatch project state] (dom/div #js {:className "accordion"}
                         (apply dom/dl nil
-                               (om/build-all common/accordion-partial (:accordion project) {:state state}))))
+                               (om/build-all common/accordion-partial (:accordion (first project)) {:state state}))))
 
 (defn project-page [data owner]
   (reify
@@ -76,7 +76,7 @@
                 ;(println "project indivudual local: " ((:filterkey state) local))
                 ;(println "project indivudual local: " (first local))
                 (println "project indivudual state: " state)
-                #_(println "project indivudual project: " project)
+                (println "project indivudual project: " project)
 
                 (image-display (:key state) project)
 
