@@ -867,7 +867,7 @@ margin-top: 10px;
 }
 
 .cbp-mc-column {
-	width: 50%;
+	width: 100%;
 	padding: 10px 30px;
 	float: left;
 }
@@ -963,7 +963,7 @@ margin-top: 10px;
 
 @media screen and (max-width: 70em) {
 	.cbp-mc-column {
-		width: 50%;
+		width: 100%;
 	}
 	.cbp-mc-column:nth-child(3) {
 		width: 100%;

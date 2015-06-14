@@ -8,7 +8,6 @@
             [solari.views.allprojects :as allprojects]
             [solari.views.theteam :as theteam]
             [solari.views.yourteam :as yourteam]
-            [solari.views.home :as home]
             [solari.views.foryou :as foryou]
             [solari.views.admin :as admin]
             [solari.views.faqs :as faqs]
@@ -92,11 +91,26 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "white" :key :for-architects-data :admin true}})))
 
+
+(defn from-uss [data owner]
+  (reify
+     om/IDidMount
+    (did-mount [this]
+      (.dcSocialStream
+        (js/$ "#social-wall-root")
+        #js {:feeds #js {:pinterest #js {:id "jsolari"}} :wall true}))
+
+    om/IRenderState
+    (render-state [this state]
+      (dom/div nil
+               (om/build common/paragraph-partial data {:state state})
+               (dom/div #js {:id "social-wall-root"})))))
+
 (defroute from-us "/from-us" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "from us"))
-            (om/root common/paragraph-partial data/all-data-atom
+            (om/root from-uss data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "white" :key :from-us-data :admin false}})))
 
@@ -181,7 +195,7 @@
             (om/root allprojects/all-projects-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
-                              :extra :commerical-data
+                              :extra :commercial-data
                               :cat "cat-commercial"
                               :amdin false}})))
 
@@ -192,7 +206,7 @@
             (om/root allprojects/all-projects-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
-                              :extra :commerical-data
+                              :extra :commercial-data
                               :cat "cat-commercial"
                               :admin true}})))
 

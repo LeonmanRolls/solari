@@ -34,7 +34,7 @@
                      :leaderboard "user-upload"})
 
 ;Takes a vector of key and value
-(defmulti input-partial (fn [data] "text-input"))
+(defmulti input-partial (fn [data] (if (< 100 (count (first data))) "text-area" "text-input")))
 
 (defn map->vector [data]
   (map (fn [x] (into [] x)) data))
@@ -72,9 +72,8 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (dom/div nil #_(println "short-input: " data))
+      (dom/div nil (println "short-input: " (count (first data)) ))
       (let [raw-val (first data)]
-        (println "raw-val: " data)
         (dom/div #js {:className "cbp-mc-form"}
                  (dom/div #js {:className "cbp-mc-column"}
                  (dom/input #js {:placeholder raw-val :type "text" :ref raw-val})
@@ -85,13 +84,13 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (let [keyv (name (key data)) valv (val data)]
+      (dom/div nil (println "short-input: " (count (first data)) ))
+      (let [raw-val (first data)]
         (dom/div #js {:className "cbp-mc-form"}
                  (dom/div #js {:className "cbp-mc-column"}
-                 (dom/label #js {:for valv} keyv)
-                 (dom/textarea #js {:placeholder valv :type "text" :ref valv})
-                 (dom/button #js {:onClick #(update-value (:data state) owner valv)
-                                  :className "cbp-mc-submit"} "Update Site")))))))
+                          (dom/textarea #js {:placeholder raw-val :type "text" :ref raw-val})
+                          (dom/button #js {:onClick #(update-value data owner raw-val)
+                                           :className "cbp-mc-submit"} "Update Site")))))))
 
 (defn radio-input-quark [data owner]
   (reify
