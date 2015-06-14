@@ -27,7 +27,7 @@
                   (fn [x] (conj
                             {}
                             {:thumbnail (:hipster (:profilepics x))}
-                            {:category "cat-all cat-hipster"}
+                            {:category ["cat-all cat-hipster"]}
                             {:id (:memberid x)}
                             {:title (:name x)}
                             {:memberid (:memberid x)}))
@@ -37,7 +37,7 @@
                   (fn [x] (conj
                             {}
                             {:thumbnail (:everyday (:profilepics x))}
-                            {:category "cat-all cat-everyday"}
+                            {:category ["cat-all cat-everyday"]}
                             {:id (:memberid x)}
                             {:title (:name x)}
                             {:memberid (:memberid x)}))
@@ -58,20 +58,22 @@
       (let [local (get data (:key state))]
         (dom/div nil
 
-               #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+               (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li hipster-data))
 
                 (println "loca: " local)
 
-               (om/build common/paragraph-partial local {:state {:key :text :color "white"}})
+                 (om/build common/paragraph-partial local {:state {:key :text
+                                                                   :admin (:admin state)
+                                                                   :color (:color state)}})
 
-               (dom/img #js {:id "group_photo" :src (:architect (:leaderboard local))
+               (dom/img #js {:id "group_photo" :src (first (:architect (:leaderboard local)))
                              :style #js {:marginBottom "20px" :width "100%"}})
 
-                 (om/build
-                   common/input-partial
-                   [:leaderboard "/img/leaderboards/group_photo_everyday.jpg"] {:state {:owner owner}})
+                 (if (:admin state) (om/build
+                                      common/input-partial
+                                      [:leaderboard "/img/leaderboards/group_photo_everyday.jpg"] {:state {:owner owner}}))
 
                (dom/br nil)
 

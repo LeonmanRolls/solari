@@ -129,42 +129,45 @@
     om/IRenderState
     (render-state [this state]
       (dom/div nil
-               (println "p-p: " data)
                (dom/p nil (first data))
-               (om/build input-partial data)))))
+               (if (:admin state) (om/build input-partial data))))))
 
 (defn accordion-partial [data owner]
   (reify
-    om/IRender
-    (render [this]
+    om/IRenderState
+    (render-state [this state]
       (dom/div nil
-               (println "accordion: " (:content data))
+               (println "Accrdion State: " state)
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
                               (first (:title data))))
                (dom/dd #js {:className "accordion-content accordionItem is-collapsed" :id "accordion1"
                             :aria-hidden "true"}
-                       (om/build input-partial (:title data))
+                       (if (:admin state) (om/build input-partial (:title data)))
                        (apply dom/div nil
-                              (om/build-all p-p-partial (:content data))))))))
+                              (om/build-all p-p-partial (:content data) {:state state})))))))
 
 (defn p-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (dom/p #js {:style #js {:color (:color state)}}
+
+             (println "p-partial: " data)
              (dom/b nil (first (:bold data)))
-             (if (:admin state) (om/build input-partial (:bold data)))
              (first (:paragraph data))
-             (if (:admin state) (om/build input-partial (:paragraph data)))))))
+
+             (if (:admin state) (om/build input-partial (:bold data)))
+             (if (:admin state) (om/build input-partial (:paragraph data)))
+
+             ))))
 
 (defn paragraph-partial [data owner]
   (reify
     om/IRenderState
     (render-state [this state]
       (let [local (get data (:key state))]
-        (println "state: " state)
         (dom/div nil
                  (om/build p-partial local {:state {:admin (:admin state) :color (:color state)}}))))))
 
@@ -173,8 +176,9 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (println "gallery-partial: " state)
-      (dom/a #js {:href (str "/#/individual/" (first ((:link state) data)) ) :className (str "mega-entry cat-all " (first (:category data)) )  :id (first (:id data))
+      (println "gallery-partial: " (first (:category data)))
+      (dom/a #js {:href (str "/#/individual/" (first ((:link state) data)) )
+                  :className (str "mega-entry cat-all " (first (:category data)) )  :id (first (:id data))
                   :data-src (first (:thumbnail data))  :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}

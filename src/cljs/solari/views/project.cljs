@@ -42,14 +42,14 @@
 (defmulti accordion-display (fn [dispatch _] dispatch))
 
 (defmethod accordion-display :the-team-data
-  [dispatch project]  (dom/div #js {:className "accordion"}
+  [dispatch project state]  (dom/div #js {:className "accordion"}
                         (apply dom/dl nil
-                               (om/build-all common/accordion-partial (process-member-data project)))))
+                               (om/build-all common/accordion-partial (process-member-data project) {:state state}))))
 
 (defmethod accordion-display :all-projects
-  [dispatch project] (dom/div #js {:className "accordion"}
+  [dispatch project state] (dom/div #js {:className "accordion"}
                         (apply dom/dl nil
-                               (om/build-all common/accordion-partial (:accordion project)))))
+                               (om/build-all common/accordion-partial (:accordion project) {:state state}))))
 
 (defn project-page [data owner]
   (reify
@@ -75,8 +75,6 @@
        (dom/div #js {:id "project-container"}
 
                 (println "state: " state)
-                (println "project: " project)
-                (println "local: " local)
 
                 (image-display (:key state) project)
 
@@ -91,7 +89,7 @@
                (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) project))
                  )
 
-                (accordion-display (:key state) project))))))
+                (accordion-display (:key state) project state))))))
 
 
 

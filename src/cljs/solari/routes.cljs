@@ -100,7 +100,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "white" :key :from-us-data :admin false}})))
 
-(defroute from-us "/from-us" []
+(defroute from-us "/from-us/admin" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
             (ef/at "#nav-hint-inner" (ef/content "from us"))
@@ -271,17 +271,21 @@
             (ef/at "body" (ef/set-attr :background "your-career"))
             (ef/at "#nav-hint-inner" (ef/content "Your Career"))))
 
-#_(defn meet-the-team-page [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (dom/h1 nil "This is the meet your team page"))))
-
-#_(defroute "/meet-the-team" []
+(defroute "/meet-the-team" []
           (do
             (ef/at "body" (ef/set-attr :background "polaroid"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
-            (yourteam/your-team-init data/the-team-atom)))
+            (om/root theteam/team-members-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :the-team-data :admin false :color "white"}})))
+
+(defroute "/meet-the-team/admin" []
+          (do
+            (ef/at "body" (ef/set-attr :background "polaroid"))
+            (ef/at "#nav-hint-inner" (ef/content "Your Team"))
+            (om/root theteam/team-members-page data/all-data-atom
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:key :the-team-data :admin true :color "white"}})))
 
 (defn jobs-page [data owner]
   (reify
