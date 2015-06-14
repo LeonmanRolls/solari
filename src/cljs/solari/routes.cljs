@@ -28,10 +28,10 @@
 (defn dispatch-route [route] (sec/dispatch! route))
 
 (go
- (loop []
-   (let [route (<! route-chan)]
-     (dispatch-route route))
-   (recur)))
+  (loop []
+    (let [route (<! route-chan)]
+      (dispatch-route route))
+    (recur)))
 
 ;Fallback for browsers without html5 history support
 (sec/set-config! :prefix "#")
@@ -49,8 +49,8 @@
             (ef/at "body" (ef/set-attr :background "home"))
             (ef/at "#nav-hint-inner" (ef/content "architects"))
             (om/root common/paragraph-partial data/all-data-atom
-             {:target (. js/document (getElementById "main-content-container"))
-              :state {:color "black" :key :home-page-data :admin false}})))
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "black" :key :home-page-data :admin false}})))
 
 (defroute "/admin" []
           (do
@@ -65,8 +65,8 @@
             (ef/at "body" (ef/set-attr :background "for-you"))
             (ef/at "#nav-hint-inner" (ef/content "for you"))
             (om/root common/paragraph-partial data/all-data-atom
-             {:target (. js/document (getElementById "main-content-container"))
-              :state {:color "white" :key :for-you-data :admin false}})))
+                     {:target (. js/document (getElementById "main-content-container"))
+                      :state {:color "white" :key :for-you-data :admin false}})))
 
 (defroute for-you "/for-you/admin" []
           (do
@@ -199,16 +199,16 @@
 (defmulti individual (fn [uid _] (empty? (some #{uid} (data/all-memberids)))))
 
 (defmethod individual true
-  [uid admin] (om/root project/project-page data/all-data-atom
-                     {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :all-projects :filter uid :link :link :filterkey :projectid :admin admin
-                              :filter-vector [:all-projects]}}))
+  [uid admin]  (om/root project/project-page data/all-data-atom
+                        {:target (. js/document (getElementById "main-content-container"))
+                         :state {:key :all-projects :filter uid :link :link :filterkey :projectid :admin admin
+                                 :filter-vector [:all-projects]}}))
 
 (defmethod individual false
-  [uid admin] (om/root project/project-page data/all-data-atom
-                     {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :the-team-data :filter uid :filterkey :memberid :admin admin
-                              :filter-vector [:the-team-data :team-members]}}) )
+  [uid admin]  (om/root project/project-page data/all-data-atom
+                        {:target (. js/document (getElementById "main-content-container"))
+                         :state {:key :the-team-data :filter uid :filterkey :memberid :admin admin
+                                 :filter-vector [:the-team-data :team-members]}}) )
 
 (defroute "/individual/:id" {:as params}
           (do
@@ -293,7 +293,7 @@
     (render [this]
       (dom/div #js {:style #js {:color "white"}}
                (dom/b #js {:style #js {:fontSize "2em"}} "We're a small tight-knit team that's big on attitude.")
-       (dom/p nil "Talent without the right attitude is wasted. Talent with a great attitude is invaluable. If you'd like to joing the solari team - send us what makes you proud and be yourself.")
+               (dom/p nil "Talent without the right attitude is wasted. Talent with a great attitude is invaluable. If you'd like to joing the solari team - send us what makes you proud and be yourself.")
 
                (dom/b #js {:style #js {:fontSize "1.5em"}} "We've got the perfect home for a...")
 
@@ -322,7 +322,7 @@
     om/IRender
     (render [this]
       (dom/div #js {:style #js {:color "white"}}
-       (dom/b nil "We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting.")
+               (dom/b nil "We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting.")
                (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
                         (dom/b #js {:style #js {:textTransform "uppercase"}} "Visit, drink, chat, bounce ideas here:")
                         (dom/p nil "Level 1")
@@ -341,13 +341,13 @@
 (defroute "/contact" {:as params}
           (do
             (om/root contact-page {}
-                   {:target (. js/document (getElementById "main-content-container"))})
+                     {:target (. js/document (getElementById "main-content-container"))})
             (ef/at "body" (ef/set-attr :background "from-us"))))
 
 ;(do (sec/dispatch! (str "" (.-token %))) (println "token" (.-token %))  )
 ;; Quick and dirty history configuration.
 
 (let [h (History.)]
-    (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
-    (doto h (.setEnabled true)))
+  (goog.events/listen h EventType/NAVIGATE #(sec/dispatch! (.-token %)))
+  (doto h (.setEnabled true)))
 

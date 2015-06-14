@@ -22,22 +22,21 @@
     om/IRender
     (render [this]
       (dom/div #js {:className "row"}
-               (dom/p nil (:goals data))
-               (dom/img #js {:className "col-xs-6" :src (str  (:everyday (:profilepics data))) :data-rsTmb (str "/img/" data )})
-               (dom/img #js {:className "col-xs-6" :src (str  (:hipster (:profilepics data))) :data-rsTmb (str "/img/" data )})))))
+               (dom/img #js {:className "col-xs-6" :src (str (first (:everyday (:profilepics data))))})
+               (dom/img #js {:className "col-xs-6" :src (str (first (:hipster (:profilepics data))))})))))
 
 (defmulti image-display (fn [dispatch _] dispatch))
 
 (defmethod image-display :the-team-data
-  [dispatch project] (om/build img-individual-member project))
+  [dispatch project] (om/build img-individual-member (first project)))
 
 (defmethod image-display :all-projects
   [dispatch project] (apply dom/div #js {:className "royalSlider rsDefault"}
                        (doall (om/build-all img-page (:gallery-images project)))))
 
 (defn process-member-data [project]
-(into [] (map (fn [x] {:title (name (first x)) :content (last x)})
-                (common/map->vector (select-keys project [:goals :advice :Role :outside])))))
+  (into [] (map (fn [x] {:title [(name (first x))] :content [(last x)] })
+                (common/map->vector (select-keys (first project)  [:goals :advice :Role :outside])))))
 
 (defmulti accordion-display (fn [dispatch _] dispatch))
 
@@ -70,11 +69,14 @@
     om/IRenderState
     (render-state [this state]
      (let [local (get-in data (:filter-vector state))
-           project (first (filter (fn [x] (= (:filter state) (first ((:filterkey state) x)))) local))]
+           project (filter (fn [x] (= (:filter state) (first ((:filterkey state) x)))) local)]
 
        (dom/div #js {:id "project-container"}
 
-                (println "state: " state)
+                ;(println "project indivudual local: " ((:filterkey state) local))
+                ;(println "project indivudual local: " (first local))
+                (println "project indivudual state: " state)
+                #_(println "project indivudual project: " project)
 
                 (image-display (:key state) project)
 

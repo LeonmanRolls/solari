@@ -137,7 +137,7 @@
     om/IRenderState
     (render-state [this state]
       (dom/div nil
-               (println "Accrdion State: " state)
+               (println "accrdion data: " data)
                (dom/dt nil
                        (dom/a #js {:href "#accordion1" :aria-expanded "false" :aria-controls "accordion1"
                                    :className "accordion-title accordionTitle js-accordionTrigger"}
