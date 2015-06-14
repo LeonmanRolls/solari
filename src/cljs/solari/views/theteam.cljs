@@ -10,13 +10,19 @@
 
 (enable-console-print!)
 
-(def hipster-data [{:href "" :text "everyday us"
+(def hipster-data [{:href "" :label "everyday us" :id "everyday-li"
                     :callback #(do (.megafilter js/api "cat-everyday")
-                                   (ef/at "#group_photo" (ef/set-attr :src "/img/group_photo_everyday.jpg")))}
+                                   (ef/at "#everyday-li" (ef/set-attr :color "red"))
+                                   (ef/at "#hipster-li" (ef/set-attr :color "none"))
+                                   (ef/at "#group_photo"
+                                          (ef/set-attr :src "/img/leaderboards/group_photo_everyday.jpg")))}
 
-                   {:href "" :text "\"architect\" us"
+                   {:href "" :label "\"architect\" us" :id "hipster-li"
                     :callback #(do (.megafilter js/api "cat-hipster")
-                                   (ef/at "#group_photo" (ef/set-attr :src "/img/group_photo_hipster.jpg")))}])
+                                   (ef/at "#everyday-li" (ef/set-attr :color "none"))
+                                   (ef/at "#hipster-li" (ef/set-attr :color "red"))
+                                   (ef/at "#group_photo"
+                                          (ef/set-attr :src "/img/leaderboards/group_photo_hipster.jpg")))}])
 
 
 (defn megafolio-preprocessor [team-members]
@@ -51,7 +57,10 @@
     (did-mount [this]
       (do
         (js/megafolioInit)
-        (.megafilter js/api "cat-everyday")))
+        (.megafilter js/api "cat-everyday")
+        (ef/at "#everyday-li" (ef/set-attr :color "red"))
+        (ef/at "#hipster-li" (ef/set-attr :color "none"))
+        ))
 
     om/IRenderState
     (render-state [this state]

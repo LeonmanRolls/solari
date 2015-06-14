@@ -214,7 +214,8 @@
                                :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
                                :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
                                :borderTop "1px solid white" :borderLeft "1px solid white"}
-                   :onClick #(om/transact! data :state (fn [_] true))}
+                   :onClick (:callback data)
+                   :id (:id data)}
               (:label data)))))
 
 (defn editable-list-upload-partial [data owner]

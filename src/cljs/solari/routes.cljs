@@ -308,7 +308,7 @@
 
 (defroute "/meet-the-team" []
           (do
-            (ef/at "body" (ef/set-attr :background "polaroid"))
+            (ef/at "body" (ef/set-attr :background "grey"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (om/root theteam/team-members-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
@@ -316,7 +316,7 @@
 
 (defroute "/meet-the-team/admin" []
           (do
-            (ef/at "body" (ef/set-attr :background "polaroid"))
+            (ef/at "body" (ef/set-attr :background "grey"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (om/root theteam/team-members-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))

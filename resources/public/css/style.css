@@ -109,9 +109,6 @@ body[background=grey] {
   #7f8c8d;
 }
 
-img {
-  background: black;
-}
 
 a:focus{
 color: white;
@@ -1572,3 +1569,7 @@ border-radius: 0px;
 
 /* Social stream */
 
+
+li[color=red] {
+  color: #c0392b !important;
+}
