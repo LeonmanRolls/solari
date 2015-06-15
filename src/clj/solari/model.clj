@@ -201,7 +201,7 @@
   {:text {:bold ["The Solari team is your team."]
           :paragraph [" As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."] }
    :title ["Your Team"]
-   :leaderboard {:architect ["/img/leaderboards/group_photo_everyday.jpg"]  :hipster ["/img/leaderboards/group_photo_hipster.jpg"]}
+   :leaderboard {:architect ["/img/leaderboards/group_photo_everyday.png"]  :hipster ["/img/leaderboards/group_photo_hipster.png"]}
          :team-members [{:name ["James Solari"]
                          :memberid ["jsolari"]
                          :profilepics {:hipster ["/img/teampics/jsolari_hipster.jpg"]

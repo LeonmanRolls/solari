@@ -185,7 +185,7 @@
     om/IRenderState
     (render-state [this state]
       (let [local (get data (:key state))]
-        (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px" :color "white"}}
+        (dom/div nil
                  (dom/b #js {:style #js {:textTransform "uppercase"}} (first (:bold data)))
                  (apply dom/div nil
                         (om/build-all p-p-partial

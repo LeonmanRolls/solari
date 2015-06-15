@@ -42,7 +42,7 @@
 
 (defmethod accordion-display :the-team-data
   [dispatch project state]  (dom/div #js {:className ""}
-                        (apply dom/div nil
+                        (apply dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px" :color "white"}}
                                (om/build-all common/uppercase-paragraph-partial (process-member-data project) {:state state}))))
 
 (defmethod accordion-display :all-projects
@@ -71,14 +71,15 @@
      (let [local (get-in data (:filter-vector state))
            project (filter (fn [x] (= (:filter state) (first ((:filterkey state) x)))) local)]
 
-       (dom/div #js {:id "project-container"}
+       (dom/div #js {:id "project-container" :style #js {:color "white"}}
 
                 ;(println "project indivudual local: " ((:filterkey state) local))
                 ;(println "project indivudual local: " (first local))
                 (println "project indivudual state: " state)
-                (println "project indivudual project: " project)
+                (println "project indivudual project: " (:how (first project)) )
 
                 (image-display (:key state) project)
+
 
                #_(println "filter: "
                         (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2)  )
@@ -91,7 +92,17 @@
                (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) project))
                  )
 
-                (accordion-display (:key state) project state))))))
+                (accordion-display (:key state) project state)
+
+                (dom/div #js {:style #js {:padding "20px" }}
+                         (dom/b nil "How")
+                (apply dom/div nil (om/build-all common/p-p-partial (:how (first project) )))
+                         )
+
+
+
+
+                )))))
 
 
 
