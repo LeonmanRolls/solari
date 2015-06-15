@@ -334,7 +334,10 @@
 
                (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
                         (dom/b #js {:style #js {:textTransform "uppercase"}} "Gifted massage therapist")
-                        (dom/p nil "Wanting to work for nothing."))))))
+                        (dom/p nil "Wanting to work for nothing.")
+                       (dom/p nil "Apart from that we’ve no other listings. But stay tuned or follow us on LinkedIn for job updates and other happenings."))
+
+               ))))
 
 
 (defroute "/jobs" []
@@ -351,7 +354,7 @@
       (let [local (:contact-data data)]
         (dom/div #js {:style #js {:color "white"}}
                  (om/build common/paragraph-partial local {:state {:admin (:admin state) :key :text :color "white"}})
-                 (apply dom/div nil
+                 (apply dom/div  #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px" :color "white"}}
                         (om/build-all common/uppercase-paragraph-partial (:info local) {:state state})))))))
 
 (defroute "/contact" {:as params}
