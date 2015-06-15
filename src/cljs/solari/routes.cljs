@@ -350,7 +350,6 @@
     (render-state [this state]
       (let [local (:contact-data data)]
         (dom/div #js {:style #js {:color "white"}}
-                 (println "contact: " local)
                  (om/build common/paragraph-partial local {:state {:admin (:admin state) :key :text :color "white"}})
                  (apply dom/div nil
                         (om/build-all common/uppercase-paragraph-partial (:info local) {:state state})))))))

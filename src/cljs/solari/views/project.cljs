@@ -35,15 +35,15 @@
                        (doall (om/build-all img-page (:gallery-images (first project))))))
 
 (defn process-member-data [project]
-  (into [] (map (fn [x] {:title [(name (first x))] :content [(last x)] })
+  (into [] (map (fn [x] {:bold [(name (first x))] :paragraph [(last x)] })
                 (common/map->vector (select-keys (first project)  [:goals :advice :Role :outside])))))
 
 (defmulti accordion-display (fn [dispatch _] dispatch))
 
 (defmethod accordion-display :the-team-data
-  [dispatch project state]  (dom/div #js {:className "accordion"}
-                        (apply dom/dl nil
-                               (om/build-all common/accordion-partial (process-member-data project) {:state state}))))
+  [dispatch project state]  (dom/div #js {:className ""}
+                        (apply dom/div nil
+                               (om/build-all common/uppercase-paragraph-partial (process-member-data project) {:state state}))))
 
 (defmethod accordion-display :all-projects
   [dispatch project state] (dom/div #js {:className "accordion"}

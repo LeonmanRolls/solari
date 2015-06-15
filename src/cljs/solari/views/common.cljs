@@ -12,6 +12,9 @@
 
 (def admin-mode (atom false))
 
+(def box-style #js {:style #js {:color "white" :marginTop "10px" :padding "20px" :border "2px solid #c0392b"
+                                :textTransform "uppercase"}})
+
 (defn update-value
   ([data owner target]
    (let [new-contact (-> (om/get-node owner target)
@@ -163,14 +166,11 @@
     (render-state [this state]
       (dom/p #js {:style #js {:color (:color state)}}
 
-             (println "p-partial: " data)
              (dom/b nil (first (:bold data)))
              (first (:paragraph data))
 
              (if (:admin state) (om/build input-partial (:bold data)))
-             (if (:admin state) (om/build input-partial (:paragraph data)))
-
-             ))))
+             (if (:admin state) (om/build input-partial (:paragraph data)))))))
 
 (defn paragraph-partial [data owner]
   (reify
@@ -185,7 +185,7 @@
     om/IRenderState
     (render-state [this state]
       (let [local (get data (:key state))]
-        (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px"}}
+        (dom/div #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px" :color "white"}}
                  (dom/b #js {:style #js {:textTransform "uppercase"}} (first (:bold data)))
                  (apply dom/div nil
                         (om/build-all p-p-partial
