@@ -35,6 +35,7 @@
                             {:thumbnail (:hipster (:profilepics x))}
                             {:category ["cat-all cat-hipster"]}
                             {:id (:memberid x)}
+                            {:subtitle (:Role x)}
                             {:title (:name x)}
                             {:memberid (:memberid x)}))
                   team-members))
@@ -46,6 +47,7 @@
                             {:category ["cat-all cat-everyday"]}
                             {:id (:memberid x)}
                             {:title (:name x)}
+                            {:subtitle (:Role x)}
                             {:memberid (:memberid x)}))
                   team-members)))))
 
@@ -88,6 +90,6 @@
 
                (apply dom/div #js {:className "megafolio-container"}
                       (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members local ))
-                                    {:state {:link :memberid :prelink "/#/members/individual/"}})))))))
+                                    {:state {:link :memberid :prelink "/#/members/individual/" :subtitle :subtitle}})))))))
 
 

@@ -23,7 +23,12 @@
                                               and lifestyle of the family. We kept existing timeless character features
                                               and balanced them with open modern living spaces and fresh, welcoming tones."]]}
                              {:title ["Challenges"]
-                              :content [["Workign with an old charcter home."]] }]})
+                              :content [["Workign with an old charcter home."]] }
+                             {:title ["Successes"]
+                              :content [["Workign with an old charcter home."]] }
+                             {:title ["Testimonial"]
+                              :content [[""]] }
+                             ]})
 
 
 
@@ -54,7 +59,13 @@
                               :content [["This home was prone to extreme weather and sea conditions. The
                                               sand, salt and wind presented a myriad of constructional challenges.
                                               The facade had to be durable but not compromise or dull the bold style
-                                              the client desired."]]}]})
+                                              the client desired."]]}
+                             {:title ["Successes"]
+                              :content [["Balancing style with practicality. We used an extremely durable aluminium weatherboard and blue Rodeca on the front façade that reflected its surroundings. Instantly tying the home to its ever-changing environment. "]] }
+                             {:title ["Testimonial"]
+                              :content [[""]] }
+
+                             ]})
 
 (def project-03 {:id ["project-03"]
                  :year [2014]
@@ -83,7 +94,12 @@
                               :content [["This home was prone to extreme weather and sea conditions. The
                                               sand, salt and wind presented a myriad of constructional challenges.
                                               The facade had to be durable but not compromise or dull the bold style
-                                              the client desired."]]}]})
+                                              the client desired."]]}
+                             {:title ["Successes"]
+                              :content [["The village green is a triumph. It is a large sheltered and sunny space perfect for growing families to enjoy. While Wellington battles with the prevailing Northerly the residents at Catalina Lane enjoy the sunshine with not much more than a gentle breeze. A welcome relief to all."]] }
+                             {:title ["Testimonial"]
+                              :content [[""]] }
+                             ]})
 
 (def project-04
   {:id ["project-04"]
@@ -104,7 +120,11 @@
                {:title ["Challenges"]
                 :content [["The site is steep and is located directly on State Highway One. The design needed to elevate and separate the owner’s living space above the road to enjoy the amazing views beyond and relax in their own personal haven."]]}
                {:title ["Successes"]
-                :content [["With the super structure now complete our design intent is really becoming apparent and already the owners are thrilled with direction it’s heading in."]]}]})
+                :content [["With the super structure now complete our design intent is really becoming apparent and already the owners are thrilled with direction it’s heading in."]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+
+               ]})
 
 (def project-05
   {:id ["project-05"]
@@ -125,7 +145,10 @@
                {:title ["Challenges"]
                 :content [["The client wanted to move quickly on this project.  This meant delivering a solution that would go through the consenting process quickly and efficiently. We also had to deliver a level of density that would make the project viable. "]]}
                {:title ["Successes"]
-                :content [["We achieved resource consent very quickly much to the delight of the client. This allowed us to get on with progressing the project. "]]}]})
+                :content [["We achieved resource consent very quickly much to the delight of the client. This allowed us to get on with progressing the project. "]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 
 (def project-06
   {:id ["project-06"]
@@ -146,7 +169,10 @@
                {:title ["Challenges"]
                 :content [["Getting a balanced mix of amenity levels relative to economics and dealing with constraints of car parking due to WCC planning requirements. Providing an appropriate design for a quite important portion of street frontage."]]}
                {:title ["Successes"]
-                :content [["Achieving a well resolved medium density street edge that responds well to its location across from the botanical gardens."]]}]})
+                :content [["Achieving a well resolved medium density street edge that responds well to its location across from the botanical gardens."]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 
 (def project-07
   {:id ["project-07"]
@@ -167,7 +193,10 @@
                {:title ["Challenges"]
                 :content [["We were designing a product that wasn’t available to Palmerston North’s current rental market. Designing around the existing orchard whilst still providing each town house practical and functional living spaces. "]]}
                {:title ["Successes"]
-                :content [["Our solution not only worked effectively as a rental property for the client, but the orchard was left unscathed by the development. "]]}]})
+                :content [["Our solution not only worked effectively as a rental property for the client, but the orchard was left unscathed by the development. "]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 
 (def project-08
   {:id ["project-08"]
@@ -188,7 +217,10 @@
                {:title ["Challenges"]
                 :content [["Working with a first time developer. Working in with an existing house in Brooklyn.  Balancing living space with the need of a car park for each townhouse. "]]}
                {:title ["Successes"]
-                :content [["We worked through the challenges of the topography to provide access and car parking offering a premium rental solution."]]}]})
+                :content [["We worked through the challenges of the topography to provide access and car parking offering a premium rental solution."]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 
 (def project-09
   {:id ["project-09"]
@@ -209,7 +241,10 @@
                {:title ["Challenges"]
                 :content [["aking on a project which documentation was originally undertaken during a less onerous regulatory environment is challenging.  Updating the documentation to meet current standards and filling in the gaps for the construction team requires the ability to work the detail whilst construction is underway. The developers timelines are still tight in spite of this extra effort."]]}
                {:title ["Successes"]
-                :content [["Stage 1 has been successfully completed. Due to the high quality end product it has been easily tenanted enabling the developer to achieve cash flow while stage 2 gets underway."]]}]})
+                :content [["Stage 1 has been successfully completed. Due to the high quality end product it has been easily tenanted enabling the developer to achieve cash flow while stage 2 gets underway."]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 
 (def project-10
   {:id ["project-10"]
@@ -230,7 +265,10 @@
                {:title ["Challenges"]
                 :content [["n/a"]]}
                {:title ["Successes"]
-                :content [["n/a"]]}]})
+                :content [["n/a"]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 
 (def project-11
   {:id ["project-11"]
@@ -251,5 +289,8 @@
                {:title ["Challenges"]
                 :content [["n/a"]]}
                {:title ["Successes"]
-                :content [["n/a"]]}]})
+                :content [["n/a"]]}
+               {:title ["Testimonial"]
+                :content [[""]] }
+               ]})
 

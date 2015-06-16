@@ -211,7 +211,8 @@
                                ["I have unique experience in multi-unit residential builds as a result of my time at Woodhead in Australia.  I believe that New Zealand’s market it still relatively immature. As our population grows we need to intensify our housing solutions. But we need to do it in a way that fosters communities, creates safe and healthy living environments and enables people to thrive."]
                                ["Having said that, my passion and expertise is not limited to multi-unit solutions. I love to work on stand-alone houses, commercial and hospitality solutions. I’m excited about exploring and balancing the cross-overs between how we live, work and play."]]
                          :goals ["They’re big ones. And I want to create a strong and enduring company with the right people to help me achieve them. Solari Architects is a family business. My goal is to create a company that develops talent and enables people to be the best that they can be; both as members of their families and communities and as architects and key people within the business."]
-                         :advice [""]
+                         :contact ["james@solariarchitects.com"]
+                         :advice ["Own your projects, whether individually on a small project, or as part of a team on something larger, buy into it and know it inside out."]
                          :outside [""]}
 
                         {:name ["Catherine Solari"]
@@ -222,6 +223,7 @@
                          :how [["After 17 years working in sales roles in the IT industry James and I decided to start a family and along came our little guy Hugo. Instead of returning to the land of IT after a year of looking after that wee guy I decided it was a much better idea to jump in and help out James with his flourishing little business. It was doing so well he didn’t have time to run it, so with my experience in large corporates and with sound business practices I came on board to lend a hand. Over the last 2 years we have substantially grown the business from just a 3 person operation to the team of 7 it is now and with all the work we have going there James is flat out being an Architect.  Its great fun and I’m really proud of how things are going."]
                                ]
                          :goals [""]
+                         :contact ["catherine@solariarchitects.com"]
                          :advice ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."]
                          :outside [""]
                          :polaroid ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."] }
@@ -231,6 +233,7 @@
                          :profilepics {:hipster ["/img/teampics/mcane_hipster.jpg"]
                                        :everyday ["/img/teampics/mcane_everyday.jpg"] }
                          :Role ["Senior Technician"]
+                         :contact ["matt@solariarchitects.com"]
                          :how [["I recently returned home from the UK where I predominantly worked on community housing projects. During this time I worked with Not-for-Profit Housing organisations such as Forth Housing Association, Places for People and Dunedin Canmore Housing Association.  I have worked with the UK standards such as Housing for Varying Needs, Secured by Design, BRE Eco Homes."] ]
                          :goals [""]
                          :advice ["Don’t cry over spilt milk. Literally relevant these days with a young child."]
@@ -245,6 +248,7 @@
                          :how [["After graduating as an Architectural Technician from Wellington Polytechnic in 1998, I moved to London where I worked on a variety of projects. The call of home grew louder and I returned in 2005 to work at Archaus Architects until joining Solari Architects at the end of 2013. My career so far has included commercial, multi-storey residential and hospitality projects. "]
                                ["I was thrilled to join the Solari team as they’re such a vibrant company who thrive on producing great designs. They also have a really supportive team structure. "]
                                ]
+                         :contact ["melanie@solariarchitects.com"]
                          :goals [""]
                          :advice ["We are a long time dead so make sure you enjoy your life and that includes where you work!"]
                          :outside [""]
@@ -259,6 +263,7 @@
                                ["During this time she continued with contract architectural work before joining the team at Solari Architects mid-2013. Monique is excellent at multi-tasking and ensures all aspects of her projects are completed to the highest standard.  She enjoys the collaborative process of taking a project from the design brief through to construction and completion."]
                                ]
                          :goals [""]
+                         :contact ["monique@solariarchitects.com"]
                          :advice ["Don’t leave things until the last minute. Do it once, do it right!"]
                          :outside [""]
                          :polaroid ["Don’t leave things until the last minute. Do it once, do it right!"] }
@@ -268,23 +273,25 @@
                          :profilepics {:hipster ["/img/teampics/abrimmicombe_hipster.jpg"]
                                        :everyday ["/img/teampics/abrimmicombe_everyday.jpg"] }
                          :Role ["Architectural Graduate"]
+                         :contact ["alex@solariarchitects.com"]
                          :how [["In mid 2015 the stars seemed to align. I was lucky enough to be taken on board by the team at Solari Architects. Before this, I spent ten months in a smaller Wellington firm after completing my Master’s degree at Victoria University. My final year of study focussed on safety through spatial design and creating future proof public architecture."]
                                ["Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as a graduate architect. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."]
                                ]
                          :goals [""]
-                         :advice [""]
+                         :advice ["My favourite part of working at Solari Architects is: The supportive environment, vast range of knowledge and the exquisite coffee"]
                          :outside ["You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."]
                          :polaroid ["I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "] }
 
                         {:name ["Molly Marshall"]
                          :memberid ["mmarshall"]
+                         :contact ["molly@solariarchitects.com"]
                          :profilepics {:hipster ["/img/teampics/mmarshall_hipster.jpg"]
                                        :everyday ["/img/teampics/mmarshall_everyday.jpg"] }
                          :Role ["Architectural Graduate"]
                          :how [["I Joined the Solari team full time in 2015. Before that I was working part time with them whilst completeing my Master’s thesis at Victoria university. I’m enjoying the opportunity to be involved in all areas of the architectural process. "]
                                ]
                          :goals [""]
-                         :advice [""]
+                         :advice ["Away from work you’ll fine me: playing social netball and café hopping around Wellington."]
                          :outside ["you’ll find me playing social netball and café hopping around Wellington."]
                          :polaroid ["You’ll find me playing social netball and café hopping around Wellington."] }
                         ]

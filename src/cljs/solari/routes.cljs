@@ -130,6 +130,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :home-page-data
+                              :subtitle :year
                               :route "/all-projects"
                               :cat "cat-all"
                               :admin false}})))
@@ -143,6 +144,7 @@
                       :state {:key :all-projects
                               :extra :home-page-data
                               :route "/all-projects"
+                              :subtitle :year
                               :cat "cat-all"
                               :admin true}})))
 
@@ -224,13 +226,13 @@
   [uid admin]  (om/root project/project-page data/all-data-atom
                         {:target (. js/document (getElementById "main-content-container"))
                          :state {:key :all-projects :filter uid :link :link :filterkey :projectid :admin admin
-                                 :filter-vector [:all-projects]}}))
+                                 :filter-vector [:all-projects] :subtitle :Role}}))
 
 (defmethod individual "members"
   [uid admin]  (om/root project/project-page data/all-data-atom
                         {:target (. js/document (getElementById "main-content-container"))
                          :state {:key :the-team-data :filter uid :filterkey :memberid :admin admin
-                                 :filter-vector [:the-team-data :team-members]}}) )
+                                 :filter-vector [:the-team-data :team-members] :subtitle :year}}) )
 
 (defroute "/projects/individual/:id" {:as params}
           (do

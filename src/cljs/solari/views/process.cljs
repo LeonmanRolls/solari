@@ -11,8 +11,7 @@
 (enable-console-print!)
 
 (def box-style #js {:style #js {:color "white" :marginTop "10px" :padding "20px" :border "2px solid #c0392b"
-                                :textTransform "uppercase" :backgroundColor "rgba(29,29,27,0.4)"}})
-
+                                :textTransform "uppercase" :fontWeight "700" :backgroundColor "rgba(29,29,27,0.4)"}})
 
 (def hipster-data [{:href "" :label "Short version" :id "short-li"
                     :callback #(do (ef/at "#short-version" (ef/remove-class "hidden"))

@@ -196,14 +196,15 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (println "gallery-partial: " (first (:thumbnail data)))
+      (println "gallery-partial state: " state)
+      (println "gallery-partial data: " data)
       (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
-                  :className (str "mega-entry cat-all " (first (:category data)) )  :id (first (:id data))
+                  :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))
                   :data-src (first (:thumbnail data))  :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                (first (:title data))
-                               (dom/div #js {:className "mega-hoversubtitle"} "Click for info")))))))
+                               (dom/div #js {:className "mega-hoversubtitle"} (first ((:subtitle state) data)))))))))
 
 (defn simple-li [data owner]
   (reify
@@ -211,7 +212,7 @@
     (render-state [this state]
       (dom/li #js {:style #js {:cursor "pointer" :height "50px" :width "140px" :letterSpacing "1px" :color "white"
                                :textTransform "uppercase" :fontSize "80%" :position "relative" :textAlign "center"
-                               :backgroundColor (:transparent-grey colors) :display "block" :textDecoration "none"
+                                :display "block" :textDecoration "none"
                                :padding "16px" :outline "none" :marginLeft "-2px" :marginRight "-1px"
                                :borderTop "1px solid white" :borderLeft "1px solid white"}
                    :onClick (:callback data)

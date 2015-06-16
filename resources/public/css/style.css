@@ -1569,7 +1569,10 @@ border-radius: 0px;
 
 /* Social stream */
 
+#long-li, #short-li, #hipster-li, #everyday-li{
+background-color: rgba(29,29,27,0.4);
+}
 
 li[color=red] {
-  color: red !important;
+background-color: #c0392b !important;
 }

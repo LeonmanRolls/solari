@@ -36,7 +36,7 @@
 
 (defn process-member-data [project]
   (into [] (map (fn [x] {:bold [(name (first x))] :paragraph [(last x)] })
-                (common/map->vector (select-keys (first project)  [:goals :advice :Role :outside])))))
+                (common/map->vector (select-keys (first project)  [:name :Role :advice :contact])))))
 
 (defmulti accordion-display (fn [dispatch _] dispatch))
 
@@ -95,7 +95,7 @@
                 (accordion-display (:key state) project state)
 
                 (dom/div #js {:style #js {:padding "20px" }}
-                         (dom/b nil "How")
+                         (if (not= (first (:filter-vector state)) :all-projects) (dom/b nil "How"))
                 (apply dom/div nil (om/build-all common/p-p-partial (:how (first project) )))
                          )
 

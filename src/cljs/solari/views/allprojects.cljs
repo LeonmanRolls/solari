@@ -60,7 +60,7 @@
 
                  #_(om/build common/gallery-partial (first local))
 
-                 #_(println "local: " (:projectid (first local)) )
+                 (println "local: " local )
 
                  #_(println "local: " (empty? local)  )
 
@@ -69,7 +69,8 @@
                  #_(if (not (empty? local))  (fn [cursor] (sort-by > (fn [x] (first (:year x))) cursor)) )
 
                  (apply dom/div #js {:className "megafolio-container"}
-                        (om/build-all common/gallery-partial local {:state {:link :projectid :prelink "/#/projects/individual/"}}))
+                        (om/build-all common/gallery-partial local {:state {:link :projectid :prelink "/#/projects/individual/"
+                                                                            :subtitle (:subtitle state)}}))
 
                  #_(dom/form #js {:className "cbp-mc-form"}
 
