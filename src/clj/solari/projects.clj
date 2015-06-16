@@ -283,8 +283,8 @@
    :category ["cat-commercial"]
    :title ["Tinakori Road Medical Center"]
    :thumbnail ["/img/tinakori/tinakori-00.jpg"]
-   :gallery-images ["tinaokri/tinakori-00.jpg" "tinaokri/tinakori-01.jpg" "tinaokri/tinakori-02.jpg"
-                    "tinaokri/tinakori-03.jpg" ]
+   :gallery-images ["tinakori/tinakori-00.jpg" "tinakori/tinakori-01.jpg" "tinakori/tinakori-02.jpg"
+                    "tinakori/tinakori-03.jpg" ]
    :accordion [{:title ["Specifics"]
                 :content [["92 Tinakori Rd Client: CapitalSkinz Ltd"]]}
                {:title ["Client goals and objectives"]
