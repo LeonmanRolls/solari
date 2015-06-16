@@ -7,7 +7,7 @@
                  :category ["cat-residential"]
                  :title ["Wadestown Renovation"]
                  :thumbnail ["/img/wadestown/wadestown-00.jpg"]
-                 :gallery-images [ "/img/wadestown/wadestown-00.jpg"  "wadestown/wadestown-01.jpg"
+                 :gallery-images [ "wadestown/wadestown-00.jpg"  "wadestown/wadestown-01.jpg"
                                   "wadestown/wadestown-02.jpg" "wadestown/wadestown-03.jpg"
                                   "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.jpg" "wadestown/wadestown-06.pg"
                                   "wadestown/wadestown-07.jpg" "wadestown/wadestown-08.jpg" "wadestown/wadestown-09.pg"
