@@ -157,6 +157,7 @@
                       :state {:key :all-projects
                               :extra :residential-data
                               :route "/residential"
+                              :subtitle :year
                               :cat "cat-residential"
                               :admin false}})))
 
@@ -169,6 +170,7 @@
                       :state {:key :all-projects
                               :extra :residential-data
                               :route "/residential"
+                              :subtitle :year
                               :cat "cat-residential"
                               :admin true}})))
 
@@ -181,6 +183,7 @@
                       :state {:key :all-projects
                               :extra :multi-unit-data
                               :route "/multi-residential"
+                              :subtitle :year
                               :cat "cat-multi-unit-residential"
                               :admin false}})))
 
@@ -193,6 +196,7 @@
                       :state {:key :all-projects
                               :extra :multi-unit-data
                               :route "/multi-residential"
+                              :subtitle :year
                               :cat "cat-multi-unit-residential"
                               :admin true}})))
 
@@ -205,6 +209,7 @@
                       :state {:key :all-projects
                               :extra :commercial-data
                               :route "/commercial"
+                              :subtitle :year
                               :cat "cat-commercial"
                               :amdin false}})))
 
@@ -217,6 +222,7 @@
                       :state {:key :all-projects
                               :extra :commercial-data
                               :route "/commercial"
+                              :subtitle :year
                               :cat "cat-commercial"
                               :admin true}})))
 

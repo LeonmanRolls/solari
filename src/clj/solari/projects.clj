@@ -235,7 +235,7 @@
    :link ["detroit"]
    :category ["cat-multi-unit-residential"]
    :title ["Detroit"]
-   :thumbnail ["/img/catline/catline_thumb.jpg"]
+   :thumbnail ["/img/catline/catline-00.jpg"]
    :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                     "lyall/lyall-04.jpg"]
    :accordion [{:title ["Specifics"]
