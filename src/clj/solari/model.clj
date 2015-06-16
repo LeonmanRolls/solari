@@ -213,7 +213,10 @@
                          :goals ["They’re big ones. And I want to create a strong and enduring company with the right people to help me achieve them. Solari Architects is a family business. My goal is to create a company that develops talent and enables people to be the best that they can be; both as members of their families and communities and as architects and key people within the business."]
                          :contact ["james@solariarchitects.com"]
                          :advice ["Own your projects, whether individually on a small project, or as part of a team on something larger, buy into it and know it inside out."]
-                         :outside [""]}
+                         :outside [""]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
 
                         {:name ["Catherine Solari"]
                          :memberid ["csolari"]
@@ -226,7 +229,10 @@
                          :contact ["catherine@solariarchitects.com"]
                          :advice ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."]
                          :outside [""]
-                         :polaroid ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."] }
+                         :polaroid ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
 
                         {:name ["Matt Cane"]
                          :memberid ["mcane"]
@@ -238,7 +244,10 @@
                          :goals [""]
                          :advice ["Don’t cry over spilt milk. Literally relevant these days with a young child."]
                          :outside ["You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "]
-                         :polaroid ["Don’t cry over spilt milk. Literally relevant these days with a young child."] }
+                         :polaroid ["Don’t cry over spilt milk. Literally relevant these days with a young child."]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
 
                         {:name ["Melanie Zyteka"]
                          :memberid ["mzyteka"]
@@ -252,7 +261,10 @@
                          :goals [""]
                          :advice ["We are a long time dead so make sure you enjoy your life and that includes where you work!"]
                          :outside [""]
-                         :polaroid ["We are a long time dead so make sure you enjoy your life and that includes where you work!"] }
+                         :polaroid ["We are a long time dead so make sure you enjoy your life and that includes where you work!"]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
 
                         {:name ["Monique Addis"]
                          :memberid ["maddis"]
@@ -266,7 +278,10 @@
                          :contact ["monique@solariarchitects.com"]
                          :advice ["Don’t leave things until the last minute. Do it once, do it right!"]
                          :outside [""]
-                         :polaroid ["Don’t leave things until the last minute. Do it once, do it right!"] }
+                         :polaroid ["Don’t leave things until the last minute. Do it once, do it right!"]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
 
                         {:name ["Alex Brimmicombe"]
                          :memberid ["abrimmicombe"]
@@ -280,7 +295,10 @@
                          :goals [""]
                          :advice ["My favourite part of working at Solari Architects is: The supportive environment, vast range of knowledge and the exquisite coffee"]
                          :outside ["You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."]
-                         :polaroid ["I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "] }
+                         :polaroid ["I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
 
                         {:name ["Molly Marshall"]
                          :memberid ["mmarshall"]
@@ -293,7 +311,10 @@
                          :goals [""]
                          :advice ["Away from work you’ll fine me: playing social netball and café hopping around Wellington."]
                          :outside ["you’ll find me playing social netball and café hopping around Wellington."]
-                         :polaroid ["You’ll find me playing social netball and café hopping around Wellington."] }
+                         :polaroid ["You’ll find me playing social netball and café hopping around Wellington."]
+                         :texttitle [""]
+                         :textpara [""]
+                         }
                         ]
                     })
 
@@ -327,6 +348,33 @@
          :sorted-state sorted-state
          }
          ))
+
+(into [] [(conj {} {:one "one"}) (conj {} {:two "two"})]  )
+
+(into []  (flatten [[1 2] [3 4]]))
+
+(flatten (into []
+      (map
+        (fn [x] [(conj
+                  {}
+                  {:thumbnail (:hipster (:profilepics x))}
+                  {:category ["cat-all cat-hipster"]}
+                  {:id (:memberid x)}
+                  {:subtitle (:Role x)}
+                  {:title (:name x)}
+                  {:memberid (:memberid x)})
+          (conj
+                  {}
+                  {:thumbnail (:hipster (:profilepics x))}
+                  {:category ["cat-all cat-hipster"]}
+                  {:id (:memberid x)}
+                  {:subtitle (:Role x)}
+                  {:title (:name x)}
+                  {:memberid (:memberid x)})
+                 ]
+
+          )
+        (:team-members the-team-data) )))
 
 (defresource all-data-resource
              :service-available? true

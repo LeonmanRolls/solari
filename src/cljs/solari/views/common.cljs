@@ -196,15 +196,24 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (println "gallery-partial state: " state)
       (println "gallery-partial data: " data)
-      (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
+      (if (:text data )
+        (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
+                  :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))
+                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+               (dom/p nil "hello there")
+             #_(dom/div #js {:className "mega-hover"}
+                      (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
+                               (first (:title data))
+                               (dom/div #js {:className "mega-hoversubtitle"} (first ((:subtitle state) data))))))
+
+        (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
                   :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))
                   :data-src (first (:thumbnail data))  :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
              (dom/div #js {:className "mega-hover"}
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                (first (:title data))
-                               (dom/div #js {:className "mega-hoversubtitle"} (first ((:subtitle state) data)))))))))
+                               (dom/div #js {:className "mega-hoversubtitle"} (first ((:subtitle state) data))))))))))
 
 (defn simple-li [data owner]
   (reify

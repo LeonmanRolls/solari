@@ -28,28 +28,51 @@
 (defn megafolio-preprocessor [team-members]
   (into []
         (concat
-          (into []
+          (flatten (into []
                 (map
-                  (fn [x] (conj
+                  (fn [x] [(conj
                             {}
                             {:thumbnail (:hipster (:profilepics x))}
                             {:category ["cat-all cat-hipster"]}
                             {:id (:memberid x)}
                             {:subtitle (:Role x)}
                             {:title (:name x)}
-                            {:memberid (:memberid x)}))
-                  team-members))
-          (into []
+                            {:memberid (:memberid x)}
+                            {:text false})
+                           (conj
+                            {}
+                            {:thumbnail (:hipster (:profilepics x))}
+                            {:category ["cat-all cat-hipster"]}
+                            {:id (:memberid x)}
+                            {:subtitle (:Role x)}
+                            {:title (:name x)}
+                            {:memberid (:memberid x)}
+                            {:text true})
+                           ] )
+                  team-members)))
+          (flatten (into []
                 (map
-                  (fn [x] (conj
+                  (fn [x] [(conj
                             {}
                             {:thumbnail (:everyday (:profilepics x))}
                             {:category ["cat-all cat-everyday"]}
                             {:id (:memberid x)}
                             {:title (:name x)}
                             {:subtitle (:Role x)}
-                            {:memberid (:memberid x)}))
-                  team-members)))))
+                            {:memberid (:memberid x)}
+                            {:text false})
+                           (conj
+                            {}
+                            {:thumbnail (:everyday (:profilepics x))}
+                            {:category ["cat-all cat-everyday"]}
+                            {:id (:memberid x)}
+                            {:title (:texttitle x)}
+                            {:subtitle (:textpara x)}
+                            {:memberid (:memberid x)}
+                            {:text true}
+                            )
+                           ])
+                  team-members))) )))
 
 
 (defn team-members-page [data owner]
