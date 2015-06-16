@@ -129,7 +129,7 @@
             (om/root allprojects/all-projects-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
-                              :extra :home-page-data
+                              :extra :for-you-data
                               :subtitle :year
                               :route "/all-projects"
                               :cat "cat-all"
@@ -142,7 +142,7 @@
             (om/root allprojects/all-projects-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
-                              :extra :home-page-data
+                              :extra :for-you-data
                               :route "/all-projects"
                               :subtitle :year
                               :cat "cat-all"

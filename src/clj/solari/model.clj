@@ -190,31 +190,11 @@
                              {:title ["Why use an architect?"]
                               :content [["Architects are design focussed. Now that doesn’t mean we just make our projects look good – although we do that too. We make them feel good and function well. We design structures that respond to their wider context. We look past the “now” to deliver a product that will stand the test of time. Ensuring it will respond to future changes in the economic environment, lifestyle and demands of future buyers, investors or your growing family."]]}
 
-
                              {:title ["It seems so expensive to use an Architect?"]
                               :content [["We hear this often, to which we say; every dollar goes somewhere. And we can assure you we’re not having a good old laugh on our private yacht, popping bottles of Champagne once your project is completed. We’re firm believers in truly giving our clients what they pay for. "]
                                         ["Your project is an investment. If it’s your own home it may be one of the biggest investments you make in your lifetime. So take the opportunity to do it right and ensure its long-term value. As your architects we will fuss over quality products, creating a space that is right for you now AND in the future and squeezing every drop of value out of your site with a design that is tailored to your “wish list”. We don’t cut corners and you’re not just another job that needs to be “processed”. We genuinely care for our client’s satisfaction and spend a lot of time putting ourselves in your shoes to design a project that is uniquely you. "]
                                         ["On a practical note: Registered Architects are subject to a statutory code of practice and have ‘Professional Indemnity Insurance’ to protect their clients. So you can sleep well at night knowing that we’ve got your back. "]
                                         ]}
-
-
-
-                             {:title ["How does Solari charge?"]
-                              :content [[""]]}
-
-
-
-                             {:title ["What's Solari's approach t sustainability?"]
-                              :content [[""]]}
-
-
-                             {:title ["Who does Solari Collaborate with to complete a project?"]
-                              :content [[""]]}
-
-                             {:title ["What sized project is Solari capable of taking on?"]
-                              :content [["Due to James time in Australia he has working relationships with companies such as Woods Bagot, Cox, Scott Carber, GHD Woodhead. Across the board these firms have international experience in sectors such as Aviation, Hospitality, Workplace and Retail. We can partner with these firms to offer the best international expertise whilst still dealing with a local firm."]]}
-
-
 
                              ]})
 
