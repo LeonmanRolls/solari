@@ -41,7 +41,7 @@
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (om/root theteam/team-members-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:color "white" :key :the-team-data}})))
+                      :state {:color "white" :key :the-team-data :interop false}})))
 
 (defroute "/" []
           (do
@@ -302,7 +302,7 @@
     (render-state [this state]
       (let [local (:your-career-data data)]
         (dom/div #js {:style #js {:color "white"}}
-                 (om/build common/b-b-partial (:bold (:main local)) {:state state})
+                 (dom/b #js {:style #js {:fontSize "1.5em"}} "Here’s some good advice: Never choose to work for someone based on their brand or portfolio. Work for people who are going to teach you and make you better.")
                  (om/build common/p-p-partial (:paragraph-one local) {:state state})
                  (om/build common/p-p-partial (:paragraph-two local) {:state state}))))))
 
@@ -328,7 +328,7 @@
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (om/root theteam/team-members-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
-                      :state {:key :the-team-data :admin false :color "white"}})))
+                      :state {:key :the-team-data :admin false :color "white" :interop true}})))
 
 (defroute "/meet-the-team/admin" []
           (do

@@ -25,7 +25,7 @@
                                           (ef/set-attr :src "/img/leaderboards/group_photo_hipster.jpg")))}])
 
 
-(defn megafolio-preprocessor [team-members]
+(defn megafolio-preprocessor [team-members interop]
   (into []
         (concat
           (flatten (into []
@@ -38,16 +38,21 @@
                             {:subtitle (:Role x)}
                             {:title (:name x)}
                             {:memberid (:memberid x)}
-                            {:text false})
+                            {:text false}
+                            )
+                           (if interop
                            (conj
                             {}
-                            {:thumbnail (:hipster (:profilepics x))}
+                            {:thumbnail (:everyday (:profilepics x))}
                             {:category ["cat-all cat-hipster"]}
                             {:id (:memberid x)}
-                            {:subtitle (:Role x)}
-                            {:title (:name x)}
+                            {:title (:texttitle x)}
+                            {:subtitle (:textpara x)}
                             {:memberid (:memberid x)}
-                            {:text true})
+                            {:text true}
+                            )
+                             )
+
                            ] )
                   team-members)))
           (flatten (into []
@@ -61,6 +66,7 @@
                             {:subtitle (:Role x)}
                             {:memberid (:memberid x)}
                             {:text false})
+                           (if interop
                            (conj
                             {}
                             {:thumbnail (:everyday (:profilepics x))}
@@ -71,6 +77,8 @@
                             {:memberid (:memberid x)}
                             {:text true}
                             )
+                             )
+
                            ])
                   team-members))) )))
 
@@ -112,7 +120,7 @@
                (dom/br nil)
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members local ))
+                      (om/build-all common/gallery-partial (megafolio-preprocessor (:team-members local ) (:interop state))
                                     {:state {:link :memberid :prelink "/#/members/individual/" :subtitle :subtitle}})))))))
 
 

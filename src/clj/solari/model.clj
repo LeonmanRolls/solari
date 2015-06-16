@@ -162,26 +162,51 @@
 
 (def faqs-data {:text {:bold ["You’re not supposed to know it all before coming to us."]
                        :paragraph [" Whether it’s your first time working with an architecture firm or you’ve lost count, there’s never a bad time to ask questions like:"] }
-                 :questions [{:title ["How does Solari charge?"]
-                              :content [[""]]}
+                 :questions [
 
                              {:title ["How involved should I be in the architectural design process?"]
-                              :content [[""]]}
+                              :content [["You can have as much or as little to do with your project, as you like. We can steer the ship or simply fill the gaps in your plan. Remember, your project is exactly that – yours. It is your vision guided by our experience and expertise. "]]}
+
+                             {:title ["How should I communicate what I want to Solari?"]
+                              :content [["Words, pictures, examples, feelings, thoughts – in whatever way you choose! Share your pinterest board or note pad of ideas…it could even be an interpretive dance. We’re open to whatever it takes to get us all on the same page."]]}
 
                              {:title ["What technical programs do you use?"]
-                              :content [[""]]}
+                              :content [["We use 3D-CAD to bring your project to life before putting a nail in anything. We understand that even with all the mood-boards and scrap books in the world, it can be hard to visualise the final product. Designing a 3D render always erases the guesswork or confusion for our clients. "]]}
 
                              {:title ["What types of insurance do you carry?"]
-                              :content [[""]]}
+                              :content [["As registered Architects we are subject to a statutory code of practice and have ‘Professional Indemnity Insurance’ to protect our clients. "]]}
 
                              {:title ["How can you be sure a project doesn't go over budget?"]
+                              :content [["Firstly – you can relax in knowing this isn’t the first time we’ve done something like this. Our vast experience has taught us what to look out for and to always be 20 steps ahead of everyone else. To add to this, we’re transparent, honest and have an obsession with planning - but are equally quick on our feet and able to calculate a new direction if need be. From start to finish we will always revisit your budget and provide accurate quotes, so there are no unexpected surprises. "]]}
+
+                             {:title ["What sized project is Solari capable of taking on?"]
+                              :content [["MYTH: The bigger the team, the more capable they are of taking on a bigger project. "]
+                                        ["Every industry is changing in this respect. A task that once took a team of 10 to complete can now be done by 1  – thanks technology. Our focus is on being the smartest firm in town – not the biggest.  You see, at Solari, we don’t like waste. Wasted time, wasted material and most of all wasted money. "]
+                                        ["Everything is streamlined from our process to the development stage and we believe having a small, tight-knit team allows us to do this. We’ve minimised the amount of stepping-stones it takes to develop a project – because nobody likes a game of Chinese whispers when there’s a lot at stake. "]
+                                        ["Over his time spent in Australia, our founder James has developed fantastic working relationships with companies such as Woods Bagot, Cox, Scott Carver and GHD Woodhead. "]
+                                        ["Across the board these firms have international experience in sectors such as Aviation, Hospitality, Workplace and Retail. Because we love collaboration we can always partner with these firms to offer the best international expertise whilst still dealing with a local firm."]
+                                        ]}
+
+                             {:title ["Why use an architect?"]
+                              :content [["Architects are design focussed. Now that doesn’t mean we just make our projects look good – although we do that too. We make them feel good and function well. We design structures that respond to their wider context. We look past the “now” to deliver a product that will stand the test of time. Ensuring it will respond to future changes in the economic environment, lifestyle and demands of future buyers, investors or your growing family."]]}
+
+
+                             {:title ["It seems so expensive to use an Architect?"]
+                              :content [["We hear this often, to which we say; every dollar goes somewhere. And we can assure you we’re not having a good old laugh on our private yacht, popping bottles of Champagne once your project is completed. We’re firm believers in truly giving our clients what they pay for. "]
+                                        ["Your project is an investment. If it’s your own home it may be one of the biggest investments you make in your lifetime. So take the opportunity to do it right and ensure its long-term value. As your architects we will fuss over quality products, creating a space that is right for you now AND in the future and squeezing every drop of value out of your site with a design that is tailored to your “wish list”. We don’t cut corners and you’re not just another job that needs to be “processed”. We genuinely care for our client’s satisfaction and spend a lot of time putting ourselves in your shoes to design a project that is uniquely you. "]
+                                        ["On a practical note: Registered Architects are subject to a statutory code of practice and have ‘Professional Indemnity Insurance’ to protect their clients. So you can sleep well at night knowing that we’ve got your back. "]
+                                        ]}
+
+
+
+                             {:title ["How does Solari charge?"]
                               :content [[""]]}
+
+
 
                              {:title ["What's Solari's approach t sustainability?"]
                               :content [[""]]}
 
-                             {:title ["How should I cmmunicate what I want to Solari?"]
-                              :content [["Words, pictures, examples, feelings, thoughts – in whatever way you choose! "]]}
 
                              {:title ["Who does Solari Collaborate with to complete a project?"]
                               :content [[""]]}
@@ -189,11 +214,7 @@
                              {:title ["What sized project is Solari capable of taking on?"]
                               :content [["Due to James time in Australia he has working relationships with companies such as Woods Bagot, Cox, Scott Carber, GHD Woodhead. Across the board these firms have international experience in sectors such as Aviation, Hospitality, Workplace and Retail. We can partner with these firms to offer the best international expertise whilst still dealing with a local firm."]]}
 
-                             {:title ["Why use an architect?"]
-                              :content [["Architects are design focussed. Now that doesn’t mean we just make our projects look good – although we do that too. We make them feel good and function well. We design structures that respond to their wider context and look past the “now” and look at how a"]]}
 
-                             {:title ["It seems so expensive to use an Architect?"]
-                              :content [["Firstly (Practically thinking) Architects are subject to a statutory code of practice and have Professional Indemnity Insurance to protect their clients.Secondly. In your lifetime, a house is one of the biggest investments you will make. So why not make the most of that investment and ensure its long-term value. Take advantage of the opportunity to do it right. As your architect we will ensure that quality products are used, the space is right for your needs now and in the future, the design is created taking advantage of the best that your site has to offer. This is no cookie cutter experience"]]}
 
                              ]})
 
@@ -214,8 +235,8 @@
                          :contact ["james@solariarchitects.com"]
                          :advice ["Own your projects, whether individually on a small project, or as part of a team on something larger, buy into it and know it inside out."]
                          :outside [""]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["WE HAVE A LAUGH."]
+                         :textpara ["Cue James in a bald cap. Need we say any more?"]
                          }
 
                         {:name ["Catherine Solari"]
@@ -230,8 +251,8 @@
                          :advice ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."]
                          :outside [""]
                          :polaroid ["Do what you really love to do and make sure you are doing it with people you actually like. Life is pretty horrible if you aren’t."]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["WE HAVE A LIFE (that isn’t work)."]
+                         :textpara ["Whether you have a family of 4 small children, you coach the local badminton team or you’re into Comic-con you need to have YOUR own time to enjoy YOUR life. We respect and welcome that. Sure, there may be occasions where we all have to put in the extra mile but it’s not expected that you do it 52 weeks of the year just to get recognized OR be valued.  "]
                          }
 
                         {:name ["Matt Cane"]
@@ -245,8 +266,8 @@
                          :advice ["Don’t cry over spilt milk. Literally relevant these days with a young child."]
                          :outside ["You’ll find me hitting the beach whether for play or just to relax with the family. It’s a great way to spend my free time. "]
                          :polaroid ["Don’t cry over spilt milk. Literally relevant these days with a young child."]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["MAN, WE LOVE WHAT WE DO. "]
+                         :textpara ["We are all a bunch of architecture nerds at heart. The challenge of a project with a complex site or budget constraints is exciting as it forces creativity and efficiency.  We crave opportunities to solve real housing problems through great living solutions more than chocolate, coffee and wine blended together. We continue to educate ourselves at all times to be the trusted advisor that our clients need us to be."]
                          }
 
                         {:name ["Melanie Zyteka"]
@@ -262,8 +283,8 @@
                          :advice ["We are a long time dead so make sure you enjoy your life and that includes where you work!"]
                          :outside [""]
                          :polaroid ["We are a long time dead so make sure you enjoy your life and that includes where you work!"]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["WE PUT OUR BEST FOOT FORWARD. ALWAYS."]
+                         :textpara ["We know it’s cliché but the world is a village and our reputation is everything.  Our work is the most vocal representation of our brand. That’s everything from the way we communicate with our clients, consultants and local authorities, the documentation of our work, our interaction with contractors and of course the quality of the build. Every person we do business with and every piece of work that we do reflects the business. We make sure we do the best we can every single day. "]
                          }
 
                         {:name ["Monique Addis"]
@@ -279,8 +300,9 @@
                          :advice ["Don’t leave things until the last minute. Do it once, do it right!"]
                          :outside [""]
                          :polaroid ["Don’t leave things until the last minute. Do it once, do it right!"]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["TEAM ON THREE."]
+                         :textpara ["We work as a team. No one gets hung out to dry and there are no superstar egos.
+We listen and respect one another and consciously collaborate to ensure that we create the best possible solution for our clients. People do business with people they know and trust and that applies to colleagues as much as it does clients.  "]
                          }
 
                         {:name ["Alex Brimmicombe"]
@@ -349,32 +371,6 @@
          }
          ))
 
-(into [] [(conj {} {:one "one"}) (conj {} {:two "two"})]  )
-
-(into []  (flatten [[1 2] [3 4]]))
-
-(flatten (into []
-      (map
-        (fn [x] [(conj
-                  {}
-                  {:thumbnail (:hipster (:profilepics x))}
-                  {:category ["cat-all cat-hipster"]}
-                  {:id (:memberid x)}
-                  {:subtitle (:Role x)}
-                  {:title (:name x)}
-                  {:memberid (:memberid x)})
-          (conj
-                  {}
-                  {:thumbnail (:hipster (:profilepics x))}
-                  {:category ["cat-all cat-hipster"]}
-                  {:id (:memberid x)}
-                  {:subtitle (:Role x)}
-                  {:title (:name x)}
-                  {:memberid (:memberid x)})
-                 ]
-
-          )
-        (:team-members the-team-data) )))
 
 (defresource all-data-resource
              :service-available? true

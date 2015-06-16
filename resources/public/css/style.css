@@ -117,7 +117,6 @@ outline: none;
 
 a:hover{
 text-decoration: none;
-color: white;
 }
 
 #main-outer-container{
@@ -1575,4 +1574,10 @@ background-color: rgba(29,29,27,0.4);
 
 li[color=red] {
 background-color: #c0392b !important;
+}
+
+.text-gallery .mega-entry-innerwrap {
+background-color: rgba(29,29,27,0.4) !important;
+border: 2px solid #c0392b;
+padding: 20px;
 }

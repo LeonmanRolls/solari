@@ -199,9 +199,13 @@
       (println "gallery-partial data: " data)
       (if (:text data )
         (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
-                  :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))
-                    :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
-               (dom/p nil "hello there")
+                  :className (str "mega-entry cat-all text-gallery " (first (:category data)))  :id (first (:id data))
+                    :data-bgposition "50% 50%" :data-width "320" :data-height "240" :textDecoration "none"
+                    }
+               (dom/div nil
+                        (dom/p #js {:style #js {:color "white" :fontWeight "700"}} (first (:title data)))
+                        (dom/p #js {:style #js {:color "white" :overflow "hidden"}} (first (:subtitle data)))
+                        )
              #_(dom/div #js {:className "mega-hover"}
                       (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                (first (:title data))
