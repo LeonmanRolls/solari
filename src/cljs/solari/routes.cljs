@@ -130,6 +130,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :home-page-data
+                              :route "/all-projects"
                               :cat "cat-all"
                               :admin false}})))
 
@@ -141,6 +142,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :home-page-data
+                              :route "/all-projects"
                               :cat "cat-all"
                               :admin true}})))
 
@@ -152,6 +154,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :residential-data
+                              :route "/residential"
                               :cat "cat-residential"
                               :admin false}})))
 
@@ -163,6 +166,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :residential-data
+                              :route "/residential"
                               :cat "cat-residential"
                               :admin true}})))
 
@@ -174,6 +178,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :multi-unit-data
+                              :route "/multi-residential"
                               :cat "cat-multi-unit-residential"
                               :admin false}})))
 
@@ -185,6 +190,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :multi-unit-data
+                              :route "/multi-residential"
                               :cat "cat-multi-unit-residential"
                               :admin true}})))
 
@@ -196,6 +202,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :commercial-data
+                              :route "/commercial"
                               :cat "cat-commercial"
                               :amdin false}})))
 
@@ -207,6 +214,7 @@
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :all-projects
                               :extra :commercial-data
+                              :route "/commercial"
                               :cat "cat-commercial"
                               :admin true}})))
 

@@ -14,8 +14,8 @@
 
 (def sort-chan (chan))
 
-(def sorting-data [{:href "" :text "By name" :callback #(put! sort-chan "name")}
-                   {:href "" :text "By year" :callback #(put! sort-chan "year")}])
+(def sorting-data [{:href "" :label "By name" :callback #(put! sort-chan "name")}
+                   {:href "" :label "By year" :callback #(put! sort-chan "year")}])
 
 (def project-schema [:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
@@ -27,70 +27,79 @@
     om/IDidMount
     (did-mount [this]
       (let [local (:key (om/get-state owner))]
-      (do
-        (js/megafolioInit)
-        (println "stat: " (om/get-state owner))
-        (.megafilter js/api (:cat (om/get-state owner)) )
-        #_(go
-        (while true
-          (let [sort-type (<! sort-chan)]
-            (cond
-              (= sort-type "name") (do
-                                     (om/transact! data (fn [cursor] (sort-by (fn [x] (:projectid x)) cursor)))
-                                     (.megafilter js/api (:filter (om/get-state owner))))
-              (= sort-type "year") (do
-                                     (om/update! data (reverse (sort-by (fn [x] (:year x)) data)))
-                                     (.megafilter js/api (:filter (om/get-state owner)))))))))
+        (do
+          (js/megafolioInit)
+          (.megafilter js/api (:cat (om/get-state owner)) )
+          (if (not (empty? data))
+            (go
+              (while true
+                (let [sort-type (<! sort-chan)
+                      state (om/get-state owner)]
+                  (cond
 
-        )
-      )
+                    (= sort-type "name") (do
+                                           (om/transact! (get data :all-projects) (fn [cursor] (sort-by (fn [x] (first (:projectid x))) cursor)))
+                                           (sec/dispatch! (:route state)))
+
+                    (= sort-type "year") (do
+                                           (om/transact! (get data :all-projects) (fn [cursor] (reverse (sort-by (fn [x] (first (:year x))) cursor))))
+                                           (sec/dispatch! (:route state)))))))))))
 
     om/IRenderState
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div #js {:className "container"}
 
-               #_(apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
-                                              :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
-                      (om/build-all common/simple-li sorting-data))
+                 (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                                                :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
+                        (om/build-all common/simple-li sorting-data {:state {:data local}}))
 
-               (om/build common/paragraph-partial data {:state {:key (:extra state)
-                                                                :admin (:admin state)
-                                                                :color "white"}})
+                 (om/build common/paragraph-partial data {:state {:key (:extra state)
+                                                                  :admin (:admin state)
+                                                                  :color "white"}})
 
                  #_(om/build common/gallery-partial (first local))
 
-               (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/gallery-partial local {:state {:link :projectid :prelink "/#/projects/individual/"}}))
+                 #_(println "local: " (:projectid (first local)) )
 
-               #_(dom/form #js {:className "cbp-mc-form"}
+                 #_(println "local: " (empty? local)  )
 
-               (dom/div #js {:className "cbp-mc-column"}
+                 ;        (println "sort-by: " (sort-by (fn [x] (first (:year x))) local))
 
-                        (dom/div nil
+                 #_(if (not (empty? local))  (fn [cursor] (sort-by > (fn [x] (first (:year x))) cursor)) )
 
-                       (apply dom/ul nil (om/build-all common/admin-li (:gallery-images data)
-                                                       {:state {:button-label "Remove"}}))
+                 (apply dom/div #js {:className "megafolio-container"}
+                        (om/build-all common/gallery-partial local {:state {:link :projectid :prelink "/#/projects/individual/"}}))
 
-                                (dom/input #js {:type "file" :name "fileToUpload" :id "fileToUpload"})
-                                 (dom/input #js {:type "button" :value "Upload Image" :name "submit"})
-                                 )
-                        )
+                 #_(dom/form #js {:className "cbp-mc-form"}
 
-                (dom/div #js {:className "cbp-mc-column"}
+                 (dom/div #js {:className "cbp-mc-column"}
+
+                          (dom/div nil
+
+                         (apply dom/ul nil (om/build-all common/admin-li (:gallery-images data)
+                                                         {:state {:button-label "Remove"}}))
+
+                                  (dom/input #js {:type "file" :name "fileToUpload" :id "fileToUpload"})
+                                   (dom/input #js {:type "button" :value "Upload Image" :name "submit"})
+                                   )
+                          )
+
+                  (dom/div #js {:className "cbp-mc-column"}
 
 
-                         (om/build common/short-simple-input-partial (atom {:placeholder "Year"})
-                                   {:state {:label "Year"}})
+                           (om/build common/short-simple-input-partial (atom {:placeholder "Year"})
+                                     {:state {:label "Year"}})
 
-                         (om/build common/short-simple-input-partial (atom {:placeholder "Project Id"})
-                                   {:state {:label "Project Id"}})
+                           (om/build common/short-simple-input-partial (atom {:placeholder "Project Id"})
+                                     {:state {:label "Project Id"}})
 
-                        )
+                          )
 
-                        )
+                          )
 
-               )
+
+                 )
 
         )
 

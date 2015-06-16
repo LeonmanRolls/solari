@@ -299,6 +299,8 @@
                           {:bold ["Email jokes, work or gifs here: "]
                            :paragraph [["hello@solariarchitects.com"]]}]})
 
+(def sorted-state {:name true :date false})
+
 (def all-data
   (atom {:home-page-data home-page-data
          :residential-data residential-data
@@ -314,8 +316,8 @@
          :the-team-data the-team-data
          :contact-data contact-data
          :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
-                        pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]}))
-
+                        pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]}
+         :sorted-state sorted-state))
 
 (defresource all-data-resource
              :service-available? true
