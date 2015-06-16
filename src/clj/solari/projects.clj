@@ -6,9 +6,13 @@
                  :link ["individual/wadestown"]
                  :category ["cat-residential"]
                  :title ["Wadestown Renovation"]
-                 :thumbnail ["/img/wadestown/wadestown.jpg"]
-                 :gallery-images [ "wadestown/wadestown-00.jpg" "wadestown/wadestown-01.jpg" "wadestown/wadestown-02.jpg"
-                                  "wadestown/wadestown-03.jpg" "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.pg"]
+                 :thumbnail ["/img/wadestown/wadestown-00.jpg"]
+                 :gallery-images [ "/img/wadestown/wadestown-00.jpg"  "wadestown/wadestown-01.jpg"
+                                  "wadestown/wadestown-02.jpg" "wadestown/wadestown-03.jpg"
+                                  "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.jpg" "wadestown/wadestown-06.pg"
+                                  "wadestown/wadestown-07.jpg" "wadestown/wadestown-08.jpg" "wadestown/wadestown-09.pg"
+                                  "wadestown/wadestown-10.jpg" "wadestown/wadestown-11.jpg" "wadestown/wadestown-12.pg"
+                                  "wadestown/wadestown-13.jpg" "wadestown/wadestown-14.jpg" "wadestown/wadestown-15.pg"]
                  :accordion [{:title ["Specifics"]
                               :content [["Renovated early 1900s character home. 5 berooms. 3 bathrooms."]] }
                              {:title ["Client goals and objectives"]
@@ -38,9 +42,10 @@
                  :link ["individual/lyall"]
                  :category ["cat-residential"]
                  :title ["Lyall bay renovation"]
-                 :thumbnail ["/img/lyall/lyall.jpg"]
-                 :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                                  "lyall/lyall-04.jpg"]
+                 :thumbnail ["/img/lyall/lyall-00.jpg"]
+                 :gallery-images ["lyall/lyall-00.jpg" "lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
+                                  "lyall/lyall-04.jpg" "lyall/lyall-05.jpg" "lyall/lyall-06.jpg" "lyall/lyall-07.jpg"
+                                  "lyall/lyall-08.jpg" "lyall/lyall-09.jpg"]
                  :accordion [{:title ["Specifics"]
                               :content [["Renovated theatre. 5 bedrooms."]] }
                              {:title ["Client goals and objectives"]
@@ -73,9 +78,9 @@
                  :link ["catline"]
                  :category ["cat-residential"]
                  :title ["Catline Lane Subdivision"]
-                 :thumbnail ["/img/catline/catline_thumb.jpg"]
-                 :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                                  "lyall/lyall-04.jpg"]
+                 :thumbnail ["/img/catline/catline-00.jpg"]
+                 :gallery-images ["catline/catline-00.jpg" "catline/catline-01.jpg" "catline/catline-02.jpg"
+                                  "catline/catline-03.jpg" "catline/catline-04.jpg"]
                  :accordion [{:title ["Specifics"]
                               :content [["Renovated theatre. 5 bedrooms."]]}
                              {:title ["Client goals and objectives"]
@@ -108,9 +113,9 @@
    :link ["plimmerton"]
    :category ["cat-residential"]
    :title ["Plimmerton House"]
-   :thumbnail ["/img/catline/catline_thumb.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/plimmerton/plimmerton-00.jpg"]
+   :gallery-images ["plimmerton/plimmerton-00.jpg" "plimmerton/plimmerton-01.jpg" "plimmerton/plimmerton-02.jpg"
+                    "plimmerton/plimmerton-03.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["N/A"]]}
                {:title ["Client goals and objectives"]
@@ -133,9 +138,9 @@
    :link ["vedado"]
    :category ["cat-multi-unit-residential"]
    :title ["Vedado"]
-   :thumbnail ["/img/vedado/veado_thumb.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/vedado/vedado-00.jpg"]
+   :gallery-images ["vedado/vedado-00.jpg"  "vedado/vedado-01.jpg"  "vedado/vedado-02.jpg"  "vedado/vedado-03.jpg"
+                    "vedado/vedado-04.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["41 Hopper Street, Te Aro Client: Property Developer, Vladimir Barbalich. 32 Apartment Complex. Comprised of flexible apartment typologies of dual and triple key configurations."]]}
                {:title ["Client goals and objectives"]
@@ -157,9 +162,11 @@
    :link ["sharella"]
    :category ["cat-multi-unit-residential"]
    :title ["Sharella Nouveau"]
-   :thumbnail ["/img/sharella/sharella.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/sharella/sharella-00.jpg"]
+   :gallery-images ["sharella/sharella-00.jpg" "sharella/sharella-01.jpg" "sharella/sharella-02.jpg"
+                    "sharella/sharella-03.jpg" "sharella/sharella-04.jpg" "sharella/sharella-05.jpg"
+                    "sharella/sharella-06.jpg" "sharella/sharella-07.jpg" "sharella/sharella-08.jpg"
+                    "sharella/sharella-09.jpg" "sharella/sharella-10.jpg" ]
    :accordion [{:title ["Specifics"]
                 :content [["18-24 Glenmore Street, Thorndon. Client: Property Developer, Vladimir Barbalich. 7 Townhouses and 4 Apartments. Semi-Suburban lifestyle. 5 minute walk from the city centre. "]]}
                {:title ["Client goals and objectives"]
@@ -181,9 +188,9 @@
    :link ["pascal"]
    :category ["cat-multi-unit-residential"]
    :title ["Pascal Orchard Houses"]
-   :thumbnail ["/img/pascal/pascal.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/pascal/pascal-00.jpg"]
+   :gallery-images ["pascal/pascal-00.jpg" "pascal/pascal-01.jpg" "pascal/pascal-02.jpg" "pascal/pascal-03.jpg"
+                    "pascal/pascal-04.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["6 townhouses. Nestled inside an existing orchard. Located in the inner suburbs of Palmerston North."]]}
                {:title ["Client goals and objectives"]
@@ -205,9 +212,8 @@
    :link ["sugarloaf"]
    :category ["cat-multi-unit-residential"]
    :title ["Sugarloaf Road"]
-   :thumbnail ["/img/sugarloaf/sugarloaf.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/sugarloaf/sugarloaf-00.jpg"]
+   :gallery-images ["sugarloaf/sugarloaf-00.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["Two Townhouses. Each 3 Bedroom."]]}
                {:title ["Client goals and objectives"]
@@ -253,9 +259,8 @@
    :link ["oasis"]
    :category ["cat-commercial "]
    :title ["Oasis Bar"]
-   :thumbnail ["/img/oasis/oasis.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/oasis/oasis-00.jpg"]
+   :gallery-images ["oasis/oasis-00.jpg" "oasis/oasis-01.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["n/a"]]}
                {:title ["Client goals and objectives"]
@@ -277,9 +282,9 @@
    :link ["tinakori"]
    :category ["cat-commercial"]
    :title ["Tinakori Road Medical Center"]
-   :thumbnail ["/img/tinakori/tinakori.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/tinakori/tinakori-00.jpg"]
+   :gallery-images ["tinaokri/tinakori-00.jpg" "tinaokri/tinakori-01.jpg" "tinaokri/tinakori-02.jpg"
+                    "tinaokri/tinakori-03.jpg" ]
    :accordion [{:title ["Specifics"]
                 :content [["92 Tinakori Rd Client: CapitalSkinz Ltd"]]}
                {:title ["Client goals and objectives"]
