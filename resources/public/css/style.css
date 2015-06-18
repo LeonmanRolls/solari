@@ -1581,3 +1581,49 @@ background-color: rgba(29,29,27,0.4) !important;
 border: 2px solid #c0392b;
 padding: 20px;
 }
+
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+    #main-nav-container{
+        display:none;
+    }
+    #main-outer-container{
+        padding: 20px;
+    }
+    #right-right-nav{
+       display:none;
+    }
+    .navbar-default{
+       background-color: black;
+       .navbar-default .navbar-brand {
+         color: white !important;
+       }
+    }
+    .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+      color: white;
+    }
+    .navbar-default .navbar-nav>li>a {
+      color: white;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+      color: white;
+    }
+
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+      color: white;
+      background-color: grey;
+    }
+.navbar-default .navbar-brand {
+  color: white;
+}
+}
+
+
+@media screen and (min-width: 768px) {
+    #mobile-nav{
+        display:none;
+    }
+}

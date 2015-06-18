@@ -50,7 +50,8 @@
       (let [local (get data (:key state))]
         (dom/div #js {:className "container"}
 
-                 (apply dom/ul #js {:style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
+                 (apply dom/ul #js {:id "right-right-nav"
+                                    :style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                                 :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                         (om/build-all common/simple-li sorting-data {:state {:data local}}))
 

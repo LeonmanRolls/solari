@@ -4,8 +4,12 @@
             [clojure.core.async :refer [>! <! >!! <!! go chan buffer close! thread alts! alts!!]]
             [clojure.string :as string]
             [solari.projects :as pr]
-            [clojure.walk :as w] [clojure.java.jdbc :as sql]
+            [clojure.walk :as w]
+            [clojure.java.jdbc :as sql]
             [clojure.java.jdbc.deprecated :as sql-old]))
+(import 'twitter4j.TwitterFactory)
+
+(def twitter (.getInstance (TwitterFactory.)))
 
 (def db
   (env
@@ -24,7 +28,6 @@
        (get-in
          context
          [:request :params :gameid]))]))
-
 
 (def home-page-data
   {:bold ["Come on in. We're Solari architects."]
@@ -328,6 +331,7 @@ We listen and respect one another and consciously collaborate to ensure that we 
                            :paragraph [["+64 (27) 4229430"]]}
                           {:bold ["Email jokes, work or gifs here: "]
                            :paragraph [["hello@solariarchitects.com"]]}]})
+
 
 (def sorted-state {:name true :date false})
 

@@ -14,6 +14,7 @@
                  [ring "1.3.2"]
                  [ring/ring-defaults "0.1.3"]
                  [com.cemerick/url "0.1.1"]
+                 [org.twitter4j/twitter4j-core "2.1.8"]
                  [secretary "1.2.3"]
                  [compojure "1.3.1"]
                  [org.clojure/java.jdbc "0.3.6"]
