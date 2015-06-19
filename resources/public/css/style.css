@@ -1585,6 +1585,8 @@ padding: 20px;
 
 /* Mobile */
 
+.navbar-toggle {border-radius: 0px !important}
+
 @media screen and (max-width: 768px)
 and (-webkit-max-device-pixel-ratio: 3)
  {
@@ -1598,7 +1600,11 @@ and (-webkit-max-device-pixel-ratio: 3)
        display:none;
     }
     .navbar-default{
+
        background-color: black;
+       text-transform: uppercase;
+         font-weight: 700;
+
        .navbar-default .navbar-brand {
          color: white !important;
        }
