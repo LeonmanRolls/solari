@@ -1585,7 +1585,9 @@ padding: 20px;
 
 /* Mobile */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px)
+and (-webkit-max-device-pixel-ratio: 3)
+ {
     #main-nav-container{
         display:none;
     }
@@ -1627,3 +1629,5 @@ padding: 20px;
         display:none;
     }
 }
+
+
