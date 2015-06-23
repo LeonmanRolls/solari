@@ -8,14 +8,14 @@
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
             [solari.views.common :as common]
-            [solari.utils :as u]
-            (:require-macros [enfocus.macros :as em] [cljs.core.async.macros :refer [go]]))
+            [solari.utils :as u])
+  (:require-macros [enfocus.macros :as em] [cljs.core.async.macros :refer [go]])
   (:import [goog.net Jsonp]
            [goog Uri]))
 
 (enable-console-print!)
 
-(defn query-url "https://api.instagram.com/v1/users/1926926651/media/recent/?access_token=1399685155.be8a912.5059822a0f5f49d5bf922d070c44971d")
+(def query-url "https://api.instagram.com/v1/users/1926926651/media/recent/?access_token=1399685155.be8a912.5059822a0f5f49d5bf922d070c44971d")
 
 (defn jsonp [uri]
   (let [out (chan)
