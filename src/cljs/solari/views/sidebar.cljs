@@ -111,7 +111,12 @@
                                  (dom/a #js {:href "https://twitter.com/solariarch" :target "_blank"}
                                         (dom/i #js {:className "fa fa-twitter fa-2x"}))
                                  (dom/a #js {:href "" :target "_blank"}
-                                        (dom/i #js {:className "fa fa-instagram fa-2x"})))
+                                        (dom/i #js {:className "fa fa-instagram fa-2x"}))
+                                 (dom/a #js {:href "" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-google-plus fa-2x"}))
+                                 (dom/a #js {:href "" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-facebook fa-2x"}))
+                                 )
 
                         (dom/a #js {:href "http://nang.rocks" :target "_blank"}
                         (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"

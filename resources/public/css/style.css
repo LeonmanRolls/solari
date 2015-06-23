@@ -42,7 +42,16 @@ color: red !important;
 }
 
 body[background=home] {
-background: url(/img/home_page.jpg);
+  background:
+  url(/img/home_page.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#nav-hint-inner[background=home] {
+color: black;
 }
 
 body[background=for-you] {
@@ -1629,11 +1638,20 @@ and (-webkit-max-device-pixel-ratio: 3)
 }
 }
 
-
 @media screen and (min-width: 768px) {
     #mobile-nav{
         display:none;
     }
 }
 
+.black{
+color: black;
+}
 
+.white{
+color: white;
+}
+
+.mega-entry-innerwrap{
+overflow: hidden !important;
+}

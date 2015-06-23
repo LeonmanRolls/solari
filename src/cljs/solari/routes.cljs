@@ -47,6 +47,7 @@
           (do
             (ef/at "body" (ef/set-attr :background "home"))
             (ef/at "#nav-hint-inner" (ef/content "architects"))
+            (ef/at "#nav-hint-inner" (ef/add-class  "black"))
             (om/root common/paragraph-partial data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "black" :key :home-page-data :admin false}})))
@@ -63,6 +64,7 @@
           (do
             (ef/at "body" (ef/set-attr :background "for-you"))
             (ef/at "#nav-hint-inner" (ef/content "for you"))
+            (ef/at "#nav-hint-inner" (ef/remove-class  "black"))
             (om/root common/paragraph-partial data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "white" :key :for-you-data :admin false}})))
@@ -78,6 +80,7 @@
 (defroute for-architects "/for-architects" []
           (do
             (ef/at "body" (ef/set-attr :background "for-architects"))
+            (ef/at "#nav-hint-inner" (ef/remove-class  "black"))
             (ef/at "#nav-hint-inner" (ef/content "for architects"))
             (om/root common/paragraph-partial data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
@@ -95,6 +98,7 @@
 (defroute from-us "/from-us" []
           (do
             (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "#nav-hint-inner" (ef/remove-class  "black"))
             (ef/at "#nav-hint-inner" (ef/content "from us"))
             (om/root fromus/from-uss data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
