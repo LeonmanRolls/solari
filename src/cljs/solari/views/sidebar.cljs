@@ -118,14 +118,18 @@
                                           (dom/a #js {:href "" :target "_blank"}
                                                  (dom/i #js {:className "fa fa-facebook fa-2x"})))
 
-                                 (dom/div nil
-                                          (dom/div #js {:className "fb-share-button" :data-href "https://solari-site.herokuapp.com/"
-                                                        :data-layout "button"}))
+                                 (dom/div #js {:style #js {:marginLeft "15px"}}
+                                          (dom/div #js {:style #js {:float "left" :marginTop "-7px"}
+                                                        :className "fb-share-button" :data-href "https://solari-site.herokuapp.com/"
+                                                        :data-layout "button"})
 
                                  (dom/div #js {:style #js {:marginTop "10px"}}
                                  (dom/a #js {:href "https://twitter.com/share" :className "twitter-share-button"
                                                       :data-url "https://solari-site.herokuapp.com/" :data-via "solariarchitets"
                                                       :data-count "none"} "Tweet"))
+                                          )
+
+
                                  )
 
 
