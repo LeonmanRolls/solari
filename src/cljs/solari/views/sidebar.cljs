@@ -127,10 +127,7 @@
                                  (dom/a #js {:href "https://twitter.com/share" :className "twitter-share-button"
                                                       :data-url "https://solari-site.herokuapp.com/" :data-via "solariarchitets"
                                                       :data-count "none"} "Tweet"))
-                                          )
-
-
-                                 )
+                                          ))
 
 
                         (dom/a #js {:href "http://nang.rocks" :target "_blank"}

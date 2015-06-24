@@ -253,8 +253,8 @@
                          :textpara ["We are all a bunch of architecture nerds at heart. The challenge of a project with a complex site or budget constraints is exciting as it forces creativity and efficiency.  We crave opportunities to solve real housing problems through great living solutions more than chocolate, coffee and wine blended together. We continue to educate ourselves at all times to be the trusted advisor that our clients need us to be."]
                          }
 
-                        {:name ["Melanie Zyteka"]
-                         :memberid ["mzyteka"]
+                        {:name ["Melanie Zytecka"]
+                         :memberid ["mzytecka"]
                          :profilepics {:hipster ["/img/teampics/mzyteka_hipster.jpg"]
                                        :everyday ["/img/teampics/mzyteka_everyday.jpg"] }
                          :Role ["Senior Technician"]
@@ -295,7 +295,7 @@ We listen and respect one another and consciously collaborate to ensure that we 
                          :Role ["Architectural Graduate"]
                          :contact ["alex@solariarchitects.com"]
                          :how [["In mid 2015 the stars seemed to align. I was lucky enough to be taken on board by the team at Solari Architects. Before this, I spent ten months in a smaller Wellington firm after completing my Master’s degree at Victoria University. My final year of study focussed on safety through spatial design and creating future proof public architecture."]
-                               ["Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as a graduate architect. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."]
+                               ["Upon meeting James I could see that I had come to the perfect place to advance my skills and develop my knowledge as an architectural graduate. A personal interest in contemporary residential and commercial architecture is being further developed by being a part of the Solari team."]
                                ]
                          :goals [""]
                          :advice ["My favourite part of working at Solari Architects is: The supportive environment, vast range of knowledge and the exquisite coffee"]
@@ -350,7 +350,7 @@ We listen and respect one another and consciously collaborate to ensure that we 
          :the-team-data the-team-data
          :contact-data contact-data
          :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
-                        pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11]
+                        pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11 pr/project-12]
          :sorted-state sorted-state
          }
          ))

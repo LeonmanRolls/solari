@@ -14,8 +14,8 @@
 
 (def sort-chan (chan))
 
-(def sorting-data [{:href "" :label "By name" :callback #(put! sort-chan "name")}
-                   {:href "" :label "By year" :callback #(put! sort-chan "year")}])
+(def sorting-data [{:href "" :label "By name" :callback #(put! sort-chan "name") :id "short-li-name"}
+                   {:href "" :label "By year" :callback #(put! sort-chan "year") :id "long-li-name"}])
 
 (def project-schema [:id "non-user" :year "text-input" :projectid "text-input" :link "non-user" :category "user-limited"
                      :title "text-input" :thumbnail "user-upload" :gallery-images "editable-list-upload"
@@ -29,7 +29,7 @@
       (let [local (:key (om/get-state owner))]
         (do
           (js/megafolioInit)
-          (.megafilter js/api (:cat (om/get-state owner)) )
+          (.megafilter js/api (:cat (om/get-state owner)))
           (if (not (empty? data))
             (go
               (while true
@@ -38,12 +38,25 @@
                   (cond
 
                     (= sort-type "name") (do
-                                           (om/transact! (get data :all-projects) (fn [cursor] (sort-by (fn [x] (first (:projectid x))) cursor)))
-                                           (sec/dispatch! (:route state)))
+                                           (om/transact!
+                                             (get data :all-projects)
+                                             (fn [cursor] (sort-by (fn [x] (first (:projectid x))) cursor)))
+                                           (sec/dispatch! (:route state))
+                                           (ef/at "#short-li-name" (ef/set-attr :color "red"))
+                                           (ef/at "#long-li-name" (ef/set-attr :color "none"))
+                                           )
 
                     (= sort-type "year") (do
-                                           (om/transact! (get data :all-projects) (fn [cursor] (reverse (sort-by (fn [x] (first (:year x))) cursor))))
-                                           (sec/dispatch! (:route state)))))))))))
+                                           (om/transact!
+                                             (get data :all-projects)
+                                             (fn [cursor] (reverse (sort-by (fn [x] (first (:year x))) cursor))))
+                                           (sec/dispatch! (:route state))
+                                           (ef/at "#short-li-name" (ef/set-attr :color "none"))
+                                           (ef/at "#long-li-name" (ef/set-attr :color "red"))
+                                           )
+
+
+                    ))))))))
 
     om/IRenderState
     (render-state [this state]

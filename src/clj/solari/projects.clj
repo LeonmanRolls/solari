@@ -74,36 +74,25 @@
 
 (def project-03 {:id ["project-03"]
                  :year [2014]
-                 :projectid ["catline"]
-                 :link ["catline"]
+                 :projectid ["catalina"]
+                 :link ["catalina"]
                  :category ["cat-residential"]
-                 :title ["Catline Lane Subdivision"]
+                 :title ["Catalina Lane Subdivision"]
                  :thumbnail ["/img/catline/catline-00.jpg"]
                  :gallery-images ["catline/catline-00.jpg" "catline/catline-01.jpg" "catline/catline-02.jpg"
                                   "catline/catline-03.jpg" "catline/catline-04.jpg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["Renovated theatre. 5 bedrooms."]]}
+                              :content [["4500sqm. Sub-division. 3 house sites. "]]}
                              {:title ["Client goals and objectives"]
-                              :content [["Re-think/re-design an old theatre containing a retail store,
-                                              cafe and 3 bedroom flat, into a welcoming contemporary home for a growing,
-                                              energetic family."]]}
+                              :content [["Develop three family-friendly sites that have a sense of community, privacy and individuality."]]}
                              {:title ["Solari's solution"]
-                              :content [["When working on this project we were inspired not only by the
-                                              original building but its location and the energy of the family. Not wanting
-                                              to disconnect the building ffrom tis historic roots in Lyall Bay we created
-                                              a space taht continued to rech out to its surroundings. We kept a sense of
-                                              freesom throughout the home with a very generous double height centrl living
-                                              space that introduced a formal lounge area before rolling into a causal
-                                              family space effortlessly blended into the back yard."]]}
+                              :content [["Through shaping the hillside we will allow owners to indulge in a balance of dramatic views across Evans Bay and shared village greens. "]]}
                              {:title ["Challenges"]
-                              :content [["This home was prone to extreme weather and sea conditions. The
-                                              sand, salt and wind presented a myriad of constructional challenges.
-                                              The facade had to be durable but not compromise or dull the bold style
-                                              the client desired."]]}
+                              :content [["The site is a deep basin within the Evans Bay Parade hillside. Creating a flat space for the village green has required a lot of drainage and earthworks. Earthworks are always challenging due to the simple fact you just don’t really know what’s in there until you start digging. The process took us 4 months longer than we initially planned. "]]}
                              {:title ["Successes"]
                               :content [["The village green is a triumph. It is a large sheltered and sunny space perfect for growing families to enjoy. While Wellington battles with the prevailing Northerly the residents at Catalina Lane enjoy the sunshine with not much more than a gentle breeze. A welcome relief to all."]] }
                              {:title ["Testimonial"]
-                              :content [[""]] }
+                              :content [["N/A"]] }
                              ]})
 
 (def project-04
@@ -114,8 +103,7 @@
    :category ["cat-residential"]
    :title ["Plimmerton House"]
    :thumbnail ["/img/plimmerton/plimmerton-00.jpg"]
-   :gallery-images ["plimmerton/plimmerton-00.jpg" "plimmerton/plimmerton-01.jpg" "plimmerton/plimmerton-02.jpg"
-                    "plimmerton/plimmerton-03.jpg"]
+   :gallery-images ["plimmerton/plimmerton-00.jpg" "plimmerton/plimmerton-01.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["N/A"]]}
                {:title ["Client goals and objectives"]
@@ -168,7 +156,7 @@
                     "sharella/sharella-06.jpg" "sharella/sharella-07.jpg" "sharella/sharella-08.jpg"
                     "sharella/sharella-09.jpg" "sharella/sharella-10.jpg" ]
    :accordion [{:title ["Specifics"]
-                :content [["18-24 Glenmore Street, Thorndon. Client: Property Developer, Vladimir Barbalich. 7 Townhouses and 4 Apartments. Semi-Suburban lifestyle. 5 minute walk from the city centre. "]]}
+                :content [["18-24 Glenmore Street, Thorndon. Client: Property Developer, Vladimir Barbalich. 7 Townhouses and 12 Apartments. Semi-Suburban lifestyle. 5 minute walk from the city centre. "]]}
                {:title ["Client goals and objectives"]
                 :content [["The client wanted a complex that made the most of its location – over looking Wellington’s Botanical Gardens. It also had to work in with the existing site next door, the Sharella Motor Inn - which we had also undertaken extensive upgrades on. "]]}
                {:title ["Solari's solution"]
@@ -235,9 +223,9 @@
    :link ["detroit"]
    :category ["cat-multi-unit-residential"]
    :title ["Detroit"]
-   :thumbnail ["/img/catline/catline-00.jpg"]
-   :gallery-images ["lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
-                    "lyall/lyall-04.jpg"]
+   :thumbnail ["/img/detroit/detroit-00.jpg"]
+   :gallery-images ["detroit/detroit-01.jpg" "detroit/detroit-02.jpg" "detroit/detroit-03.jpg"
+                    "detroit/detroit-04.jpg"]
    :accordion [{:title ["Specifics"]
                 :content [["Solari Architects is involved in a construction observation role on this Novak and Middleton design. 41 apartments. Two stages.Stage 1 (15 units) Stage 2 (26 units)"]]}
                {:title ["Client goals and objectives"]
@@ -296,6 +284,29 @@
                {:title ["Successes"]
                 :content [["n/a"]]}
                {:title ["Testimonial"]
-                :content [[""]] }
-               ]})
+                :content [[""]] }]})
+
+
+(def project-12
+  {:id ["project-12"]
+   :year [2010]
+   :projectid ["firemans"]
+   :link ["firemans"]
+   :category ["cat-commercial cat-multi-unit"]
+   :title ["Firemans Arms"]
+   :thumbnail ["/img/firemans/firemans-00.jpg"]
+   :gallery-images ["firemans/firemans-00.jpg" "firemans/firemans-01.jpg" "firemans/firemans-02.jpg"
+                    "firemans/firemans-03.jpg"]
+   :accordion [{:title ["Specifics"]
+                :content [["92 Tinakori Rd Client: CapitalSkinz Ltd"]]}
+               {:title ["Client goals and objectives"]
+                :content [["n/a"]]}
+               {:title ["Solari's solution"]
+                :content [["Proposed mixed commercial development to create 1400sqm of lettable space. The top two floors housing a new medical center and the ground floor proposed for a café and general"]]}
+               {:title ["Challenges"]
+                :content [["n/a"]]}
+               {:title ["Successes"]
+                :content [["n/a"]]}
+               {:title ["Testimonial"]
+                :content [[""]] }]})
 
