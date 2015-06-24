@@ -326,9 +326,9 @@ We listen and respect one another and consciously collaborate to ensure that we 
 (def contact-data {:text {:bold ["We don't have a giant boardroom table but we do have wine glasses, a beer opener and a coffee machine - which we think make a good starting point to any meeting."]
                           :paragraph [""] }
                    :info [{:bold ["Visit, drink, chat, bounce ideas here:"]
-                           :paragraph [["Level 1"]["13/15 Adelaide Road"]["Wellington 6021"]["New Zealand"]]}
+                           :paragraph [["Level 1"]["13-15 Adelaide Road"]["Mt Cook"]["Wellington"]]}
                           {:bold ["Call, talk, joke, debate, ask here: "]
-                           :paragraph [["+64 (27) 4229430"]]}
+                           :paragraph [["04 9744562"]]}
                           {:bold ["Email jokes, work or gifs here: "]
                            :paragraph [["hello@solariarchitects.com"]]}]})
 

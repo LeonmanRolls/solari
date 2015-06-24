@@ -2,13 +2,30 @@
   (:require [secretary.core :as sec :refer-macros [defroute]]
             [enfocus.core :as ef]
             [enfocus.events :as ev]
+            [cljs.core.async :refer [put! chan <! >! take! close!]]
             [enfocus.effects :as eff]
             [solari.views.common :as common]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
-  (:require-macros [enfocus.macros :as em]))
+  (:require-macros [enfocus.macros :as em] [cljs.core.async.macros :refer [go]] ))
 
 (enable-console-print!)
+
+(defn timeout [ms]
+  (let [c (chan)]
+    (js/setTimeout (fn [] (close! c)) ms)
+    c))
+
+(defn everyday [] (do (.megafilter js/api "cat-everyday")
+                      (ef/at "#everyday-li" (ef/set-attr :color "red"))
+                      (ef/at "#hipster-li" (ef/set-attr :color "none"))
+                      (ef/at "#group_photo" (ef/set-attr :src "/img/leaderboards/group_photo_everyday.jpg"))))
+
+(defn hipster [] (do (.megafilter js/api "cat-hipster")
+                                   (ef/at "#everyday-li" (ef/set-attr :color "none"))
+                                   (ef/at "#hipster-li" (ef/set-attr :color "red"))
+                                   (ef/at "#group_photo"
+                                          (ef/set-attr :src "/img/leaderboards/group_photo_hipster.jpg"))))
 
 (def hipster-data [{:href "" :label "everyday us" :id "everyday-li"
                     :callback #(do (.megafilter js/api "cat-everyday")
@@ -93,7 +110,7 @@
         (.megafilter js/api "cat-everyday")
         (ef/at "#everyday-li" (ef/set-attr :color "red"))
         (ef/at "#hipster-li" (ef/set-attr :color "none"))
-        ))
+        (if (js/mobilecheck) (hipster))))
 
     om/IRenderState
     (render-state [this state]

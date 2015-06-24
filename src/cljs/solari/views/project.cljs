@@ -22,8 +22,10 @@
     om/IRender
     (render [this]
       (dom/div #js {:className "row"}
-               (dom/img #js {:className "col-xs-6" :src (str (first (:everyday (:profilepics data))))})
-               (dom/img #js {:className "col-xs-6" :src (str (first (:hipster (:profilepics data))))})))))
+               (dom/img #js {:style #js {:marginTop "10px"}
+                             :className "col-xs-12 col-sm-6" :src (str (first (:everyday (:profilepics data))))})
+               (dom/img #js {:style #js {:marginTop "10px"}
+                             :className "col-xs-12 col-sm-6" :src (str (first (:hipster (:profilepics data))))})))))
 
 (defmulti image-display (fn [dispatch _] dispatch))
 
