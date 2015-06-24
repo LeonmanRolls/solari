@@ -191,6 +191,9 @@
                         (om/build-all p-p-partial
                                       (:paragraph data) {:state {:admin (:admin state) :color (:color state)}})))))))
 
+
+
+
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
   (reify
@@ -199,16 +202,16 @@
       (println "gallery-partial data: " data)
       (if (:text data)
         (dom/div #js {:href (str (:prelink state) (first ((:link state) data)) )
-                    :className (str "mega-entry cat-all text-gallery " (first (:category data)))  :id (first (:id data))
-                    :data-bgposition "50% 50%" :data-width "320" :data-height "320" :textDecoration "none"
-                      }
-               (dom/div nil
-                        (dom/p #js {:style #js {:color "white" :fontWeight "700"}} (first (:title data)))
-                        (dom/p #js {:style #js {:color "white" :overflow "hidden"}} (first (:subtitle data))))
-              (dom/div #js {:style #js {:position "absolute" :bottom "0px" :left "0px" :width "100%"
-                                        :backgroundColor "#1d1d1b" :textAlign "center" :color "white"
-                                        :textTransform "uppercase" :borderTop "2px solid #c0392b"}} "Enlarge")
-               )
+                      :className (str "mega-entry cat-all text-gallery " (first (:category data)))  :id (first (:id data))
+                      :data-bgposition "50% 50%" :data-width "320" :data-height "320" :textDecoration "none"}
+
+                 (dom/div nil
+                          (dom/p #js {:style #js {:color "white" :fontWeight "700"}} (first (:title data)))
+                          (dom/p #js {:style #js {:color "white" :overflow "hidden"}} (first (:subtitle data))))
+                 (dom/div #js {:data-toggle "modal" :data-target (str "#" (first ((:link state) data)))
+                               :style #js {:position "absolute" :bottom "0px" :left "0px" :width "100%"
+                                           :backgroundColor "#1d1d1b" :textAlign "center" :color "white"
+                                           :textTransform "uppercase" :borderTop "2px solid #c0392b"}} "Enlarge"))
 
         (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
                     :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))

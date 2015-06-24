@@ -1655,3 +1655,36 @@ color: white;
 .mega-entry-innerwrap{
 overflow: hidden !important;
 }
+
+/* Modal shiz */
+
+.modal{
+top: 30% !important;
+}
+
+.modal-content{
+border-radius: 0px;
+background-color: black;
+color: white;
+}
+
+.modal-header{
+border-bottom: none;
+text-transform: uppercase;
+}
+
+.modal-body{
+border-bottom: none;
+}
+
+.modal-footer{
+border-top: none;
+}
+
+.modal-header .close{
+font-size: 70px;
+color: white;
+margin-top: -25px;
+margin-right: -10px;
+}
+
