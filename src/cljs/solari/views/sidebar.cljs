@@ -106,27 +106,38 @@
                                              {:init-state {:clicked clicked}}))
 
                         (dom/div #js {:id "social-container" :style #js {:textAlign "center"}}
-                                 (dom/a #js {:href "http://pinterest.com/solariarchitect/" :target "_blank"}
-                                        (dom/i #js {:className "fa fa-pinterest fa-2x"}))
-                                 (dom/a #js {:href "https://twitter.com/solariarch" :target "_blank"}
-                                        (dom/i #js {:className "fa fa-twitter fa-2x"}))
-                                 (dom/a #js {:href "" :target "_blank"}
-                                        (dom/i #js {:className "fa fa-instagram fa-2x"}))
-                                 (dom/a #js {:href "" :target "_blank"}
-                                        (dom/i #js {:className "fa fa-google-plus fa-2x"}))
-                                 (dom/a #js {:href "" :target "_blank"}
-                                        (dom/i #js {:className "fa fa-facebook fa-2x"}))
+                                 (dom/div nil
+                                          (dom/a #js {:href "http://pinterest.com/solariarchitect/" :target "_blank"}
+                                                 (dom/i #js {:className "fa fa-pinterest fa-2x"}))
+                                          (dom/a #js {:href "https://twitter.com/solariarch" :target "_blank"}
+                                                 (dom/i #js {:className "fa fa-twitter fa-2x"}))
+                                          (dom/a #js {:href "" :target "_blank"}
+                                                 (dom/i #js {:className "fa fa-instagram fa-2x"}))
+                                          (dom/a #js {:href "" :target "_blank"}
+                                                 (dom/i #js {:className "fa fa-google-plus fa-2x"}))
+                                          (dom/a #js {:href "" :target "_blank"}
+                                                 (dom/i #js {:className "fa fa-facebook fa-2x"})))
+
+                                 (dom/div nil
+                                          (dom/div #js {:className "fb-share-button" :data-href "https://solari-site.herokuapp.com/"
+                                                        :data-layout "button"}))
+
+                                 (dom/div #js {:style #js {:marginTop "10px"}}
+                                 (dom/a #js {:href "https://twitter.com/share" :className "twitter-share-button"
+                                                      :data-url "https://solari-site.herokuapp.com/" :data-via "solariarchitets"
+                                                      :data-count "none"} "Tweet"))
                                  )
 
+
                         (dom/a #js {:href "http://nang.rocks" :target "_blank"}
-                        (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"
-                                                                                              :position "absolute"
-                                                                                              :bottom "0"
-                                                                                              :left "0"
-                                                                                              :right "0"
-                                                                                              :textAlign "center"
-                                                                                              :color "grey"}}
-                                    "Website by Nang")))
+                               (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"
+                                                                                                     :position "absolute"
+                                                                                                     :bottom "0"
+                                                                                                     :left "0"
+                                                                                                     :right "0"
+                                                                                                     :textAlign "center"
+                                                                                                     :color "grey"}}
+                                           "Website by Nang")))
 
                (dom/div #js {:className "main-nav-right"}
                         (dom/div #js {:id "nav-hint-outer"}
