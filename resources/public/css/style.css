@@ -1701,5 +1701,20 @@ margin-right: -10px;
 #share-button{
 margin-left: auto;
 margin-right: auto;
+height: 60px;
 }
 
+.sharer-0 label{
+border-radius: 0px !important;
+border: 2px solid #c0392b;
+background-color: rgba(29,29,27,0.4) !important;
+color: white !important;
+}
+
+.sharer-0 {
+width: 100px !important;
+}
+
+.sharer-0 .social ul li {
+height: 34px !important;
+}

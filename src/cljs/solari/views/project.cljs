@@ -66,7 +66,9 @@
                                                    :visibleNearby #js {:enabled false :centerArea 0.5 :center true
                                                                        :breakpoint 650 :breakpointCenterArea 0.64
                                                                        :navigateByCenterClick true}})
+
           (js/accordion)
+
           (js/Share. "#share-button"
                      #js {:url (clojure.string/replace (.-href (.-location js/window)) #"#" "%23")
                           :networks #js {:email #js{:enabled false}}})

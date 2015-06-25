@@ -116,9 +116,7 @@
                                           (dom/a #js {:href "" :target "_blank"}
                                                  (dom/i #js {:className "fa fa-google-plus fa-2x"}))
                                           (dom/a #js {:href "" :target "_blank"}
-                                                 (dom/i #js {:className "fa fa-facebook fa-2x"})))
-
-                                 )
+                                                 (dom/i #js {:className "fa fa-facebook fa-2x"}))))
 
 
                         (dom/a #js {:href "http://nang.rocks" :target "_blank"}
