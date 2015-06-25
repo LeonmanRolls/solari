@@ -222,13 +222,13 @@
   [uid admin]  (om/root project/project-page data/all-data-atom
                         {:target (. js/document (getElementById "main-content-container"))
                          :state {:key :all-projects :filter uid :link :link :filterkey :projectid :admin admin
-                                 :filter-vector [:all-projects] :subtitle :Role}}))
+                                 :filter-vector [:all-projects] :subtitle :Role :url "projects"}}))
 
 (defmethod individual "members"
   [uid admin]  (om/root project/project-page data/all-data-atom
                         {:target (. js/document (getElementById "main-content-container"))
                          :state {:key :the-team-data :filter uid :filterkey :memberid :admin admin
-                                 :filter-vector [:the-team-data :team-members] :subtitle :year}}) )
+                                 :filter-vector [:the-team-data :team-members] :subtitle :year :url "members"}}) )
 
 (defroute "/projects/individual/:id" {:as params}
           (do

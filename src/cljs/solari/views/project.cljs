@@ -67,10 +67,18 @@
                                                                        :breakpoint 650 :breakpointCenterArea 0.64
                                                                        :navigateByCenterClick true}})
           (js/accordion)
+          (println (str "https://solari-site.herokuapp.com/#/"
+                                                              (:url (om/get-state owner))
+                                                              "/individual/"
+                                                              (first (:link local)) ))
           (js/Share. "#share-button" #js {:networks
                                           #js {:facebook
                                                #js {:title (first (:title local))
                                                     :load_sdk true
+                                                    :url (str "https://www.solari-site.herokuapp.com/#/"
+                                                              (:url (om/get-state owner))
+                                                              "/"
+                                                              (first (:link local)))
                                                     }}})
 
           #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) )
