@@ -67,27 +67,9 @@
                                                                        :breakpoint 650 :breakpointCenterArea 0.64
                                                                        :navigateByCenterClick true}})
           (js/accordion)
-          (println (str "https://solari-site.herokuapp.com/#/"
-                                                              (:url (om/get-state owner))
-                                                              "/"
-                                                              (first (:link local)) ))
-          (js/Share. "#share-button" #js {:networks
-                                          #js {} #_{:facebook
-                                               #js {:title (first (:title local))
-                                                    :enabled false
-                                                    :load_sdk true
-                                                    :url (str "https://www.solari-site.herokuapp.com/#/"
-                                                              (:url (om/get-state owner))
-                                                              "/"
-                                                              (first (:link local)))}
-
-                                               :twitter
-                                               #js {:url (str "https://www.solari-site.herokuapp.com/#/"
-                                                              (:url (om/get-state owner))
-                                                              "/"
-                                                              (first (:link local)))}
-
-                                               }})
+          (js/Share. "#share-button"
+                     #js {:url (clojure.string/replace (.-href (.-location js/window)) #"#" "%23")
+                          :networks #js {:email #js{:enabled false}}})
 
           #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) )
 
