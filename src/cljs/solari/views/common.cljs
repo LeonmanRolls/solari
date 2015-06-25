@@ -211,7 +211,7 @@
                  (dom/div #js {:data-toggle "modal" :data-target (str "#" (first ((:link state) data)))
                                :style #js {:position "absolute" :bottom "0px" :left "0px" :width "100%"
                                            :backgroundColor "#1d1d1b" :textAlign "center" :color "white"
-                                           :textTransform "uppercase" :borderTop "2px solid #c0392b"}} "Enlarge"))
+                                           :textTransform "uppercase" :borderTop "2px solid #c0392b"}} "See All"))
 
         (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
                     :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))

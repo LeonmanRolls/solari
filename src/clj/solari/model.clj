@@ -301,8 +301,8 @@ We listen and respect one another and consciously collaborate to ensure that we 
                          :advice ["My favourite part of working at Solari Architects is: The supportive environment, vast range of knowledge and the exquisite coffee"]
                          :outside ["You’ll find me getting dangerously airborne on a bmx or mountain bike, taking blurry photos, or working under an impractically low car."]
                          :polaroid ["I love the supportive environment, vast range of knowledge, and the exquisite coffee at Solari Architects! "]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["SOLARI SAYS"]
+                         :textpara ["Professional doesn't have to be serious."]
                          }
 
                         {:name ["Molly Marshall"]
@@ -317,8 +317,8 @@ We listen and respect one another and consciously collaborate to ensure that we 
                          :advice ["Away from work you’ll fine me: playing social netball and café hopping around Wellington."]
                          :outside ["you’ll find me playing social netball and café hopping around Wellington."]
                          :polaroid ["You’ll find me playing social netball and café hopping around Wellington."]
-                         :texttitle [""]
-                         :textpara [""]
+                         :texttitle ["SOLARI SAYS"]
+                         :textpara ["Less ego, more client."]
                          }
                         ]
                     })
@@ -328,7 +328,7 @@ We listen and respect one another and consciously collaborate to ensure that we 
                    :info [{:bold ["Visit, drink, chat, bounce ideas here:"]
                            :paragraph [["Level 1"]["13-15 Adelaide Road"]["Mt Cook"]["Wellington"]]}
                           {:bold ["Call, talk, joke, debate, ask here: "]
-                           :paragraph [["04 9744562"]]}
+                           :paragraph [["+64 4 9744562"]]}
                           {:bold ["Email jokes, work or gifs here: "]
                            :paragraph [["hello@solariarchitects.com"]]}]})
 

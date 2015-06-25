@@ -60,7 +60,11 @@ body[background=for-you] {
        rgba(0, 0, 0, 0.7),
        rgba(0, 0, 0, 0.7)
      ),
-  url(/img/home_page.jpg);
+  url(/img/home_page.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 body[background=polaroid] {
@@ -1636,6 +1640,12 @@ and (-webkit-max-device-pixel-ratio: 3)
 .navbar-default .navbar-brand {
   color: white;
 }
+
+body[background=home] {
+  background:
+  url(/img/home_page.jpg);
+}
+
 }
 
 @media screen and (min-width: 768px) {

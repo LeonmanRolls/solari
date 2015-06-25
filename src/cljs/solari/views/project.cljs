@@ -57,16 +57,26 @@
 
     om/IDidMount
     (did-mount [this]
-      (do
-        (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "none"
-                                                 :autoScaleSlider true :autoScaleSliderWidth 900 :autoScaleSliderHeight 400
-                                                 :fullscreen #js {:enabled true :nativeFS true}
-                                                 :visibleNearby #js {:enabled false :centerArea 0.5 :center true
-                                                                     :breakpoint 650 :breakpointCenterArea 0.64
-                                                                     :navigateByCenterClick true}})
-        (js/accordion)
+      (let [local (first (get-in data (:filter-vector (om/get-state owner))))]
+        (println "loca: " local)
+        (do
+          (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "none"
+                                                   :autoScaleSlider true :autoScaleSliderWidth 900 :autoScaleSliderHeight 400
+                                                   :fullscreen #js {:enabled true :nativeFS true}
+                                                   :visibleNearby #js {:enabled false :centerArea 0.5 :center true
+                                                                       :breakpoint 650 :breakpointCenterArea 0.64
+                                                                       :navigateByCenterClick true}})
+          (js/accordion)
+          (js/Share. "#share-button" #js {:networks
+                                          #js {:facebook
+                                               #js {:title (first (:title local))
+                                                    :load_sdk true
+                                                    }}})
 
-        #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) ))
+          #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) )
+
+        )
+      )
 
     om/IRenderState
     (render-state [this state]
@@ -75,34 +85,19 @@
 
        (dom/div #js {:id "project-container" :style #js {:color "white"}}
 
-                ;(println "project indivudual local: " ((:filterkey state) local))
-                ;(println "project indivudual local: " (first local))
-                (println "project indivudual state: " state)
-                (println "project indivudual project: " (:how (first project)) )
+                (println "prject: " local)
 
                 (image-display (:key state) project)
-
-
-               #_(println "filter: "
-                        (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) data) 2)  )
-
-               #_(om/build
-                 common/input-partial
-                 (nth (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) project) 4))
-
-               #_(doall
-               (om/build-all common/input-partial (filter (fn [x] (not= "non-user" ((key x) common/project-schema))) project))
-                 )
 
                 (accordion-display (:key state) project state)
 
                 (dom/div #js {:style #js {:padding "20px" }}
                          (if (not= (first (:filter-vector state)) :all-projects) (dom/b nil "How"))
                 (apply dom/div nil (om/build-all common/p-p-partial (:how (first project) )))
-                         )
 
+                         (dom/div #js {:id "share-button"})
 
-                )))))
+                         ))))))
 
 
 
