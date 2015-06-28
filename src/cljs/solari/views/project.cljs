@@ -71,7 +71,8 @@
 
           (js/Share. "#share-button"
                      #js {:url (clojure.string/replace (.-href (.-location js/window)) #"#" "%23")
-                          :networks #js {:email #js{:enabled false}}})
+                          :networks #js {:email #js{:description (str "Hey take a look at this: "
+                                                                      (.-href (.-location js/window)))}}})
 
           #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) )
 

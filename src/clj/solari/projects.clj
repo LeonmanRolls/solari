@@ -298,15 +298,15 @@
    :gallery-images ["firemans/firemans-00.jpg" "firemans/firemans-01.jpg" "firemans/firemans-02.jpg"
                     "firemans/firemans-03.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["92 Tinakori Rd Client: CapitalSkinz Ltd"]]}
+                :content [["315 Jackson Street, Petone, Wellington. Client: Jackson Holding’s. 32 apartments and 4 retail spaces. Currently in Design Phase. "]]}
                {:title ["Client goals and objectives"]
-                :content [["n/a"]]}
+                :content [["Jackson Street has in recent years experienced significant redevelopment, and as a result tight planning guides have been implemented to respect the heritage of this important harbour edge suburb. The client's goal was to build a quality and affordable apartment complex that met the new criteria and worked in with its surroundings."]]}
                {:title ["Solari's solution"]
-                :content [["Proposed mixed commercial development to create 1400sqm of lettable space. The top two floors housing a new medical center and the ground floor proposed for a café and general"]]}
+                :content [["Our key objective was to develop a new benchmark for higher-density living in Petone through inserting a modern interpretation of the strict planning requirements while providing high levels of internal amenity. With 32 apartments and 4 retail tenancies this new development will set a standard for others to aspire to. "]]}
                {:title ["Challenges"]
-                :content [["n/a"]]}
+                :content [["Developing a modern living complex that also adhered to the heritage requirements of the street. "]]}
                {:title ["Successes"]
-                :content [["n/a"]]}
+                :content [["Designing a development that met both the expectations of the client and new criteria. "]]}
                {:title ["Testimonial"]
-                :content [[""]] }]})
+                :content [["n/a"]] }]})
 
