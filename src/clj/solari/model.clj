@@ -55,8 +55,9 @@
   )
 
 (def from-us-data
-  {:bold ["A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness."]
-         :paragraph [""] })
+  {:text {:bold ["A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness."]
+         :paragraph [""] }
+   :instagram-data []})
 
 (def your-career-data
   {:main {:bold ["Here’s some good advice:  Never choose to work for someone based on their brand or portfolio. Work for people who are going to teach you and make you better."]   }

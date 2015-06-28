@@ -23,7 +23,6 @@
     (.send req nil (fn [res] (put! out res)))
     out))
 
-(go (.log js/console (<! (jsonp query-url))))
 
 #_(defn get-all-games [result-chan]
   (GET "/games/"
@@ -40,14 +39,26 @@
 
 (defn from-uss [data owner]
   (reify
+   om/IInitState
+    (init-state [_]
+      #_(go
+        (om/update! data [:instagram-data] (<! (jsonp query-url)) )
+        )
+
+      )
+
+
      om/IDidMount
-    (did-mount [this]
-      (.dcSocialStream
-        (js/$ "#social-wall-root")
-        #js {:feeds #js {:pinterest #js {:id "jsolari"}} :wall true}))
+    (did-mount [this])
 
     om/IRenderState
     (render-state [this state]
       (dom/div nil
                (om/build common/paragraph-partial data {:state state})
-               (dom/div #js {:id "social-wall-root"})))))
+#_(.log js/console "instagram-data" (:instagram-data data))
+
+               )))
+
+  )
+
+
