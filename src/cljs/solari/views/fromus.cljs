@@ -42,7 +42,8 @@
    om/IInitState
     (init-state [_]
       #_(go
-        (om/update! data [:instagram-data] (<! (jsonp query-url)) )
+        (om/update! data [:instagram-data] [(js->clj (<! (jsonp query-url)) :keywordize-keys true)] )
+
         )
 
       )
@@ -55,7 +56,7 @@
     (render-state [this state]
       (dom/div nil
                (om/build common/paragraph-partial data {:state state})
-#_(.log js/console "instagram-data" (:instagram-data data))
+(.log js/console "instagram-data" @(:instagram-data data))
 
                )))
 
