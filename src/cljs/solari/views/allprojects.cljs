@@ -44,20 +44,22 @@
                                            (om/transact!
                                              (get data :all-projects)
                                              (fn [cursor] (sort-by (fn [x] (first (:projectid x))) cursor)))
-                                           (sec/dispatch! (:route state))
+                                           ;(sec/dispatch! (:route state))
                                            (ef/at "#short-li-name" (ef/set-attr :color "red"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "none"))
-                                           (.megafilter js/api (:cat (om/get-state owner)))
+                                           (.reload (.-location js/window))
+                                           #_(.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
                     (= sort-type "year") (do
                                            (om/transact!
                                              (get data :all-projects)
                                              (fn [cursor] (reverse (sort-by (fn [x] (first (:year x))) cursor))))
-                                           (sec/dispatch! (:route state))
+                                           ;(sec/dispatch! (:route state))
                                            (ef/at "#short-li-name" (ef/set-attr :color "none"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "red"))
-                                           (.megafilter js/api (:cat (om/get-state owner)))
+                                           (.reload (.-location js/window))
+                                           #_(.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
 
