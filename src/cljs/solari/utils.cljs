@@ -2,7 +2,8 @@
   (:require [goog.net.cookies :as cookies]
             [cljs.reader :as reader]
             [clojure.string :as string]
-            [clojure.walk :as walk]))
+            [clojure.walk :as walk]
+            [secretary.core :as sec]))
 
 (def default-games
   (atom #{{:gamename "Farmville 2" :gameid 321574327904696}
@@ -29,6 +30,7 @@
         (> seconds 86400) (str (quot (quot seconds 3600) 24) " Days ago")
         :else "A long time ago"))
 
+(defn dispatch-route [route] (sec/dispatch! route))
 
 (defn ajax-error-handler [{:keys [status status-text response original-text is-parse-error parse-error]}]
   (.log js/console

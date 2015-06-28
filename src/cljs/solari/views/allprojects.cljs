@@ -4,6 +4,7 @@
             [enfocus.events :as ev]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
             [enfocus.effects :as eff]
+            [solari.utils :as utils]
             [solari.views.common :as common]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
@@ -31,6 +32,9 @@
           (js/megafolioInit)
 
           (println "category state: " (om/get-state owner))
+          (println "path: " (.substr
+                              (.-href (.-location js/window))
+                              (.lastIndexOf (.-href (.-location js/window)) "/")))
 
           (.megafilter js/api (:cat (om/get-state owner)))
           (if (not (empty? data))
@@ -45,9 +49,12 @@
                                              (get data :all-projects)
                                              (fn [cursor] (sort-by (fn [x] (first (:projectid x))) cursor)))
                                            ;(sec/dispatch! (:route state))
+                                           (utils/dispatch-route (.substr
+                                                                   (.-href (.-location js/window))
+                                                                   (.lastIndexOf (.-href (.-location js/window)) "/")))
                                            (ef/at "#short-li-name" (ef/set-attr :color "red"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "none"))
-                                           (.reload (.-location js/window))
+                                           ;(.reload (.-location js/window))
                                            #_(.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
@@ -56,9 +63,13 @@
                                              (get data :all-projects)
                                              (fn [cursor] (reverse (sort-by (fn [x] (first (:year x))) cursor))))
                                            ;(sec/dispatch! (:route state))
+                                           (utils/dispatch-route (.substr
+                                                                   (.-href (.-location js/window))
+                                                                   (.lastIndexOf (.-href (.-location js/window)) "/")))
+                                           ;(utils/dispatch-route (:route state))
                                            (ef/at "#short-li-name" (ef/set-attr :color "none"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "red"))
-                                           (.reload (.-location js/window))
+                                           ;(.reload (.-location js/window))
                                            #_(.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
@@ -81,7 +92,6 @@
 
                  #_(om/build common/gallery-partial (first local))
 
-                 (println "local: " local )
 
                  #_(println "local: " (empty? local)  )
 

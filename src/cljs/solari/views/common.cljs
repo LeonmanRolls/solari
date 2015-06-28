@@ -201,7 +201,6 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      (println "gallery-partial data: " data)
       (if (:text data)
         (dom/div #js {:href (str (:prelink state) (first ((:link state) data)) )
                       :className (str "mega-entry cat-all text-gallery " (first (:category data)))  :id (first (:id data))

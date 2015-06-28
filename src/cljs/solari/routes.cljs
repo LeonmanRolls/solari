@@ -11,6 +11,7 @@
             [solari.views.fromus :as fromus]
             [solari.views.admin :as admin]
             [solari.views.faqs :as faqs]
+            [solari.utils :as utils]
             [solari.views.process :as process]
             [ajax.core :refer [GET POST PUT]]
             [cljs.core.async :refer [put! chan <! >! take! close!]]
@@ -24,12 +25,11 @@
   (:import goog.History))
 
 (def route-chan (chan))
-(defn dispatch-route [route] (sec/dispatch! route))
 
 (go
   (loop []
     (let [route (<! route-chan)]
-      (dispatch-route route))
+      (utils/dispatch-route route))
     (recur)))
 
 ;Fallback for browsers without html5 history support
