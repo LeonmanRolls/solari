@@ -142,8 +142,11 @@
     (render-state [this state]
       (dom/div nil
                (println "p-p-partial: " (first data))
-               (dom/p nil (first data))
-               (if (:admin state) (om/build input-partial data))))))
+
+               (if (< 0 (.indexOf (first data) "@"))
+                 (dom/a #js {:style #js {:color "white"}
+                             :href (str "mailto:" (first data))} (dom/p nil (first data)))
+                 (dom/p nil (first data)))))))
 
 (defn accordion-partial [data owner]
   (reify
@@ -190,7 +193,6 @@
                  (apply dom/div nil
                         (om/build-all p-p-partial
                                       (:paragraph data) {:state {:admin (:admin state) :color (:color state)}})))))))
-
 
 
 

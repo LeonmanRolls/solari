@@ -353,6 +353,7 @@
             (ef/at "body" (ef/set-attr :background "for-architects"))
             (ef/at "#nav-hint-inner" (ef/content "Jobs"))))
 
+
 (defn contact-page [data owner]
   (reify
     om/IRenderState
@@ -360,8 +361,24 @@
       (let [local (:contact-data data)]
         (dom/div #js {:style #js {:color "white"}}
                  (om/build common/paragraph-partial local {:state {:admin (:admin state) :key :text :color "white"}})
-                 (apply dom/div  #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px" :color "white"}}
-                        (om/build-all common/uppercase-paragraph-partial (:info local) {:state state})))))))
+
+                 (dom/div  #js {:style #js {:border "2px solid #c0392b" :padding "20px" :marginTop "20px" :color "white"}}
+
+                           (dom/b #js {:style #js {:textTransform "uppercase"}} "Visit, drink, chat, bounce ideas here")
+                           (dom/p nil "Level 1")
+                           (dom/p nil "13-15 Adelaide Road")
+                           (dom/p nil "Mt Cook")
+                           (dom/p nil "Wellington")
+
+                           (dom/b #js {:style #js {:textTransform "uppercase"}} "Call, talk, joke, debate, ask here: ")
+                           (dom/a #js {:href "tel:+6449744562" :style #js {:color "white"}}
+                                  (dom/p nil "+64 4 9744562"))
+
+                           (dom/b #js {:style #js {:textTransform "uppercase"}} "Email jokes, work or gifs here: ")
+                           (dom/a #js {:style #js {:color "white"}
+                                       :href "mailto:hello@solariarchitects.com"}
+                                  (dom/p nil "hello@solariarchitects.com"))))))))
+
 
 (defroute "/contact" {:as params}
           (do

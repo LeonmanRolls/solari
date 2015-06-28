@@ -122,20 +122,16 @@
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
                       (om/build-all common/simple-li hipster-data))
 
-                (println "loca: " local)
-
                  (if (:interop state)
-                  (dom/div #js {:style #js {:color "white"}}
-                    (dom/b nil "The people you work with should make you want to come to work each day. We support, share, teach and encourage. We all back each other which is something Solari thinks is really important - after all a business is only as good as it’s people.")
-                    (dom/p nil "Since starting this company in 2011 James Solari has grown the business from being a sole practitioner to be a growing team of seven talented and driven designers, thinkers and most of all, doers. We know every company bangs on about how wonderful they are and tell you that they all like working with each other but, we really do. " (dom/b nil "And Here’s why:"))
-
-                    )
+                   (dom/div #js {:style #js {:color "white"}}
+                            (dom/b nil "The people you work with should make you want to come to work each day. We support, share, teach and encourage. We all back each other which is something Solari thinks is really important - after all a business is only as good as it’s people.")
+                            (dom/p nil "Since starting this company in 2011 James Solari has grown the business from being a sole practitioner to be a growing team of seven talented and driven designers, thinkers and most of all, doers. We know every company bangs on about how wonderful they are and tell you that they all like working with each other but, we really do. "
+                                   (dom/b nil "And Here’s why:")))
 
 
                  (om/build common/paragraph-partial local {:state {:key :text
                                                                    :admin (:admin state)
-                                                                   :color (:color state)}})
-                   )
+                                                                   :color (:color state)}}))
 
 
                (dom/img #js {:id "group_photo" :src (first (:architect (:leaderboard local)))

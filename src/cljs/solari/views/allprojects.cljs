@@ -29,6 +29,9 @@
       (let [local (:key (om/get-state owner))]
         (do
           (js/megafolioInit)
+
+          (println "category state: " (om/get-state owner))
+
           (.megafilter js/api (:cat (om/get-state owner)))
           (if (not (empty? data))
             (go
@@ -44,6 +47,7 @@
                                            (sec/dispatch! (:route state))
                                            (ef/at "#short-li-name" (ef/set-attr :color "red"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "none"))
+                                           (.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
                     (= sort-type "year") (do
@@ -53,6 +57,7 @@
                                            (sec/dispatch! (:route state))
                                            (ef/at "#short-li-name" (ef/set-attr :color "none"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "red"))
+                                           (.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
 
