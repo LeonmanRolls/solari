@@ -226,9 +226,8 @@
   (reify
     om/IRenderState
     (render-state [this state]
-      ;(dom/div nil "hi there")
-      ;(println "Instagram data: " data)
-      ;(println "Instagram data: " (:images data))
+      (println "Instagram data: " data)
+      (println "Instagram data: " (:caption data))
 
       (dom/a #js {:href "" #_(str (:prelink state) (first ((:link state) data)) )
                     :className (str "mega-entry cat-all ")  :id "lsdjflsdjf" #_(first (:id data))
@@ -237,7 +236,7 @@
                         (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                  "Title"
                                  #_(first (:title data))
-                                 (dom/div #js {:className "mega-hoversubtitle"} "Subtitle"  #_(first ((:subtitle state) data))))))
+                                 (dom/div #js {:className "mega-hoversubtitle"} (:text (:caption data)) ))))
 
      )))
 
