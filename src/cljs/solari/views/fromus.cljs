@@ -38,28 +38,23 @@
       :error-handler u/ajax-error-handler})
 
 (defn from-uss [data owner]
+
   (reify
-   om/IInitState
-    (init-state [_]
-      #_(go
-        (om/update! data [:instagram-data] [(js->clj (<! (jsonp query-url)) :keywordize-keys true)] )
-
-        )
-
-      )
-
+   om/IWillMount
+    (will-mount [_]
+      (go (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))))
 
      om/IDidMount
-    (did-mount [this])
+    (did-mount [this]
+      (js/megafolioInit))
 
     om/IRenderState
     (render-state [this state]
-      (dom/div nil
-               (om/build common/paragraph-partial data {:state state})
-(.log js/console "instagram-data" @(:instagram-data data))
+      (apply dom/div #js {:className "megafolio-container"}
+               (om/build-all common/instagram-gallery-partial (:data (:instagram-data data)))
+
 
                )))
-
   )
 
 

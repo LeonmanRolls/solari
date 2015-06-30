@@ -19,8 +19,6 @@
 
 (defn all-memberids []  (map (fn [x] (first (:memberid x))) (:team-members (:the-team-data @all-data-atom))))
 
-
-
 ;Wait for our ajax calls
 (go
   (loop [ajax-count 0]

@@ -195,7 +195,6 @@
                                       (:paragraph data) {:state {:admin (:admin state) :color (:color state)}})))))))
 
 
-
 ;link, category, id, thumbnail, title
 (defn gallery-partial [data owner]
   (reify
@@ -221,6 +220,27 @@
                         (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
                                  (first (:title data))
                                  (dom/div #js {:className "mega-hoversubtitle"} (first ((:subtitle state) data))))))))))
+
+
+(defn instagram-gallery-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      ;(dom/div nil "hi there")
+      ;(println "Instagram data: " data)
+      ;(println "Instagram data: " (:images data))
+
+      (dom/a #js {:href "" #_(str (:prelink state) (first ((:link state) data)) )
+                    :className (str "mega-entry cat-all ")  :id "lsdjflsdjf" #_(first (:id data))
+                    :data-src (:url (:standard_resolution (:images data))) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+               (dom/div #js {:className "mega-hover"}
+                        (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "40%"}}
+                                 "Title"
+                                 #_(first (:title data))
+                                 (dom/div #js {:className "mega-hoversubtitle"} "Subtitle"  #_(first ((:subtitle state) data))))))
+
+     )))
+
 
 (defn simple-li [data owner]
   (reify

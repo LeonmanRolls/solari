@@ -31,11 +31,6 @@
         (do
           (js/megafolioInit)
 
-          (println "category state: " (om/get-state owner))
-          (println "path: " (.substr
-                              (.-href (.-location js/window))
-                              (.lastIndexOf (.-href (.-location js/window)) "/")))
-
           (.megafilter js/api (:cat (om/get-state owner)))
           (if (not (empty? data))
             (go
