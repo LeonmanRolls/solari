@@ -244,7 +244,7 @@
     (render-state [this state]
 
       ;(println "twitter partial: " (:media_url (first (:media (:entities data)))))
-      (println "twitter partial: " (:entities data))
+      ;(println "twitter partial: " (:entities data))
 
       (if (:media (:entities data))
 
