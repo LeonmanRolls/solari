@@ -50,11 +50,21 @@
 
     om/IRenderState
     (render-state [this state]
-      (apply dom/div #js {:className "megafolio-container"}
+      (dom/div nil
+
+(apply dom/div #js {:className "megafolio-container"}
                (om/build-all common/instagram-gallery-partial (:data (:instagram-data data)))
 
+               )
 
-               )))
+      (apply dom/div #js {:className "megafolio-container"}
+               (om/build-all common/twitter-gallery-partial (:body (:twitter-data data)))
+
+               )
+
+               )
+
+      ))
   )
 
 

@@ -24,6 +24,7 @@
                  [enfocus "2.1.1"]
                  [enlive "1.1.5"]
                  [om "0.8.0-rc1"]
+                 [twitter-api "0.7.8"]
                  [environ "1.0.0"]]
 
   :plugins [[lein-cljsbuild "1.0.3"]

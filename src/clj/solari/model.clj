@@ -6,10 +6,21 @@
             [solari.projects :as pr]
             [clojure.walk :as w]
             [clojure.java.jdbc :as sql]
-            [clojure.java.jdbc.deprecated :as sql-old]))
-(import 'twitter4j.TwitterFactory)
+            [clojure.java.jdbc.deprecated :as sql-old])
+  (:use
+    [twitter.oauth]
+    [twitter.callbacks]
+    [twitter.callbacks.handlers]
+    [twitter.api.restful])
+  (:import
+    (twitter.callbacks.protocols SyncSingleCallback)))
 
-(def twitter (.getInstance (TwitterFactory.)))
+(def my-creds (make-oauth-creds "ybOPGjqM1twGNG24CJWMSgXOQ"
+                                "Xz4xB9azJfy8iGf9rXeDfBIZpFwF96wFyXyW28Wy7gyIqpxacC"
+                                "2830994714-iSfZAEW5t1NgRQbVD5EKmCAvGMh20EyQUYBC2pr"
+                                "aDE39Es4CsM03hqqEU4GDrvjJDdCu6bgQ0j7uCrY0R5xN"))
+
+(statuses-user-timeline :oauth-creds my-creds :params {:screen-name "SolariArch" :count 10})
 
 (def db
   (env
@@ -353,8 +364,7 @@ We listen and respect one another and consciously collaborate to ensure that we 
          :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
                         pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11 pr/project-12]
          :sorted-state sorted-state
-         }
-         ))
+         :twitter-data (statuses-user-timeline :oauth-creds my-creds :params {:screen-name "SolariArch" :count 100})}))
 
 
 (defresource all-data-resource
@@ -364,4 +374,5 @@ We listen and respect one another and consciously collaborate to ensure that we 
              :handle-ok (fn [context] @all-data)
              :put! (fn [ctx] (reset! all-data (:all-data (:params (:request ctx)))))
              :available-media-types ["application/edn"])
+
 
