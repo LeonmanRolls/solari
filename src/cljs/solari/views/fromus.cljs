@@ -51,8 +51,10 @@
     om/IRenderState
     (render-state [this state]
       (dom/div nil
+               (dom/b #js {:style #js {:color "white"}}
+                      "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness.")
 
-(apply dom/div #js {:className "megafolio-container"}
+(apply dom/div #js {:className "megafolio-container" :stye #js {:marginTop "20px"}}
                (om/build-all common/instagram-gallery-partial (:data (:instagram-data data)))
 
                )

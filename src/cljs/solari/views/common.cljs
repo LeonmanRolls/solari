@@ -181,8 +181,7 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
-                 (println "sfsdf" local)
-                 (om/build p-partial (if (:text local) (:text local) local) {:state {:admin (:admin state) :color (:color state)}}))))))
+                 (om/build p-partial (if (:text local) (:text local)  local)  {:state {:admin (:admin state) :color (:color state)}}))))))
 
 (defn uppercase-paragraph-partial [data owner]
   (reify
