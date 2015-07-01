@@ -181,7 +181,8 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
-                 (om/build p-partial local {:state {:admin (:admin state) :color (:color state)}}))))))
+                 (println "sfsdf" local)
+                 (om/build p-partial (if (:text local) (:text local) local) {:state {:admin (:admin state) :color (:color state)}}))))))
 
 (defn uppercase-paragraph-partial [data owner]
   (reify
@@ -244,18 +245,17 @@
     (render-state [this state]
 
       ;(println "twitter partial: " (:media_url (first (:media (:entities data)))))
-      ;(println "twitter partial: " (:entities data))
 
       (if (:media (:entities data))
 
-       (dom/a #js {:href "" :target "_blank"
+       (dom/a #js {:href "/#/from-us"
                     :className (str "mega-entry cat-all ")  :id "lsdjflsdjf" #_(first (:id data))
                     :data-src (:media_url (first (:media (:entities data)))) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
                (dom/div #js {:className "mega-hover"}
                         #_(dom/div #js {:className "mega-hoversubtitle"} (:text (:caption data)) )
                         (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "20%"}}
                                  (dom/i #js {:className "fa fa-twitter fa-2x"})
-                                 (dom/div #js {:className "mega-hoversubtitle"} "" #_(:text (:caption data)) ))))
+                                 (dom/div #js {:className "mega-hoversubtitle"} (:text data)))))
 
        (dom/div nil )
 

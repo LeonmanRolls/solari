@@ -101,7 +101,7 @@
 
    :long [{:title ["It starts with a chat."]
            :content [["We get together and you tell us what you’re hoping to achieve. "]
-                     ["The things we’re interested in are: the project site, your timeframes, your expected budget and your vision. We’re always happy to show you our previous work and talk to you about how we can work with you. You can bring cuttings, mood boards, words, scribbles, Pinterest boards, music - just anything that helps us get an idea of what you’ve got in mind.  Also, tell us who you are.  Knowing a little more about your lifestyle, family, hobbies, goals and an entertaining story all helps us put together a quote for our services."]
+                     ["The things we’re interested in are: the project site, your timeframes, your expected budget and your vision. We’re always happy to show you our previous work and talk to you about how we can work with you. You can bring cuttings, mood boards, words, scribbles, Pinterest boards, music - just anything that helps us get an idea of what you’ve got in mind.  Also, tell us who you are.  Knowing a little more about your lifestyle, family, hobbies, goals and an entertaining story helps us put together a together a complete picture of requirements and allows us to give you an accurate quote for our services."]
                        ["From there you can decide if you want to partner with us to work on your project (fingers crossed)."]]}
 
           {:title ["Just so you know: Useful information."]
@@ -141,7 +141,7 @@
 
           {:title ["The Nuts & Bolt Phase: Working Drawings and Building Consent. "]
            :content [["In this stage your project is documented, co-ordinated and made “build-ready”. We finalise a comprehensive package of drawings and literature that builders will price from and councils will process for Building Consent. The complexity of the project will determine how detailed this package needs to be in order to achieve building consent. "]
-                     ["We apply for a building consent on your behalf. Each local authority has its own way of working fee structures and processing times. To ensure a stress free consent process we work in the consultation with councils as much as possible. "]
+                     ["We apply for a building consent on your behalf. Each local authority has its own fee structures, processing times and way of working. To ensure a stress free consent process we work in consultation with councils as much as possible. "]
 ["Naturally we will keep you in the loop every step of the way so you know how things are tracking."]
                         ]}
 
@@ -170,7 +170,7 @@
 
           {:title ["Overall."]
            :content [
-                    ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – it just makes sense that we come along for “the ride”. "]
+                    ["It is our preference is to be involved with you right through the construction process. We have years of experience in the successful delivery of numerous types of projects – being on your team means we bring all that to the table and more."]
 ["Construction is a complex process and is generally / naturally unfamiliar territory for most people. We therefore strongly believe we bring great value to this part of your project.  There are different ways we can structure our involvement and we have specific NZIA construction contracts depending on our exact role."]
                         ]}
           ]})
@@ -215,9 +215,9 @@
 
 (def the-team-data
   {:text {:bold ["The Solari team is your team."]
-          :paragraph [" As collaborators there is no \"our way\" verse \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."] }
+          :paragraph [" As collaborators there is no \"our way\" versus \"your way\". Instead we blend your goals with our knowledge of the industry. We aren’t big on baffling you with fancy architecture jargon because it compromises our love of clarity and progress. We’re a transparent, honest team and are pretty happy being described as \"normal people\" by those who work with us. We all share a love of architecture, life balance, creativity and fun – which makes for an enjoyable common ground."] }
    :title ["Your Team"]
-   :leaderboard {:architect ["/img/leaderboards/group_photo_everyday.png"]  :hipster ["/img/leaderboards/group_photo_hipster.png"]}
+   :leaderboard {:architect ["/img/leaderboards/group_photo_everyday.jpg"]  :hipster ["/img/leaderboards/group_photo_hipster.jpg"]}
          :team-members [{:name ["James Solari"]
                          :memberid ["jsolari"]
                          :profilepics {:hipster ["/img/teampics/jsolari_hipster.jpg"]

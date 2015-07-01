@@ -65,8 +65,8 @@
 
                                {:id      "nav-left-03" :label "from us" :selected false :route "/from-us"
                                 :submenu {:id    "nav-left-03-sub"
-                                          :items [{:id "nav-right-item-contact" :name "contact" :selected false
-                                                   :route "/contact"}]}}]
+                                          :items [{:id "nav-right-item-contact" :name "#SolariSays" :selected false
+                                                   :route "/from-us"}]}}]
 
                     :selected false}))
 

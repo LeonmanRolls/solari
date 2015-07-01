@@ -14,7 +14,9 @@
                                   "wadestown/wadestown-10.jpg" "wadestown/wadestown-11.jpg" "wadestown/wadestown-12.pg"
                                   "wadestown/wadestown-13.jpg" "wadestown/wadestown-14.jpg" "wadestown/wadestown-15.pg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["Renovated early 1900s character home. 5 berooms. 3 bathrooms."]] }
+                              :content [["Renovated early 1900s character home."]
+                                        ["5 berooms."]
+                                        [" 3 bathrooms."]] }
                              {:title ["Client goals and objectives"]
                               :content [["Convert a tired, early 1900s character home into a welcoming,
                                            modern, family home, whilst preserving and respecting the existing
@@ -31,7 +33,7 @@
                              {:title ["Successes"]
                               :content [["Workign with an old charcter home."]] }
                              {:title ["Testimonial"]
-                              :content [[""]] }
+                              :content [["Coming soon..."]] }
                              ]})
 
 
@@ -47,7 +49,8 @@
                                   "lyall/lyall-04.jpg" "lyall/lyall-05.jpg" "lyall/lyall-06.jpg" "lyall/lyall-07.jpg"
                                   "lyall/lyall-08.jpg" "lyall/lyall-09.jpg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["Renovated theatre. 5 bedrooms."]] }
+                              :content [["Renovated theatre."]
+                                        [" 5 bedrooms."]]}
                              {:title ["Client goals and objectives"]
                               :content [["Re-think/re-design an old theatre containing a retail store,
                                               cafe and 3 bedroom flat, into a welcoming contemporary home for a growing,
@@ -55,9 +58,9 @@
                              {:title ["Solari's solution"]
                               :content [["When working on this project we were inspired not only by the
                                               original building but its location and the energy of the family. Not wanting
-                                              to disconnect the building ffrom tis historic roots in Lyall Bay we created
-                                              a space taht continued to rech out to its surroundings. We kept a sense of
-                                              freesom throughout the home with a very generous double height centrl living
+                                              to disconnect the building from its historic roots in Lyall Bay we created
+                                              a space that continued to reach out to its surroundings. We kept a sense of
+                                              freedom throughout the home with a very generous double height central living
                                               space that introduced a formal lounge area before rolling into a causal
                                               family space effortlessly blended into the back yard."]]}
                              {:title ["Challenges"]
@@ -68,7 +71,7 @@
                              {:title ["Successes"]
                               :content [["Balancing style with practicality. We used an extremely durable aluminium weatherboard and blue Rodeca on the front façade that reflected its surroundings. Instantly tying the home to its ever-changing environment. "]] }
                              {:title ["Testimonial"]
-                              :content [[""]] }
+                              :content [["Coming soon..."]] }
 
                              ]})
 
@@ -82,7 +85,9 @@
                  :gallery-images ["catline/catline-00.jpg" "catline/catline-01.jpg" "catline/catline-02.jpg"
                                   "catline/catline-03.jpg" "catline/catline-04.jpg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["4500sqm. Sub-division. 3 house sites. "]]}
+                              :content [["4500sqm."]
+                                        ["Sub-division."]
+                                        ["3 house sites. "]]}
                              {:title ["Client goals and objectives"]
                               :content [["Develop three family-friendly sites that have a sense of community, privacy and individuality."]]}
                              {:title ["Solari's solution"]
@@ -92,7 +97,7 @@
                              {:title ["Successes"]
                               :content [["The village green is a triumph. It is a large sheltered and sunny space perfect for growing families to enjoy. While Wellington battles with the prevailing Northerly the residents at Catalina Lane enjoy the sunshine with not much more than a gentle breeze. A welcome relief to all."]] }
                              {:title ["Testimonial"]
-                              :content [["N/A"]] }
+                              :content [["Coming soon..."]] }
                              ]})
 
 (def project-04
@@ -105,7 +110,9 @@
    :thumbnail ["/img/plimmerton/plimmerton-00.jpg"]
    :gallery-images ["plimmerton/plimmerton-00.jpg" "plimmerton/plimmerton-01.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["N/A"]]}
+                :content [["Family home"]
+                         ["Location: State highway 1."]
+                          ]}
                {:title ["Client goals and objectives"]
                 :content [["Design an easy-living family home that makes the most of the site overlooking the entrance to the Porirua Harbour but minimizes the negative elements of the site – steepness and being located on State highway one. "]]}
                {:title ["Solari's solution"]
@@ -115,7 +122,7 @@
                {:title ["Successes"]
                 :content [["With the super structure now complete our design intent is really becoming apparent and already the owners are thrilled with direction it’s heading in."]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
 
                ]})
 
@@ -130,17 +137,22 @@
    :gallery-images ["vedado/vedado-00.jpg"  "vedado/vedado-01.jpg"  "vedado/vedado-02.jpg"  "vedado/vedado-03.jpg"
                     "vedado/vedado-04.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["41 Hopper Street, Te Aro Client: Property Developer, Vladimir Barbalich. 32 Apartment Complex. Comprised of flexible apartment typologies of dual and triple key configurations."]]}
+                :content [["41 Hopper Street, Te Aro. "]
+                          ["Client: Property Developer, Vladimir Barbalich."]
+                          ["32 Apartment Complex."]
+                          ["Comprised of flexible apartment typologies of dual and triple key configurations."]
+                          ]}
+
                {:title ["Client goals and objectives"]
                 :content [["Design an inner city complex that caters to families, singles and couples alike."]]}
                {:title ["Solari's solution"]
-                :content [["As always we also strive to achieve high quality living amenity. For this complex we had to design for a broad and varied audience. To attain this ‘suitability for all’ we incorporated a communal green sanctuary into the design for Vedado’s residents. The complex is also comprised of flexible apartment typologies of dual and triple key configurations to suit individual needs. To finish we used a material palate that provided a bit of fun but still harmonized with the internal courtyard spaces for all the residents to enjoy."]]}
+                :content [["As always we strive to achieve high quality living amenity. For this complex we had to design for a broad and varied audience. To attain this ‘suitability for all’ we incorporated a communal green sanctuary into the design for Vedado’s residents. The complex is also comprised of flexible apartment typologies of dual and triple key configurations to suit individual needs. To finish we used a material palate that provided a bit of fun but still harmonized with the internal courtyard spaces for all the residents to enjoy."]]}
                {:title ["Challenges"]
                 :content [["The client wanted to move quickly on this project.  This meant delivering a solution that would go through the consenting process quickly and efficiently. We also had to deliver a level of density that would make the project viable. "]]}
                {:title ["Successes"]
                 :content [["We achieved resource consent very quickly much to the delight of the client. This allowed us to get on with progressing the project. "]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
                ]})
 
 (def project-06
@@ -156,7 +168,11 @@
                     "sharella/sharella-06.jpg" "sharella/sharella-07.jpg" "sharella/sharella-08.jpg"
                     "sharella/sharella-09.jpg" "sharella/sharella-10.jpg" ]
    :accordion [{:title ["Specifics"]
-                :content [["18-24 Glenmore Street, Thorndon. Client: Property Developer, Vladimir Barbalich. 7 Townhouses and 12 Apartments. Semi-Suburban lifestyle. 5 minute walk from the city centre. "]]}
+                :content [["18-24 Glenmore Street, Thorndon."]
+                          ["Client: Property Developer, Vladimir Barbalich."]
+                          ["7 Townhouses and 12 Apartments."]
+                          ["Semi-Suburban lifestyle."]
+                          ["5 minute walk from the city centre."]]}
                {:title ["Client goals and objectives"]
                 :content [["The client wanted a complex that made the most of its location – over looking Wellington’s Botanical Gardens. It also had to work in with the existing site next door, the Sharella Motor Inn - which we had also undertaken extensive upgrades on. "]]}
                {:title ["Solari's solution"]
@@ -166,7 +182,7 @@
                {:title ["Successes"]
                 :content [["Achieving a well resolved medium density street edge that responds well to its location across from the botanical gardens."]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
                ]})
 
 (def project-07
@@ -180,7 +196,9 @@
    :gallery-images ["pascal/pascal-00.jpg" "pascal/pascal-01.jpg" "pascal/pascal-02.jpg" "pascal/pascal-03.jpg"
                     "pascal/pascal-04.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["6 townhouses. Nestled inside an existing orchard. Located in the inner suburbs of Palmerston North."]]}
+                :content [["6 townhouses."]
+                          ["Nestled inside an existing orchard."]
+                          ["Located in the inner suburbs of Palmerston North."]]}
                {:title ["Client goals and objectives"]
                 :content [["To design a complex that worked harmoniously with the existing orchard and worked for the client as an effective rental property. "]]}
                {:title ["Solari's solution"]
@@ -190,7 +208,7 @@
                {:title ["Successes"]
                 :content [["Our solution not only worked effectively as a rental property for the client, but the orchard was left unscathed by the development. "]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
                ]})
 
 (def project-08
@@ -203,7 +221,8 @@
    :thumbnail ["/img/sugarloaf/sugarloaf-00.jpg"]
    :gallery-images ["sugarloaf/sugarloaf-00.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["Two Townhouses. Each 3 Bedroom."]]}
+                :content [["Two Townhouses."]
+                          ["Each 3 Bedroom."]]}
                {:title ["Client goals and objectives"]
                 :content [["Design two townhouses that provide the client with a great rental solution and its residents with privacy, off road car parking and a design that indulges in the sun received by the Northward facing hillside. "]]}
                {:title ["Solari's solution"]
@@ -213,7 +232,7 @@
                {:title ["Successes"]
                 :content [["We worked through the challenges of the topography to provide access and car parking offering a premium rental solution."]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
                ]})
 
 (def project-09
@@ -227,17 +246,24 @@
    :gallery-images ["detroit/detroit-01.jpg" "detroit/detroit-02.jpg" "detroit/detroit-03.jpg"
                     "detroit/detroit-04.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["Solari Architects is involved in a construction observation role on this Novak and Middleton design. 41 apartments. Two stages.Stage 1 (15 units) Stage 2 (26 units)"]]}
+                :content [["Solari Architects is involved in a construction observation role on this Novak and Middleton design."]
+                          ["41 apartments."]
+                          ["Two stages."]
+                          ["Stage 1 (15 units) Stage 2 (26 units)."]
+                          ]}
                {:title ["Client goals and objectives"]
-                :content [["n/a"]]}
+                :content [["Initially, 'inherited designs' needed to be developed to
+support the building consent and construction documents. As the construction commenced,
+Solari Architect's role has been to refine aspects of the inherited design, answer construction
+queries and project manage the development.  "]]}
                {:title ["Solari's solution"]
                 :content [["n/a"]]}
                {:title ["Challenges"]
-                :content [["aking on a project which documentation was originally undertaken during a less onerous regulatory environment is challenging.  Updating the documentation to meet current standards and filling in the gaps for the construction team requires the ability to work the detail whilst construction is underway. The developers timelines are still tight in spite of this extra effort."]]}
+                :content [["Taking on a project which documentation was originally undertaken during a less onerous regulatory environment is challenging.  Updating the documentation to meet current standards and filling in the gaps for the construction team requires the ability to work the detail whilst construction is underway. The developers timelines are still tight in spite of this extra effort."]]}
                {:title ["Successes"]
                 :content [["Stage 1 has been successfully completed. Due to the high quality end product it has been easily tenanted enabling the developer to achieve cash flow while stage 2 gets underway."]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
                ]})
 
 (def project-10
@@ -260,7 +286,7 @@
                {:title ["Successes"]
                 :content [["n/a"]]}
                {:title ["Testimonial"]
-                :content [[""]] }
+                :content [["Coming soon..."]] }
                ]})
 
 (def project-11
@@ -284,7 +310,7 @@
                {:title ["Successes"]
                 :content [["n/a"]]}
                {:title ["Testimonial"]
-                :content [[""]] }]})
+                :content [["Coming soon..."]] }]})
 
 
 (def project-12
@@ -298,7 +324,10 @@
    :gallery-images ["firemans/firemans-00.jpg" "firemans/firemans-01.jpg" "firemans/firemans-02.jpg"
                     "firemans/firemans-03.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["315 Jackson Street, Petone, Wellington. Client: Jackson Holding’s. 32 apartments and 4 retail spaces. Currently in Design Phase. "]]}
+                :content [["315 Jackson Street, Petone, Wellington."]
+                          ["Client: Jackson Holding’s."]
+                          ["32 apartments and 4 retail spaces."]
+                          ["Currently in Design Phase."]]}
                {:title ["Client goals and objectives"]
                 :content [["Jackson Street has in recent years experienced significant redevelopment, and as a result tight planning guides have been implemented to respect the heritage of this important harbour edge suburb. The client's goal was to build a quality and affordable apartment complex that met the new criteria and worked in with its surroundings."]]}
                {:title ["Solari's solution"]
@@ -308,5 +337,5 @@
                {:title ["Successes"]
                 :content [["Designing a development that met both the expectations of the client and new criteria. "]]}
                {:title ["Testimonial"]
-                :content [["n/a"]] }]})
+                :content [["Coming soon..."]] }]})
 

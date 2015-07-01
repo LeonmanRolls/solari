@@ -1501,6 +1501,11 @@ width: 300px;
 /*padding: 0px;*/
 }
 
+.mega-hoversubtitle{
+font-weight: 700 !important;
+padding: 10px;
+}
+
 .container{  max-width:1260px;
    min-width:240px;
    width:auto;
@@ -1529,6 +1534,7 @@ border-radius: 0px !important;
 .mega-entry .mega-entry-innerwrap {
 border: none;
 border-radius: 0px;
+transform: none !important;
 }
 
 /* Megafolio */
