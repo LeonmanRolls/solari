@@ -183,6 +183,17 @@
         (dom/div nil
                  (om/build p-partial (if (:text local) (:text local)  local)  {:state {:admin (:admin state) :color (:color state)}}))))))
 
+
+(defn for-architects-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+      (dom/div #js {:style #js {:color "white"}}
+                            (dom/b nil "There are architects and then there’s Solari Architects.")
+                            (dom/p nil "We’re the “un-architecty” architects (the ones that say architecty). We’ve found (well, created) this little sweet spot in the industry. Basically we have a huge passion for architecture but not in a consuming ‘it’s my whole life’ way. It’s balanced and continually inspired and fuelled by all the non-architect things we welcome into our lives. We enjoy exploring in our weekends, spending time with our families and hanging out with friends and are always up to try new experiences and give things a go. We’ll make an effort to be aware of trends but not make them gospel."
+                                   (dom/b nil " For example we completely missed the memo that thick rimmed glasses and showing a questionable amount of sockless ankle was the latest uniform…but we’re fine with that.")))
+      )))
+
 (defn uppercase-paragraph-partial [data owner]
   (reify
     om/IRenderState
@@ -211,7 +222,7 @@
                  (dom/div #js {:data-toggle "modal" :data-target (str "#" (first ((:link state) data)))
                                :style #js {:position "absolute" :bottom "0px" :left "0px" :width "100%"
                                            :backgroundColor "#1d1d1b" :textAlign "center" :color "white"
-                                           :textTransform "uppercase" :borderTop "2px solid #c0392b"}} "See All"))
+                                           :textTransform "uppercase" :borderTop "2px solid #c0392b"}} "...See All"))
 
         (dom/a #js {:href (str (:prelink state) (first ((:link state) data)) )
                     :className (str "mega-entry cat-all " (first (:category data)))  :id (first (:id data))

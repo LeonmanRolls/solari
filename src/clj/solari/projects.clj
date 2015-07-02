@@ -29,9 +29,9 @@
                                               and lifestyle of the family. We kept existing timeless character features
                                               and balanced them with open modern living spaces and fresh, welcoming tones."]]}
                              {:title ["Challenges"]
-                              :content [["Workign with an old charcter home."]] }
+                              :content [["Working with an old charcter home."]] }
                              {:title ["Successes"]
-                              :content [["Workign with an old charcter home."]] }
+                              :content [["Maintaining the original character of the house whilst allowing the home to have modern functionality for the family."]] }
                              {:title ["Testimonial"]
                               :content [["Coming soon..."]] }
                              ]})
@@ -43,7 +43,7 @@
                  :projectid ["lyall"]
                  :link ["individual/lyall"]
                  :category ["cat-residential"]
-                 :title ["Lyall bay renovation"]
+                 :title ["Lyall Bay Renovation"]
                  :thumbnail ["/img/lyall/lyall-00.jpg"]
                  :gallery-images ["lyall/lyall-00.jpg" "lyall/lyall-01.jpg" "lyall/lyall-02.jpg" "lyall/lyall-03.jpg"
                                   "lyall/lyall-04.jpg" "lyall/lyall-05.jpg" "lyall/lyall-06.jpg" "lyall/lyall-07.jpg"
@@ -112,6 +112,7 @@
    :accordion [{:title ["Specifics"]
                 :content [["Family home"]
                          ["Location: State highway 1."]
+                          ["Under construction."]
                           ]}
                {:title ["Client goals and objectives"]
                 :content [["Design an easy-living family home that makes the most of the site overlooking the entrance to the Porirua Harbour but minimizes the negative elements of the site – steepness and being located on State highway one. "]]}

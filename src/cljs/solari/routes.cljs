@@ -82,7 +82,7 @@
             (ef/at "body" (ef/set-attr :background "for-architects"))
             (ef/at "#nav-hint-inner" (ef/remove-class  "black"))
             (ef/at "#nav-hint-inner" (ef/content "for architects"))
-            (om/root common/paragraph-partial data/all-data-atom
+            (om/root common/for-architects-partial data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:color "white" :key :for-architects-data :admin false}})))
 

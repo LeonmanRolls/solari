@@ -42,6 +42,20 @@
                                           (ef/set-attr :src "/img/leaderboards/group_photo_hipster.jpg")))}])
 
 
+(def hipster-data-two [{:href "" :label "everyday us" :id "everyday-li"
+                    :callback #(do (.megafilter js/api "cat-everyday")
+                                   (ef/at "#everyday-li" (ef/set-attr :color "red"))
+                                   (ef/at "#hipster-li" (ef/set-attr :color "none"))
+                                   (ef/at "#group_photo"
+                                          (ef/set-attr :src "/img/leaderboards/group_photo_everyday_zoomed.jpg")))}
+
+                   {:href "" :label "\"architect\" us" :id "hipster-li"
+                    :callback #(do (.megafilter js/api "cat-hipster")
+                                   (ef/at "#everyday-li" (ef/set-attr :color "none"))
+                                   (ef/at "#hipster-li" (ef/set-attr :color "red"))
+                                   (ef/at "#group_photo"
+                                          (ef/set-attr :src "/img/leaderboards/group_photo_hipster.jpg")))}])
+
 (defn megafolio-preprocessor [team-members interop]
   (into []
         (concat
@@ -120,7 +134,7 @@
                (apply dom/ul #js {:id "right-right-nav"
                                   :style #js {:top "100px" :width "140px" :right "0px" :position "fixed"
                                               :listStyle "none" :borderBottom "1px solid white" :padding "0px" }}
-                      (om/build-all common/simple-li hipster-data))
+                      (om/build-all common/simple-li (if (:interop state) hipster-data hipster-data-two )))
 
                  (if (:interop state)
                    (dom/div #js {:style #js {:color "white"}}
@@ -134,7 +148,9 @@
                                                                    :color (:color state)}}))
 
 
-               (dom/img #js {:id "group_photo" :src (first (:architect (:leaderboard local)))
+               (dom/img #js {:id "group_photo" :src (if (:interop state)
+                                                      (first (:architect (:leaderboard local)))
+                                                      "/img/leaderboards/group_photo_everyday_zoomed.jpg" )
                              :style #js {:marginBottom "20px" :width "100%"}})
 
                  (if (:admin state) (om/build
