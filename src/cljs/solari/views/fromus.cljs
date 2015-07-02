@@ -40,13 +40,19 @@
 (defn from-uss [data owner]
 
   (reify
-   om/IWillMount
+    om/IWillMount
     (will-mount [_]
-      (go (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))))
+      #_(go
+        (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))
+          ))
 
-     om/IDidMount
+    om/IDidMount
     (did-mount [this]
-      (js/megafolioInit))
+      (go
+        (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))
+        (js/megafolioInit)
+          )
+      )
 
     om/IRenderState
     (render-state [this state]
@@ -54,16 +60,15 @@
                (dom/b #js {:style #js {:color "white"}}
                       "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness.")
 
-(apply dom/div #js {:className "megafolio-container" :style #js {:marginTop "20px"}}
-               (om/build-all common/instagram-gallery-partial (:data (:instagram-data data)))
+               (apply dom/div #js {:className "megafolio-container" :style #js {:marginTop "20px"}}
+                      (om/build-all common/instagram-gallery-partial (:data (:instagram-data data)))
 
-               )
+                      )
 
-      (apply dom/div #js {:className "megafolio-container"}
-               (om/build-all common/twitter-gallery-partial (:body (:twitter-data data)))
+               (apply dom/div #js {:className "megafolio-container"}
+                      (om/build-all common/twitter-gallery-partial (:body (:twitter-data data)))
 
-               )
-
+                      )
                )
 
       ))
