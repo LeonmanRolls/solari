@@ -20,8 +20,6 @@
                                 "2830994714-iSfZAEW5t1NgRQbVD5EKmCAvGMh20EyQUYBC2pr"
                                 "aDE39Es4CsM03hqqEU4GDrvjJDdCu6bgQ0j7uCrY0R5xN"))
 
-(statuses-user-timeline :oauth-creds my-creds :params {:screen-name "SolariArch" :count 10})
-
 (def db
   (env
     :heroku-postgresql-rose-url
@@ -364,7 +362,7 @@ We listen and respect one another and consciously collaborate to ensure that we 
          :all-projects [pr/project-01 pr/project-02 pr/project-03 pr/project-04 pr/project-05 pr/project-06
                         pr/project-07 pr/project-08 pr/project-09 pr/project-10 pr/project-11 pr/project-12]
          :sorted-state sorted-state
-         :twitter-data (statuses-user-timeline :oauth-creds my-creds :params {:screen-name "SolariArch" :count 100})}))
+         :twitter-data []}))
 
 
 (defresource all-data-resource
@@ -373,6 +371,15 @@ We listen and respect one another and consciously collaborate to ensure that we 
              :handle-method-not-allowed  "Method not allowed"
              :handle-ok (fn [context] @all-data)
              :put! (fn [ctx] (reset! all-data (:all-data (:params (:request ctx)))))
+             :available-media-types ["application/edn"])
+
+(defresource twitter-resource
+             :service-available? true
+             :allowed-methods [:get]
+             :handle-method-not-allowed "Method not allowed"
+             :handle-ok (fn [context]
+                          {:twitter-data
+                           (statuses-user-timeline :oauth-creds my-creds :params {:screen-name "SolariArch" :count 100})})
              :available-media-types ["application/edn"])
 
 

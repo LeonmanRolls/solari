@@ -254,24 +254,15 @@
     om/IRenderState
     (render-state [this state]
 
-      ;(println "twitter partial: " (:media_url (first (:media (:entities data)))))
-
       (if (:media (:entities data))
 
        (dom/a #js {:href "/#/from-us"
-                    :className (str "mega-entry cat-all ")  :id "lsdjflsdjf" #_(first (:id data))
+                    :className (str "mega-entry cat-all ")  :id (str (rand 10000000)) #_(first (:id data))
                     :data-src (:media_url (first (:media (:entities data)))) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
                (dom/div #js {:className "mega-hover"}
-                        #_(dom/div #js {:className "mega-hoversubtitle"} (:text (:caption data)) )
                         (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "20%"}}
                                  (dom/i #js {:className "fa fa-twitter fa-2x"})
-                                 (dom/div #js {:className "mega-hoversubtitle"} (:text data)))))
-
-       (dom/div nil )
-
-        )
-
-      )))
+                                 (dom/div #js {:className "mega-hoversubtitle"} (:text data)))))))))
 
 (defn simple-li [data owner]
   (reify

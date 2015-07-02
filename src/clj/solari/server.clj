@@ -23,6 +23,7 @@
 (defroutes routes
            (resources "/")
            (ANY "/alldata/" request m/all-data-resource)
+           (ANY "/twitter/" request m/twitter-resource)
            (wrap-multipart-params
              (POST "/imgupload/"
                    {{{tempfile :tempfile filename :filename} :file} :params :as params}

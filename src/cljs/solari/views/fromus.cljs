@@ -42,34 +42,42 @@
   (reify
     om/IWillMount
     (will-mount [_]
-      #_(go
-        (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))
+      (go
+        #_(om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))
           ))
 
     om/IDidMount
     (did-mount [this]
       (go
-        (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))
-        (js/megafolioInit)
-          )
-      )
+        (let [twitter-chan (chan)
+              instagram-chan (chan)]
+          (om/update! data :instagram-data (js->clj (<! (jsonp query-url)) :keywordize-keys true))
+          (GET "/twitter/"
+               {:format :edn
+                :handler #(go (>! twitter-chan %))
+                :error-handler u/ajax-error-handler})
+          (om/update! data :twitter-data (<! twitter-chan))
+          (js/megafolioInit)
+          (ef/at "#social-loading" (ef/add-class "hidden")))))
+
+    om/IWillUnmount
+    (will-unmount [this]
+      (ef/at "#social-loading" (ef/remove-class "hidden")))
 
     om/IRenderState
     (render-state [this state]
       (dom/div nil
+
                (dom/b #js {:style #js {:color "white"}}
                       "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness.")
 
-               (apply dom/div #js {:className "megafolio-container" :style #js {:marginTop "20px"}}
-                      (om/build-all common/instagram-gallery-partial (:data (:instagram-data data)))
+               (dom/div #js {:id "social-loading" :className "loader" :style #js {:color "white"}})
 
-                      )
+               (apply dom/div #js {:className "megafolio-container" :style #js {:marginTop "20px"}}
+                      (om/build-all common/instagram-gallery-partial (:data (:instagram-data data))))
 
                (apply dom/div #js {:className "megafolio-container"}
-                      (om/build-all common/twitter-gallery-partial (:body (:twitter-data data)))
-
-                      )
-               )
+                      (om/build-all common/twitter-gallery-partial (:body (:twitter-data (:twitter-data data))))))
 
       ))
   )
