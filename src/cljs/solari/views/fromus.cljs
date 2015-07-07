@@ -58,7 +58,11 @@
                 :error-handler u/ajax-error-handler})
           (om/update! data :twitter-data (<! twitter-chan))
           (js/megafolioInit)
-          (ef/at "#social-loading" (ef/add-class "hidden")))))
+
+          (ef/at "#social-loading" (ef/add-class "hidden"))
+          (ef/at "#nav-right-item-contact" (ef/add-class "right-nav-selected"))
+
+          )))
 
     om/IWillUnmount
     (will-unmount [this]

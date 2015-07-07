@@ -14,9 +14,15 @@
                                   "wadestown/wadestown-10.jpg" "wadestown/wadestown-11.jpg" "wadestown/wadestown-12.pg"
                                   "wadestown/wadestown-13.jpg" "wadestown/wadestown-14.jpg" "wadestown/wadestown-15.pg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["Renovated early 1900s character home."]
-                                        ["5 berooms."]
-                                        [" 3 bathrooms."]] }
+                              :content [
+                                        ["Renovated early 1900s character home on a sunny north facing site in the Wadestown hills."]
+                                        ["5 bedrooms. 3 bathrooms."]
+                                        ["232 sqm house, and 42 sq m of subterranean garage."]
+                                        ["Wadestown, Wellington."]
+                                        ["One of Solari Architects’ first projects, this alteration started off in the office of Novak+Middleton
+whilst James was still working there. As James had brought the project into the N+M office, he was
+lucky enough to take the project with him. We acknowledge the concept design input of N+M."]
+                                        ] }
                              {:title ["Client goals and objectives"]
                               :content [["Convert a tired, early 1900s character home into a welcoming,
                                            modern, family home, whilst preserving and respecting the existing
@@ -29,9 +35,13 @@
                                               and lifestyle of the family. We kept existing timeless character features
                                               and balanced them with open modern living spaces and fresh, welcoming tones."]]}
                              {:title ["Challenges"]
-                              :content [["Working with an old charcter home."]] }
+                              :content [["Working with an old character home that was somewhat tired and had been altered several times
+over its lifetime. The existing house is typically on a sloping Wellington site and the works required
+digging the hillside out from under the existing house to fit in the desired spatial requirements."]] }
                              {:title ["Successes"]
-                              :content [["Maintaining the original character of the house whilst allowing the home to have modern functionality for the family."]] }
+                              :content [["Bringing together a great client and great builder to achieve a fantastic result. The greatest success
+was the way in which we maintained the original character of the house whilst allowing the home to
+have the modern functionality of a family home."]] }
                              {:title ["Testimonial"]
                               :content [["Coming soon..."]] }
                              ]})
@@ -49,8 +59,13 @@
                                   "lyall/lyall-04.jpg" "lyall/lyall-05.jpg" "lyall/lyall-06.jpg" "lyall/lyall-07.jpg"
                                   "lyall/lyall-08.jpg" "lyall/lyall-09.jpg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["Renovated theatre."]
-                                        [" 5 bedrooms."]]}
+                              :content [
+                                        ["Renovated Theatre and Café into a 5 bedroom home."]
+                                        ["520sqm house on a 524 sqm beach front site. The house exists as two levels, with 310 sq m on the
+ground floor and the remainder as mixture of enclosed upper level spaces and an open mezzanine
+space that shares the main central volume that is the living space."]
+                                        ["Lyall Bay, Wellington."]
+                                        ]}
                              {:title ["Client goals and objectives"]
                               :content [["Re-think/re-design an old theatre containing a retail store,
                                               cafe and 3 bedroom flat, into a welcoming contemporary home for a growing,
@@ -71,7 +86,43 @@
                              {:title ["Successes"]
                               :content [["Balancing style with practicality. We used an extremely durable aluminium weatherboard and blue Rodeca on the front façade that reflected its surroundings. Instantly tying the home to its ever-changing environment. "]] }
                              {:title ["Testimonial"]
-                              :content [["Coming soon..."]] }
+                              :content [
+                                        ["– Mike Marsden & Liorah Atkinson."]
+                                        ["James is a friend, a truly talented architect, as well as a man with a great sense of humour, an eye
+for detail, and an ability to hear what his clients really want to achieve."]
+                                        ["We worked with James and the Solari team to renovate what was originally a 1908 cinema.
+This property has also been a tearoom, pottery studio, surf-shop and cafe. The previous owners
+were in the process of turning it into an 88 seater restaurant, so the main area had been largely
+gutted, while the living areas were very dated with a layout that didn't work well for a family home.
+"]
+                                        ["We wanted to turn this very large building with multiple floor levels, a mixture of vast open spaces
+and a tiny warren of rooms into a home that both children and adults could enjoy - whilst making
+the most of the natural light and views the site offered."]
+                                        ["In the beginning, we had decided to focus our time and budget mainly on the interiors. \"We live in
+                                         it, we don't need to look at the outside\". However, James came up with some amazing exterior
+design options, which got us really excited about what was possible to achieve. When together we
+found the coloured Rodeca we used for the front facade, we knew we had the potential to make a
+real statement of the outside of this amazing building. The front of the house now is one of our
+favourite parts of the whole build."]
+                                        ["When asked about the project’s challenges; we have to take into consideration that this is an old
+building, and there wasn't a single straight line in the entire place. The exterior cladding, which was
+supposed to be a quick installation, ended up taking almost six months to complete, with an
+entirely new framework needing to be built to provide a straight and stable base. It massively
+increased our budget, and was a very real stress at the time; but looking at it now we know there
+was no real alternative. The anodised aluminium and Rodeca gave us amazing protection from the
+sand, wind and salt which is the cost of living on the beautiful rugged South Coast."]
+                                        ["At the end of the 18-month renovation period we're still friends with James and Cath - which says a
+lot! James was really open to us choosing his level of involvement - we already had a lot of ideas of
+what we wanted to achieve, and some areas where we wanted to be in control of the design. He
+was happy to offer advice on these areas, and then take charge the areas where we needed more
+technical expertise. We also relied heavily on his years of experience in navigating the council
+regulations and requirements to gain consent and achieve code compliance."]
+                                        ["We think that without an architect working with us, we might not have been able to come up with a
+house we could live in. We truly had no idea of the level of detail in drawings and documentation
+required by both builders and the council, even for the smallest part of a build like this."]
+                                        ["We have recommended James and his team to many and will continue to do so. They helped us
+create a house that we love and we can happily say we live in our dream house."]
+                                        ] }
 
                              ]})
 
@@ -85,9 +136,11 @@
                  :gallery-images ["catline/catline-00.jpg" "catline/catline-01.jpg" "catline/catline-02.jpg"
                                   "catline/catline-03.jpg" "catline/catline-04.jpg"]
                  :accordion [{:title ["Specifics"]
-                              :content [["4500sqm."]
+                              :content [
+                                        ["4500sqm."]
                                         ["Sub-division."]
-                                        ["3 house sites. "]]}
+                                        ["3 house sites. "]
+                                        ]}
                              {:title ["Client goals and objectives"]
                               :content [["Develop three family-friendly sites that have a sense of community, privacy and individuality."]]}
                              {:title ["Solari's solution"]
@@ -110,8 +163,11 @@
    :thumbnail ["/img/plimmerton/plimmerton-00.jpg"]
    :gallery-images ["plimmerton/plimmerton-00.jpg" "plimmerton/plimmerton-01.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["Family home"]
-                         ["Location: State highway 1."]
+                :content [
+                          ["Family home"]
+                         ["4 bedrooms. 4 bathrooms."]
+                          ["330sqm house over three levels, 510 sqm Steep hillside site."]
+                          ["State highway 1. Plimmerton, Wellington."]
                           ["Under construction."]
                           ]}
                {:title ["Client goals and objectives"]
@@ -183,7 +239,47 @@
                {:title ["Successes"]
                 :content [["Achieving a well resolved medium density street edge that responds well to its location across from the botanical gardens."]]}
                {:title ["Testimonial"]
-                :content [["Coming soon..."]] }
+                :content [
+                          ["– Vladimir Barbalich. Property Investor."]
+                          ["I met James through a well-known architecture firm in Wellington. What makes James stand out
+from other architects is that he’s easy to work with. He’s open minded, down to earth and when it
+comes to discussing plans and layouts and he isn’t too precious – there’s no ego. He is also very
+good at listening and coming up with creative solutions. He gets the grasp of what you're saying,
+takes it on board and works with it."]
+                          ["James and the Solari team have been working with me on the Sharella Nouveau Development. This
+is a multi-unit development comprised of townhouses and apartments for 20 to 50 year olds with
+the intention to be held by me and used as short and long-term accommodation."]
+                          ["I wanted the Sharella to have a more edgy and industrial interior. James has been exceptional at
+designing this and has not only delivered a design that fits the brief but a project that meets the
+budget – something that is usually very difficult to achieve. I put this down to the fact that James
+takes into account potential bill costs when designing your project and always finds a balance
+between look, style and budget. He is always thinking about maximising the return on your
+investment, which is an asset in itself."]
+                          ["All projects have their challenges along the way. Working in with the Wellington City Council, who
+can be extremely difficult, and cutting through all the bureaucracy has been my biggest challenge.
+However, James is a fantastic communicator and has been incredibly beneficial when dealing with
+the WCC and working through consent issues. He understands your project fully and is able to bat
+for you."]
+                          ["From an urban design perspective the work of James and the Solari Architects team always gets
+really good feedback. How a project flows is a critical part of the resource consent process and
+James and Co maximise the use of a space and ensure it's efficient. An efficient floor plan layout is
+critical and James’ experience working with large projects overseas really shows in this area. James
+is also very good at sorting out issues on sight as they arise. He is intuitive and quick to respond so
+no time is wasted waiting – this is very important, as delays can be incredibly costly."]
+                          ["A project’s success largely comes down to communication and relationships between everyone
+involved in the project. James is personable and as mentioned before, a very good communicator.
+He is fantastic at consulting with other contractors and consultants during the process. Usually
+builders aren’t fans of architects but James is respected by and has a good rapport with
+contractors on site. So much so that he runs/chairs the fortnightly site meetings - which all comes
+down to good communication. Nobody likes working with an ego."]
+                          ["Overall, James and the team at Solari Architects are smart, personable and talented people.
+And when you compare the service they provide at comparable standards with other firms they are
+great value for money and have absolutely exceeded my expectations. Having worked with James
+previously I knew what I was getting myself into with this project and it's fantastic to see he works
+to the same standard as always. Without hesitation I would recommend getting Solari Architects
+involved with your next project – they are currently working on my next development on Hopper
+Street which has similar intentions and objectives to the Sharella development."]
+                          ] }
                ]})
 
 (def project-07
@@ -222,8 +318,12 @@
    :thumbnail ["/img/sugarloaf/sugarloaf-00.jpg"]
    :gallery-images ["sugarloaf/sugarloaf-00.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["Two Townhouses."]
-                          ["Each 3 Bedroom."]]}
+                :content [
+                          ["Subdivision of existing residential plot."]
+                          ["Two 130sqm Townhouses. Each 3 Bedroom."]
+                          ["North facing hillside site."]
+                          ["Brooklyn, Wellington."]
+                          ]}
                {:title ["Client goals and objectives"]
                 :content [["Design two townhouses that provide the client with a great rental solution and its residents with privacy, off road car parking and a design that indulges in the sun received by the Northward facing hillside. "]]}
                {:title ["Solari's solution"]
@@ -264,7 +364,28 @@ queries and project manage the development.  "]]}
                {:title ["Successes"]
                 :content [["Stage 1 has been successfully completed. Due to the high quality end product it has been easily tenanted enabling the developer to achieve cash flow while stage 2 gets underway."]]}
                {:title ["Testimonial"]
-                :content [["Coming soon..."]] }
+                :content [
+                          ["– Michael Lee & Calum Finlayson"]
+                          ["We’d like to start with saying; James' expertise to deal with the challenges of a complex
+development (and the diverse personalities involved) is top class."]
+                          ["James and the Solari team inherited the building designs for Detroit Apartments. These designs
+needed to be developed to support the building consent and construction documents. They took
+on the role of refining aspects of the inherited designs, answering construction queries and project
+managing the development with absolute professionalism."]
+                          ["The greatest challenges of this project were aspects that had nothing to do with Solari Architects.
+By default that means that the aspects managed by Solari Architects were well executed. Given that
+Solari Architects inherited the designs, project management by the Solari team was one of the
+project’s biggest successes as the communication to other professionals and contractors was
+vitally important."]
+                          ["Throughout the process James has been an excellent listener and the team has been well
+organised and dependable. James’ ability to take on a client’s objectives has led to successful
+conversion into results that have always met our expectations. The team have successfully
+converted and tailored inherited designs into a product that all parties involved with the project
+are proud of."]
+                          ["The key question can often be \"would you use them again\". It's not just the answer \"yes\" but the
+proof is that Michael has engaged Solari Architects for his own dream house. We have absolute
+confidence that the design is stunning and the house build will be cost efficient."]
+                          ] }
                ]})
 
 (def project-10
@@ -277,15 +398,32 @@ queries and project manage the development.  "]]}
    :thumbnail ["/img/oasis/oasis-00.jpg"]
    :gallery-images ["oasis/oasis-00.jpg" "oasis/oasis-01.jpg"]
    :accordion [{:title ["Specifics"]
-                :content [["n/a"]]}
+                :content [
+                          ["750 sqm commercial building to be converted into a hospitality venue with rooftop bar."]
+                          ["The existing building is a mix of a three storey part with a single storey flat roofed component. Our
+visionary client saw the opportunity to transform the sun-drenched rooftop of the single storey part
+of the building into a rooftop bar."]
+                          ["Corner of Vivian and Victoria Streets, Wellington."]
+                          ]}
                {:title ["Client goals and objectives"]
-                :content [["Convert a mixed commercial property into a unique hospitality venue. "]]}
+                :content [["Create Wellington’s first rooftop bar by converting a mixed commercial property into a unique
+hospitality venue. Our client’s enthusiasm and vision was an inspiration. Further to the rooftop bar
+there was a strong desire to explore a variety of options in how to use a building to generate
+multiple streams of income."]]}
                {:title ["Solari's solution"]
                 :content [["We sought to provide the client with a design that not only effectively and efficiently converted a tired site into an inviting hospitality venue, but also filled a gap in the Wellington social scene. We incorporated a large roof top bar supported by internal bar spaces, a café, commercial kitchen and brewery.  "]]}
                {:title ["Challenges"]
-                :content [["n/a"]]}
+                :content [["Take an older building that required earthquake strengthening, add the challenges associated with a
+“change of use”, and challenge the planning rules to create signage opportunities and you have a
+wonderful set of parameters to test us, our client and our other consultants – we love this type of
+challenge. Add in weather influences and noise control issues and we saw more and more
+opportunities grow as this project developed."]]}
                {:title ["Successes"]
-                :content [["n/a"]]}
+                :content [["Resource Consent was gained for this scheme that challenged the rule book. Gaining approval for
+extensive and technologically advanced signage opportunities on a prominent intersection and
+resolving the environmental impacts imposed by an outdoor rooftop bar was a great success. A well
+resolved and integrated design solution cohesively brought together a number of ideals for our
+client."]]}
                {:title ["Testimonial"]
                 :content [["Coming soon..."]] }
                ]})
@@ -301,15 +439,28 @@ queries and project manage the development.  "]]}
    :gallery-images ["tinakori/tinakori-00.jpg" "tinakori/tinakori-01.jpg" "tinakori/tinakori-02.jpg"
                     "tinakori/tinakori-03.jpg" ]
    :accordion [{:title ["Specifics"]
-                :content [["92 Tinakori Rd Client: CapitalSkinz Ltd"]]}
+                :content [
+                          ["New commercial building to house a specialist medical practitioner, a general medical centre, a café
+and a pharmacy."]
+                          ["Approximately 1250 sq m of lettable space, plus support/service areas, and 29 on-site carparks."]
+                          ]}
                {:title ["Client goals and objectives"]
-                :content [["n/a"]]}
+                :content [["To transform a prominent corner site from an unsightly suburban service station into a specialist
+facility providing a range of medical service to the wider Wellington region."]]}
                {:title ["Solari's solution"]
-                :content [["Proposed mixed commercial development to create 1400sqm of lettable space. The top two floors housing a new medical center and the ground floor proposed for a café and general"]]}
+                :content [["Create a well resolved architectural solution to this prominent corner site. The site is a gateway
+transition between the CBD, the motorway, Tinakori Road, and Thorndon/Wadestown and as such
+the solution needed to be a robust response. Well considered floor plates were create that not only
+satisfied the very specific needs of the client but allowed for future flexibility and thus the long-term
+viability of the building."]]}
                {:title ["Challenges"]
-                :content [["n/a"]]}
+                :content [["Translating a very specific programmatic brief from the client into a flexible and robust building
+layout, whilst creating an architectural solution to a site with wide ranging influences. The site being
+zoned residential posed the greatest challenge, hence structuring justification around commercial
+use was a critical aspect for our wider team."]]}
                {:title ["Successes"]
-                :content [["n/a"]]}
+                :content [["Creating a building response that was well received by the Urban Design advisors of the local
+territory authority was a key outcome of the design."]]}
                {:title ["Testimonial"]
                 :content [["Coming soon..."]] }]})
 
@@ -338,5 +489,16 @@ queries and project manage the development.  "]]}
                {:title ["Successes"]
                 :content [["Designing a development that met both the expectations of the client and new criteria. "]]}
                {:title ["Testimonial"]
-                :content [["Coming soon..."]] }]})
+                :content [
+                          ["- Kevin Melville and Tony O’Connell, Property Developers."]
+                          ["We tasked Solari Architects with a brief to build a quality and affordable apartment complex that
+met and complimented the historic surroundings of the site in Petone. Having worked with the
+Solari team previously on the Detroit Development we were confident that James and Co would
+bring their experience, ideas and professionalism to the design process. They yet again exceeded
+our expectations. Thus far James and the team have been easy to work with and have designed
+something that fits well with its surroundings. It will be cost effective and reasonably easy to
+construct, without compromising design or detail. The entire process has been excellent. We highly
+recommend getting Solari Architects involved with your project. They’re easy going, laid back and
+take what the client wants and translate it very well into hard form."]
+                          ] }]})
 

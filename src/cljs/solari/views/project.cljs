@@ -86,14 +86,13 @@
 
        (dom/div #js {:id "project-container" :style #js {:color "white"}}
 
-                (println "prject: " local)
-
                 (image-display (:key state) project)
 
                 (accordion-display (:key state) project state)
 
                 (dom/div #js {:style #js {:padding "20px" }}
                          (if (not= (first (:filter-vector state)) :all-projects) (dom/b nil "How"))
+
                 (apply dom/div nil (om/build-all common/p-p-partial (:how (first project) )))
 
                          (dom/div #js {:id "share-button"})
