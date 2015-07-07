@@ -37,7 +37,7 @@
 
 (defroute the-team "/your-team" []
           (do
-            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "body" (ef/set-attr :background "from-uss"))
             (ef/at "#nav-hint-inner" (ef/content "Your Team"))
             (om/root theteam/team-members-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
@@ -259,7 +259,7 @@
             (om/root process/process-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :process-data :admin false}})
-            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "body" (ef/set-attr :background "from-uss"))
             (ef/at "#nav-hint-inner" (ef/content "Our Process"))))
 
 (defroute "/our-process/admin" {:as params}
@@ -275,7 +275,7 @@
             (om/root faqs/faqs-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:key :faqs-data :admin false}})
-            (ef/at "body" (ef/set-attr :background "from-us"))
+            (ef/at "body" (ef/set-attr :background "from-uss"))
             (ef/at "#nav-hint-inner" (ef/content "faqs"))))
 
 (defroute "/faqs/admin" []
@@ -385,7 +385,7 @@
             (om/root contact-page data/all-data-atom
                      {:target (. js/document (getElementById "main-content-container"))
                       :state {:admin false}})
-            (ef/at "body" (ef/set-attr :background "from-us"))))
+            (ef/at "body" (ef/set-attr :background "from-uss"))))
 
 (defroute "/contact/admin" {:as params}
           (do

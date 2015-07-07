@@ -470,7 +470,7 @@ territory authority was a key outcome of the design."]]}
    :year [2015]
    :projectid ["firemans"]
    :link ["firemans"]
-   :category ["cat-commercial cat-multi-unit"]
+   :category ["cat-commercial cat-multi-unit-residential"]
    :title ["Firemans Arms"]
    :thumbnail ["/img/firemans/firemans-00.jpg"]
    :gallery-images ["firemans/firemans-00.jpg" "firemans/firemans-01.jpg" "firemans/firemans-02.jpg"
