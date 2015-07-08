@@ -93,8 +93,7 @@ for detail, and an ability to hear what his clients really want to achieve."]
                                         ["We worked with James and the Solari team to renovate what was originally a 1908 cinema.
 This property has also been a tearoom, pottery studio, surf-shop and cafe. The previous owners
 were in the process of turning it into an 88 seater restaurant, so the main area had been largely
-gutted, while the living areas were very dated with a layout that didn't work well for a family home.
-"]
+gutted, while the living areas were very dated with a layout that didn't work well for a family home."]
                                         ["We wanted to turn this very large building with multiple floor levels, a mixture of vast open spaces
 and a tiny warren of rooms into a home that both children and adults could enjoy - whilst making
 the most of the natural light and views the site offered."]
@@ -123,7 +122,6 @@ required by both builders and the council, even for the smallest part of a build
                                         ["We have recommended James and his team to many and will continue to do so. They helped us
 create a house that we love and we can happily say we live in our dream house."]
                                         ] }
-
                              ]})
 
 (def project-03 {:id ["project-03"]
@@ -209,7 +207,40 @@ create a house that we love and we can happily say we live in our dream house."]
                {:title ["Successes"]
                 :content [["We achieved resource consent very quickly much to the delight of the client. This allowed us to get on with progressing the project. "]]}
                {:title ["Testimonial"]
-                :content [["Coming soon..."]] }
+                :content [
+                          ["– Vladimir Barbalich. Property Investor."]
+                          ["James and the Solari team worked with me previously on the Sharella Nouveau Development.
+What makes James stand out from other architects is that he’s easy to work with. He’s open
+minded, down to earth and when it comes to discussing plans and layouts and he isn’t too precious
+– there’s no ego. He is also very good at listening and coming up with creative solutions. He gets the
+grasp of what you're saying, takes it on board and works with it."]
+                          ["Vedado is a multi-unit development with the intention to be held as an investment for short and
+long-term accommodation. James has been exceptional at designing this development and has not
+only delivered a design that fits the brief but a project that meets the budget – something that is
+usually very difficult to achieve. I put this down to the fact that James takes into account potential
+bill costs when designing your project and always finds a balance between look, style and budget.
+He is always thinking about maximising the return on your investment, which is an asset in itself."]
+                          ["James is a fantastic communicator and has been incredibly beneficial when dealing with the
+Wellington City Council, who can be extremely difficult at times, to get resource consent. He
+understands every aspect of your project fully and is able to bat for you."]
+                          ["From an urban design perspective the work of James and the Solari Architects team always gets
+really good feedback. How a project is designed is a critical part of the resource consent process.
+James’ experience working with large projects overseas really shows in this area. James is also very
+good at sorting out issues on sight as they arise. He is intuitive and quick to respond so no time is
+wasted waiting – this is very important, as delays can be incredibly costly."]
+                          ["A project’s success largely comes down to communication and relationships between everyone
+involved in the project. James is personable and as mentioned before, a very good communicator.
+He is fantastic at consulting with other contractors and consultants during the process. Usually
+builders aren’t fans of architects but James is respected by and has a good rapport with
+contractors on site."]
+                          ["Overall, James and the team at Solari Architects are smart, personable and talented people.
+And when you compare the service they provide at comparable standards with other firms they are
+great value for money and have absolutely exceeded my expectations. Having worked with James
+previously I knew what I was getting myself into with this project and it's fantastic to see he works
+to the same standard as always. Without hesitation I would recommend getting Solari Architects
+involved with your next project. Based on the success of this project and previous projects and I
+have no doubt that I will continue to involve James and his team in any future projects."]
+                          ] }
                ]})
 
 (def project-06
@@ -247,13 +278,13 @@ comes to discussing plans and layouts and he isn’t too precious – there’s 
 good at listening and coming up with creative solutions. He gets the grasp of what you're saying,
 takes it on board and works with it."]
                           ["James and the Solari team have been working with me on the Sharella Nouveau Development. This
-is a multi-unit development comprised of townhouses and apartments for 20 to 50 year olds with
-the intention to be held by me and used as short and long-term accommodation."]
+is a multi-unit development comprised of townhouses and apartments with the intention to be
+held as an investment for short and long-term accommodation."]
                           ["I wanted the Sharella to have a more edgy and industrial interior. James has been exceptional at
 designing this and has not only delivered a design that fits the brief but a project that meets the
 budget – something that is usually very difficult to achieve. I put this down to the fact that James
 takes into account potential bill costs when designing your project and always finds a balance
-between look, style and budget. He is always thinking about maximising the return on your
+between look, style and budget. He is always thinking
 investment, which is an asset in itself."]
                           ["All projects have their challenges along the way. Working in with the Wellington City Council, who
 can be extremely difficult, and cutting through all the bureaucracy has been my biggest challenge.
@@ -261,24 +292,22 @@ However, James is a fantastic communicator and has been incredibly beneficial wh
 the WCC and working through consent issues. He understands your project fully and is able to bat
 for you."]
                           ["From an urban design perspective the work of James and the Solari Architects team always gets
-really good feedback. How a project flows is a critical part of the resource consent process and
-James and Co maximise the use of a space and ensure it's efficient. An efficient floor plan layout is
-critical and James’ experience working with large projects overseas really shows in this area. James
-is also very good at sorting out issues on sight as they arise. He is intuitive and quick to respond so
-no time is wasted waiting – this is very important, as delays can be incredibly costly."]
+really good feedback. How a project is designed is a critical part of the resource consent process.
+James’ experience working with large projects overseas really shows in this area. James is also very
+good at sorting out issues on sight as they arise. He is intuitive and quick to respond so no time is
+wasted waiting – this is very important, as delays can be incredibly costly."]
                           ["A project’s success largely comes down to communication and relationships between everyone
 involved in the project. James is personable and as mentioned before, a very good communicator.
 He is fantastic at consulting with other contractors and consultants during the process. Usually
 builders aren’t fans of architects but James is respected by and has a good rapport with
-contractors on site. So much so that he runs/chairs the fortnightly site meetings - which all comes
-down to good communication. Nobody likes working with an ego."]
+contractors on site. So much so, he runs/chairs the fortnightly site meetings."]
                           ["Overall, James and the team at Solari Architects are smart, personable and talented people.
 And when you compare the service they provide at comparable standards with other firms they are
 great value for money and have absolutely exceeded my expectations. Having worked with James
 previously I knew what I was getting myself into with this project and it's fantastic to see he works
 to the same standard as always. Without hesitation I would recommend getting Solari Architects
-involved with your next project – they are currently working on my next development on Hopper
-Street which has similar intentions and objectives to the Sharella development."]
+involved with your next project – they are currently working on my next development Vedado on
+Hopper Street which has similar intentions and objectives to the Sharella Nouveau development."]
                           ] }
                ]})
 
@@ -365,7 +394,8 @@ queries and project manage the development.  "]]}
                 :content [["Stage 1 has been successfully completed. Due to the high quality end product it has been easily tenanted enabling the developer to achieve cash flow while stage 2 gets underway."]]}
                {:title ["Testimonial"]
                 :content [
-                          ["– Michael Lee & Calum Finlayson"]
+                          ["- Michael Lee – Property Developer"]
+                          ["- Calum Finlayson – Property Developer & Managing Director of Redican Allwood."]
                           ["We’d like to start with saying; James' expertise to deal with the challenges of a complex
 development (and the diverse personalities involved) is top class."]
                           ["James and the Solari team inherited the building designs for Detroit Apartments. These designs
