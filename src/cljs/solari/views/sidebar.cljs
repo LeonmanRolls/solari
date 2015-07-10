@@ -40,7 +40,8 @@
              (dom/li #js {:id (:id data)
                           :className (if (:selected data) "nav-left-selected")}
                      (:label data))))))
-
+(defn text-color []
+  (om/ref-cursor (:text-color (om/root-cursor data/all-data-atom))))
 
 (defn main-nav-view [menu-atom owner]
   (reify
@@ -75,14 +76,10 @@
                         (when (< idxx sub-menu-count)
                           (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
 
-                            (do
-                              (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
-                              (println "id selected: " (:id selected))
+                            (do (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
                                 )
 
-                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false))
-
-                            )
+                            (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
                           (recur (inc idxx)))))
                     (recur (inc idx))))
                 (recur))))))
@@ -103,35 +100,30 @@
 
                (dom/div #js {:className "main-nav-left"}
                         (dom/a #js {:href "/#/"}
-                               (dom/h1 #js {:className "logo"} "Solari"))
+                               (dom/h1 #js {:className "logo"
+                                            :style #js {:color "white" #_(first (om/observe owner (text-color))) } } "Solari"))
 
                         (apply dom/ul #js {:className "nav-ul-left"}
                                (om/build-all nav-menu-item-left (:root menu-atom)
                                              {:init-state {:clicked clicked}}))
 
                         (dom/div #js {:id "social-container" :style #js {:textAlign "center"}}
-                                 (dom/div nil
-                                          (dom/a #js {:href "http://pinterest.com/solariarchitect/" :target "_blank"}
-                                                 (dom/i #js {:className "fa fa-pinterest fa-2x"}))
-                                          (dom/a #js {:href "https://twitter.com/solariarch" :target "_blank"}
-                                                 (dom/i #js {:className "fa fa-twitter fa-2x"}))
-                                          (dom/a #js {:href "" :target "_blank"}
-                                                 (dom/i #js {:className "fa fa-instagram fa-2x"}))
-                                          (dom/a #js {:href "" :target "_blank"}
-                                                 (dom/i #js {:className "fa fa-google-plus fa-2x"}))
-                                          (dom/a #js {:href "" :target "_blank"}
-                                                 (dom/i #js {:className "fa fa-facebook fa-2x"}))))
-
+                                 (dom/a #js {:href "http://pinterest.com/solariarchitect/" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-pinterest fa-2x"}))
+                                 (dom/a #js {:href "https://twitter.com/solariarch" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-twitter fa-2x"}))
+                                 (dom/a #js {:href "" :target "_blank"}
+                                        (dom/i #js {:className "fa fa-instagram fa-2x"})))
 
                         (dom/a #js {:href "http://nang.rocks" :target "_blank"}
-                               (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"
-                                                                                                     :position "absolute"
-                                                                                                     :bottom "0"
-                                                                                                     :left "0"
-                                                                                                     :right "0"
-                                                                                                     :textAlign "center"
-                                                                                                     :color "grey"}}
-                                           "Website by Nang")))
+                        (dom/footer #js {:id "main-footer" :className "footer cf" :style #js {:textTransform "uppercase"
+                                                                                              :position "absolute"
+                                                                                              :bottom "0"
+                                                                                              :left "0"
+                                                                                              :right "0"
+                                                                                              :textAlign "center"
+                                                                                              :color "grey"}}
+                                    "Website by Nang")))
 
                (dom/div #js {:className "main-nav-right"}
                         (dom/div #js {:id "nav-hint-outer"}
