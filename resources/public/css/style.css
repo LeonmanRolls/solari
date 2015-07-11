@@ -1,12 +1,15 @@
+/*
 @font-face {
    font-family: GiveYouGlory;
    src: url(/fonts/GiveYouGlory.ttf);
 }
+*/
 
 @font-face {
    font-family: SourceSansPro;
    src: url(/fonts/SourceSansPro-Regular.otf);
 }
+
 
 @font-face {
    font-family: SourceSansPro;
@@ -14,11 +17,14 @@
    font-weight: bold;
 }
 
+
+/*
 @font-face {
    font-family: SourceSansPro;
    src: url(/fonts/SourceSansPro-Light.otf);
    font-weight: light;
 }
+*/
 
 body{
 -webkit-font-smoothing: antialiased;
