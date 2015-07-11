@@ -9,15 +9,15 @@
                  :thumbnail ["/img/wadestown/wadestown-00.jpg"]
                  :gallery-images [ "wadestown/wadestown-00.jpg"  "wadestown/wadestown-01.jpg"
                                   "wadestown/wadestown-02.jpg" "wadestown/wadestown-03.jpg"
-                                  "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.jpg" "wadestown/wadestown-06.pg"
-                                  "wadestown/wadestown-07.jpg" "wadestown/wadestown-08.jpg" "wadestown/wadestown-09.pg"
-                                  "wadestown/wadestown-10.jpg" "wadestown/wadestown-11.jpg" "wadestown/wadestown-12.pg"
-                                  "wadestown/wadestown-13.jpg" "wadestown/wadestown-14.jpg" "wadestown/wadestown-15.pg"]
+                                  "wadestown/wadestown-04.jpg" "wadestown/wadestown-05.jpg" "wadestown/wadestown-06.jpg"
+                                  "wadestown/wadestown-07.jpg" "wadestown/wadestown-08.jpg" "wadestown/wadestown-09.jpg"
+                                  "wadestown/wadestown-10.jpg" "wadestown/wadestown-11.jpg" "wadestown/wadestown-12.jpg"
+                                  "wadestown/wadestown-13.jpg" "wadestown/wadestown-14.jpg" "wadestown/wadestown-15.jpg"]
                  :accordion [{:title ["Specifics"]
                               :content [
                                         ["Renovated early 1900s character home on a sunny north facing site in the Wadestown hills."]
                                         ["5 bedrooms. 3 bathrooms."]
-                                        ["232 sqm house, and 42 sq m of subterranean garage."]
+                                        ["232 sqm house, and 42 sqm of subterranean garage."]
                                         ["Wadestown, Wellington."]
                                         ["One of Solari Architects’ first projects, this alteration started off in the office of Novak+Middleton
 whilst James was still working there. As James had brought the project into the N+M office, he was
