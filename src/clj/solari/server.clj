@@ -8,6 +8,7 @@
             [net.cgrand.reload :refer [auto-reload]]
             [ring.middleware.reload :as reload]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [ring.middleware.gzip :refer [wrap-gzip]]
             [environ.core :refer [env]]
             [ring.adapter.jetty :refer [run-jetty]]))
 (use 'ring.middleware.multipart-params)
@@ -38,8 +39,8 @@
 
 (def http-handler
   (if is-dev?
-    (reload/wrap-reload (wrap-defaults #'routes api-defaults))
-    (wrap-defaults routes api-defaults) ))
+    (wrap-gzip (reload/wrap-reload (wrap-defaults #'routes api-defaults)))
+    (wrap-gzip (wrap-defaults routes api-defaults))))
 
 (defn run-web-server [& [port]]
   (let [port (Integer. (or port (env :port) 10555))]
