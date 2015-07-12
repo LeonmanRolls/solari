@@ -6,6 +6,7 @@
             [enfocus.effects :as eff]
             [solari.utils :as utils]
             [solari.views.common :as common]
+            [api :as api]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true])
   (:require-macros [enfocus.macros :as em]
