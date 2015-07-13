@@ -67,8 +67,7 @@
                                                         {:source-paths ["env/dev/cljs"]
                                                          :compiler
                                                                        {:optimizations :advanced
-                                                                        :foreign-libs [{:file "resources/public/plugins/royalslider/misc.js"
-                                                                                        :provides ["api"]}]
+                                                                        :externs ^:replace ["env/externs/externs.js"]
                                                                         :pretty-print false}
 
                                                          }
@@ -78,6 +77,7 @@
                                                                     :source-map    "resources/public/js/test.js.map"
                                                                     :preamble      ["react/react.min.js"]
                                                                     :optimizations :advanced
+                                                                    :externs ^:replace ["env/externs/externs.js"]
                                                                     :pretty-print  false}}}}}
 
                        :uberjar {:source-paths ["env/prod/clj"]
@@ -89,7 +89,6 @@
                                                       {:source-paths ["env/prod/cljs"]
                                                        :compiler
                                                                      {:optimizations :advanced
-                                                                      :foreign-libs [{:file "resources/public/plugins/royalslider/misc.js"
-                                                                                      :provides ["api"]}]
+                                                                      :externs ^:replace ["env/externs/externs.js"]
                                                                       :pretty-print false}}}}}})
 
