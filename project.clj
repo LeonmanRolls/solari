@@ -22,6 +22,7 @@
                            [liberator "0.10.0"]
                            [cljs-ajax "0.3.11"]
                            [enfocus "2.1.1"]
+                           [optimus "0.18.0"]
                            [enlive "1.1.5"]
                            [om "0.8.0-rc1"]
                            [twitter-api "0.7.8"]
