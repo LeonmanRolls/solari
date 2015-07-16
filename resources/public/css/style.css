@@ -1676,6 +1676,21 @@ body[background=home] {
   url(/img/home_page.jpg);
 }
 
+#short-long-li{
+display: none;
+}
+
+.mega-hover{
+opacity: 1;
+border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+
+.mega-hover-title{
+opacity: 1;
+}
+
 }
 
 @media screen and (min-width: 768px) {
