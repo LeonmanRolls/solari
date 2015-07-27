@@ -74,7 +74,7 @@
                (dom/b #js {:style #js {:color "white"}}
                       "A gathering of ideas, images, thoughts, brainstorms, news and the miscellaneous interesting-ness.")
 
-               (dom/div #js {:id "social-loading" :className "loader" :style #js {:color "white"}})
+               (dom/div #js {:id "social-loading" :className "loader" :style #js {:color "white" :left "50%"}})
 
                (apply dom/div #js {:className "megafolio-container" :style #js {:marginTop "20px"}}
                       (om/build-all common/instagram-gallery-partial (:data (:instagram-data data))))
