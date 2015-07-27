@@ -181,7 +181,8 @@
     (render-state [this state]
       (let [local (get data (:key state))]
         (dom/div nil
-                 (om/build p-partial (if (:text local) (:text local)  local)  {:state {:admin (:admin state) :color (:color state)}}))))))
+                 (om/build p-partial (if (:text local) (:text local)  local)
+                           {:state {:admin (:admin state) :color (:color state)}}))))))
 
 
 (defn for-architects-partial [data owner]
@@ -310,4 +311,8 @@
 
 (defmethod input-partial "user-upload"
   [data owner] (user-upload-partial data owner))
+
+(defmethod input-partial "colour-input"
+  [data owner] (user-upload-partial data owner))
+
 
