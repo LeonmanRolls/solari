@@ -60,6 +60,8 @@
           (js/megafolioInit)
 
           (ef/at "#social-loading" (ef/add-class "hidden"))
+          (ef/at "#mfone" (ef/remove-class "hidden"))
+          (ef/at "#mftwo" (ef/remove-class "hidden"))
 
           )))
 
@@ -76,10 +78,10 @@
 
                (dom/div #js {:id "social-loading" :className "loader" :style #js {:color "white" :left "50%"}})
 
-               (apply dom/div #js {:className "megafolio-container" :style #js {:marginTop "20px"}}
+               (apply dom/div #js {:id "mfone" :className "megafolio-container hidden" :style #js {:marginTop "20px"}}
                       (om/build-all common/instagram-gallery-partial (:data (:instagram-data data))))
 
-               (apply dom/div #js {:className "megafolio-container"}
+               (apply dom/div #js {:id "mftwo" :className "megafolio-container hidden"}
                       (om/build-all common/twitter-gallery-partial (:body (:twitter-data (:twitter-data data))))))
 
       ))
