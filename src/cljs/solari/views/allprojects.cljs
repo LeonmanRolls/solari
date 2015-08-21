@@ -49,8 +49,6 @@
                                                                    (.lastIndexOf (.-href (.-location js/window)) "/")))
                                            (ef/at "#short-li-name" (ef/set-attr :color "red"))
                                            (ef/at "#long-li-name" (ef/set-attr :color "none"))
-                                           ;(.reload (.-location js/window))
-                                           #_(.megafilter js/api (:cat (om/get-state owner)))
                                            )
 
                     (= sort-type "year") (do

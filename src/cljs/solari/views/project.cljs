@@ -58,8 +58,9 @@
     om/IDidMount
     (did-mount [this]
       (let [local (first (get-in data (:filter-vector (om/get-state owner))))]
-        (println "loca: " local)
         (do
+         (.animate (js/$ "html,body") #js {:scrollTop 0} 0)
+
           (.royalSlider (js/$ ".royalSlider") #js {:keyboardNavEnabled true :controlNavigation "none"
                                                    :autoScaleSlider true :autoScaleSliderWidth 900 :autoScaleSliderHeight 400
                                                    :fullscreen #js {:enabled true :nativeFS true}
@@ -72,12 +73,7 @@
           (js/Share. "#share-button"
                      #js {:url (clojure.string/replace (.-href (.-location js/window)) #"#" "%23")
                           :networks #js {:email #js{:description (str "Hey take a look at this: "
-                                                                      (.-href (.-location js/window)))}}})
-
-          #_(.dropzone (js/$ "#image-dropzone") #js {:url "/file-upload"}) )
-
-        )
-      )
+                                                                      (.-href (.-location js/window)))}}}))))
 
     om/IRenderState
     (render-state [this state]
@@ -95,9 +91,7 @@
 
                 (apply dom/div nil (om/build-all common/p-p-partial (:how (first project) )))
 
-                         (dom/div #js {:id "share-button"})
-
-                         ))))))
+                         (dom/div #js {:id "share-button"})))))))
 
 
 
