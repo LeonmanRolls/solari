@@ -1,5 +1,6 @@
 var $ = {};
 $.royalSlider = function() {};
+$.animate = function() {};
 
 var window = {};
 
