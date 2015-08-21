@@ -82,9 +82,6 @@
                       (om/build-all common/instagram-gallery-partial (:data (:instagram-data data))))
 
                (apply dom/div #js {:id "mftwo" :className "megafolio-container hidden"}
-                      (om/build-all common/twitter-gallery-partial (:body (:twitter-data (:twitter-data data))))))
-
-      ))
-  )
+                      (om/build-all common/twitter-gallery-partial (:body (:twitter-data (:twitter-data data)))))))))
 
 

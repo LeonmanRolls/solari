@@ -72,8 +72,7 @@
                         (when (< idxx sub-menu-count)
                           (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
 
-                            (do (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false))
-                                )
+                            (do (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
 
                             (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false)))
                           (recur (inc idxx)))))
@@ -92,9 +91,7 @@
                           (if (= (:id selected) (get-in menu-atom [:root idx :submenu :items idxx :id]))
 
                             (do
-                              (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true))
-                              (println "id selected: " (:id selected))
-                                )
+                              (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  true)))
 
                             (om/transact! menu-atom [:root idx :submenu :items idxx :selected] (fn [_]  false))
 

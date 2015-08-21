@@ -66,7 +66,13 @@
                                {:id      "nav-left-03" :label "from us" :selected false :route "/from-us"
                                 :submenu {:id    "nav-left-03-sub"
                                           :items [{:id "nav-right-item-contact" :name "#SolariSocial" :selected false
-                                                   :route "/from-us"}]}}]
+                                                   :route "/from-us"}]}}
+
+                               {:id      "nav-left-04" :label "contact" :selected false :route "/contact"
+                                :submenu {:id    "nav-left-04-sub"
+                                          :items [{:id "nav-right-item-contact" :name "#SolariSocial" :selected false
+                                                   :route "/from-us"}]}}
+                               ]
 
                     :selected false}))
 
