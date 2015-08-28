@@ -27,7 +27,8 @@
                            [om "0.8.0-rc1"]
                            [twitter-api "0.7.8"]
                            [bk/ring-gzip "0.1.1"]
-                           [environ "1.0.0"]]
+                           [environ "1.0.0"]
+                           [com.andrewmcveigh/cljs-time "0.3.11"]]
 
             :plugins [[lein-cljsbuild "1.0.3"]
                       [lein-environ "1.0.0"]]

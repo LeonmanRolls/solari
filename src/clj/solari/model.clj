@@ -382,4 +382,14 @@ We listen and respect one another and consciously collaborate to ensure that we 
                            (statuses-user-timeline :oauth-creds my-creds :params {:screen-name "SolariArch" :count 100})})
              :available-media-types ["application/edn"])
 
+(def map1 '({:one "one" :two "two"}))
+(def map2 '({:three "three" :four "four"}))
+
+(into (into [] map1) map2)
+(into map1 map2)
+
+(conj (vec map1) (vec map2))
+
+
+
 

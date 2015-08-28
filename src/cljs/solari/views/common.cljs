@@ -243,10 +243,8 @@
                     :className (str "mega-entry cat-all ")  :id "lsdjflsdjf" #_(first (:id data))
                     :data-src (:url (:standard_resolution (:images data))) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
                (dom/div #js {:className "mega-hover"}
-                        #_(dom/div #js {:className "mega-hoversubtitle"} (:text (:caption data)) )
                         (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "20%"}}
                                  (dom/i #js {:className "fa fa-instagram fa-2x"})
-                                 #_(first (:title data))
                                  (dom/div #js {:className "mega-hoversubtitle"} (:text (:caption data)) )))))))
 
 
@@ -258,12 +256,32 @@
       (if (:media (:entities data))
 
        (dom/a #js {:href "/#/from-us"
-                    :className (str "mega-entry cat-all ")  :id (str (rand 10000000)) #_(first (:id data))
-                    :data-src (:media_url (first (:media (:entities data)))) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+                    :className (str "mega-entry cat-all ")  :id (str (rand 10000000))
+                    :data-src (:media_url (first (:media (:entities data)))) :data-bgposition "50% 50%"
+                   :data-width "320" :data-height "240"}
                (dom/div #js {:className "mega-hover"}
                         (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "20%"}}
                                  (dom/i #js {:className "fa fa-twitter fa-2x"})
                                  (dom/div #js {:className "mega-hoversubtitle"} (:text data)))))))))
+
+
+;href image iort timestamp subtitle
+(defn social-gallery-partial [data owner]
+  (reify
+    om/IRenderState
+    (render-state [this state]
+
+      (dom/a #js {:href (:href data) :target "_blank" :className (str "mega-entry cat-all ")  :id (str (rand 10000000))
+                    :data-src (:image data) :data-bgposition "50% 50%" :data-width "320" :data-height "240"}
+
+               (dom/div #js {:className "mega-hover"}
+                        (dom/div #js {:className "mega-hovertitle" :style #js {:left 0 :width "100%" :top "20%"}}
+                                 (dom/i #js {:className (str "fa "
+                                                             (if (= "t" (:iort data)) "fa-twitter" "fa-instagram")
+                                                             " fa-2x")})
+                                 (dom/div #js {:className "mega-hoversubtitle"} (:subtitle data))))))))
+
+
 
 (defn simple-li [data owner]
   (reify

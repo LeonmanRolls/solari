@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: prismatic/om-tools:0.3.12">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/prismatic/om-tools/0.3.12/om-tools-0.3.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
