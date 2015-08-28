@@ -76,21 +76,7 @@
 
           (ef/at "#social-loading" (ef/add-class "hidden"))
           (ef/at "#mfone" (ef/remove-class "hidden"))
-          (ef/at "#mftwo" (ef/remove-class "hidden"))))
-
-      (let [first-data (first (:data (:instagram-data data)))
-            instagram-data (:data (:instagram-data data))
-            first-twitter-data (nth (:body (:twitter-data (:twitter-data data))) 8)
-            twitter-data  (:body (:twitter-data (:twitter-data data)))]
-
-
-        (println "time-stamp-sort data: "
-                 (time-stamp-sort
-                   (into
-                     (flatten-instagram-data instagram-data)
-                     (flatten-twitter-data twitter-data))))
-
-        ))
+          (ef/at "#mftwo" (ef/remove-class "hidden")))))
 
     om/IWillUnmount
     (will-unmount [this]
@@ -113,8 +99,6 @@
                (dom/div #js {:id "social-loading" :className "loader" :style #js {:color "white" :left "50%"}})
 
                (apply dom/div #js {:id "mfone" :className "megafolio-container hidden" :style #js {:marginTop "20px"}}
-                      (om/build-all common/social-gallery-partial processed-data))
-
-               )))))
+                      (om/build-all common/social-gallery-partial processed-data)))))))
 
 
