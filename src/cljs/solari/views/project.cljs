@@ -72,8 +72,7 @@
 
           (js/Share. "#share-button"
                      #js {:url (clojure.string/replace (.-href (.-location js/window)) #"#" "%23")
-                          :networks #js {:facebook #js{:title "Test title"}
-                                         :email #js{:description (str "Hey take a look at this: "
+                          :networks #js {:email #js{:description (str "Hey take a look at this: "
                                                                       (.-href (.-location js/window)))}}}))))
 
     om/IRenderState
