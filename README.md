@@ -1,5 +1,7 @@
 # solari
 
+envvars -> HEROKU-POSTGRESQL-ROSE-URL, TWITTER-ONE, TWITTER-TWO
+TWITTER-THREE, TWITTER-FOUR
 
 ## Development
 

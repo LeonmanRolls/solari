@@ -15,15 +15,12 @@
   (:import
     (twitter.callbacks.protocols SyncSingleCallback)))
 
-(def my-creds (make-oauth-creds "ybOPGjqM1twGNG24CJWMSgXOQ"
-                                "Xz4xB9azJfy8iGf9rXeDfBIZpFwF96wFyXyW28Wy7gyIqpxacC"
-                                "2830994714-iSfZAEW5t1NgRQbVD5EKmCAvGMh20EyQUYBC2pr"
-                                "aDE39Es4CsM03hqqEU4GDrvjJDdCu6bgQ0j7uCrY0R5xN"))
+(def db (System/getenv "HEROKU_POSTGRESQL_ROSE_URL"))
 
-(def db
-  (env
-    :heroku-postgresql-rose-url
-    "postgresql://root:1fishy4me@localhost:5432/solari"))
+(def my-creds (make-oauth-creds (System/getenv "TWITTER-ONE")
+                                (System/getenv "TWITTER-TWO")
+                                (System/getenv "TWITTER-THREE")
+                                (System/getenv "TWITTER-FOUR")))
 
 #_(defn single-game-info-query [context db]
   (sql/query
