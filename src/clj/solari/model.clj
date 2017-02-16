@@ -15,6 +15,7 @@
   (:import
     (twitter.callbacks.protocols SyncSingleCallback)))
 
+
 (def db (System/getenv "HEROKU_POSTGRESQL_ROSE_URL"))
 
 (def my-creds (make-oauth-creds (System/getenv "TWITTER-ONE")
